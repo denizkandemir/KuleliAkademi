@@ -20,13 +20,13 @@ const Navbar = () => {
                 <nav className="navbar-center-container" aria-label="Ana menü">
                     <ul className="navbar-links-container">
                         <li>
-                            <Link className="navbar-link" href="/kuleliNedir">Kuleli Nedir</Link>
+                            <Link className="navbar-link" href="/hakkımızda">Hakkımızda</Link>
                         </li>
                         <li>
-                            <span className="navbar-link">Öğrenme Alanlarımız</span>
+                            <Link className="navbar-link" href="/egitimlerimiz">Eğitimlerimiz</Link>
                         </li>
                         <li>
-                            <Link className="navbar-link" href="/etkinliklerimiz">Etkinliklerimiz</Link>
+                            <Link className="navbar-link" href="/etkinliklerimiz">Yurt Dışında Eğitim</Link>
                         </li>
                         <li>
                             <Link className="navbar-link" href="/iletişim">İletişim</Link>
