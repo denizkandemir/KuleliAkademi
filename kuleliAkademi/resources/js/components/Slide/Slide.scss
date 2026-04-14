@@ -1,4 +1,4 @@
-@use '../../styles/styles.scss' as styles;
+@use '../styles/variables.scss' as styles;
 
 
 .slide-page-container {
@@ -188,7 +188,7 @@
 
   .slide-text {
     font-family: styles.$primary-font;
-    color: rgba(0, 0, 0, 0.7);
+    color: styles.$slide-text-color;
     font-size: 20px;
     max-width: 300px;
     font-weight: 500;
@@ -212,7 +212,7 @@
 
   .project-little-title {
     font-family: styles.$primary-font;
-    color: #817e7e;
+    color: styles.$slide-caption-color;
     font-weight: 500;
     font-size: 17px;
     margin-left: 3px;
