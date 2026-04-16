@@ -1,36 +1,42 @@
 import React from "react";
 import "./Navbar.scss";
 import kuleliLogoGold from "../../assets/images/kuleliLogoGold.png";
-import { Link } from "@inertiajs/react";
+import { Link, usePage } from "@inertiajs/react";
 
 const Navbar = () => {
+    const { url } = usePage();
+
+    const navItems = [
+        { label: "Hakkımızda", href: "/hakkımızda" },
+        { label: "Eğitimlerimiz", href: "/egitimlerimiz" },
+        { label: "Yurt Dışında Eğitim", href: "/etkinliklerimiz" },
+        { label: "İletişim", href: "/iletişim" },
+    ];
+
     return (
         <header className="navbar-container">
             <div className="navbar-shell">
                 <Link href="/" className="brand-block" aria-label="Kuleli Akademi ana sayfa">
                     <img src={kuleliLogoGold} className="kuleli-logo" alt="Kuleli Akademi logosu" />
                     <div className="brand-copy">
-                        <p className="brand-title">
-                            Kuleli Akademi <span className="brand-accent">&</span>
-                        </p>
+                        <p className="brand-title">Kuleli Akademi</p>
                         <p className="brand-subtitle">Yurt Dışı Eğitim Danışmanlığı</p>
                     </div>
                 </Link>
 
                 <nav className="navbar-center-container" aria-label="Ana menü">
                     <ul className="navbar-links-container">
-                        <li>
-                            <Link className="navbar-link" href="/hakkımızda">Hakkımızda</Link>
-                        </li>
-                        <li>
-                            <Link className="navbar-link" href="/egitimlerimiz">Eğitimlerimiz</Link>
-                        </li>
-                        <li>
-                            <Link className="navbar-link" href="/etkinliklerimiz">Yurt Dışında Eğitim</Link>
-                        </li>
-                        <li>
-                            <Link className="navbar-link" href="/iletişim">İletişim</Link>
-                        </li>
+                        {navItems.map((item) => {
+                            const isActive = item.href === "/" ? url === "/" : url.startsWith(item.href);
+
+                            return (
+                                <li key={item.href}>
+                                    <Link className={`navbar-link${isActive ? " is-active" : ""}`} href={item.href}>
+                                        {item.label}
+                                    </Link>
+                                </li>
+                            );
+                        })}
                     </ul>
                 </nav>
 

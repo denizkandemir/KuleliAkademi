@@ -1,28 +1,28 @@
-import React, { useEffect, useRef } from "react";
+import React from "react";
 import { Swiper, SwiperSlide } from "swiper/react";
 import {
-    Navigation,
     Pagination,
-    Autoplay,
-    EffectFade
+    Autoplay
 } from "swiper/modules";
 import "swiper/css";
-import "swiper/css/navigation";
 import "swiper/css/pagination";
-import "swiper/css/effect-fade";
 import "./Slide.scss";
-import { MdKeyboardArrowRight, MdKeyboardArrowLeft } from "react-icons/md";
 
 
 const Slide = ({ SlideImgs, slideImgs, imgClass, container, id, isSlideOpen, containerRef, openSlide, iconArray, floatingIcons }) => {
-    const swiperRef = useRef(null);
     const slides = SlideImgs ?? slideImgs ?? [];
+    const shouldLoop = slides.length > 1;
+    const swiperClassName = container === "header-slide-container" ? "hero-swiper" : "";
 
-    useEffect(() => {
-        if (swiperRef.current) {
-            swiperRef.current.swiper.autoplay.start();
-        }
-    }, []);
+    const getFeatureItems = (img) => {
+        const source = Array.isArray(img?.iconArray) && img.iconArray.length > 0
+            ? img.iconArray
+            : (Array.isArray(iconArray) ? iconArray : []);
+
+        return source
+            .filter((item) => item && (item.title || item.label || item.icon))
+            .slice(0, 3);
+    };
 
     return (
         <>
@@ -31,67 +31,81 @@ const Slide = ({ SlideImgs, slideImgs, imgClass, container, id, isSlideOpen, con
                     <div ref={containerRef} className="slide-content-container">
                         {slides.length > 0 && (
                             <Swiper
-                                ref={swiperRef}
-                                modules={[Navigation, Pagination, Autoplay, EffectFade]}
-                                centeredSlides={true}
+                                modules={[Pagination, Autoplay]}
                                 key={id + isSlideOpen}
-                                loop={true}
+                                className={swiperClassName}
+                                loop={shouldLoop}
                                 slidesPerView={1}
-                                autoplay={{
-                                    delay: 4000,
+                                centeredSlides={false}
+                                spaceBetween={0}
+                                roundLengths={true}
+                                observer={true}
+                                observeParents={true}
+                                watchOverflow={true}
+                                loopAdditionalSlides={shouldLoop ? slides.length : 0}
+                                autoplay={shouldLoop ? {
+                                    delay: 10000,
                                     disableOnInteraction: false,
-                                }}
-                                // effect="fade"
-                                speed={1200}
+                                    pauseOnMouseEnter: true,
+                                } : false}
+                                speed={1100}
                                 pagination={{
                                     clickable: true,
-                                    el: `.swiper-pagination-${id}`,
-                                }}
-                                navigation={{
-                                    nextEl: `.swiper-button-next-${id}`,
-                                    prevEl: `.swiper-button-prev-${id}`,
                                 }}
 
                             >
-                                {slides.map((img) => (
-                                    <SwiperSlide key={img.id}>
+                                {slides.map((img, index) => (
+                                    <SwiperSlide key={`${img.id ?? "slide"}-${index}`}>
                                         <div className="slide-container">
-                                            <img onClick={() => openSlide()} className={imgClass} src={img.url} alt="" />
-                                        </div>
+                                            <img onClick={() => openSlide?.()} className={imgClass} src={img.url} alt="" />
 
-                                        <div className="slide-texts-container">
-                                            <div className="slide-title-description-container">
-                                                <h3 className="slide-little-title">{img.littleTitle}</h3>
-                                                <h2 className="slide-main-title">{img.mainTitle}</h2>
-                                                <p className="slide-description">{img.description}</p>
+                                            <div className="slide-overlay" />
+
+                                            <div className="slide-texts-container">
+                                                <div className="slide-content-shell">
+                                                    <div className="slide-left-content">
+                                                        <div className="slide-title-description-container">
+                                                            {img.littleTitle && <h3 className="slide-little-title">{img.littleTitle}</h3>}
+                                                            {img.mainTitle && <h2 className="slide-main-title">{img.mainTitle}</h2>}
+                                                            {img.description && <p className="slide-description">{img.description}</p>}
+                                                        </div>
+
+                                                        {getFeatureItems(img).length > 0 && (
+                                                            <div className="slide-features-row">
+                                                                {getFeatureItems(img).map((icon, itemIndex) => (
+                                                                    <div key={icon.id ?? `feature-${itemIndex}`} className="slide-icon-container">
+                                                                        {icon.icon
+                                                                            ? <img src={icon.icon} alt={icon.title || icon.label || "feature"} className="header-icon-img" />
+                                                                            : <span className="slide-feature-dot" aria-hidden="true" />}
+                                                                        <span className="slide-feature-label">{icon.title || icon.label}</span>
+                                                                    </div>
+                                                                ))}
+                                                            </div>
+                                                        )}
+
+                                                        <div className="slide-cta-row">
+                                                            <button type="button" className="slide-primary-cta">Bilgi Al</button>
+                                                        </div>
+                                                    </div>
+
+                                                    <div className="slide-right-visual" aria-hidden="true">
+                                                        <span className="hero-orb hero-orb-1" />
+                                                        <span className="hero-orb hero-orb-2" />
+                                                        <span className="hero-orb hero-orb-3" />
+                                                        <span className="hero-trail" />
+
+                                                        {floatingIcons && floatingIcons.length > 0 && floatingIcons.slice(0, 2).map((icon) => (
+                                                            <div key={icon.id} className="slide-floating-icon-container">
+                                                                <img src={icon.icon} alt={icon.title} className="header-icon-img header-floating-icon" />
+                                                            </div>
+                                                        ))}
+                                                    </div>
+                                                </div>
                                             </div>
-
-                                            {
-                                                iconArray && iconArray.length > 0 && iconArray.map((icon) => (
-                                                    <div key={icon.id} className="slide-icon-container">
-                                                        <img src={icon.icon} alt={icon.title} className="header-icon-img" />
-                                                    </div>
-                                                ))
-                                            }
-
-                                            {
-                                                floatingIcons && floatingIcons.length > 0 && floatingIcons.map((icon) => (
-                                                    <div key={icon.id} className="slide-floating-icon-container">
-                                                        <img src={icon.icon} alt={icon.title} className="header-icon-img header-floating-icon" />
-                                                    </div>
-                                                ))
-                                            }
                                         </div>
                                     </SwiperSlide>
                                 ))}
 
-                                <div className={`swiper-button-next-${id} slide-button1`}>
-                                    <MdKeyboardArrowRight />
-                                </div>
-                                <div className={`swiper-button-prev-${id} slide-button2`}>
-                                    <MdKeyboardArrowLeft />
-                                </div>
-                                <div className={`swiper-pagination-${id}`}></div>
                             </Swiper>
                         )}
                     </div>

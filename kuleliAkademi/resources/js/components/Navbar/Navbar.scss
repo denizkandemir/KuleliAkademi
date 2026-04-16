@@ -1,75 +1,87 @@
 @use "../styles/variables.scss" as vars;
 
 .navbar-container {
-    --menu-text: #f5f8fc;
-    --menu-soft: rgba(245, 248, 252, 0.82);
-    --warm-accent: #e0be62;
+    --nav-bg: #f7f6f2;
+    --nav-text: #24364d;
+    --nav-text-soft: #6f7d8b;
+    --nav-accent: #ba9f53;
+    --nav-border: rgba(36, 54, 77, 0.08);
+    --icon-bg: rgba(36, 54, 77, 0.07);
     position: relative;
     z-index: 100000;
-    border-bottom: 1px solid rgba(201, 217, 232, 0.22);
-background: linear-gradient(0deg, #162033 0%, #1E2E45 35%, #1F3A5A 70%, #2B557D 100%);    box-shadow: 0 12px 34px rgba(12, 22, 35, 0.28);
-    overflow: hidden;
+    background: var(--nav-bg);
+    border-bottom: 1px solid var(--nav-border);
+    box-shadow: 0 12px 30px rgba(18, 27, 39, 0.8), 0 1px 0 rgba(36, 54, 77, 0.4);
+    overflow: visible;
 
-
+    &::after {
+        content: "";
+        position: absolute;
+        left: 0;
+        right: 0;
+        bottom: -26px;
+        height: 44px;
+        pointer-events: none;
+        background: linear-gradient(180deg, rgba(19, 28, 40, 0.24) 0%, rgba(19, 28, 40, 0.1) 46%, rgba(19, 28, 40, 0) 100%);
+        filter: blur(9px);
+        opacity: 0.8;
+        z-index: 0;
+    }
 
     .navbar-shell {
         position: relative;
         z-index: 1;
-        min-height: 116px;
+        min-height: 104px;
         max-width: 1520px;
         margin: 0 auto;
-        padding: 18px 34px;
+        padding: 14px 34px;
         display: flex;
         align-items: center;
         justify-content: space-between;
-        gap: 28px;
+        gap: 32px;
     }
 
     .brand-block {
         display: flex;
         align-items: center;
-        gap: 14px;
+        gap: 12px;
         text-decoration: none;
-        min-width: 380px;
+        min-width: 335px;
 
         .kuleli-logo {
-            width: 110px;
+            width: 78px;
+            height: 78px;
             object-fit: contain;
-            filter: drop-shadow(0 6px 10px rgba(6, 12, 21, 0.35));
+            flex-shrink: 0;
+            filter: drop-shadow(0 4px 8px rgba(23, 36, 53, 0.14));
         }
 
         .brand-copy {
             display: flex;
             flex-direction: column;
-            gap: 2px;
-            border-left: 1px solid rgba(214, 228, 242, 0.3);
-            padding-left: 14px;
+            gap: 4px;
+            border-left: 1px solid rgba(36, 54, 77, 0.16);
+            padding-left: 13px;
         }
 
         .brand-title {
             margin: 0;
             font-family: "Segoe UI", vars.$primary-font;
-            font-size: 28px;
-            line-height: 1.03;
-            font-weight: 700;
-            letter-spacing: -0.22px;
-            color: var(--menu-text);
+            font-size: 32px;
+            line-height: 1.04;
+            font-weight: 680;
+            letter-spacing: -0.2px;
+            color: var(--nav-text);
             text-wrap: balance;
-        }
-
-        .brand-accent {
-            color: var(--menu-text);
-            font-weight: 600;
-            margin-left: 2px;
         }
 
         .brand-subtitle {
             margin: 0;
-            font-size: 14px;
-            line-height: 1.25;
+            font-size: 13px;
+            line-height: 1.35;
             font-weight: 500;
-            color: rgba(230, 239, 247, 0.88);
-            letter-spacing: 0.18px;
+            color: var(--nav-text-soft);
+            letter-spacing: 0.22px;
         }
     }
 
@@ -83,7 +95,7 @@ background: linear-gradient(0deg, #162033 0%, #1E2E45 35%, #1F3A5A 70%, #2B557D 
         display: flex;
         align-items: center;
         list-style: none;
-        gap: 34px;
+        gap: 36px;
         margin: 0;
         padding: 0;
     }
@@ -92,34 +104,43 @@ background: linear-gradient(0deg, #162033 0%, #1E2E45 35%, #1F3A5A 70%, #2B557D 
         position: relative;
         display: inline-flex;
         align-items: center;
-        height: 42px;
-        color: var(--menu-text);
+        height: 38px;
+        color: var(--nav-text);
         font-family: "Segoe UI", vars.$primary-font;
-        font-size: 20px;
-        font-weight: 600;
+        font-size: 18px;
+        font-weight: 590;
         line-height: 1;
-        letter-spacing: 0.18px;
+        letter-spacing: 0.12px;
         text-decoration: none;
-        transition: color 0.24s ease;
+        transition: color 0.22s ease;
 
         &::after {
             content: "";
             position: absolute;
             left: 0;
-            bottom: -9px;
+            bottom: -10px;
             width: 100%;
             height: 2px;
             transform: scaleX(0);
             transform-origin: right center;
-            background: linear-gradient(90deg, rgba(224, 190, 98, 0.22) 0%, rgba(224, 190, 98, 0.94) 42%, rgba(224, 190, 98, 0.22) 100%);
-            transition: transform 0.24s ease;
+            background: linear-gradient(90deg, rgba(186, 159, 83, 0.12) 0%, rgba(186, 159, 83, 1) 50%, rgba(186, 159, 83, 0.12) 100%);
+            transition: transform 0.22s ease;
             border-radius: 999px;
         }
 
         &:hover,
         &:focus-visible {
-            color: #ffffff;
+            color: #1f2f46;
             outline: none;
+
+            &::after {
+                transform: scaleX(1);
+                transform-origin: left center;
+            }
+        }
+
+        &.is-active {
+            color: #1f2f46;
 
             &::after {
                 transform: scaleX(1);
@@ -132,28 +153,27 @@ background: linear-gradient(0deg, #162033 0%, #1E2E45 35%, #1F3A5A 70%, #2B557D 
         display: inline-flex;
         align-items: center;
         gap: 8px;
-        padding: 6px;
+        padding: 4px;
         border-radius: 999px;
-        border: 1px solid rgba(232, 241, 247, 0.25);
-        background: rgba(11, 28, 47, 0.2);
-        backdrop-filter: blur(6px);
+        border: 1px solid rgba(36, 54, 77, 0.13);
+        background: rgba(247, 246, 242, 0.9);
         flex-shrink: 0;
     }
 
     .social-icon {
-        width: 34px;
-        height: 34px;
+        width: 36px;
+        height: 36px;
         display: inline-flex;
         align-items: center;
         justify-content: center;
-        color: var(--menu-soft);
+        color: var(--nav-text-soft);
         border-radius: 50%;
-        transition: background-color 0.24s ease, color 0.24s ease, transform 0.24s ease;
+        transition: background-color 0.22s ease, color 0.22s ease, transform 0.22s ease;
 
         &:hover,
         &:focus-visible {
-            color: #ffffff;
-            background-color: rgba(224, 190, 98, 0.15);
+            color: var(--nav-text);
+            background-color: var(--icon-bg);
             transform: translateY(-1px);
             outline: none;
         }
@@ -163,15 +183,15 @@ background: linear-gradient(0deg, #162033 0%, #1E2E45 35%, #1F3A5A 70%, #2B557D 
 @media (max-width: 1500px) {
     .navbar-container {
         .brand-block {
-            min-width: 330px;
+            min-width: 315px;
 
             .kuleli-logo {
-                width: 82px;
-                height: 82px;
+                width: 74px;
+                height: 74px;
             }
 
             .brand-title {
-                font-size: 25px;
+                font-size: 29px;
             }
 
             .brand-subtitle {
@@ -180,7 +200,11 @@ background: linear-gradient(0deg, #162033 0%, #1E2E45 35%, #1F3A5A 70%, #2B557D 
         }
 
         .navbar-links-container {
-            gap: 26px;
+            gap: 28px;
+        }
+
+        .navbar-link {
+            font-size: 17px;
         }
     }
 }
@@ -188,18 +212,18 @@ background: linear-gradient(0deg, #162033 0%, #1E2E45 35%, #1F3A5A 70%, #2B557D 
 @media (max-width: 1320px) {
     .navbar-container {
         .navbar-shell {
-            min-height: 102px;
+            min-height: 94px;
             padding: 14px 22px;
-            gap: 20px;
+            gap: 18px;
         }
 
         .brand-block {
-            min-width: 300px;
+            min-width: 284px;
             gap: 10px;
 
             .kuleli-logo {
-                width: 74px;
-                height: 74px;
+                width: 68px;
+                height: 68px;
             }
 
             .brand-copy {
@@ -207,7 +231,7 @@ background: linear-gradient(0deg, #162033 0%, #1E2E45 35%, #1F3A5A 70%, #2B557D 
             }
 
             .brand-title {
-                font-size: 22px;
+                font-size: 25px;
             }
 
             .brand-subtitle {
@@ -216,7 +240,16 @@ background: linear-gradient(0deg, #162033 0%, #1E2E45 35%, #1F3A5A 70%, #2B557D 
         }
 
         .navbar-link {
-            font-size: 18px;
+            font-size: 16px;
+        }
+
+        .navbar-links-container {
+            gap: 20px;
+        }
+
+        .social-icon {
+            width: 34px;
+            height: 34px;
         }
     }
 }
@@ -224,12 +257,16 @@ background: linear-gradient(0deg, #162033 0%, #1E2E45 35%, #1F3A5A 70%, #2B557D 
 @media (max-width: 1150px) {
     .navbar-container {
         .navbar-shell {
-            min-height: 96px;
+            min-height: 88px;
             padding: 14px 18px;
         }
 
         .brand-block {
             min-width: auto;
+
+            .brand-title {
+                font-size: 22px;
+            }
 
             .brand-subtitle {
                 display: none;
@@ -237,11 +274,11 @@ background: linear-gradient(0deg, #162033 0%, #1E2E45 35%, #1F3A5A 70%, #2B557D 
         }
 
         .navbar-link {
-            font-size: 16px;
+            font-size: 15px;
         }
 
         .navbar-links-container {
-            gap: 18px;
+            gap: 14px;
         }
     }
 }
@@ -249,7 +286,7 @@ background: linear-gradient(0deg, #162033 0%, #1E2E45 35%, #1F3A5A 70%, #2B557D 
 @media (max-width: 980px) {
     .navbar-container {
         .navbar-shell {
-            min-height: 86px;
+            min-height: 82px;
         }
 
         .navbar-center-container {
@@ -258,12 +295,12 @@ background: linear-gradient(0deg, #162033 0%, #1E2E45 35%, #1F3A5A 70%, #2B557D 
 
         .brand-block {
             .kuleli-logo {
-                width: 64px;
-                height: 64px;
+                width: 60px;
+                height: 60px;
             }
 
             .brand-title {
-                font-size: 21px;
+                font-size: 22px;
             }
         }
     }
@@ -272,7 +309,7 @@ background: linear-gradient(0deg, #162033 0%, #1E2E45 35%, #1F3A5A 70%, #2B557D 
 @media (max-width: 640px) {
     .navbar-container {
         .navbar-shell {
-            min-height: 78px;
+            min-height: 74px;
             padding: 10px 14px;
             gap: 12px;
         }
@@ -281,8 +318,8 @@ background: linear-gradient(0deg, #162033 0%, #1E2E45 35%, #1F3A5A 70%, #2B557D 
             gap: 8px;
 
             .kuleli-logo {
-                width: 54px;
-                height: 54px;
+                width: 50px;
+                height: 50px;
             }
 
             .brand-copy {
@@ -291,7 +328,7 @@ background: linear-gradient(0deg, #162033 0%, #1E2E45 35%, #1F3A5A 70%, #2B557D 
             }
 
             .brand-title {
-                font-size: 18px;
+                font-size: 19px;
             }
         }
 
@@ -301,8 +338,8 @@ background: linear-gradient(0deg, #162033 0%, #1E2E45 35%, #1F3A5A 70%, #2B557D 
         }
 
         .social-icon {
-            width: 30px;
-            height: 30px;
+            width: 29px;
+            height: 29px;
         }
     }
 }
