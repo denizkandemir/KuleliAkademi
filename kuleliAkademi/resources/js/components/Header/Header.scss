@@ -1,0 +1,47 @@
+.header-container {
+	width: 100%;
+	position: relative;
+	background: #f7f6f3;
+	overflow: hidden;
+
+	&::before {
+		content: "";
+		position: absolute;
+		top: 0;
+		left: 0;
+		right: 0;
+		height: 56px;
+		z-index: 2;
+		pointer-events: none;
+		background: linear-gradient(180deg, rgba(248, 247, 244, 0.78) 0%, rgba(248, 247, 244, 0.38) 42%, rgba(248, 247, 244, 0) 100%);
+	}
+
+	.header-slide-container {
+		width: 100%;
+		position: relative;
+		filter: none;
+	}
+
+	.slide-content-container {
+		width: 100%;
+	}
+
+	.slide-container {
+		width: 100%;
+		max-width: none;
+	}
+
+	.header-slide-img {
+		width: 100%;
+		object-fit: cover;
+		display: block;
+	}
+
+	.swiper,
+	.swiper-wrapper,
+	.swiper-slide {
+		width: 100%;
+	}
+
+	
+}
