@@ -40,7 +40,7 @@
 }
 
 .video-home-description {
-	margin-top: clamp(14px, 1.8vw, 20px);
+	margin-top: 15px;
 	font-family: styles.$primary-font;
 	color: #5e6c7a;
 	font-weight: 500;
@@ -60,7 +60,7 @@
 	display: flex;
 	align-items: flex-start;
 	gap: 9px;
-	padding: 11px 12px;
+	padding: 18px 12px;
 	border-radius: 14px;
 	background: rgba(255, 255, 255, 0.74);
 	border: 1px solid rgba(224, 231, 239, 0.72);
@@ -306,7 +306,7 @@
 
 .abstract-route-path {
 	left: 92px;
-	top: 90px;
+	top: 70px;
 	width: 354px;
 	height: 510px;
 	border-radius: 54% 46% 58% 42% / 42% 56% 44% 58%;
