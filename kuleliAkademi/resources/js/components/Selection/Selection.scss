@@ -6,9 +6,7 @@
 	background: linear-gradient(180deg, #f8f7f4 0%, #f7f6f2 52%, #f5f4ef 100%);
 	position: relative;
 	overflow: clip;
-
-
-	
+	padding-bottom: 55px;
 }
 
 .selection-shell {
@@ -28,6 +26,8 @@
 
 	position: relative;
 	padding: 8px 9px;
+		padding-top: 15px;
+
     margin-bottom: 25px;
 	z-index: 1;
 }
