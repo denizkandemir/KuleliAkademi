@@ -44,7 +44,7 @@ const sampleUniversities = [
     {
         id: 4,
         image: uniGdansk,
-        name: "University of Gdansk",
+        name: "Gdansk University of Technology",
         city: "Gdansk",
         badge: "Öğrenci Dostu Şehir",
         description:
@@ -178,7 +178,7 @@ const UniversityCards = ({ universities = sampleUniversities }) => {
                     <div className="university-header-content">
                         <p className="university-eyebrow">Polonya'da Üniversite Seçenekleri</p>
                         <h2 id="university-section-title" className="university-title">
-                            Sana Uygun Üniversiteleri Keşfet
+                            Size Uygun Üniversiteleri Keşfedin
                         </h2>
                         <p className="university-description">
                             Program dili, şehir yaşamı ve akademik hedeflerine göre en uygun seçenekleri
