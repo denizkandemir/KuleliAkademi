@@ -3,6 +3,7 @@ import Header from '../components/Header/Header';
 import Selection from '../components/Selection/Selection';
 import VideoSectionHomepage from '../components/videoSectionHomepage/videoSectionHomepage';
 import UniversityCards from '../components/universityCards/UniversityCards';
+import WhyPoland from '../components/whyPoland/WhyPoland';
 
 export default function Home({ message }) {
   return (
@@ -11,6 +12,8 @@ export default function Home({ message }) {
       <Selection />
       <VideoSectionHomepage />
       <UniversityCards />
+      <WhyPoland />
+
     </>
   );
 }
