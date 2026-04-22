@@ -1,6 +1,6 @@
 import React, { useCallback, useEffect, useMemo, useRef, useState } from "react";
 import "./ServicesHomepage.scss";
-import service1 from "../../assets/images/servicesImg1.png";
+import service1 from "../../assets/images/servicesImg11.png";
 import service2 from "../../assets/images/servicesImg5.png";
 import service3 from "../../assets/images/servicesImg10.png";  
 import service4 from "../../assets/images/servicesImg4.png";
