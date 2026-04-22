@@ -5,6 +5,7 @@ import VideoSectionHomepage from '../components/videoSectionHomepage/videoSectio
 import UniversityCards from '../components/universityCards/UniversityCards';
 import WhyPoland from '../components/whyPoland/WhyPoland';
 import ServicesHomepage from '../components/ServicesHomepage/ServicesHomepage';
+import HomepageContact from '../components/homepageContact/HomepageContact';
 
 export default function Home({ message }) {
   return (
@@ -15,6 +16,7 @@ export default function Home({ message }) {
       <UniversityCards />
       <WhyPoland />
       <ServicesHomepage />
+      <HomepageContact />
     </>
   );
 }
