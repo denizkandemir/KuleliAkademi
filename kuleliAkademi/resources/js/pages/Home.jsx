@@ -4,6 +4,7 @@ import Selection from '../components/Selection/Selection';
 import VideoSectionHomepage from '../components/videoSectionHomepage/videoSectionHomepage';
 import UniversityCards from '../components/universityCards/UniversityCards';
 import WhyPoland from '../components/whyPoland/WhyPoland';
+import ServicesHomepage from '../components/ServicesHomepage/ServicesHomepage';
 
 export default function Home({ message }) {
   return (
@@ -13,7 +14,7 @@ export default function Home({ message }) {
       <VideoSectionHomepage />
       <UniversityCards />
       <WhyPoland />
-
+      <ServicesHomepage />
     </>
   );
 }
