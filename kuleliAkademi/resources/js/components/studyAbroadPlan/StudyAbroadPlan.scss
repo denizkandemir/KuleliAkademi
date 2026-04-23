@@ -1,0 +1,299 @@
+@use "../styles/variables.scss" as styles;
+
+.abroad-plan-section {
+	padding: 72px 20px 84px;
+	background: linear-gradient(180deg, #f6f7f9 0%, #edf1f5 100%);
+}
+
+.abroad-plan-shell {
+	max-width: 1300px;
+	margin: 0 auto;
+	padding: clamp(24px, 3vw, 42px);
+	border-radius: 28px;
+}
+
+.abroad-plan-shell {
+	display: grid;
+	grid-template-columns: minmax(0, 0.92fr) minmax(0, 1.08fr);
+	align-items: center;
+}
+
+.abroad-plan-content {
+	max-width: 500px;
+}
+
+.abroad-plan-eyebrow {
+	margin: 0;
+	font-family: styles.$primary-font;
+	font-size: 12px;
+	font-weight: 700;
+	letter-spacing: 0.15em;
+	text-transform: uppercase;
+	color: #5f7084;
+}
+
+.abroad-plan-title {
+	margin: 16px 0 0;
+	font-family: styles.$primary-font;
+	font-size: 42px;
+	font-weight: 500;
+	line-height: 1.03;
+	letter-spacing: -0.02em;
+	color: #111f35;
+	text-wrap: balance;
+}
+
+.abroad-plan-accent {
+	display: inline-block;
+	margin-top: 24px;
+	width: 112px;
+	height: 4px;
+	border-radius: 999px;
+	background: linear-gradient(90deg, #e97065 0%, #d0a047 44%, rgba(208, 160, 71, 0.25) 100%);
+}
+
+.abroad-plan-description {
+	margin: 24px 0 0;
+	font-family: styles.$primary-font;
+	font-size: clamp(16px, 1.06vw, 18px);
+	line-height: 1.72;
+	color: #475a71;
+	max-width: 48ch;
+}
+
+.abroad-plan-visual {
+	position: relative;
+	min-height: clamp(430px, 46vw, 580px);
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	padding: 12px;
+}
+
+.abroad-plan-curve {
+	position: absolute;
+	left: -16%;
+	top: -8%;
+	width: clamp(220px, 34vw, 420px);
+	height: clamp(220px, 34vw, 420px);
+	border-radius: 50%;
+	border: 2px solid rgba(114, 138, 164, 0.16);
+	border-bottom-color: transparent;
+	border-left-color: rgba(114, 138, 164, 0.08);
+	pointer-events: none;
+    transform: rotate(295deg);
+}
+
+.abroad-plan-particles {
+	position: absolute;
+	right: 4%;
+	top: 8%;
+	width: 8px;
+	height: 8px;
+	border-radius: 50%;
+	background: rgba(215, 181, 115, 0.82);
+	box-shadow:
+		16px 18px 0 0 rgba(124, 146, 170, 0.6),
+		-20px 30px 0 0 rgba(215, 181, 115, 0.58),
+		28px 44px 0 -1px rgba(124, 146, 170, 0.5);
+	filter: blur(0.1px);
+	pointer-events: none;
+}
+
+.abroad-plan-image {
+	width: min(620px, 100%);
+	height: clamp(430px, 42vw, 520px);
+	object-fit: cover;
+	border-radius: 26px;
+	border: 1px solid rgba(194, 206, 220, 0.64);
+	box-shadow: 0 24px 44px rgba(22, 37, 53, 0.16);
+	position: relative;
+	z-index: 1;
+}
+
+.abroad-plan-panel {
+	position: absolute;
+	z-index: 2;
+	max-width: min(300px, 52%);
+	padding: 18px 20px 18px;
+	border-radius: 20px;
+	box-shadow: 0 16px 30px rgba(20, 34, 50, 0.2);
+
+	h3 {
+		margin: 0;
+		font-family: styles.$primary-font;
+		font-size: clamp(21px, 1.7vw, 30px);
+		font-weight: 600;
+		line-height: 1.2;
+		letter-spacing: -0.01em;
+	}
+
+	p {
+		margin: 10px 0 0;
+		font-family: styles.$primary-font;
+		font-size: clamp(13px, 0.9vw, 15px);
+		line-height: 1.55;
+	}
+}
+
+.abroad-plan-panel-icon {
+	width: 34px;
+	height: 34px;
+	border-radius: 50%;
+	display: inline-flex;
+	align-items: center;
+	justify-content: center;
+	margin-bottom: 12px;
+
+	span {
+		width: 8px;
+		height: 8px;
+		border-radius: 50%;
+	}
+}
+
+.abroad-plan-panel.is-primary {
+	right: -18%;
+	top: 37%;
+	background: linear-gradient(150deg, #ff6f69 0%, #f35f61 100%);
+	color: #fff;
+
+	p {
+		color: rgba(255, 246, 246, 0.9);
+	}
+
+	.abroad-plan-panel-icon {
+		background: rgba(255, 255, 255, 0.2);
+
+		span {
+			background: rgba(255, 255, 255, 0.95);
+		}
+	}
+}
+
+.abroad-plan-panel.is-accent {
+	left: -12%;
+	bottom: -6%;
+	background: linear-gradient(155deg, #f0c151 0%, #e8b33f 100%);
+	color: #1a2033;
+
+	p {
+		color: rgba(26, 32, 51, 0.86);
+	}
+
+	.abroad-plan-panel-icon {
+		background: rgba(16, 24, 39, 0.82);
+
+		span {
+			background: #f5f8fc;
+		}
+	}
+}
+
+.abroad-plan-panel.is-neutral {
+	left: -22%;
+	top: -9%;
+	background: rgba(248, 250, 253, 0.95);
+	border: 1px solid rgba(190, 203, 219, 0.64);
+	color: #1e2f46;
+	box-shadow: 0 14px 28px rgba(20, 34, 50, 0.12);
+
+	p {
+		color: #5b6e84;
+	}
+
+	.abroad-plan-panel-icon {
+		background: rgba(31, 48, 71, 0.12);
+
+		span {
+			background: #1f3047;
+		}
+	}
+}
+
+@media (max-width: 1180px) {
+	.abroad-plan-shell {
+		grid-template-columns: 1fr;
+	}
+
+	.abroad-plan-content {
+		max-width: 100%;
+	}
+
+	.abroad-plan-title {
+		max-width: 14ch;
+	}
+
+	.abroad-plan-visual {
+		margin-top: 6px;
+		min-height: clamp(460px, 62vw, 620px);
+	}
+
+	.abroad-plan-panel.is-primary {
+		right: 4%;
+		top: 18%;
+	}
+
+	.abroad-plan-panel.is-accent {
+		left: 2%;
+		bottom: 3%;
+	}
+
+	.abroad-plan-panel.is-neutral {
+		left: 8%;
+		top: -2%;
+	}
+}
+
+@media (max-width: 760px) {
+	.abroad-plan-section {
+		padding: 56px 16px 64px;
+	}
+
+	.abroad-plan-shell {
+		padding: 22px 18px 24px;
+		border-radius: 22px;
+	}
+
+	.abroad-plan-title {
+		font-size: clamp(34px, 10.8vw, 48px);
+	}
+
+	.abroad-plan-description {
+		font-size: 15px;
+		line-height: 1.66;
+	}
+
+	.abroad-plan-visual {
+		min-height: auto;
+		display: grid;
+		gap: 12px;
+		padding: 2px 0 0;
+	}
+
+	.abroad-plan-curve,
+	.abroad-plan-particles {
+		display: none;
+	}
+
+	.abroad-plan-image {
+		width: 100%;
+		height: 320px;
+	}
+
+	.abroad-plan-panel {
+		position: static;
+		max-width: 100%;
+		padding: 15px 16px;
+		border-radius: 16px;
+		box-shadow: 0 10px 20px rgba(20, 34, 50, 0.14);
+
+		h3 {
+			font-size: 20px;
+		}
+
+		p {
+			font-size: 14px;
+		}
+	}
+}
