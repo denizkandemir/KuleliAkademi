@@ -65,7 +65,7 @@
 	grid-template-columns: 1fr 1fr;
 	align-items: stretch;
 	min-height: clamp(360px, 40vw, 500px);
-	border-radius: clamp(20px, 2vw, 30px);
+	border-radius: 15px;
 	overflow: hidden;
 	isolation: isolate;
 	background: #f4f5f2;

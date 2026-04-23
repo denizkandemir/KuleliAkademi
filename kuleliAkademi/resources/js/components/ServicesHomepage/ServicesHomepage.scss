@@ -167,7 +167,7 @@
 .services-homepage-card-cta {
 	margin-top: 22px;
 	padding: 10px 16px;
-	border-radius: 999px;
+	border-radius: 10px;
 	border: 1px solid rgba(32, 48, 69, 0.3);
 	background: rgba(25, 37, 53, 0.94);
 	box-shadow: 0 8px 16px rgba(20, 30, 45, 0.17);
@@ -177,7 +177,7 @@
 	letter-spacing: 0.03em;
 	text-transform: uppercase;
 	color: #f2f4f7;
-	cursor: default;
+	cursor: pointer;
 	transition: transform 0.22s ease, box-shadow 0.22s ease;
 
 	&:hover {

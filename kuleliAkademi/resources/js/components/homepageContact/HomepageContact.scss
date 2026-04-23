@@ -4,10 +4,12 @@
 	position: relative;
 	background: linear-gradient(180deg, #f0f2f5 0%, #e8edf3 100%);
 	border-top: 1px solid rgba(207, 216, 227, 0.75);
+    padding: 70px ;
 }
 
 .homepage-contact-shell {
-    width: 100%;
+    max-width: 1300px;
+    margin: 0 auto;
 }
 
 .homepage-contact-panel {
@@ -15,6 +17,7 @@
 	display: grid;
 	grid-template-columns: minmax(0, 1.1fr) minmax(260px, 0.85fr);
 	align-items: stretch;
+    border-radius: 15px;
 	gap: 0;
 	background:
 		radial-gradient(90% 116% at 12% 8%, rgba(240, 225, 189, 0.13) 0%, rgba(240, 225, 189, 0) 56%),
@@ -28,7 +31,6 @@
 		position: absolute;
 		inset: 0;
 		pointer-events: none;
-		background: linear-gradient(90deg, rgba(12, 21, 35, 0.18) 0%, rgba(12, 21, 35, 0) 38%);
 	}
 
 	&::after {
