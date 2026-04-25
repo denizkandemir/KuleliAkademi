@@ -1,0 +1,436 @@
+@use "../styles/variables.scss" as styles;
+
+.study-abroad-timeline-section {
+	position: relative;
+	padding: 78px 20px 92px;
+	background: linear-gradient(180deg, #f5f7fa 0%, #eef2f6 100%);
+}
+
+.study-abroad-timeline-shell {
+	max-width: 1280px;
+	margin: 0 auto;
+}
+
+.study-abroad-timeline-intro {
+	max-width: 760px;
+	margin-bottom: 34px;
+}
+
+.study-abroad-timeline-eyebrow {
+	margin: 0;
+	font-family: styles.$primary-font;
+	font-size: 12px;
+	font-weight: 700;
+	letter-spacing: 0.14em;
+	text-transform: uppercase;
+	color: #637487;
+}
+
+.study-abroad-timeline-title {
+	margin: 14px 0 0;
+	font-family: styles.$primary-font;
+	font-size: clamp(36px, 4.1vw, 58px);
+	font-weight: 500;
+	line-height: 1.08;
+	letter-spacing: -0.02em;
+	color: #1b2b43;
+	text-wrap: balance;
+}
+
+.study-abroad-timeline-description {
+	margin: 18px 0 0;
+	font-family: styles.$primary-font;
+	font-size: clamp(15px, 1.02vw, 17px);
+	line-height: 1.72;
+	color: #51647b;
+	max-width: 62ch;
+}
+.study-abroad-timeline-stage {
+	position: relative;
+	height: 2360px;
+	border-radius: 28px;
+	overflow: hidden;
+	background:
+		radial-gradient(120% 84% at 6% 0%, rgba(236, 225, 196, 0.24) 0%, rgba(236, 225, 196, 0) 56%),
+		linear-gradient(155deg, #f9fbfd 0%, #f2f5f9 56%, #edf2f7 100%);
+	border: 1px solid rgba(203, 212, 224, 0.58);
+	box-shadow:
+		0 20px 40px rgba(21, 35, 51, 0.1),
+		inset 0 1px 0 rgba(255, 255, 255, 0.76);
+}
+
+.study-abroad-timeline-haze {
+	position: absolute;
+	pointer-events: none;
+	border-radius: 50%;
+	filter: blur(26px);
+	opacity: 0.26;
+	z-index: 0;
+}
+
+.haze-one {
+	width: 280px;
+	height: 280px;
+	left: 10%;
+	top: 24%;
+	background: radial-gradient(circle, rgba(178, 196, 216, 0.34) 0%, rgba(178, 196, 216, 0) 70%);
+}
+
+.haze-two {
+	width: 260px;
+	height: 260px;
+	right: 6%;
+	top: 62%;
+	background: radial-gradient(circle, rgba(218, 192, 138, 0.24) 0%, rgba(218, 192, 138, 0) 72%);
+}
+
+.study-abroad-focus-glow {
+	position: absolute;
+	z-index: 1;
+	width: 260px;
+	height: 260px;
+	transform: translate(-50%, -50%);
+	border-radius: 50%;
+	pointer-events: none;
+	background:
+		radial-gradient(circle, rgba(255, 255, 255, 0.22) 0%, rgba(255, 255, 255, 0.08) 38%, rgba(255, 255, 255, 0) 72%),
+		radial-gradient(circle, rgba(214, 176, 101, 0.14) 0%, rgba(214, 176, 101, 0) 66%);
+	filter: blur(10px);
+	opacity: 0.8;
+	transition: left 0.16s linear, top 0.16s linear;
+}
+
+.study-abroad-route-svg {
+	position: absolute;
+	inset: 0;
+	width: 100%;
+	height: 100%;
+	z-index: 0;
+}
+
+.study-abroad-route-glow {
+	fill: none;
+	stroke: rgba(169, 188, 210, 0.14);
+	stroke-width: 18;
+	stroke-linecap: round;
+	filter: blur(6px);
+}
+
+.study-abroad-route-main {
+	fill: none;
+	stroke: rgba(88, 111, 136, 0.5);
+	stroke-width: 2.1;
+	stroke-linecap: round;
+	stroke-dasharray: 5 7;
+}
+
+.study-abroad-connector-svg {
+	position: absolute;
+	inset: 0;
+	width: 100%;
+	height: 100%;
+	z-index: 1;
+	pointer-events: none;
+
+	g {
+		opacity: 0.46;
+		transition: opacity 0.24s ease;
+	}
+
+	g.is-active {
+		opacity: 0.96;
+	}
+}
+.connector-glow {
+	fill: none;
+	stroke: rgba(170, 191, 214, 0.18);
+	stroke-width: 5.4;
+	stroke-linecap: round;
+	filter: blur(2px);
+}
+
+.connector-line {
+	fill: none;
+	stroke: rgba(118, 142, 167, 0.62);
+	stroke-width: 1.55;
+	stroke-linecap: round;
+	stroke-dasharray: 4 8;
+}
+
+.connector-pulse {
+	fill: rgba(211, 173, 98, 0.9);
+	filter: drop-shadow(0 0 8px rgba(211, 173, 98, 0.36));
+	animation: connectorPulse 1.85s ease-in-out infinite;
+}
+.study-abroad-collage {
+	position: absolute;
+	overflow: hidden;
+	border-radius: 20px;
+	border: 1px solid rgba(186, 200, 216, 0.66);
+	box-shadow: 0 16px 32px rgba(20, 34, 50, 0.17);
+	z-index: 2;
+	will-change: transform, filter, opacity;
+	transition:
+		box-shadow 0.28s ease,
+		border-color 0.28s ease,
+		opacity 0.28s ease,
+		transform 0.28s ease;
+
+	img {
+		width: 100%;
+		height: 100%;
+		object-fit: cover;
+		object-position: center center;
+		display: block;
+		transform: scale(1.03);
+	}
+
+	&.is-focus {
+		border-color: rgba(167, 188, 212, 0.9);
+		box-shadow: 0 22px 40px rgba(20, 34, 50, 0.24);
+
+		img {
+			transform: scale(1.06);
+		}
+	}
+}
+
+.study-abroad-milestones {
+	position: absolute;
+	inset: 0;
+	z-index: 2;
+	pointer-events: none;
+}
+
+.study-abroad-milestone {
+	position: absolute;
+	width: 18px;
+	height: 18px;
+	border-radius: 50%;
+	transform: translate(-50%, -50%);
+	background: #f5f8fc;
+	border: 2px solid rgba(83, 108, 133, 0.74);
+	box-shadow: 0 0 0 4px rgba(167, 187, 208, 0.14);
+	transition: box-shadow 0.24s ease, border-color 0.24s ease;
+}
+
+.study-abroad-milestone.is-active {
+	border-color: rgba(208, 164, 76, 0.9);
+	box-shadow: 0 0 0 8px rgba(208, 164, 76, 0.22), 0 0 18px rgba(208, 164, 76, 0.22);
+}
+
+.study-abroad-airplane-anchor {
+	position: absolute;
+	z-index: 3;
+	transform: translate(-50%, -50%);
+	pointer-events: none;
+}
+
+.study-abroad-airplane {
+	position: relative;
+	z-index: 3;
+	width: 38px;
+	height: 38px;
+	transform-origin: center center;
+	display: inline-flex;
+	align-items: center;
+	justify-content: center;
+	border-radius: 50%;
+	background: linear-gradient(140deg, #f6fafc 0%, #e8eef5 100%);
+	box-shadow: 0 9px 16px rgba(21, 36, 55, 0.24);
+	pointer-events: none;
+	will-change: transform;
+
+	svg {
+		width: 20px;
+		height: 20px;
+		fill: #1f324c;
+		filter: drop-shadow(0 2px 3px rgba(21, 36, 55, 0.22));
+	}
+}
+.study-abroad-step-card {
+	position: absolute;
+	z-index: 2;
+	padding: 22px 22px 24px;
+	border-radius: 22px;
+	background: rgba(252, 253, 255, 0.96);
+	border: 1px solid rgba(188, 202, 218, 0.68);
+	box-shadow: 0 14px 28px rgba(19, 34, 52, 0.14);
+	backdrop-filter: blur(2px);
+	transform-origin: center center;
+	will-change: transform, filter, opacity;
+	transition:
+		box-shadow 0.24s ease,
+		transform 0.24s ease;
+
+	&.is-focus {
+		z-index: 4;
+		border-color: rgba(165, 187, 212, 0.9);
+		box-shadow: 0 26px 48px rgba(19, 34, 52, 0.24);
+
+		.step-index {
+			background: rgba(199, 213, 227, 0.4);
+			color: #304863;
+		}
+
+		h3 {
+			color: #16283f;
+		}
+	}
+
+	h3 {
+		margin: 12px 0 0;
+		font-family: styles.$primary-font;
+		font-size: clamp(20px, 1.28vw, 26px);
+		font-weight: 600;
+		line-height: 1.24;
+		letter-spacing: -0.01em;
+		color: #1d2f46;
+		text-wrap: balance;
+	}
+
+	p {
+		margin: 14px 0 0;
+		font-family: styles.$primary-font;
+		font-size: clamp(14px, 0.92vw, 16px);
+		line-height: 1.72;
+		color: #5b6e84;
+	}
+}
+
+.step-index {
+	display: inline-flex;
+	align-items: center;
+	justify-content: center;
+	min-width: 38px;
+	height: 26px;
+	padding: 0 10px;
+	border-radius: 999px;
+	font-family: styles.$primary-font;
+	font-size: 12px;
+	font-weight: 700;
+	letter-spacing: 0.08em;
+	text-transform: uppercase;
+	color: #546b87;
+	background: rgba(195, 208, 223, 0.22);
+	border: 1px solid rgba(183, 199, 216, 0.6);
+}
+
+.study-abroad-step-list {
+	margin-top: 16px;
+	display: none;
+	gap: 12px;
+}
+
+.study-abroad-step-card.compact {
+	position: relative;
+	width: 100%;
+	opacity: 1 !important;
+	transform: none !important;
+	filter: none !important;
+	left: auto !important;
+	top: auto !important;
+}
+
+@keyframes connectorPulse {
+	0%,
+	100% {
+		opacity: 0.62;
+		transform: scale(0.78);
+	}
+	50% {
+		opacity: 1;
+		transform: scale(1.14);
+	}
+}
+
+@media (max-width: 1170px) {
+	.study-abroad-timeline-stage {
+		height: 2140px;
+	}
+}
+
+@media (max-width: 980px) {
+	.study-abroad-timeline-stage {
+		height: 1760px;
+		padding: 0 0 24px;
+	}
+
+	.study-abroad-focus-glow {
+		width: 220px;
+		height: 220px;
+		opacity: 0.7;
+	}
+
+	.study-abroad-connector-svg,
+	.study-abroad-step-card,
+	.study-abroad-collage {
+		display: none;
+	}
+
+	.study-abroad-route-main {
+		stroke-width: 2;
+	}
+
+	.study-abroad-route-glow {
+		stroke-width: 14;
+	}
+
+	.study-abroad-step-list {
+		display: grid;
+		position: relative;
+		z-index: 4;
+		padding: 24px 16px 0;
+	}
+}
+
+@media (max-width: 760px) {
+	.study-abroad-timeline-section {
+		padding: 60px 16px 70px;
+	}
+
+	.study-abroad-timeline-intro {
+		margin-bottom: 24px;
+	}
+
+	.study-abroad-timeline-title {
+		font-size: clamp(31px, 9vw, 44px);
+	}
+
+	.study-abroad-timeline-description {
+		font-size: 15px;
+		line-height: 1.66;
+	}
+
+	.study-abroad-timeline-stage {
+		height: 1420px;
+		border-radius: 22px;
+	}
+
+	.study-abroad-focus-glow {
+		display: none;
+	}
+
+	.study-abroad-airplane {
+		width: 34px;
+		height: 34px;
+
+		svg {
+			width: 18px;
+			height: 18px;
+		}
+	}
+
+	.study-abroad-step-card.compact {
+		padding: 15px 14px 16px;
+		border-radius: 14px;
+
+		h3 {
+			font-size: 19px;
+		}
+
+		p {
+			font-size: 14px;
+		}
+	}
+}

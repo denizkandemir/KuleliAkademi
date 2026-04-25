@@ -8,18 +8,18 @@
 .abroad-plan-shell {
 	max-width: 1300px;
 	margin: 0 auto;
-	padding: clamp(24px, 3vw, 42px);
+	padding: 30px;
 	border-radius: 28px;
 }
 
 .abroad-plan-shell {
 	display: grid;
 	grid-template-columns: minmax(0, 0.92fr) minmax(0, 1.08fr);
-	align-items: center;
 }
 
 .abroad-plan-content {
-	max-width: 500px;
+	max-width: 550px;
+    margin-top: 50px;
 }
 
 .abroad-plan-eyebrow {
@@ -58,7 +58,7 @@
 	font-size: clamp(16px, 1.06vw, 18px);
 	line-height: 1.72;
 	color: #475a71;
-	max-width: 48ch;
+	max-width: 505px;
 }
 
 .abroad-plan-visual {
@@ -153,7 +153,7 @@
 }
 
 .abroad-plan-panel.is-primary {
-	right: -18%;
+	right: -14%;
 	top: 37%;
 	background: linear-gradient(150deg, #ff6f69 0%, #f35f61 100%);
 	color: #fff;
@@ -174,7 +174,7 @@
 .abroad-plan-panel.is-accent {
 	left: -12%;
 	bottom: -6%;
-	background: linear-gradient(155deg, #f0c151 0%, #e8b33f 100%);
+	background: #edd477;
 	color: #1a2033;
 
 	p {
@@ -188,6 +188,36 @@
 			background: #f5f8fc;
 		}
 	}
+}
+
+.secondary-description {
+    max-width: 450px;
+}
+
+.study-abroad-plan-button {
+  width: fit-content;
+    border: 1px solid rgba(255, 245, 224, 0.5);
+    border-radius: 10px;
+    padding: 14px 26px;
+    background: linear-gradient(145deg, rgba(255, 251, 243, 0.34), rgba(255, 247, 230, 0.22));
+    color: #2f4258;
+    font-family: "Trebuchet MS", "Segoe UI", sans-serif;
+    font-size: clamp(13px, 0.95vw, 15px);
+    font-weight: 600;
+    letter-spacing: 0.01em;
+    cursor: pointer;
+    backdrop-filter: blur(7px);
+    box-shadow: 0 8px 24px rgba(16, 29, 44, 0.12), inset 0 1px 0 rgba(255, 255, 255, 0.38);
+    transition: transform 0.22s ease, border-color 0.22s ease, background-color 0.22s ease;
+     margin-top: 20px;
+
+     	&:hover {
+		transform: translateY(-1px);
+		border-color: rgba(255, 245, 224, 0.68);
+        box-shadow: 0 12px 32px rgba(16, 29, 44, 0.18);
+		background: linear-gradient(145deg, rgba(255, 251, 243, 0.42), rgba(255, 247, 230, 0.3));
+	}
+    
 }
 
 .abroad-plan-panel.is-neutral {

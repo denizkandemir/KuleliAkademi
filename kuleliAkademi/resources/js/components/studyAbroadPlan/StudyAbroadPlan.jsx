@@ -1,12 +1,12 @@
 import React from "react";
-import planImg2 from "../../assets/images/studentsPicture3.png";
+import planImg2 from "../../assets/images/studentsPicture11.png";
 import "./StudyAbroadPlan.scss";
 
 const advantagePanels = [
 	{
 		id: "diploma",
 		className: "is-primary",
-		title: "İngilizce Program Esnekliği",
+		title: "İngilizce Eğitim",
 		text: "Hazırlık ve bölüm seçenekleriyle farklı akademik hedeflere uygun başlangıç alternatifleri.",
 	},
 	{
@@ -31,7 +31,7 @@ const StudyAbroadPlan = () => {
 					<p className="abroad-plan-eyebrow">Polonya'da Eğitim</p>
 
 					<h2 id="abroad-plan-title" className="abroad-plan-title">
-						Polonya da Üniversite Okuma Avantajları
+                        Polonya'da Üniversite Eğitimi Avantajları
 					</h2>
 
 					<span className="abroad-plan-accent" aria-hidden="true" />
@@ -42,6 +42,17 @@ const StudyAbroadPlan = () => {
 						alternatiftir. Başvuru süreci doğru planlandığında hem akademik hem sosyal açıdan
 						güvenli ve sürdürülebilir bir başlangıç sunar.
 					</p>
+
+                    	<p className="abroad-plan-description secondary-description">
+						Polonya; Avrupa'da geçerli diploma yapısı, dengeli maliyetler, İngilizce program
+						seçenekleri ve öğrenci dostu şehir yaşamıyla üniversite eğitimi için güçlü bir
+						alternatiftir. Başvuru süreci doğru planlandığında hem akademik hem sosyal açıdan
+						güvenli ve sürdürülebilir bir başlangıç sunar.
+					</p>
+
+                    <button className="study-abroad-plan-button">
+                        Geleceğinizi Beraber Planlayalım
+                    </button>
 				</div>
 
 				<div className="abroad-plan-visual" aria-label="Polonya'da eğitim avantajları görsel alanı">
