@@ -9,8 +9,8 @@ const YurtDisindaEgitim = () => {
     return <>
         <Banner text="Yurt Dışı Eğitim" img={bannerImg} responsiveImg={bannerImg} location="Yurt Dışı Eğitim" />
         <StudyAbroadPlan />
-        <StudyAbroadTimeline />
         <UniversityCards />
+        <StudyAbroadTimeline />
     </>;
 }
 

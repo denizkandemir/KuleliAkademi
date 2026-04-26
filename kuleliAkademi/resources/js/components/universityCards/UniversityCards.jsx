@@ -33,8 +33,8 @@ const sampleUniversities = [
     {
         id: 3,
         image: uniWroclaw,
-        name: "University of Wroclaw",
-        city: "Wroclaw",
+        name: "University of Wrocław",
+        city: "Wrocław",
         badge: "Köklü Üniversite",
         description:
             "Köklü tarihi, sosyal bilimlerden fen bilimlerine uzanan güçlü fakülte yapısı ve canlı öğrenci yaşamıyla dikkat çeker.",
@@ -44,8 +44,8 @@ const sampleUniversities = [
     {
         id: 4,
         image: uniGdansk,
-        name: "Gdansk University of Technology",
-        city: "Gdansk",
+        name: "Gdańsk University of Technology",
+        city: "Gdańsk",
         badge: "Öğrenci Dostu Şehir",
         description:
             "Deniz kenti atmosferi, modern kampüs olanakları ve disiplinler arası eğitim yaklaşımıyla dengeli bir üniversite deneyimi sunar.",
@@ -56,7 +56,7 @@ const sampleUniversities = [
         id: 5,
         image: uniKrakow,
         name: "Jagiellonian University",
-        city: "Krakow",
+        city: "Kraków",
         badge: "Akademik Prestij",
         description:
             "Avrupa'nın en eski üniversiteleri arasında yer alan kurum, akademik prestij ve zengin şehir kültürünü bir araya getirir.",
@@ -67,7 +67,7 @@ const sampleUniversities = [
         id: 6,
         image: uniPoznan,
         name: "Adam Mickiewicz University",
-        city: "Poznan",
+        city: "Poznań",
         badge: "Araştırma Odaklı",
         description:
             "Araştırma odaklı yaklaşımı, uluslararası iş birlikleri ve öğrenci dostu şehir yapısıyla güven veren bir tercih sunar.",

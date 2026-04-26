@@ -8,8 +8,14 @@ import {
 } from "framer-motion";
 import "./StudyAbroadTimeline.scss";
 
-import collageImageOne from "../../assets/images/warsawImg1.png";
-import collageImageTwo from "../../assets/images/polandPicture2.png";
+import collageImageOne from "../../assets/images/timelineImg1.png";
+import collageImageTwo from "../../assets/images/uniKrakow1.png";
+import collageImageThree from "../../assets/images/timelineImg3.png";
+import collageImageSix from "../../assets/images/timelineImg52.png";
+import collageImageFour from "../../assets/images/timelineImg4.png";
+import collageImageFive from "../../assets/images/timelineImg5.png";
+import collageImageSeven from "../../assets/images/timelineImg7.png";
+
 
 const steps = [
   {
@@ -76,14 +82,28 @@ const mobilePath =
 
 const clamp = (value, min, max) => Math.min(Math.max(value, min), max);
 
+const getQuadraticPoint = (t, p0, p1, p2) => {
+  const x =
+    (1 - t) * (1 - t) * p0.x +
+    2 * (1 - t) * t * p1.x +
+    t * t * p2.x;
+
+  const y =
+    (1 - t) * (1 - t) * p0.y +
+    2 * (1 - t) * t * p1.y +
+    t * t * p2.y;
+
+  return { x, y };
+};
+
 const imagePool = [
   collageImageOne,
   collageImageTwo,
-  collageImageOne,
-  collageImageTwo,
-  collageImageOne,
-  collageImageTwo,
-  collageImageOne,
+  collageImageThree,
+  collageImageFour,
+  collageImageFive,
+  collageImageSix,
+  collageImageSeven,
 ];
 
 const StudyAbroadTimeline = () => {
@@ -223,150 +243,188 @@ const StudyAbroadTimeline = () => {
 
     return bestIndex;
   }, [milestones.length, plane.fraction]);
+  const rowLayouts = useMemo(() => {
+    if (!milestones.length) return [];
 
- const rowLayouts = useMemo(() => {
-  if (!milestones.length) return [];
+    const width = stageSize.width || 1200;
+    const height = stageSize.height || 2280;
 
-  const width = stageSize.width || 1200;
-  const height = stageSize.height || 2280;
+    if (isCompact) {
+      return steps.map((step, index) => {
+        const milestone = milestones[index];
+        if (!milestone) return null;
 
-  if (isCompact) {
+        return {
+          card: {
+            left: 24,
+            top: clamp(milestone.y - 92, 18, height - 220),
+            width: width - 48,
+            height: 182,
+          },
+          photo: {
+            left: 24,
+            top: clamp(milestone.y - 300, 18, height - 420),
+            width: width - 48,
+            height: 190,
+          },
+        };
+      });
+    }
+
+    const cardWidth = clamp(width * 0.295, 330, 390);
+    const photoWidth = clamp(width * 0.29, 340, 420);
+    const photoHeight = photoWidth * 0.58;
+    const cardHeight = 220;
+
+    const defaultLeftCardX = clamp(width * 0.07, 52, 96);
+    const defaultRightCardX = width - defaultLeftCardX - cardWidth;
+
+    const fixedCardLeftMap = {
+      0: 190, // 01
+      1: 826,  // 02
+      2: 62,   // 03
+      3: 856,  // 04
+      4: null, // 05
+      5: 760, // 06
+      6: 166,  // 07
+    };
+
+    const fixedCardTopMap = {
+      0: 60,   // 01
+      1: null, // 02
+      2: null, // 03
+      3: null, // 04
+      4: null, // 05
+      5: null, // 06
+      6: null, // 07
+    };
+
+    const fixedPhotoLeftMap = {
+      0: 870,  // 01
+      1: null, // 02
+      2: 730,  // 03
+      3: null, // 04
+      4: 800,  // 05
+      5: 62,   // 06
+      6: 890,  // 07
+    };
+
+    const fixedPhotoTopMap = {
+      0: 60,   // 01
+      1: null, // 02
+      2: null, // 03
+      3: null, // 04
+      4: null, // 05
+      5: null, // 06
+      6: null, // 07
+    };
+
+    const getFixedValue = (map, index, fallback) => {
+      return map[index] !== null && map[index] !== undefined ? map[index] : fallback;
+    };
+
     return steps.map((step, index) => {
       const milestone = milestones[index];
       if (!milestone) return null;
 
+      const rowCenterY = milestone.y;
+
+      const defaultCardLeft =
+        step.side === "left" ? defaultLeftCardX : defaultRightCardX;
+
+      const cardLeft = getFixedValue(
+        fixedCardLeftMap,
+        index,
+        defaultCardLeft
+      );
+
+      const defaultPhotoLeft =
+        step.side === "left"
+          ? clamp(
+            cardLeft + cardWidth + 54,
+            width * 0.48,
+            width - photoWidth - 36
+          )
+          : clamp(120, 44, width * 0.28);
+
+      const photoLeft = getFixedValue(
+        fixedPhotoLeftMap,
+        index,
+        defaultPhotoLeft
+      );
+
+      const cardTop = getFixedValue(
+        fixedCardTopMap,
+        index,
+        clamp(rowCenterY - cardHeight / 2, 24, height - cardHeight - 24)
+      );
+
+      const photoTop = getFixedValue(
+        fixedPhotoTopMap,
+        index,
+        clamp(rowCenterY - photoHeight / 2, 24, height - photoHeight - 24)
+      );
+
       return {
         card: {
-          left: 24,
-          top: clamp(milestone.y - 92, 18, height - 220),
-          width: width - 48,
-          height: 182,
+          left: clamp(cardLeft, 24, width - cardWidth - 24),
+          top: cardTop,
+          width: cardWidth,
+          height: cardHeight,
         },
-        photo: null,
+        photo: {
+          left: clamp(photoLeft, 24, width - photoWidth - 24),
+          top: photoTop,
+          width: photoWidth,
+          height: photoHeight,
+        },
       };
     });
-  }
+  }, [isCompact, milestones, stageSize.width, stageSize.height]);
 
-  const cardWidth = clamp(width * 0.295, 330, 390);
-  const photoWidth = clamp(width * 0.268, 305, 370);
-  const cardHeight = 188;
-  const photoHeight = 188;
+  const connectors = useMemo(() => {
+    if (isCompact) return [];
 
-  const leftCardX = clamp(width * 0.07, 52, 96);
-  const rightCardX = width - leftCardX - cardWidth;
+    return steps
+      .map((step, index) => {
+        const row = rowLayouts[index];
+        const milestone = milestones[index];
+        if (!row || !milestone || !row.photo) return null;
 
-  const leftPhotoX = clamp(width * 0.13, 120, 180);
-  const rightPhotoX = width - leftPhotoX - photoWidth;
+        const photo = row.photo;
 
-  const baseGap = 54;
+        const start = {
+          x:
+            step.side === "left"
+              ? photo.left + 18
+              : photo.left + photo.width - 18,
+          y: photo.top + photo.height * 0.5,
+        };
 
-  return steps.map((step, index) => {
-    const milestone = milestones[index];
-    if (!milestone) return null;
+        const end = {
+          x: milestone.x + (step.side === "left" ? 12 : -12),
+          y: milestone.y,
+        };
 
-    const rowCenterY = milestone.y;
+        const curveStrength = step.side === "left" ? -72 : 72;
 
-    let cardLeft;
-    let photoLeft;
-    let photoTop;
+        const control = {
+          x: (start.x + end.x) / 2 + curveStrength,
+          y: (start.y + end.y) / 2 - 10,
+        };
 
-    if (step.side === "left") {
-      cardLeft = leftCardX;
+        const pulsePoint = getQuadraticPoint(0.7, start, control, end);
 
-      const fixedLeftMap = {
-        0: 900, // 01
-        2: 730, // 03
-        4: 800, // 05
-        6: 890, // 07
-      };
-
-      photoLeft =
-        fixedLeftMap[index] !== undefined
-          ? fixedLeftMap[index]
-          : clamp(
-              cardLeft + cardWidth + baseGap,
-              width * 0.49,
-              rightPhotoX + 26
-            );
-
-      photoTop = clamp(
-        rowCenterY - photoHeight / 2,
-        24,
-        height - photoHeight - 24
-      );
-    } else {
-      photoLeft = clamp(leftPhotoX, 44, width * 0.34);
-      cardLeft = clamp(
-        photoLeft + photoWidth + baseGap,
-        width * 0.60,
-        rightCardX
-      );
-
-      photoTop = clamp(
-        rowCenterY - photoHeight / 2,
-        24,
-        height - photoHeight - 24
-      );
-    }
-
-    return {
-      card: {
-        left: cardLeft,
-        top: clamp(rowCenterY - cardHeight / 2, 24, height - cardHeight - 24),
-        width: cardWidth,
-        height: cardHeight,
-      },
-      photo: {
-        left: photoLeft,
-        top: photoTop,
-        width: photoWidth,
-        height: photoHeight,
-      },
-    };
-  });
-}, [isCompact, milestones, stageSize.width, stageSize.height]);
-const connectors = useMemo(() => {
-  if (isCompact) return [];
-
-  return steps
-    .map((step, index) => {
-      const row = rowLayouts[index];
-      const milestone = milestones[index];
-      if (!row || !milestone || !row.photo) return null;
-
-      const photo = row.photo;
-
-      const start = {
-        x: step.side === "left" ? photo.left : photo.left + photo.width,
-        y: photo.top + photo.height * 0.5,
-      };
-
-      const end = {
-        x: milestone.x + (step.side === "left" ? 12 : -12),
-        y: milestone.y,
-      };
-
-      let controlX;
-      let controlY;
-
-      if (step.side === "left") {
-        controlX = (start.x + end.x) / 2 - 54;
-        controlY = (start.y + end.y) / 2 - 8;
-      } else {
-        controlX = (start.x + end.x) / 2 + 54;
-        controlY = (start.y + end.y) / 2 - 8;
-      }
-
-      return {
-        id: `connector-${step.id}`,
-        stepIndex: index,
-        d: `M ${start.x} ${start.y} Q ${controlX} ${controlY} ${end.x} ${end.y}`,
-        pulseX: (start.x + end.x) / 2 + (step.side === "left" ? -10 : 10),
-        pulseY: (start.y + end.y) / 2 - 6,
-      };
-    })
-    .filter(Boolean);
-}, [isCompact, rowLayouts, milestones]);
+        return {
+          id: `connector-${step.id}`,
+          stepIndex: index,
+          d: `M ${start.x} ${start.y} Q ${control.x} ${control.y} ${end.x} ${end.y}`,
+          pulseX: pulsePoint.x,
+          pulseY: pulsePoint.y,
+        };
+      })
+      .filter(Boolean);
+  }, [isCompact, rowLayouts, milestones]);
 
   const getVisualState = useCallback(
     (index) => {
@@ -393,13 +451,15 @@ const connectors = useMemo(() => {
     >
       <div className="study-abroad-timeline-shell">
         <header className="study-abroad-timeline-intro">
-          <p className="study-abroad-timeline-eyebrow">Süreç Rehberi</p>
-          <h2
-            id="study-abroad-timeline-title"
-            className="study-abroad-timeline-title"
-          >
-            Polonya’da eğitim yolculuğunu adım adım birlikte yönetiyoruz
-          </h2>
+          <div className="timeline-titles-container">
+            <p className="study-abroad-timeline-eyebrow">Süreç Rehberi</p>
+            <h2
+              id="study-abroad-timeline-title"
+              className="study-abroad-timeline-title"
+            >
+              Polonya’da Eğitim Yolculuğunu Adım Adım Birlikte Yönetiyoruz
+            </h2>
+          </div>
           <p className="study-abroad-timeline-description">
             İlk görüşmeden oturum izni başvurusuna kadar tüm adımları planlı bir
             sistemle takip ediyor, süreci öğrenci odaklı ve güvenli bir yapıyla
@@ -480,17 +540,22 @@ const connectors = useMemo(() => {
           <div className="study-abroad-milestones" aria-hidden="true">
             {milestones.map((milestone, index) => {
               const isActive = activeIndex === index;
+
               return (
-                <motion.span
+                <span
                   key={milestone.fraction}
-                  className={`study-abroad-milestone ${isActive ? "is-active" : ""}`}
+                  className="study-abroad-milestone-anchor"
                   style={{ left: milestone.x, top: milestone.y }}
-                  animate={{
-                    scale: isActive ? 1.2 : 0.96,
-                    opacity: isActive ? 1 : 0.56,
-                  }}
-                  transition={{ duration: 0.28, ease: "easeOut" }}
-                />
+                >
+                  <motion.span
+                    className={`study-abroad-milestone ${isActive ? "is-active" : ""}`}
+                    animate={{
+                      scale: isActive ? 1.2 : 0.96,
+                      opacity: isActive ? 1 : 0.56,
+                    }}
+                    transition={{ duration: 0.28, ease: "easeOut" }}
+                  />
+                </span>
               );
             })}
           </div>
@@ -521,9 +586,8 @@ const connectors = useMemo(() => {
               return (
                 <React.Fragment key={step.id}>
                   <motion.article
-                    className={`study-abroad-step-card ${step.side} ${
-                      activeIndex === index ? "is-focus" : ""
-                    }`}
+                    className={`study-abroad-step-card ${step.side} ${activeIndex === index ? "is-focus" : ""
+                      }`}
                     style={{
                       left: row.card.left,
                       top: row.card.top,
@@ -545,9 +609,8 @@ const connectors = useMemo(() => {
                   </motion.article>
 
                   <motion.figure
-                    className={`study-abroad-collage ${
-                      activeIndex === index ? "is-focus" : ""
-                    }`}
+                    className={`study-abroad-collage ${activeIndex === index ? "is-focus" : ""
+                      }`}
                     style={{
                       left: row.photo?.left,
                       top: row.photo?.top,
