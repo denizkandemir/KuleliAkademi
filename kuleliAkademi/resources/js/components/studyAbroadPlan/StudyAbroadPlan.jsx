@@ -44,10 +44,7 @@ const StudyAbroadPlan = () => {
 					</p>
 
                     	<p className="abroad-plan-description secondary-description">
-						Polonya; Avrupa'da geçerli diploma yapısı, dengeli maliyetler, İngilizce program
-						seçenekleri ve öğrenci dostu şehir yaşamıyla üniversite eğitimi için güçlü bir
-						alternatiftir. Başvuru süreci doğru planlandığında hem akademik hem sosyal açıdan
-						güvenli ve sürdürülebilir bir başlangıç sunar.
+						Üniversite ve bölüm seçimi yalnızca eğitim kalitesine göre değil; şehir yaşamı, bütçe, konaklama olanakları ve uzun vadeli hedefler birlikte değerlendirilerek yapılmalıdır. Polonya, bu dengeyi kurmak isteyen öğrenciler için hem erişilebilir hem de gelişime açık bir eğitim ortamı sunar.
 					</p>
 
                     <button className="study-abroad-plan-button">

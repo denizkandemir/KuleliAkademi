@@ -1,5 +1,6 @@
 import React, { useCallback, useEffect, useRef, useState } from "react";
 import "./documentSection.scss";
+import { Link, usePage } from "@inertiajs/react";
 
 // import warsawCity from "../../assets/images/warsaw3.png";
 import warsawCity from "../../assets/images/polandPicture4.png";
@@ -70,6 +71,7 @@ const destinations = [
     mood: "Başkent temposu",
     tags: ["Öğrenci dostu", "Canlı şehir hayatı"],
     cta: "Şehri Keşfet",
+    slug: "warsaw"
   },
   {
     id: 2,
@@ -79,6 +81,7 @@ const destinations = [
     mood: "Deniz kıyısı",
     tags: ["Tarihi doku", "Rahat yaşam"],
     cta: "Yaşamı İncele",
+    slug: "gdansk"
   },
   {
     id: 3,
@@ -88,6 +91,7 @@ const destinations = [
     mood: "Kültürel şehir",
     tags: ["Sosyal yaşam", "Canlı merkez"],
     cta: "Eğitim Fırsatlarını Gör",
+    slug: "wroclaw"
   },
   {
     id: 4,
@@ -97,6 +101,7 @@ const destinations = [
     mood: "Tarihi merkez",
     tags: ["Klasik şehir dokusu", "Akademik prestij"],
     cta: "Şehri Keşfet",
+    slug: "krakow"
   },
   {
     id: 5,
@@ -106,6 +111,7 @@ const destinations = [
     mood: "Dengeli atmosfer",
     tags: ["Dengeli tempo", "Genç nüfus"],
     cta: "Şehri Keşfet",
+    slug: "poznan"
   },
   {
     id: 6,
@@ -115,6 +121,7 @@ const destinations = [
     mood: "Sakin atmosfer",
     tags: ["Daha ekonomik", "Yerel karakter"],
     cta: "Yaşamı İncele",
+    slug: "lublin"
   },
 ];
 
@@ -165,8 +172,10 @@ const CityDestinationCard = ({ destination }) => (
       </div> */}
 
       <div className="document-destination-link" aria-label={destination.cta}>
-        <span>{destination.cta}</span>
-        <span className="document-destination-link-icon" aria-hidden="true">
+        <Link className="document-destination-link" href={`/şehirler/${destination.slug}`}>
+                <span>{destination.cta}</span>
+        </Link>
+        {/* <span className="document-destination-link-icon" aria-hidden="true">
           <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
             <path
               d="M7 12H17M17 12L13 8M17 12L13 16"
@@ -176,7 +185,7 @@ const CityDestinationCard = ({ destination }) => (
               strokeLinejoin="round"
             />
           </svg>
-        </span>
+        </span> */}
       </div>
     </div>
   </article>

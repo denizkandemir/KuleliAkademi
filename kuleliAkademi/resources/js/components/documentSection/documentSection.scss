@@ -2,13 +2,12 @@
 .document-section {
     padding: 0px 20px;
     padding-top: 20px;
-    padding-bottom: 50px;
     background: radial-gradient(1100px 520px at 18% 10%, rgba(214, 187, 123, 0.12) 0%, rgba(214, 187, 123, 0) 50%), radial-gradient(840px 420px at 84% 28%, rgba(171, 190, 209, 0.13) 0%, rgba(171, 190, 209, 0) 52%), linear-gradient(180deg, #f7f8fa 0%, #eef1f5 100%);
     overflow: hidden;
 }
 
 .document-section-shell {
-    max-width: 1350px;
+    max-width: 1320px;
     margin: 0 auto;
 }
 
@@ -403,7 +402,6 @@
     overscroll-behavior-x: contain;
     scroll-snap-type: x mandatory;
     scroll-padding-inline: 2px;
-    padding-bottom: 4px;
     scrollbar-width: none;
     -ms-overflow-style: none;
     &::-webkit-scrollbar {
@@ -554,7 +552,7 @@
     align-items: center;
     gap: 5px;
     font-family: styles.$primary-font;
-    font-size: 11px;
+    font-size: 14px;
     font-weight: 600;
     color: #9c8343;
     transition: transform 0.22s ease, color 0.22s ease;
@@ -563,8 +561,8 @@
     }
     .document-university-link-icon {
         display: inline-flex;
-        width: 11px;
-        height: 11px;
+        width: 14px;
+        height: 14px;
         transition: transform 0.22s ease;
         svg {
             width: 100%;
@@ -752,7 +750,7 @@
     border-radius: 24px;
     border: 1px solid rgba(179, 194, 210, 0.5);
     background: rgba(255, 255, 255, 0.92);
-    box-shadow: 0 12px 26px rgba(25, 39, 56, 0.08);
+    // box-shadow: 0 12px 26px rgba(25, 39, 56, 0.08);
     transition: transform 0.24s ease, box-shadow 0.24s ease, border-color 0.24s ease;
     &:hover {
         transform: translateY(-3px);
@@ -902,8 +900,9 @@
     align-items: center;
     gap: 6px;
     font-family: styles.$primary-font;
-    font-size: 11px;
+    font-size: 14px;
     font-weight: 600;
+    cursor: pointer;
     color: #9c8343;
     transition: transform 0.22s ease, color 0.22s ease;
     span:first-child {
@@ -913,8 +912,8 @@
 
 .document-destination-link-icon {
     display: inline-flex;
-    width: 11px;
-    height: 11px;
+    width: 14px;
+    height: 14px;
     transition: transform 0.22s ease;
     svg {
         width: 100%;
