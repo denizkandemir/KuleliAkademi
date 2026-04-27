@@ -4,7 +4,6 @@ import {
   useMotionValueEvent,
   useScroll,
   useSpring,
-  useTransform,
 } from "framer-motion";
 import "./StudyAbroadTimeline.scss";
 
@@ -130,9 +129,6 @@ const StudyAbroadTimeline = () => {
     damping: 28,
     mass: 0.28,
   });
-
-  const hazeOneY = useTransform(smoothProgress, [0, 1], [-10, 16]);
-  const hazeTwoY = useTransform(smoothProgress, [0, 1], [14, -18]);
 
   useEffect(() => {
     const stage = stageRef.current;
@@ -468,15 +464,6 @@ const StudyAbroadTimeline = () => {
         </header>
 
         <div className="study-abroad-timeline-stage" ref={stageRef}>
-          <motion.span
-            className="study-abroad-timeline-haze haze-one"
-            style={{ y: hazeOneY }}
-          />
-          <motion.span
-            className="study-abroad-timeline-haze haze-two"
-            style={{ y: hazeTwoY }}
-          />
-
           <span
             className="study-abroad-focus-glow"
             style={{ left: plane.x, top: plane.y }}
@@ -517,7 +504,7 @@ const StudyAbroadTimeline = () => {
             <path ref={pathRef} className="study-abroad-route-main" d={routePath} />
           </svg>
 
-          {!isCompact && (
+          {/* {!isCompact && (
             <svg className="study-abroad-connector-svg" aria-hidden="true">
               {connectors.map((connector) => {
                 const isActive = activeIndex === connector.stepIndex;
@@ -535,7 +522,7 @@ const StudyAbroadTimeline = () => {
                 );
               })}
             </svg>
-          )}
+          )} */}
 
           <div className="study-abroad-milestones" aria-hidden="true">
             {milestones.map((milestone, index) => {

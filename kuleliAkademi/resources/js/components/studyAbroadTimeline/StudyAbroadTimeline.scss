@@ -58,31 +58,6 @@
     box-shadow: 0 20px 40px rgba(21, 35, 51, 0.1), inset 0 1px 0 rgba(255, 255, 255, 0.76);
 }
 
-.study-abroad-timeline-haze {
-    position: absolute;
-    pointer-events: none;
-    border-radius: 50%;
-    filter: blur(26px);
-    opacity: 0.26;
-    z-index: 0;
-}
-
-.haze-one {
-    width: 280px;
-    height: 280px;
-    left: 10%;
-    top: 24%;
-    background: radial-gradient(circle, rgba(178, 196, 216, 0.34) 0%, rgba(178, 196, 216, 0) 70%);
-}
-
-.haze-two {
-    width: 260px;
-    height: 260px;
-    right: 6%;
-    top: 62%;
-    background: radial-gradient(circle, rgba(218, 192, 138, 0.24) 0%, rgba(218, 192, 138, 0) 72%);
-}
-
 .study-abroad-focus-glow {
     position: absolute;
     z-index: 1;
@@ -434,7 +409,6 @@
     .study-abroad-focus-glow,
     .study-abroad-airplane-anchor,
     .study-abroad-milestones,
-    .study-abroad-timeline-haze,
     .study-abroad-collage,
     .study-abroad-step-card:not(.compact) {
         display: none !important;
