@@ -3,6 +3,7 @@ import Header from '../components/Header/Header';
 import Selection from '../components/Selection/Selection';
 import VideoSectionHomepage from '../components/videoSectionHomepage/videoSectionHomepage';
 import UniversityCards from '../components/universityCards/UniversityCards';
+import DocumentSection from '../components/documentSection/documentSection';
 import WhyPoland from '../components/whyPoland/WhyPoland';
 import ServicesHomepage from '../components/ServicesHomepage/ServicesHomepage';
 import HomepageContact from '../components/homepageContact/HomepageContact';
