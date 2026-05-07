@@ -12,43 +12,49 @@ const steps = [
         id: 1,
         badge: "01",
         title: "Mevcut Düzey ve Hedef Analizi",
-        description: "Öğrencinin akademik durumu, ihtiyaçları ve hedefleri birlikte değerlendirilir.",
-        image: timelineImg1
+        description: "Öğrencinin akademik durumu, öğrenme alışkanlıkları, güçlü yönleri ve gelişim alanları birlikte değerlendirilir. Bu ilk adımda hedefler netleştirilir, yol haritasının temeli veriye dayalı biçimde oluşturulur.",
+        image: timelineImg1,
+        imagePosition: "center 28%"
     },
     {
         id: 2,
         badge: "02",
         title: "Kişiye Özel Akademik Plan",
-        description: "Seviye ve ihtiyaçlara göre yapılandırılmış çalışma sistemi oluşturulur.",
-        image: timelineImg3
+        description: "Değerlendirme sonucuna göre ders, konu ve tekrar dengesi kurulur. Öğrencinin seviyesine ve hedefine uygun bir akademik plan oluşturularak sürecin ritmi kişiselleştirilir.",
+        image: timelineImg3,
+        imagePosition: "center 42%"
     },
     {
         id: 3,
         badge: "03",
         title: "Haftalık Çalışma ve Ödev Takibi",
-        description: "Düzenli planlar ve takip sistemiyle istikrarlı ilerleme desteklenir.",
-        image: timelineImg4
+        description: "Haftalık programlar, ödev akışı ve tekrar düzeni yakından izlenir. Bu sayede öğrencinin istikrarlı ilerlemesi korunur ve planın dışına çıkmadan sürekli gelişim sağlanır.",
+        image: timelineImg4,
+        imagePosition: "center 34%"
     },
     {
         id: 4,
         badge: "04",
         title: "Koçluk ve Rehberlik Desteği",
-        description: "Motivasyon, zaman yönetimi ve bireysel yönlendirme sürece eşlik eder.",
-        image: timelineImg5
+        description: "Motivasyon, zaman yönetimi, çalışma alışkanlığı ve kişisel yönlendirme süreç boyunca desteklenir. Öğrencinin sürece bağlı kalmasını sağlayan rehberlik, düzenli temasla sürdürülür.",
+        image: timelineImg5,
+        imagePosition: "center 44%"
     },
     {
         id: 5,
         badge: "05",
         title: "Deneme ve Performans Analizi",
-        description: "Sonuçlar detaylı biçimde analiz edilerek gelişim alanları belirlenir.",
-        image: timelineImg6
+        description: "Türkiye geneli denemeler ve konu bazlı ölçümler detaylı şekilde incelenir. Sonuçlar yalnızca puan olarak değil, gelişim alanlarını görünür kılan bir analiz diliyle değerlendirilir.",
+        image: timelineImg6,
+        imagePosition: "center 38%"
     },
     {
         id: 6,
         badge: "06",
         title: "Gelişim Raporlama ve Güncelleme",
-        description: "Süreç veriye dayalı olarak güncellenir, öğrenci ve veli ile paylaşılır.",
-        image: timelineImg7
+        description: "Tüm süreç düzenli raporlanır, veli ve öğrenciyle şeffaf biçimde paylaşılır. Elde edilen veriler doğrultusunda plan güncellenir ve bir sonraki aşama netleştirilir.",
+        image: timelineImg7,
+        imagePosition: "center 36%"
     }
 ];
 
@@ -88,10 +94,11 @@ export default function EducationProcessTimeline() {
                                     <div
                                         className="education-process-number"
                                         style={{
-                                            backgroundImage: `url(${step.image})`
+                                            backgroundImage: `url(${step.image})`,
+                                            backgroundPosition: step.imagePosition || "center center"
                                         }}
                                     >
-                                        <span className="education-process-number-shadow">{step.badge}</span>
+                                        <span className="education-process-number-outline">{step.badge}</span>
                                         <span className="education-process-number-fill">{step.badge}</span>
                                     </div>
                                 </div>

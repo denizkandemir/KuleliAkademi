@@ -1,0 +1,543 @@
+@use "../styles/variables.scss" as styles;
+.summer-school-promo-section {
+    position: relative;
+    width: 100%;
+    overflow: hidden;
+    background: linear-gradient(180deg, #f8fafd 0%, #f2f6fb 100%);
+    border-bottom: 1px solid rgba(214, 223, 232, 0.58);
+    --ssp-navy: #15263a;
+    --ssp-text: #60768d;
+    --ssp-soft: #8ba1b8;
+    --ssp-border: rgba(179, 194, 211, 0.58);
+    --ssp-gold: #b59a58;
+}
+
+.summer-school-promo-shell {
+    max-width: 1320px;
+    margin: 0 auto;
+    position: relative;
+}
+
+.summer-school-promo-section::before,
+.summer-school-promo-section::after {
+    content: "";
+    position: absolute;
+    border-radius: 50%;
+    pointer-events: none;
+}
+
+.summer-school-promo-section::before {
+    top: -10%;
+    right: -6%;
+    width: 360px;
+    height: 360px;
+    background: radial-gradient(circle, rgba(181, 154, 88, 0.06) 0%, transparent 72%);
+}
+
+.summer-school-promo-section::after {
+    left: -8%;
+    bottom: -18%;
+    width: 320px;
+    height: 320px;
+    background: radial-gradient(circle, rgba(56, 85, 119, 0.08) 0%, transparent 74%);
+}
+
+.summer-school-promo-ribbon {
+    min-height: 84px;
+    display: flex;
+    align-items: center;
+    border: 1px solid rgba(181, 154, 88, 0.2);
+    background: linear-gradient(90deg, rgba(23, 40, 61, 0.96) 0%, rgba(36, 61, 89, 0.95) 52%, rgba(68, 100, 138, 0.92) 100%);
+    box-shadow: 0 16px 30px rgba(16, 29, 44, 0.14), inset 0 1px 0 rgba(255, 255, 255, 0.08);
+    overflow: hidden;
+}
+
+.summer-school-promo-ribbon::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(92deg, rgba(255, 255, 255, 0.07) 0%, transparent 34%, transparent 70%, rgba(255, 255, 255, 0.05) 100%), radial-gradient(circle at 16% 50%, rgba(181, 154, 88, 0.17), transparent 24%), radial-gradient(circle at 72% 48%, rgba(181, 154, 88, 0.11), transparent 28%);
+    pointer-events: none;
+}
+
+.summer-school-promo-ribbon-track {
+    position: relative;
+    z-index: 1;
+    width: 100%;
+    padding: 0 42px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 22px;
+    flex-wrap: wrap;
+}
+
+.summer-school-promo-ribbon-item {
+    display: inline-flex;
+    align-items: center;
+    gap: 18px;
+}
+
+.summer-school-promo-ribbon-text {
+    font-family: styles.$primary-font;
+    font-size: 12.5px;
+    font-weight: 700;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: rgba(252, 249, 242, 0.97);
+    white-space: nowrap;
+}
+
+.summer-school-promo-ribbon-separator {
+    width: 6px;
+    height: 6px;
+    border-radius: 50%;
+    flex-shrink: 0;
+    background: linear-gradient(145deg, #d3b871, #b7923e);
+    box-shadow: 0 0 0 4px rgba(211, 184, 113, 0.11);
+}
+
+.summer-school-promo-grid {
+    display: grid;
+    grid-template-columns: minmax(0, 1.02fr) minmax(0, 0.98fr);
+    gap: 44px;
+    align-items: center;
+}
+
+.summer-school-promo-left {
+    position: relative;
+}
+
+.summer-school-promo-visual {
+    position: relative;
+    min-height: 650px;
+    display: flex;
+    align-items: flex-end;
+    justify-content: center;
+}
+
+.summer-school-promo-orbits {
+    position: absolute;
+    inset: 0;
+    z-index: 1;
+    pointer-events: none;
+}
+
+.summer-school-promo-orbit {
+    position: absolute;
+    border-radius: 50%;
+}
+
+.summer-school-promo-orbit-1 {
+    width: 260px;
+    height: 260px;
+    left: 6%;
+    top: 14%;
+    border: 1.1px solid rgba(145, 166, 188, 0.18);
+}
+
+.summer-school-promo-orbit-2 {
+    width: 402px;
+    height: 402px;
+    left: 16%;
+    top: 7%;
+    border: 1px dashed rgba(125, 145, 166, 0.18);
+}
+
+.summer-school-promo-dot-cluster {
+    position: absolute;
+    right: 16%;
+    top: 19%;
+    width: 76px;
+    height: 76px;
+    background-image: radial-gradient(rgba(145, 166, 188, 0.24) 1.4px, transparent 1.4px);
+    background-size: 11px 11px;
+    opacity: 0.68;
+}
+
+.summer-school-promo-abstract {
+    position: absolute;
+}
+
+.summer-school-promo-abstract-1 {
+    width: 172px;
+    height: 116px;
+    left: 4%;
+    bottom: 18%;
+    border-radius: 42% 58% 62% 38% / 52% 40% 60% 48%;
+    background: linear-gradient(135deg, rgba(97, 119, 145, 0.09), rgba(181, 154, 88, 0.07));
+    filter: blur(1.2px);
+}
+
+.summer-school-promo-abstract-2 {
+    width: 146px;
+    height: 98px;
+    right: 10%;
+    top: 24%;
+    border-radius: 38% 62% 50% 50% / 58% 44% 56% 42%;
+    background: linear-gradient(180deg, rgba(125, 145, 166, 0.08), rgba(181, 154, 88, 0.06));
+    filter: blur(1.2px);
+}
+
+.summer-school-promo-student {
+    position: relative;
+    z-index: 3;
+    max-width: 435px;
+}
+
+.summer-school-promo-student-image {
+    display: block;
+    width: 100%;
+    height: auto;
+    object-fit: contain;
+    filter: drop-shadow(0 18px 28px rgba(16, 29, 44, 0.15));
+}
+
+.summer-school-promo-right {
+    position: relative;
+    z-index: 4;
+}
+
+.summer-school-promo-content {
+    width: 100%;
+    max-width: 558px;
+    position: relative;
+}
+
+.summer-school-promo-eyebrow {
+    margin: 0 0 14px;
+    display: inline-flex;
+    align-items: center;
+    width: fit-content;
+    padding: 5px 14px;
+    border-radius: 5px;
+    border: 1px solid rgba(177, 193, 210, 0.76);
+    background: linear-gradient(135deg, rgba(242, 246, 251, 0.95), rgba(236, 243, 250, 0.72));
+    font-family: styles.$primary-font;
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 0.13em;
+    text-transform: uppercase;
+    color: #5f748b;
+}
+
+.summer-school-promo-title {
+    margin: 0;
+    font-family: styles.$primary-font;
+    font-size: 45px;
+    font-weight: 600;
+    line-height: 1.03;
+    letter-spacing: -0.03em;
+    color: var(--ssp-navy);
+}
+
+.summer-school-promo-description {
+    margin: 18px 0 0;
+    font-family: styles.$primary-font;
+    font-size: 15px;
+    line-height: 1.72;
+    color: var(--ssp-text);
+    max-width: 34em;
+}
+
+.summer-school-promo-feature-list {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    margin-top: 22px;
+}
+
+.summer-school-promo-feature-item {
+    display: flex;
+    align-items: center;
+    gap: 11px;
+}
+
+.summer-school-promo-feature-icon {
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    flex-shrink: 0;
+    background: linear-gradient(135deg, #ccb068, #b89242);
+    box-shadow: 0 0 0 5px rgba(204, 176, 104, 0.14);
+}
+
+.summer-school-promo-feature-text {
+    font-family: styles.$primary-font;
+    font-size: 15px;
+    line-height: 1.54;
+    color: var(--ssp-navy);
+    font-weight: 500;
+}
+
+.summer-school-promo-stat-grid {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    margin-top: 24px;
+    max-width: 500px;
+    border-bottom: 1px solid rgba(185, 199, 214, 0.46);
+    border-top: 1px solid rgba(185, 199, 214, 0.46);
+}
+
+.summer-school-promo-stat-card {
+    min-height: 96px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 15px;
+}
+
+.summer-school-promo-stat-value {
+    display: block;
+    font-family: styles.$primary-font;
+    font-size: 36px;
+    font-weight: 700;
+    line-height: 1;
+    letter-spacing: -0.02em;
+    color: var(--ssp-navy);
+}
+
+.summer-school-promo-stat-label {
+    display: block;
+    font-family: styles.$primary-font;
+    font-size: 15px;
+    line-height: 1.4;
+    color: var(--ssp-text);
+    font-weight: 500;
+}
+
+.summer-school-promo-button {
+    margin-top: 24px;
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    padding: 14px 24px;
+    border-radius: 8px;
+    border: 1px solid rgba(173, 190, 208, 0.74);
+    background: linear-gradient(180deg, rgba(22, 39, 61, 0.96), rgba(22, 39, 61, 0.88));
+    color: #ffffff;
+    text-decoration: none;
+    font-family: styles.$primary-font;
+    font-size: 14px;
+    font-weight: 600;
+    transition: transform 0.24s ease, box-shadow 0.24s ease, background 0.24s ease;
+}
+
+.summer-school-promo-button svg {
+    transition: transform 0.24s ease;
+}
+
+.summer-school-promo-button:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 12px 22px rgba(20, 35, 55, 0.14);
+    background: linear-gradient(180deg, rgba(22, 39, 61, 1), rgba(22, 39, 61, 0.92));
+}
+
+.summer-school-promo-button:hover svg {
+    transform: translateX(3px);
+}
+
+.summer-school-promo-decoration {
+    position: absolute;
+    right: 0;
+    bottom: 4px;
+    width: 112px;
+    height: 76px;
+    pointer-events: none;
+}
+
+.summer-school-promo-decoration-book {
+    position: absolute;
+    left: 0;
+    width: 82px;
+    height: 14px;
+    border-radius: 10px;
+}
+
+.summer-school-promo-decoration-book-1 {
+    bottom: 6px;
+    display: none;
+    background: linear-gradient(130deg, #dce7f3, #cddbec);
+}
+
+.summer-school-promo-decoration-book-2 {
+    bottom: 20px;
+    left: 7px;
+    display: none;
+    width: 75px;
+    background: linear-gradient(130deg, #c5d6ea, #b7cae2);
+}
+
+.summer-school-promo-decoration-book-3 {
+    bottom: 34px;
+    left: 14px;
+    display: none;
+    width: 68px;
+    background: linear-gradient(130deg, #b3c8e2, #a1bbd8);
+}
+
+.summer-school-promo-decoration-orb {
+    position: absolute;
+    right: 0;
+    display: none;
+    top: 0;
+    width: 34px;
+    height: 34px;
+    border-radius: 50%;
+    background: radial-gradient(circle at 30% 30%, #ead8a5, #d3b66d 72%);
+    box-shadow: 0 8px 16px rgba(181, 154, 88, 0.2);
+}
+
+@media (max-width: 1240px) {
+    .summer-school-promo-title {
+        font-size: 48px;
+    }
+    .summer-school-promo-grid {
+        gap: 36px;
+    }
+    .summer-school-promo-visual {
+        min-height: 620px;
+    }
+    .summer-school-promo-student {
+        width: min(430px, 80%);
+    }
+    .summer-school-promo-ribbon {
+        bottom: 90px;
+        min-height: 78px;
+    }
+    .summer-school-promo-ribbon-track {
+        padding: 0 24px;
+        gap: 14px;
+    }
+    .summer-school-promo-ribbon-text {
+        font-size: 11px;
+    }
+}
+
+@media (max-width: 960px) {
+    .summer-school-promo-section {
+        padding: 62px 16px 84px;
+    }
+    .summer-school-promo-grid {
+        grid-template-columns: 1fr;
+        gap: 24px;
+    }
+    .summer-school-promo-left {
+        order: 1;
+    }
+    .summer-school-promo-right {
+        order: 2;
+    }
+    .summer-school-promo-content {
+        max-width: none;
+        padding: 8px 0 86px;
+    }
+    .summer-school-promo-visual {
+        min-height: 520px;
+    }
+    .summer-school-promo-student {
+        width: min(380px, 76%);
+        transform: translate(-8px, -2px);
+    }
+    .summer-school-promo-ribbon {
+        left: 0;
+        right: 0;
+        bottom: 76px;
+        min-height: 70px;
+        border-radius: 12px;
+    }
+    .summer-school-promo-ribbon-track {
+        padding: 0 16px;
+        gap: 10px;
+    }
+    .summer-school-promo-ribbon-item {
+        gap: 10px;
+    }
+    .summer-school-promo-title {
+        font-size: 40px;
+        max-width: 11em;
+    }
+    .summer-school-promo-stat-grid {
+        max-width: 460px;
+    }
+}
+
+@media (max-width: 640px) {
+    .summer-school-promo-section {
+        padding: 50px 14px 72px;
+    }
+    .summer-school-promo-ribbon {
+        position: relative;
+        left: auto;
+        right: auto;
+        bottom: auto;
+        margin: 0 0 16px;
+        min-height: 60px;
+        border-radius: 10px;
+    }
+    .summer-school-promo-ribbon-track {
+        justify-content: flex-start;
+        overflow-x: auto;
+        flex-wrap: nowrap;
+        scrollbar-width: thin;
+        padding: 0 12px 2px;
+    }
+    .summer-school-promo-ribbon-track::-webkit-scrollbar {
+        height: 5px;
+    }
+    .summer-school-promo-ribbon-track::-webkit-scrollbar-thumb {
+        border-radius: 999px;
+        background: rgba(255, 255, 255, 0.3);
+    }
+    .summer-school-promo-grid {
+        gap: 18px;
+    }
+    .summer-school-promo-visual {
+        min-height: 410px;
+    }
+    .summer-school-promo-student {
+        width: min(338px, 92%);
+        transform: translate(0, 0);
+    }
+    .summer-school-promo-title {
+        font-size: 32px;
+        line-height: 1.07;
+    }
+    .summer-school-promo-description {
+        font-size: 14px;
+        line-height: 1.64;
+    }
+    .summer-school-promo-feature-text {
+        font-size: 14px;
+    }
+    .summer-school-promo-stat-grid {
+        grid-template-columns: 1fr;
+        gap: 10px;
+        max-width: none;
+    }
+    .summer-school-promo-stat-card {
+        min-height: 90px;
+    }
+    .summer-school-promo-stat-value {
+        font-size: 32px;
+    }
+    .summer-school-promo-content {
+        padding-bottom: 78px;
+    }
+    .summer-school-promo-decoration {
+        width: 100px;
+        height: 70px;
+        right: 0;
+        bottom: 0;
+    }
+    .summer-school-promo-decoration-book {
+        width: 74px;
+        height: 13px;
+    }
+    .summer-school-promo-decoration-book-2 {
+        width: 68px;
+    }
+    .summer-school-promo-decoration-book-3 {
+        width: 62px;
+    }
+}

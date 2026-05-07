@@ -17,7 +17,7 @@
 }
 
 .education-process-timeline-shell {
-    max-width: 1360px;
+    max-width: 1180px;
     margin: 0 auto;
     position: relative;
     z-index: 1;
@@ -48,8 +48,8 @@
 }
 
 .education-process-timeline-intro {
-    max-width: 720px;
-    margin: 0 auto 44px;
+    max-width: 740px;
+    margin: 0 auto 54px;
     text-align: center;
 }
 
@@ -74,12 +74,12 @@
 .education-process-timeline-title {
     margin: 0;
     font-family: styles.$primary-font;
-    font-size: 30px;
-    line-height: 1.18;
+    font-size: 31px;
+    line-height: 1.16;
     font-weight: 600;
-    letter-spacing: -0.02em;
+    letter-spacing: -0.03em;
     color: var(--ept-navy);
-    margin-bottom: 14px;
+    margin-bottom: 16px;
     @media (max-width: 768px) {
         font-size: 24px;
     }
@@ -87,10 +87,10 @@
 
 .education-process-timeline-description {
     margin: 0 auto;
-    max-width: 640px;
+    max-width: 660px;
     font-family: styles.$primary-font;
     font-size: 15px;
-    line-height: 1.74;
+    line-height: 1.8;
     color: var(--ept-text);
     font-weight: 400;
 }
@@ -102,24 +102,25 @@
 .education-process-list {
     display: flex;
     flex-direction: column;
-    margin-top: 10px;
+    margin-top: 8px;
 }
 
 .education-process-row {
     display: grid;
-    grid-template-columns: minmax(0, 1.05fr) minmax(280px, 0.95fr);
-    gap: 40px;
+    grid-template-columns: minmax(0, 1.04fr) minmax(360px, 0.96fr);
+    gap: 72px;
     align-items: center;
-    padding: 30px 0 34px;
-    border-top: 1px solid rgba(185, 199, 214, 0.45);
+    border-top: 1px solid rgba(185, 199, 214, 0.46);
+    max-width: 1120px;
+    margin: 0 auto;
 }
 
 .education-process-row:last-child {
-    border-bottom: 1px solid rgba(185, 199, 214, 0.45);
+    border-bottom: 1px solid rgba(185, 199, 214, 0.46);
 }
 
 .education-process-row.is-reversed {
-    grid-template-columns: minmax(280px, 0.95fr) minmax(0, 1.05fr);
+    grid-template-columns: minmax(360px, 0.96fr) minmax(0, 1.04fr);
 }
 
 .education-process-row.is-reversed .education-process-row-copy {
@@ -131,39 +132,39 @@
 }
 
 .education-process-row-copy {
-    max-width: 540px;
+    max-width: 580px;
 }
 
 .education-process-row-meta {
     display: flex;
     align-items: center;
-    gap: 12px;
-    margin-bottom: 14px;
+    gap: 10px;
+    margin-bottom: 18px;
 }
 
 .education-process-row-badge {
     display: inline-flex;
     align-items: center;
     justify-content: center;
-    min-width: 48px;
+    min-width: 52px;
     height: 30px;
-    padding: 0 12px;
+    padding: 0 14px;
     border-radius: 999px;
     border: 1px solid rgba(178, 154, 90, 0.24);
     background: linear-gradient(180deg, rgba(248, 242, 226, 0.94), rgba(242, 234, 214, 0.82));
     font-family: styles.$primary-font;
-    font-size: 12px;
+    font-size: 10px;
     font-weight: 700;
-    letter-spacing: 0.08em;
+    letter-spacing: 0.1em;
     color: var(--ept-navy);
     box-shadow: 0 6px 14px rgba(178, 154, 90, 0.1);
 }
 
 .education-process-row-kicker {
     font-family: styles.$primary-font;
-    font-size: 12px;
+    font-size: 10px;
     font-weight: 700;
-    letter-spacing: 0.12em;
+    letter-spacing: 0.22em;
     text-transform: uppercase;
     color: #7b8fa6;
 }
@@ -171,19 +172,19 @@
 .education-process-row-title {
     margin: 0;
     font-family: styles.$primary-font;
-    font-size: 24px;
-    line-height: 1.18;
+    font-size: 27px;
+    line-height: 1.12;
     font-weight: 600;
-    letter-spacing: -0.02em;
+    letter-spacing: -0.03em;
     color: var(--ept-navy);
 }
 
 .education-process-row-description {
-    margin: 14px 0 0;
-    max-width: 520px;
+    margin: 16px 0 0;
+    max-width: 570px;
     font-family: styles.$primary-font;
     font-size: 15px;
-    line-height: 1.72;
+    line-height: 1.82;
     color: var(--ept-text);
     font-weight: 400;
 }
@@ -199,8 +200,8 @@
     display: flex;
     align-items: center;
     justify-content: center;
-    width: 260px;
-    height: 200px;
+    width: 450px;
+    height: 400px;
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
@@ -208,26 +209,26 @@
     background-clip: text;
 }
 
-.education-process-number-fill,
-.education-process-number-shadow {
+.education-process-number-outline,
+.education-process-number-fill {
     position: absolute;
     inset: 0;
     display: flex;
     align-items: center;
     justify-content: center;
     font-family: styles.$primary-font;
-    font-size: 152px;
+    font-size: 410px;
     font-weight: 800;
     line-height: 1;
-    letter-spacing: -0.08em;
+    letter-spacing: -0.12em;
     user-select: none;
 }
 
-.education-process-number-shadow {
-    color: rgba(255, 255, 255, 0.92);
-    transform: translate(3px, 4px);
-    filter: blur(0.6px);
-    opacity: 0.92;
+.education-process-number-outline {
+    color: rgba(255, 255, 255, 0.9);
+    transform: translate(5px, 6px);
+    filter: blur(0.25px);
+    opacity: 0.96;
 }
 
 .education-process-number-fill {
@@ -239,40 +240,41 @@
     background-repeat: no-repeat;
     -webkit-background-clip: text;
     background-clip: text;
-    text-shadow: 0 2px 0 rgba(255, 255, 255, 0.18), 0 18px 34px rgba(18, 32, 49, 0.16);
+    text-shadow: 0 2px 0 rgba(255, 255, 255, 0.14), 0 22px 42px rgba(18, 32, 49, 0.2);
 }
 
 .education-process-row:nth-child(even) .education-process-number-fill,
-.education-process-row:nth-child(even) .education-process-number-shadow {
+.education-process-row:nth-child(even) .education-process-number-outline {
     letter-spacing: -0.1em;
 }
 
 .education-process-row:nth-child(odd) .education-process-number {
-    transform: translateX(8px);
+    transform: translateX(14px);
 }
 
 .education-process-row:nth-child(even) .education-process-number {
-    transform: translateX(-8px);
+    transform: translateX(-14px);
 }
 
 @media (max-width: 1100px) {
     .education-process-row {
-        grid-template-columns: minmax(0, 1fr) minmax(220px, 0.82fr);
-        gap: 28px;
+        grid-template-columns: minmax(0, 1fr) minmax(280px, 0.9fr);
+        gap: 34px;
+        padding: 40px 0 42px;
     }
     .education-process-row.is-reversed {
-        grid-template-columns: minmax(220px, 0.82fr) minmax(0, 1fr);
+        grid-template-columns: minmax(280px, 0.9fr) minmax(0, 1fr);
     }
     .education-process-row-title {
-        font-size: 21px;
+        font-size: 22px;
     }
     .education-process-number {
-        width: 220px;
-        height: 170px;
+        width: 300px;
+        height: 220px;
     }
     .education-process-number-fill,
-    .education-process-number-shadow {
-        font-size: 132px;
+    .education-process-number-outline {
+        font-size: 184px;
     }
 }
 
@@ -288,8 +290,8 @@
     .education-process-row,
     .education-process-row.is-reversed {
         grid-template-columns: 1fr;
-        gap: 18px;
-        padding: 22px 0 26px;
+        gap: 22px;
+        padding: 28px 0 30px;
     }
     .education-process-row.is-reversed .education-process-row-copy,
     .education-process-row.is-reversed .education-process-row-visual {
@@ -303,14 +305,14 @@
     }
     .education-process-number {
         width: 100%;
-        max-width: 320px;
-        height: 180px;
+        max-width: 360px;
+        height: 220px;
         justify-self: start;
         transform: none !important;
     }
     .education-process-number-fill,
-    .education-process-number-shadow {
-        font-size: 126px;
+    .education-process-number-outline {
+        font-size: 170px;
     }
 }
 
@@ -328,11 +330,11 @@
         font-size: 14px;
     }
     .education-process-number {
-        max-width: 290px;
-        height: 160px;
+        max-width: 310px;
+        height: 190px;
     }
     .education-process-number-fill,
-    .education-process-number-shadow {
-        font-size: 110px;
+    .education-process-number-outline {
+        font-size: 138px;
     }
 }
