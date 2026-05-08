@@ -1,0 +1,278 @@
+@use "../styles/variables.scss" as styles;
+
+/* Overlay */
+
+.mobile-menu-overlay {
+    position: fixed;
+    inset: 0;
+    z-index: 999;
+    background: rgba(18, 27, 39, 0.54);
+    backdrop-filter: blur(4px);
+    -webkit-backdrop-filter: blur(4px);
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.32s cubic-bezier(0.4, 0, 0.2, 1);
+    &.is-open {
+        opacity: 1;
+        pointer-events: auto;
+    }
+}
+
+
+/* Sidebar Panel */
+
+.mobile-menu-panel {
+    position: fixed;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    z-index: 1000;
+    width: 86vw;
+    max-width: 380px;
+    background: linear-gradient(180deg, #fafbfc 0%, #f6f8fa 100%);
+    border-left: 1px solid rgba(184, 198, 213, 0.32);
+    box-shadow: -12px 8px 28px rgba(18, 27, 39, 0.18), inset 0 1px 0 rgba(255, 255, 255, 0.64);
+    display: flex;
+    flex-direction: column;
+    transform: translateX(100%);
+    transition: transform 0.32s cubic-bezier(0.4, 0, 0.2, 1);
+    overflow-y: auto;
+    overscroll-behavior: contain;
+    &.is-open {
+        transform: translateX(0);
+    }
+    /* Smooth scrollbar for webkit browsers */
+    &::-webkit-scrollbar {
+        width: 6px;
+    }
+    &::-webkit-scrollbar-track {
+        background: transparent;
+    }
+    &::-webkit-scrollbar-thumb {
+        background: rgba(36, 54, 77, 0.12);
+        border-radius: 3px;
+        &:hover {
+            background: rgba(36, 54, 77, 0.2);
+        }
+    }
+}
+
+
+/* Header with close button */
+
+.mobile-menu-header {
+    position: relative;
+    padding: 16px 20px;
+    border-bottom: 1px solid rgba(184, 198, 213, 0.24);
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    flex-shrink: 0;
+}
+
+
+/* Close Button */
+
+.mobile-menu-close {
+    width: 40px;
+    height: 40px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    border: 1px solid rgba(186, 159, 83, 0.26);
+    border-radius: 10px;
+    background: rgba(247, 246, 242, 0.8);
+    color: #24364d;
+    cursor: pointer;
+    transition: all 0.22s ease;
+    flex-shrink: 0;
+    svg {
+        width: 24px;
+        height: 24px;
+        stroke-width: 2;
+    }
+    &:hover,
+    &:focus-visible {
+        background: rgba(186, 159, 83, 0.12);
+        border-color: rgba(186, 159, 83, 0.46);
+        color: #1f2f46;
+        outline: none;
+    }
+    &:active {
+        transform: scale(0.96);
+    }
+}
+
+
+/* Main content area */
+
+.mobile-menu-content {
+    flex: 1;
+    padding: 24px 0;
+    display: flex;
+    flex-direction: column;
+    gap: 0;
+}
+
+
+/* Navigation links list */
+
+.mobile-menu-links {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 0;
+}
+
+
+/* Individual menu item */
+
+.mobile-menu-item {
+    display: flex;
+    align-items: center;
+    &:not(:last-child) {
+        border-bottom: 1px solid rgba(184, 198, 213, 0.12);
+    }
+}
+
+
+/* Menu link styling */
+
+.mobile-menu-link {
+    flex: 1;
+    display: flex;
+    align-items: center;
+    padding: 16px 20px;
+    color: #24364d;
+    font-family: "Segoe UI", styles.$primary-font;
+    font-size: clamp(16px, 4vw, 18px);
+    font-weight: 600;
+    line-height: 1.4;
+    letter-spacing: 0.08px;
+    text-decoration: none;
+    transition: all 0.22s ease;
+    position: relative;
+    &::before {
+        content: "";
+        position: absolute;
+        left: 0;
+        top: 0;
+        bottom: 0;
+        width: 3px;
+        background: linear-gradient(180deg, rgba(186, 159, 83, 0) 0%, rgba(186, 159, 83, 1) 50%, rgba(186, 159, 83, 0) 100%);
+        opacity: 0;
+        transition: opacity 0.22s ease;
+    }
+    &:hover,
+    &:focus-visible {
+        background: rgba(186, 159, 83, 0.08);
+        color: #1f2f46;
+        outline: none;
+        &::before {
+            opacity: 1;
+        }
+    }
+    &:active {
+        background: rgba(186, 159, 83, 0.14);
+    }
+}
+
+
+/* Footer CTA */
+
+.mobile-menu-footer {
+    padding: 20px;
+    border-top: 1px solid rgba(184, 198, 213, 0.24);
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    flex-shrink: 0;
+}
+
+
+/* CTA Button */
+
+.mobile-menu-cta {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: clamp(14px, 3vw, 16px) clamp(20px, 5vw, 28px);
+    border-radius: 12px;
+    border: 1.2px solid rgba(186, 159, 83, 0.46);
+    background: linear-gradient(135deg, rgba(247, 246, 242, 0.96), rgba(242, 240, 236, 0.88));
+    color: #24364d;
+    font-family: "Segoe UI", styles.$primary-font;
+    font-size: clamp(14px, 3.5vw, 16px);
+    font-weight: 700;
+    letter-spacing: 0.04em;
+    text-decoration: none;
+    text-align: center;
+    line-height: 1.2;
+    cursor: pointer;
+    transition: all 0.24s cubic-bezier(0.4, 0, 0.2, 1);
+    box-shadow: 0 4px 12px rgba(186, 159, 83, 0.14), inset 0 1px 0 rgba(255, 255, 255, 0.6);
+    &:hover,
+    &:focus-visible {
+        background: linear-gradient(135deg, rgba(247, 246, 242, 1), rgba(242, 240, 236, 0.96));
+        border-color: rgba(186, 159, 83, 0.68);
+        color: #1f2f46;
+        transform: translateY(-2px);
+        box-shadow: 0 8px 20px rgba(186, 159, 83, 0.24), inset 0 1px 0 rgba(255, 255, 255, 0.7);
+        outline: none;
+    }
+    &:active {
+        transform: translateY(0);
+        box-shadow: 0 2px 6px rgba(186, 159, 83, 0.14), inset 0 1px 0 rgba(255, 255, 255, 0.5);
+    }
+}
+
+
+/* Responsive adjustments */
+
+@media (max-width: 600px) {
+    .mobile-menu-panel {
+        width: 100%;
+        max-width: none;
+    }
+    .mobile-menu-header {
+        padding: 12px 16px;
+    }
+    .mobile-menu-content {
+        padding: 20px 0;
+    }
+    .mobile-menu-link {
+        padding: 14px 16px;
+        font-size: 16px;
+    }
+    .mobile-menu-footer {
+        padding: 16px;
+    }
+}
+
+@media (max-width: 480px) {
+    .mobile-menu-header {
+        padding: 10px 12px;
+    }
+    .mobile-menu-close {
+        width: 36px;
+        height: 36px;
+        svg {
+            width: 20px;
+            height: 20px;
+        }
+    }
+    .mobile-menu-link {
+        padding: 12px 14px;
+        font-size: 15px;
+    }
+    .mobile-menu-footer {
+        padding: 12px;
+        gap: 10px;
+    }
+    .mobile-menu-cta {
+        padding: 12px 18px;
+        font-size: 14px;
+    }
+}

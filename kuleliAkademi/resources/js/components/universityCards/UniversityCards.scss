@@ -116,6 +116,16 @@
     padding: 6px;
     scrollbar-width: none;
     -ms-overflow-style: none;
+    @media (max-width: 768px) {
+        grid-auto-columns: minmax(200px, calc((100% - 24px) / 1.5));
+        gap: 16px;
+        padding: 4px;
+    }
+    @media (max-width: 480px) {
+        grid-auto-columns: minmax(140px, calc((100% - 16px) / 1.2));
+        gap: 12px;
+        padding: 2px;
+    }
     &::-webkit-scrollbar {
         display: none;
     }

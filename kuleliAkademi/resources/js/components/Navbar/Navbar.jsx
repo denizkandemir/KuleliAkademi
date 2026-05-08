@@ -1,10 +1,12 @@
-import React from "react";
+import React, { useState } from "react";
 import "./Navbar.scss";
 import kuleliLogoGold from "../../assets/images/kuleliLogoGold.png";
 import { Link, usePage } from "@inertiajs/react";
+import MobileMenu from "../MobileMenu/MobileMenu";
 
 const Navbar = () => {
     const { url } = usePage();
+    const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
 
     const navItems = [
         { label: "Hakkımızda", href: "/hakkımızda" },
@@ -58,7 +60,20 @@ const Navbar = () => {
                             <path d="M24 12.073C24 5.405 18.627 0 12 0S0 5.405 0 12.073C0 18.1 4.388 23.094 10.125 24V15.564H7.078V12.073H10.125V9.405C10.125 6.348 11.917 4.688 14.658 4.688C15.97 4.688 17.344 4.922 17.344 4.922V7.875H15.83C14.34 7.875 13.875 8.8 13.875 9.75V12.073H17.203L16.671 15.564H13.875V24C19.612 23.094 24 18.1 24 12.073Z" fill="#24364d" />
                         </svg>
                     </a>
+
+                    <button
+                        className="navbar-hamburger"
+                        onClick={() => setMobileMenuOpen(true)}
+                        aria-label="Menüyü aç"
+                        type="button"
+                    >
+                        <svg width="26" height="26" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M3 12H21M3 6H21M3 18H21" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
+                        </svg>
+                    </button>
                 </div>
+
+                <MobileMenu isOpen={mobileMenuOpen} onClose={() => setMobileMenuOpen(false)} />
             </div>
         </header>
     );

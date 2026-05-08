@@ -3,10 +3,10 @@ import "./SummerSchoolPromoSection.scss";
 import studentImage from "../../assets/images/summerSchoolImg.png";
 
 const ribbonItems = [
-    "Akademik Başarı",
-    "Yaz Okulu ile Gelişim",
-    "LGS’de Erken Hazırlık",
-    "Planlı Öğrenme Modeli",
+    "AKADEMİK BAŞARI",
+    "YAZ OKULU İLE GELİŞİM",
+    "LGS'DE ERKEN HAZIRLIK",
+    "PLANLI ÖĞRENİM MODELİ",
 ];
 
 const featureList = [
@@ -98,7 +98,7 @@ export default function SummerSchoolPromoSection() {
                             </div>
 
                             <a href="#" className="summer-school-promo-button">
-                                Programı İnceleyin
+                                Bize Mesaj Atın
                                 <svg
                                     width="16"
                                     height="16"

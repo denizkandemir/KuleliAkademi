@@ -56,8 +56,6 @@ function VideoCard({ event, onCardClick }) {
                     Tarayıcınız video etiketini desteklemiyor.
                 </video>
 
-                <div className="events-card-overlay"></div>
-
                 <div className="events-card-expand-icon">
                     <svg width="24" height="24" viewBox="0 0 24 24" fill="none" aria-hidden="true">
                         <path
@@ -117,11 +115,6 @@ function VideoCard({ event, onCardClick }) {
                         <path d="M18 14L31 22L18 30V14Z" fill="#142337" />
                     </svg>
                 </div>
-            </div>
-
-            <div className="events-card-footer">
-                <h4 className="events-card-title">{event.title}</h4>
-                <p className="events-card-caption">Kuleli'den kısa video anı</p>
             </div>
         </article>
     );
@@ -322,8 +315,8 @@ export default function EventsGallerySection() {
                                 aria-label="Önceki etkinlikler"
                                 disabled={!canScrollLeft}
                             >
-                                <svg width="20" height="20" viewBox="0 0 20 20" fill="none">
-                                    <path d="M12.5 15L7.5 10L12.5 5" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
+                                <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
+                                    <path d="M14.5 6L9.5 12L14.5 18" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
                                 </svg>
                             </button>
                             <button
@@ -333,8 +326,8 @@ export default function EventsGallerySection() {
                                 aria-label="Sonraki etkinlikler"
                                 disabled={!canScrollRight}
                             >
-                                <svg width="20" height="20" viewBox="0 0 20 20" fill="none">
-                                    <path d="M7.5 5L12.5 10L7.5 15" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
+                                <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
+                                    <path d="M9.5 6L14.5 12L9.5 18" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
                                 </svg>
                             </button>
                         </div>
@@ -354,9 +347,6 @@ export default function EventsGallerySection() {
                                 />
                             ))}
                         </div>
-
-                        <div className="events-gallery-fade-left"></div>
-                        <div className="events-gallery-fade-right"></div>
                     </div>
                 </div>
             </section>

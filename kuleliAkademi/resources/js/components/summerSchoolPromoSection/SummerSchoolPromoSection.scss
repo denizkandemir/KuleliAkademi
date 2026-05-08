@@ -43,20 +43,21 @@
 }
 
 .summer-school-promo-ribbon {
-    min-height: 84px;
+    min-height: 100px;
     display: flex;
     align-items: center;
     border: 1px solid rgba(181, 154, 88, 0.2);
-    background: linear-gradient(90deg, rgba(23, 40, 61, 0.96) 0%, rgba(36, 61, 89, 0.95) 52%, rgba(68, 100, 138, 0.92) 100%);
+    background: linear-gradient( 90deg, rgba(23, 40, 61, 0.96) 0%, rgba(36, 61, 89, 0.95) 52%, rgba(68, 100, 138, 0.92) 100%);
     box-shadow: 0 16px 30px rgba(16, 29, 44, 0.14), inset 0 1px 0 rgba(255, 255, 255, 0.08);
     overflow: hidden;
+    position: relative;
 }
 
 .summer-school-promo-ribbon::before {
     content: "";
     position: absolute;
     inset: 0;
-    background: linear-gradient(92deg, rgba(255, 255, 255, 0.07) 0%, transparent 34%, transparent 70%, rgba(255, 255, 255, 0.05) 100%), radial-gradient(circle at 16% 50%, rgba(181, 154, 88, 0.17), transparent 24%), radial-gradient(circle at 72% 48%, rgba(181, 154, 88, 0.11), transparent 28%);
+    background: linear-gradient( 92deg, rgba(255, 255, 255, 0.07) 0%, transparent 34%, transparent 70%, rgba(255, 255, 255, 0.05) 100%), radial-gradient(circle at 16% 50%, rgba(181, 154, 88, 0.17), transparent 24%), radial-gradient(circle at 72% 48%, rgba(181, 154, 88, 0.11), transparent 28%);
     pointer-events: none;
 }
 
@@ -80,10 +81,9 @@
 
 .summer-school-promo-ribbon-text {
     font-family: styles.$primary-font;
-    font-size: 12.5px;
+    font-size: 15px;
     font-weight: 700;
     letter-spacing: 0.1em;
-    text-transform: uppercase;
     color: rgba(252, 249, 242, 0.97);
     white-space: nowrap;
 }
@@ -104,13 +104,9 @@
     align-items: center;
 }
 
-.summer-school-promo-left {
-    position: relative;
-}
-
 .summer-school-promo-visual {
     position: relative;
-    min-height: 650px;
+    min-height: clamp(280px, 70vw, 650px);
     display: flex;
     align-items: flex-end;
     justify-content: center;
@@ -307,20 +303,26 @@
 }
 
 .summer-school-promo-button {
-    margin-top: 24px;
     display: inline-flex;
     align-items: center;
-    gap: 10px;
-    padding: 14px 24px;
-    border-radius: 8px;
-    border: 1px solid rgba(173, 190, 208, 0.74);
-    background: linear-gradient(180deg, rgba(22, 39, 61, 0.96), rgba(22, 39, 61, 0.88));
-    color: #ffffff;
-    text-decoration: none;
-    font-family: styles.$primary-font;
+    justify-content: center;
+    gap: 8px;
+    margin-top: 25px;
+    padding: 12px 26px;
+    border: 1.5px solid rgba(180, 196, 212, 0.42);
+    border-radius: 11px;
+    background: rgba(255, 255, 255, 0.72);
+    backdrop-filter: blur(8px);
+    color: #142337;
+    font-family: "Trebuchet MS", "Segoe UI", sans-serif;
     font-size: 14px;
     font-weight: 600;
-    transition: transform 0.24s ease, box-shadow 0.24s ease, background 0.24s ease;
+    letter-spacing: 0.005em;
+    text-decoration: none;
+    width: fit-content;
+    box-shadow: 0 8px 16px rgba(20, 35, 55, 0.06), inset 0 1px 0 rgba(255, 255, 255, 0.8);
+    transition: all 0.26s cubic-bezier(0.4, 0, 0.2, 1);
+    cursor: pointer;
 }
 
 .summer-school-promo-button svg {
@@ -379,8 +381,8 @@
 .summer-school-promo-decoration-orb {
     position: absolute;
     right: 0;
-    display: none;
     top: 0;
+    display: none;
     width: 34px;
     height: 34px;
     border-radius: 50%;
@@ -401,16 +403,9 @@
     .summer-school-promo-student {
         width: min(430px, 80%);
     }
-    .summer-school-promo-ribbon {
-        bottom: 90px;
-        min-height: 78px;
-    }
     .summer-school-promo-ribbon-track {
         padding: 0 24px;
         gap: 14px;
-    }
-    .summer-school-promo-ribbon-text {
-        font-size: 11px;
     }
 }
 

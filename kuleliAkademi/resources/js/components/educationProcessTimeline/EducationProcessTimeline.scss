@@ -139,11 +139,10 @@
     display: flex;
     align-items: center;
     gap: 10px;
-    margin-bottom: 18px;
 }
 
 .education-process-row-badge {
-    display: inline-flex;
+    display: none;
     align-items: center;
     justify-content: center;
     min-width: 52px;
