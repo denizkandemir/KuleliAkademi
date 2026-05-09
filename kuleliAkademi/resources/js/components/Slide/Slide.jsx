@@ -6,6 +6,7 @@ import {
     Autoplay,
     EffectCreative
 } from "swiper/modules";
+import { useState, useEffect } from "react";
 import "swiper/css";
 import "swiper/css/pagination";
 import "swiper/css/effect-creative";
@@ -110,6 +111,19 @@ const floatingLabelVariants = {
 
 const Slide = ({ SlideImgs,imgClass, container, id, isSlideOpen, containerRef, openSlide, shouldOpen }) => {
    
+    const [isMobile, setIsMobile] = useState(typeof window !== 'undefined' && window.innerWidth <= 768);
+
+    useEffect(() => {
+        if (typeof window === 'undefined') return;
+
+        const handleResize = () => {
+            setIsMobile(window.innerWidth <= 768);
+        };
+
+        window.addEventListener('resize', handleResize);
+        return () => window.removeEventListener('resize', handleResize);
+    }, []);
+
     const swiperClassName = container === "header-slide-container" ? "hero-swiper" : "";
     const validSlides = SlideImgs.filter((slide) => slide && slide.url);
     const shouldLoop = validSlides.length > 1;
@@ -260,7 +274,7 @@ const Slide = ({ SlideImgs,imgClass, container, id, isSlideOpen, containerRef, o
                                                             )}
                                                         </div>
 
-                                                        {getFeatureItems(img).length > 0 && (
+                                                        {!isMobile && getFeatureItems(img).length > 0 && (
                                                             <motion.div className="slide-features-row" variants={featureRowVariants}>
                                                                 {getFeatureItems(img).map((icon, itemIndex) => (
                                                                     <motion.div

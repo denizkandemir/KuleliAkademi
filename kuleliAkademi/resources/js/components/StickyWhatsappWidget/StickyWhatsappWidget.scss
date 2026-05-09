@@ -1,0 +1,213 @@
+.sticky-whatsapp-widget {
+    position: fixed;
+    bottom: 24px;
+    left: 24px;
+    z-index: 999;
+    font-family: "Trebuchet MS", "Segoe UI", sans-serif;
+    /* Main WhatsApp Button */
+    .whatsapp-main-button {
+        width: 56px;
+        height: 56px;
+        border-radius: 50%;
+        background: linear-gradient(135deg, #ffffff 0%, #f8f9fa 100%);
+        border: 1px solid rgba(31, 111, 178, 0.08);
+        box-shadow: 0 4px 12px rgba(31, 111, 178, 0.12);
+        cursor: pointer;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        padding: 0;
+        position: relative;
+        svg {
+            width: 28px;
+            height: 28px;
+            transition: transform 0.3s ease;
+        }
+        &:hover {
+            transform: translateY(-3px) scale(1.05);
+            box-shadow: 0 8px 16px rgba(31, 111, 178, 0.16);
+            border-color: rgba(31, 111, 178, 0.12);
+        }
+        &:active {
+            transform: translateY(-1px) scale(1.02);
+        }
+        &.is-active {
+            box-shadow: 0 8px 20px rgba(31, 111, 178, 0.2);
+        }
+    }
+    /* Contacts Container */
+    .whatsapp-contacts-container {
+        position: absolute;
+        bottom: 70px;
+        left: 0;
+        display: flex;
+        flex-direction: column;
+        gap: 10px;
+        pointer-events: auto;
+        /* Contact Item */
+        .whatsapp-contact-item {
+            animation: slideUpWhatsapp 0.4s cubic-bezier(0.34, 1.56, 0.64, 1) forwards;
+            opacity: 0;
+            background: #ffffff;
+            border: 1px solid rgba(31, 111, 178, 0.1);
+            border-radius: 12px;
+            padding: 12px 16px;
+            cursor: pointer;
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.06);
+            white-space: nowrap;
+            text-align: left;
+            display: flex;
+            align-items: center;
+            &:hover {
+                background: linear-gradient(135deg, #f8f9fa 0%, #f3f5f7 100%);
+                border-color: rgba(31, 111, 178, 0.2);
+                box-shadow: 0 4px 12px rgba(31, 111, 178, 0.12);
+                transform: translateX(4px);
+            }
+            &:active {
+                transform: translateX(2px) scale(0.98);
+            }
+            /* Contact Info */
+            .contact-info {
+                display: flex;
+                flex-direction: column;
+                text-align: left;
+                .contact-title {
+                    font-size: 12px;
+                    font-weight: 600;
+                    color: #1f6fb2;
+                    margin-bottom: 3px;
+                    letter-spacing: 0.3px;
+                }
+                .contact-phone {
+                    font-size: 11px;
+                    color: rgba(0, 0, 0, 0.65);
+                    font-weight: 500;
+                    line-height: 1.3;
+                }
+            }
+        }
+    }
+}
+
+
+/* Animation Keyframes */
+
+@keyframes slideUpWhatsapp {
+    from {
+        opacity: 0;
+        transform: translateY(16px) scale(0.92);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0) scale(1);
+    }
+}
+
+
+/* Responsive Design */
+
+@media (max-width: 768px) {
+    .sticky-whatsapp-widget {
+        bottom: 20px;
+        left: 20px;
+        .whatsapp-main-button {
+            width: 52px;
+            height: 52px;
+            box-shadow: 0 3px 10px rgba(31, 111, 178, 0.1);
+            svg {
+                width: 26px;
+                height: 26px;
+            }
+            &:hover {
+                transform: translateY(-2px) scale(1.04);
+                box-shadow: 0 6px 14px rgba(31, 111, 178, 0.14);
+            }
+        }
+        .whatsapp-contacts-container {
+            bottom: 62px;
+            gap: 8px;
+            .whatsapp-contact-item {
+                padding: 10px 14px;
+                border-radius: 10px;
+                .contact-info {
+                    .contact-title {
+                        font-size: 11px;
+                        margin-bottom: 2px;
+                    }
+                    .contact-phone {
+                        font-size: 10px;
+                    }
+                }
+                &:hover {
+                    transform: translateX(3px);
+                }
+            }
+        }
+    }
+}
+
+@media (max-width: 480px) {
+    .sticky-whatsapp-widget {
+        bottom: 16px;
+        left: 16px;
+        .whatsapp-main-button {
+            width: 48px;
+            height: 48px;
+            svg {
+                width: 24px;
+                height: 24px;
+            }
+        }
+        .whatsapp-contacts-container {
+            bottom: 58px;
+            .whatsapp-contact-item {
+                padding: 9px 12px;
+                .contact-info {
+                    .contact-title {
+                        font-size: 11px;
+                    }
+                    .contact-phone {
+                        font-size: 10px;
+                    }
+                }
+            }
+        }
+    }
+}
+
+
+/* Dark Mode Support (Optional) */
+
+@media (prefers-color-scheme: dark) {
+    .sticky-whatsapp-widget {
+        .whatsapp-main-button {
+            background: linear-gradient(135deg, #1f2f46 0%, #1e3a5f 100%);
+            border-color: rgba(212, 175, 55, 0.1);
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+            &:hover {
+                box-shadow: 0 8px 16px rgba(0, 0, 0, 0.4);
+            }
+        }
+        .whatsapp-contacts-container .whatsapp-contact-item {
+            background: #1f2f46;
+            border-color: rgba(212, 175, 55, 0.15);
+            color: #f8fafc;
+            .contact-info {
+                .contact-title {
+                    color: #d4af37;
+                }
+                .contact-phone {
+                    color: rgba(248, 250, 252, 0.7);
+                }
+            }
+            &:hover {
+                background: linear-gradient(135deg, #253546 0%, #2d4662 100%);
+                border-color: rgba(212, 175, 55, 0.25);
+                box-shadow: 0 4px 12px rgba(0, 0, 0, 0.4);
+            }
+        }
+    }
+}

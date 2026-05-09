@@ -21,8 +21,17 @@
     background-color: var(--uc-bg-0);
     border-top: 1px solid rgba(218, 224, 232, 0.66);
     // border-bottom: 1px solid rgba(218, 224, 232, 0.54);
+    @media (max-width: 900px) {
+        padding: clamp(45px, 7vw, 65px) 16px clamp(45px, 7vw, 60px);
+    }
+    @media (max-width: 768px) {
+        padding: clamp(40px, 6vw, 55px) 14px clamp(40px, 6vw, 50px);
+    }
     @media (max-width: 640px) {
-        padding: clamp(40px, 6vw, 50px) 14px;
+        padding: clamp(35px, 5.5vw, 48px) 12px clamp(35px, 5.5vw, 45px);
+    }
+    @media (max-width: 500px) {
+        padding: clamp(28px, 4.5vw, 38px) 10px clamp(28px, 4.5vw, 38px);
     }
 }
 

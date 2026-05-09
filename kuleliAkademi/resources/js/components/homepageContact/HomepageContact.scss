@@ -5,13 +5,24 @@
     border-top: 1px solid rgba(207, 216, 227, 0.75);
     padding: clamp(50px, 8vw, 70px) 20px;
     padding-top: clamp(60px, 10vw, 90px);
+    padding-bottom: clamp(50px, 8vw, 70px);
+    @media (max-width: 900px) {
+        padding-bottom: clamp(40px, 6vw, 55px);
+    }
     @media (max-width: 768px) {
-        padding: clamp(40px, 6vw, 50px) 14px;
-        padding-top: clamp(50px, 8vw, 70px);
+        padding: clamp(35px, 5.5vw, 48px) 14px;
+        padding-top: clamp(45px, 7vw, 65px);
+        padding-bottom: clamp(35px, 5.5vw, 48px);
+    }
+    @media (max-width: 600px) {
+        padding: clamp(28px, 4.5vw, 36px) 12px;
+        padding-top: clamp(36px, 5.5vw, 44px);
+        padding-bottom: clamp(28px, 4.5vw, 36px);
     }
     @media (max-width: 480px) {
-        padding: clamp(32px, 5vw, 40px) 12px;
-        padding-top: clamp(40px, 6vw, 50px);
+        padding: clamp(24px, 4vw, 32px) 10px;
+        padding-top: clamp(32px, 5vw, 40px);
+        padding-bottom: clamp(24px, 4vw, 32px);
     }
 }
 
@@ -30,10 +41,6 @@
     background: radial-gradient(90% 116% at 12% 8%, rgba(240, 225, 189, 0.13) 0%, rgba(240, 225, 189, 0) 56%), radial-gradient(62% 92% at 88% 22%, rgba(132, 167, 203, 0.2) 0%, rgba(132, 167, 203, 0) 72%), linear-gradient(122deg, #142337 0%, #1b3049 46%, #274260 100%);
     box-shadow: 0 20px 38px rgba(18, 29, 45, 0.24), inset 0 1px 0 rgba(255, 255, 255, 0.09);
     min-height: clamp(320px, 50vw, 530px);
-    @media (max-width: 768px) {
-        grid-template-columns: 1fr;
-        min-height: auto;
-    }
     &::before {
         content: "";
         position: absolute;
@@ -55,10 +62,6 @@
         opacity: 0.8;
         animation: hcLeftOrbitBreath 16s linear infinite;
         pointer-events: none;
-        @media (max-width: 768px) {
-            opacity: 0.3;
-            display: none;
-        }
     }
 }
 
@@ -72,17 +75,6 @@
     padding-right: clamp(20px, 4vw, 60px);
     justify-self: end;
     max-width: 700px;
-    @media (max-width: 768px) {
-        padding-top: clamp(30px, 6vw, 50px);
-        padding-bottom: clamp(30px, 6vw, 50px);
-        padding-left: clamp(16px, 3vw, 30px);
-        padding-right: clamp(16px, 3vw, 30px);
-        max-width: 100%;
-        justify-self: start;
-    }
-    @media (max-width: 480px) {
-        padding: clamp(20px, 4vw, 24px);
-    }
     &::before {
         content: "";
         position: absolute;
@@ -121,11 +113,18 @@
     max-width: 40px;
 }
 
-.homepage-contact-eyebrow {
-    margin: 0;
+.homepage-contact-eyebrow,
+.homepage-contact-title,
+.homepage-contact-description,
+.homepage-contact-highlight-item,
+.homepage-contact-cta-button,
+.homepage-contact-cta-note {
     font-family: styles.$primary-font;
+}
+
+.homepage-contact-eyebrow {
+    margin: 0 0 0 3px;
     font-size: 11px;
-    margin-left: 3px;
     font-weight: 600;
     letter-spacing: 0.18em;
     text-transform: uppercase;
@@ -134,39 +133,21 @@
 
 .homepage-contact-title {
     margin: 6px 0 0;
-    font-family: styles.$primary-font;
     font-size: clamp(28px, 5vw, 44px);
     font-weight: 600;
     line-height: 1.13;
     letter-spacing: -0.01em;
     color: #f3f7fb;
     text-wrap: balance;
-    @media (max-width: 768px) {
-        font-size: clamp(24px, 4.5vw, 36px);
-        margin-top: 4px;
-    }
-    @media (max-width: 480px) {
-        font-size: clamp(20px, 4vw, 28px);
-    }
 }
 
 .homepage-contact-description {
     margin: 20px 0 0;
-    font-family: styles.$primary-font;
     font-size: clamp(14px, 1vw, 17px);
     line-height: 1.72;
     letter-spacing: 0.005em;
     font-weight: 500;
     color: rgba(255, 255, 255, 0.9);
-    @media (max-width: 768px) {
-        font-size: clamp(13px, 1vw, 15px);
-        line-height: 1.6;
-        margin-top: 14px;
-    }
-    @media (max-width: 480px) {
-        font-size: 12px;
-        margin-top: 10px;
-    }
 }
 
 .homepage-contact-highlights {
@@ -176,14 +157,6 @@
     display: grid;
     grid-template-columns: repeat(2, minmax(0, 1fr));
     gap: 14px 24px;
-    @media (max-width: 768px) {
-        grid-template-columns: 1fr;
-        gap: 12px 0;
-        margin-top: 20px;
-    }
-    @media (max-width: 480px) {
-        margin-top: 16px;
-    }
 }
 
 .homepage-contact-highlight-item {
@@ -192,16 +165,11 @@
     gap: 10px;
     position: relative;
     padding-bottom: 8px;
-    font-family: styles.$primary-font;
     font-size: clamp(12px, 0.9vw, 14px);
     font-weight: 500;
     line-height: 1.48;
     letter-spacing: 0.003em;
     color: rgba(255, 255, 255, 0.85);
-    @media (max-width: 480px) {
-        font-size: 12px;
-        padding-bottom: 6px;
-    }
     &::after {
         content: "";
         position: absolute;
@@ -209,15 +177,11 @@
         right: 0;
         bottom: 0;
         height: 1px;
-        background: rgba(174, 193, 214, 0.06);
         background-color: rgba(174, 193, 214, 0.2);
     }
     span:last-child {
         max-width: 280px;
         text-wrap: pretty;
-        @media (max-width: 768px) {
-            max-width: 100%;
-        }
     }
 }
 
@@ -244,16 +208,6 @@
     flex-wrap: wrap;
     align-items: center;
     gap: 12px 16px;
-    @media (max-width: 768px) {
-        margin-top: 24px;
-        gap: 10px 12px;
-    }
-    @media (max-width: 480px) {
-        margin-top: 18px;
-        flex-direction: column;
-        align-items: stretch;
-        gap: 10px;
-    }
 }
 
 .homepage-contact-cta-button {
@@ -262,7 +216,6 @@
     border-radius: 8px;
     background: linear-gradient(120deg, #fafdff 0%, #f2f7fc 100%);
     color: #1f344b;
-    font-family: styles.$primary-font;
     font-size: clamp(12px, 0.9vw, 13px);
     font-weight: 700;
     letter-spacing: 0.05em;
@@ -277,7 +230,6 @@
 
 .homepage-contact-cta-note {
     margin: 0;
-    font-family: styles.$primary-font;
     font-size: 12.5px;
     font-weight: 500;
     line-height: 1.5;
@@ -292,7 +244,7 @@
     justify-content: center;
     align-items: flex-end;
     min-height: clamp(330px, 34vw, 470px);
-    padding: 20px 0px 0;
+    padding: 20px 0 0;
     &::before {
         content: "";
         position: absolute;
@@ -374,104 +326,171 @@
 }
 
 @media (max-width: 900px) {
-    .homepage-contact-section {
-        padding: 26px 16px 36px;
-    }
     .homepage-contact-panel {
         grid-template-columns: 1fr;
-        padding: 0 22px 20px;
-        gap: 8px;
         min-height: 0;
         &::after {
-            left: -12%;
-            top: 8%;
+            width: clamp(160px, 18vw, 260px);
+            height: clamp(160px, 18vw, 260px);
             opacity: 0.5;
         }
     }
     .homepage-contact-content {
-        padding: 30px 0 0;
-        &::before {
-            left: 0;
-            top: 16%;
-            opacity: 0.6;
-        }
-        &::after {
-            right: 4%;
-            top: 6%;
-            opacity: 0.34;
-        }
+        padding-top: clamp(28px, 5vw, 42px);
+        padding-bottom: clamp(28px, 5vw, 42px);
+        padding-left: clamp(18px, 3.5vw, 45px);
+        padding-right: clamp(18px, 3.5vw, 45px);
     }
     .homepage-contact-title {
         max-width: 24ch;
     }
-    .homepage-contact-description {
-        max-width: none;
-    }
     .homepage-contact-visual {
-        min-height: 290px;
-        padding-top: 0;
-        &::before {
-            right: 50%;
-            top: 10%;
-            transform: translateX(50%) rotate(-10deg);
-        }
-        &::after {
-            right: 50%;
-            top: 16%;
-            transform: translateX(30%);
-        }
-    }
-    .homepage-contact-image {
-        width: min(380px, 90%);
-        transform: none;
+        min-height: auto;
     }
 }
 
-@media (max-width: 620px) {
+@media (max-width: 768px) {
     .homepage-contact-panel {
+        grid-template-columns: 1fr;
         &::after {
-            opacity: 0.38;
+            display: none;
         }
     }
     .homepage-contact-content {
-        &::before,
+        max-width: 100%;
+        justify-self: start;
+        padding-top: clamp(28px, 5vw, 42px);
+        padding-bottom: clamp(28px, 5vw, 42px);
+        padding-left: clamp(14px, 2.5vw, 24px);
+        padding-right: clamp(14px, 2.5vw, 24px);
+        &::before {
+            opacity: 0.35;
+        }
         &::after {
-            opacity: 0.28;
+            opacity: 0.2;
         }
     }
     .homepage-contact-title {
-        font-size: clamp(26px, 7.2vw, 34px);
+        font-size: clamp(24px, 4.5vw, 36px);
+        margin-top: 4px;
     }
     .homepage-contact-description {
-        font-size: 15px;
-        line-height: 1.62;
+        font-size: clamp(13px, 1vw, 15px);
+        line-height: 1.6;
+        margin-top: 14px;
+    }
+    .homepage-contact-highlights {
+        grid-template-columns: 1fr;
+        gap: 12px 0;
+        margin-top: 20px;
+    }
+    .homepage-contact-highlight-item span:last-child {
+        max-width: 100%;
+    }
+    .homepage-contact-cta-wrap {
+        margin-top: 24px;
+        gap: 10px 12px;
+    }
+    .homepage-contact-visual {
+        position: relative;
+        display: block;
+        min-height: auto;
+        padding: 0;
+        text-align: center;
+    }
+    .homepage-contact-image {
+        position: static;
+        display: block;
+        width: 100%;
+        max-width: 320px;
+        height: auto;
+        object-fit: contain;
+        transform: none;
+        margin: 20px auto 0;
+        filter: drop-shadow(0 10px 18px rgba(9, 17, 30, 0.2));
+    }
+}
+
+@media (max-width: 600px) {
+    .homepage-contact-content {
+        padding-top: clamp(22px, 4vw, 32px);
+        padding-bottom: clamp(22px, 4vw, 32px);
+        padding-left: 12px;
+        padding-right: 12px;
+        &::before {
+            opacity: 0.2;
+        }
+        &::after {
+            opacity: 0.12;
+        }
+    }
+    .homepage-contact-title {
+        font-size: clamp(22px, 5.5vw, 32px);
+    }
+    .homepage-contact-description {
+        font-size: 14px;
+        line-height: 1.55;
     }
     .homepage-contact-highlight-item {
         font-size: 13px;
-        line-height: 1.5;
-        padding-bottom: 6px;
         &::after {
             left: 28px;
         }
-        span:last-child {
-            max-width: none;
+    }
+    .homepage-contact-image {
+        max-width: 280px;
+        margin-top: 16px;
+    }
+}
+
+@media (max-width: 500px) {
+    .homepage-contact-section {
+        padding: clamp(20px, 3.5vw, 28px) 10px;
+        padding-top: clamp(28px, 4.5vw, 36px);
+        padding-bottom: clamp(20px, 3.5vw, 28px);
+    }
+    .homepage-contact-panel {
+        border-radius: 12px;
+    }
+    .homepage-contact-content {
+        padding: clamp(16px, 3vw, 22px);
+    }
+    .homepage-contact-title {
+        font-size: clamp(20px, 5vw, 28px);
+        margin-top: 2px;
+    }
+    .homepage-contact-description {
+        font-size: 13px;
+        margin-top: 8px;
+    }
+    .homepage-contact-highlights {
+        margin-top: 14px;
+    }
+    .homepage-contact-highlight-item {
+        font-size: 12px;
+        padding-bottom: 5px;
+        &::after {
+            left: 26px;
         }
     }
     .homepage-contact-cta-wrap {
-        align-items: flex-start;
-        gap: 12px;
+        flex-direction: column;
+        margin-top: 14px;
     }
     .homepage-contact-cta-button {
-        padding: 12px 20px;
+        width: 100%;
+        padding: 11px 16px;
+        font-size: 12px;
     }
-    .homepage-contact-visual {
-        margin-top: 8px;
-        min-height: 256px;
+    .homepage-contact-image {
+        max-width: 220px;
+        margin-top: 12px;
     }
 }
 
 @keyframes hcParticlesDrift {
-    0% {
+    0%,
+    100% {
         transform: translate3d(0, 0, 0);
     }
     25% {
@@ -483,13 +502,11 @@
     75% {
         transform: translate3d(1px, -1px, 0);
     }
-    100% {
-        transform: translate3d(0, 0, 0);
-    }
 }
 
 @keyframes hcParticlesGlow {
-    0% {
+    0%,
+    100% {
         opacity: 0.86;
         filter: blur(0.2px) drop-shadow(0 0 4px rgba(217, 229, 241, 0.2));
     }
@@ -497,14 +514,11 @@
         opacity: 1;
         filter: blur(0.1px) drop-shadow(0 0 8px rgba(232, 214, 168, 0.38));
     }
-    100% {
-        opacity: 0.86;
-        filter: blur(0.2px) drop-shadow(0 0 4px rgba(217, 229, 241, 0.2));
-    }
 }
 
 @keyframes hcLeftParticlesDrift {
-    0% {
+    0%,
+    100% {
         transform: translate3d(0, 0, 0);
     }
     33% {
@@ -516,13 +530,11 @@
     66% {
         transform: translate3d(2px, -1px, 0);
     }
-    100% {
-        transform: translate3d(0, 0, 0);
-    }
 }
 
 @keyframes hcLeftParticlesGlow {
-    0% {
+    0%,
+    100% {
         opacity: 0.76;
         filter: blur(0.1px) drop-shadow(0 0 4px rgba(213, 226, 241, 0.18));
     }
@@ -530,44 +542,34 @@
         opacity: 0.94;
         filter: blur(0.1px) drop-shadow(0 0 7px rgba(214, 195, 149, 0.3));
     }
-    100% {
-        opacity: 0.76;
-        filter: blur(0.1px) drop-shadow(0 0 4px rgba(213, 226, 241, 0.18));
-    }
 }
 
 @keyframes hcOrbitBreath {
-    0% {
+    0%,
+    100% {
         opacity: 0.84;
     }
     50% {
         opacity: 1;
-    }
-    100% {
-        opacity: 0.84;
     }
 }
 
 @keyframes hcRingPulse {
-    0% {
+    0%,
+    100% {
         opacity: 0.8;
     }
     50% {
         opacity: 1;
     }
-    100% {
-        opacity: 0.8;
-    }
 }
 
 @keyframes hcLeftOrbitBreath {
-    0% {
+    0%,
+    100% {
         opacity: 0.56;
     }
     50% {
         opacity: 0.78;
-    }
-    100% {
-        opacity: 0.56;
     }
 }

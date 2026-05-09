@@ -10,7 +10,7 @@ import HomepageContact from "../components/homepageContact/HomepageContact";
 export default function Egitimlerimiz() {
     return (
         <>
-            <Banner img={bannerImg} location={"Eğitimlerimiz"} text={"Eğitimlerimiz"}  />
+            <Banner img={bannerImg} location={"Eğitimlerimiz"} text={"Eğitimlerimiz"} responsiveImg={bannerImg}  />
             <OurCoursesCollage />
             <EducationProcessTimeline />
             <SummerSchoolPromoSection />

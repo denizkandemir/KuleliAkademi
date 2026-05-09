@@ -1,6 +1,7 @@
 import React, { useEffect } from "react";
 import { Link } from "@inertiajs/react";
 import "./MobileMenu.scss";
+import { contactConfig } from "../../config/contactConfig";
 
 const MobileMenu = ({ isOpen, onClose }) => {
     const navItems = [
@@ -100,10 +101,7 @@ const MobileMenu = ({ isOpen, onClose }) => {
 
                 {/* Footer CTA */}
                 <div className="mobile-menu-footer">
-                    <a href="#" className="mobile-menu-cta" onClick={(e) => {
-                        e.preventDefault();
-                        handleLinkClick();
-                    }}>
+                    <a href={contactConfig.whatsapp.aliaga.url} className="mobile-menu-cta" {...contactConfig.linkAttrs.external} onClick={handleLinkClick}>
                         Bizimle İletişime Geçin
                     </a>
                 </div>
