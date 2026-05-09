@@ -15,6 +15,7 @@
     width: 100%;
     display: flex;
     justify-content: space-between;
+    flex-wrap: wrap;
     align-items: center;
 }
 
@@ -166,6 +167,9 @@
     flex-direction: column;
     gap: 5px;
     margin-left: 15px;
+    @media screen and (max-width: 768px) {
+        margin-left: 0;
+    }
 }
 
 .study-abroad-milestone-anchor {

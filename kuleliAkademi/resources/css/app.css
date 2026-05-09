@@ -1,13 +1,10 @@
 @import 'tailwindcss';
-
 @source '../../vendor/laravel/framework/src/Illuminate/Pagination/resources/views/*.blade.php';
 @source '../../storage/framework/views/*.php';
 @source '../**/*.blade.php';
 @source '../**/*.js';
-
 @theme {
-    --font-sans: 'Instrument Sans', ui-sans-serif, system-ui, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji',
-        'Segoe UI Symbol', 'Noto Color Emoji';
+    --font-sans: 'Instrument Sans', ui-sans-serif, system-ui, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji';
 }
 
 * {
@@ -20,4 +17,70 @@ body {
     box-sizing: border-box;
     padding: 0;
     margin: 0;
+}
+
+@media (max-width: 768px) {
+    .section,
+    .page-section,
+    .homepage-section,
+    .programs-section,
+    .about-section,
+    .education-section,
+    .services-section,
+    .video-section,
+    .selection-section,
+    .contact-section,
+    .homepage-contact-section,
+    .university-section,
+    .abroad-plan-section,
+    .study-abroad-timeline-section,
+    .document-section,
+    .faq-section,
+    .events-gallery-section,
+    .why-poland-section,
+    .services-homepage-section,
+    .video-home-section,
+    .summer-school-promo-section,
+    .selection-section,
+    .education-process-timeline,
+    .our-courses-collage,
+    .contact-content-container {
+        padding-top: clamp(22px, 5vw, 32px) !important;
+        padding-bottom: clamp(22px, 5vw, 32px) !important;
+        padding-left: 20px !important;
+        padding-right: 20px !important;
+    }
+}
+
+@media (max-width: 480px) {
+    .section,
+    .page-section,
+    .homepage-section,
+    .programs-section,
+    .about-section,
+    .education-section,
+    .services-section,
+    .video-section,
+    .selection-section,
+    .contact-section,
+    .homepage-contact-section,
+    .university-section,
+    .abroad-plan-section,
+    .study-abroad-timeline-section,
+    .document-section,
+    .faq-section,
+    .events-gallery-section,
+    .why-poland-section,
+    .services-homepage-section,
+    .video-home-section,
+    .summer-school-promo-section,
+    .selection-section,
+    .education-process-timeline,
+    .our-courses-collage,
+    .contact-content-container {
+        padding-top: 22px !important;
+        padding-bottom: 22px !important;
+        padding-left: 18px !important;
+        padding-right: 18px !important;
+    }
 }

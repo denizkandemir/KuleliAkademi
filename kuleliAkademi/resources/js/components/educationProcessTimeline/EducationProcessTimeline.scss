@@ -1,0 +1,339 @@
+@use "../styles/variables.scss" as styles;
+.education-process-timeline {
+    position: relative;
+    width: 100%;
+    padding: 72px 20px 82px;
+    overflow: hidden;
+    background: linear-gradient(180deg, #f8fafc 0%, #f4f7fb 100%);
+    border-top: 1px solid rgba(215, 223, 233, 0.55);
+    border-bottom: 1px solid rgba(215, 223, 233, 0.55);
+    --ept-navy: #142337;
+    --ept-navy-soft: #2a4766;
+    --ept-text: #5d738b;
+    --ept-border: rgba(182, 197, 213, 0.7);
+    --ept-shadow: 0 14px 34px rgba(18, 32, 49, 0.08);
+    --ept-shadow-strong: 0 22px 52px rgba(18, 32, 49, 0.12);
+    --ept-gold: #b29a5a;
+}
+
+.education-process-timeline-shell {
+    max-width: 1180px;
+    margin: 0 auto;
+    position: relative;
+    z-index: 1;
+}
+
+.education-process-timeline::before {
+    content: "";
+    position: absolute;
+    top: -12%;
+    left: -8%;
+    width: 320px;
+    height: 320px;
+    border-radius: 50%;
+    background: radial-gradient(circle, rgba(178, 154, 90, 0.06) 0%, transparent 68%);
+    pointer-events: none;
+}
+
+.education-process-timeline::after {
+    content: "";
+    position: absolute;
+    right: -12%;
+    bottom: -18%;
+    width: 360px;
+    height: 360px;
+    border-radius: 50%;
+    background: radial-gradient(circle, rgba(42, 71, 102, 0.05) 0%, transparent 72%);
+    pointer-events: none;
+}
+
+.education-process-timeline-intro {
+    max-width: 740px;
+    margin: 0 auto 54px;
+    text-align: center;
+}
+
+.education-process-timeline-eyebrow {
+    margin: 0;
+    display: inline-flex;
+    align-items: center;
+    width: fit-content;
+    padding: 7px 12px;
+    border-radius: 8px;
+    border: 1px solid rgba(180, 196, 212, 0.7);
+    background: linear-gradient(135deg, rgba(240, 245, 250, 0.8), rgba(235, 242, 249, 0.6));
+    font-family: styles.$primary-font;
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 0.13em;
+    text-transform: uppercase;
+    color: #5d738b;
+    margin-bottom: 16px;
+}
+
+.education-process-timeline-title {
+    margin: 0;
+    font-family: styles.$primary-font;
+    font-size: 31px;
+    line-height: 1.16;
+    font-weight: 600;
+    letter-spacing: -0.03em;
+    color: var(--ept-navy);
+    margin-bottom: 16px;
+    @media (max-width: 768px) {
+        font-size: 24px;
+    }
+}
+
+.education-process-timeline-description {
+    margin: 0 auto;
+    max-width: 660px;
+    font-family: styles.$primary-font;
+    font-size: 15px;
+    line-height: 1.8;
+    color: var(--ept-text);
+    font-weight: 400;
+}
+
+.education-process-timeline-stage {
+    position: relative;
+}
+
+.education-process-list {
+    display: flex;
+    flex-direction: column;
+    margin-top: 8px;
+}
+
+.education-process-row {
+    display: grid;
+    grid-template-columns: minmax(0, 1.04fr) minmax(360px, 0.96fr);
+    gap: 72px;
+    align-items: center;
+    border-top: 1px solid rgba(185, 199, 214, 0.46);
+    max-width: 1120px;
+    margin: 0 auto;
+}
+
+.education-process-row:last-child {
+    border-bottom: 1px solid rgba(185, 199, 214, 0.46);
+}
+
+.education-process-row.is-reversed {
+    grid-template-columns: minmax(360px, 0.96fr) minmax(0, 1.04fr);
+}
+
+.education-process-row.is-reversed .education-process-row-copy {
+    order: 2;
+}
+
+.education-process-row.is-reversed .education-process-row-visual {
+    order: 1;
+}
+
+.education-process-row-copy {
+    max-width: 580px;
+}
+
+.education-process-row-meta {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.education-process-row-badge {
+    display: none;
+    align-items: center;
+    justify-content: center;
+    min-width: 52px;
+    height: 30px;
+    padding: 0 14px;
+    border-radius: 999px;
+    border: 1px solid rgba(178, 154, 90, 0.24);
+    background: linear-gradient(180deg, rgba(248, 242, 226, 0.94), rgba(242, 234, 214, 0.82));
+    font-family: styles.$primary-font;
+    font-size: 10px;
+    font-weight: 700;
+    letter-spacing: 0.1em;
+    color: var(--ept-navy);
+    box-shadow: 0 6px 14px rgba(178, 154, 90, 0.1);
+}
+
+.education-process-row-kicker {
+    font-family: styles.$primary-font;
+    font-size: 10px;
+    font-weight: 700;
+    letter-spacing: 0.22em;
+    text-transform: uppercase;
+    color: #7b8fa6;
+}
+
+.education-process-row-title {
+    margin: 0;
+    font-family: styles.$primary-font;
+    font-size: 27px;
+    line-height: 1.12;
+    font-weight: 600;
+    letter-spacing: -0.03em;
+    color: var(--ept-navy);
+}
+
+.education-process-row-description {
+    margin: 16px 0 0;
+    max-width: 570px;
+    font-family: styles.$primary-font;
+    font-size: 15px;
+    line-height: 1.82;
+    color: var(--ept-text);
+    font-weight: 400;
+}
+
+.education-process-row-visual {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.education-process-number {
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 450px;
+    height: 400px;
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    -webkit-background-clip: text;
+    background-clip: text;
+}
+
+.education-process-number-outline,
+.education-process-number-fill {
+    position: absolute;
+    inset: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: styles.$primary-font;
+    font-size: 410px;
+    font-weight: 800;
+    line-height: 1;
+    letter-spacing: -0.12em;
+    user-select: none;
+}
+
+.education-process-number-outline {
+    color: rgba(255, 255, 255, 0.9);
+    transform: translate(5px, 6px);
+    filter: blur(0.25px);
+    opacity: 0.96;
+}
+
+.education-process-number-fill {
+    color: transparent;
+    -webkit-text-fill-color: transparent;
+    background-image: inherit;
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    -webkit-background-clip: text;
+    background-clip: text;
+    text-shadow: 0 2px 0 rgba(255, 255, 255, 0.14), 0 22px 42px rgba(18, 32, 49, 0.2);
+}
+
+.education-process-row:nth-child(even) .education-process-number-fill,
+.education-process-row:nth-child(even) .education-process-number-outline {
+    letter-spacing: -0.1em;
+}
+
+.education-process-row:nth-child(odd) .education-process-number {
+    transform: translateX(14px);
+}
+
+.education-process-row:nth-child(even) .education-process-number {
+    transform: translateX(-14px);
+}
+
+@media (max-width: 1100px) {
+    .education-process-row {
+        grid-template-columns: minmax(0, 1fr) minmax(280px, 0.9fr);
+        gap: 34px;
+        padding: 40px 0 42px;
+    }
+    .education-process-row.is-reversed {
+        grid-template-columns: minmax(280px, 0.9fr) minmax(0, 1fr);
+    }
+    .education-process-row-title {
+        font-size: 22px;
+    }
+    .education-process-number {
+        width: 300px;
+        height: 220px;
+    }
+    .education-process-number-fill,
+    .education-process-number-outline {
+        font-size: 184px;
+    }
+}
+
+@media (max-width: 780px) {
+    .education-process-timeline {
+        padding: 56px 16px 64px;
+    }
+    .education-process-timeline-intro {
+        text-align: left;
+        max-width: none;
+        margin-bottom: 30px;
+    }
+    .education-process-row,
+    .education-process-row.is-reversed {
+        grid-template-columns: 1fr;
+        gap: 22px;
+        padding: 28px 0 30px;
+    }
+    .education-process-row.is-reversed .education-process-row-copy,
+    .education-process-row.is-reversed .education-process-row-visual {
+        order: initial;
+    }
+    .education-process-row-copy {
+        max-width: none;
+    }
+    .education-process-row-title {
+        font-size: 20px;
+    }
+    .education-process-number {
+        width: 100%;
+        max-width: 360px;
+        height: 220px;
+        justify-self: start;
+        transform: none !important;
+    }
+    .education-process-number-fill,
+    .education-process-number-outline {
+        font-size: 170px;
+    }
+}
+
+@media (max-width: 480px) {
+    .education-process-timeline-title {
+        font-size: 22px;
+    }
+    .education-process-timeline-description {
+        font-size: 14px;
+    }
+    .education-process-row-title {
+        font-size: 18px;
+    }
+    .education-process-row-description {
+        font-size: 14px;
+    }
+    .education-process-number {
+        max-width: 310px;
+        height: 190px;
+    }
+    .education-process-number-fill,
+    .education-process-number-outline {
+        font-size: 138px;
+    }
+}

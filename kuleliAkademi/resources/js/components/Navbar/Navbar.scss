@@ -1,5 +1,4 @@
 @use "../styles/variables.scss" as vars;
-
 .navbar-container {
     --nav-bg: #f7f6f2;
     --nav-text: #24364d;
@@ -13,7 +12,6 @@
     border-bottom: 1px solid var(--nav-border);
     box-shadow: 0 12px 30px rgba(18, 27, 39, 0.8), 0 1px 0 rgba(36, 54, 77, 0.4);
     overflow: visible;
-
     &::after {
         content: "";
         position: absolute;
@@ -27,7 +25,6 @@
         opacity: 0.8;
         z-index: 0;
     }
-
     .navbar-shell {
         position: relative;
         z-index: 1;
@@ -39,14 +36,12 @@
         justify-content: space-between;
         gap: 32px;
     }
-
     .brand-block {
         display: flex;
         align-items: center;
         gap: 12px;
         text-decoration: none;
         min-width: 335px;
-
         .kuleli-logo {
             width: 75px;
             height: 75px;
@@ -54,7 +49,6 @@
             flex-shrink: 0;
             filter: drop-shadow(0 4px 8px rgba(23, 36, 53, 0.14));
         }
-
         .brand-copy {
             display: flex;
             flex-direction: column;
@@ -62,7 +56,6 @@
             border-left: 1px solid rgba(36, 54, 77, 0.16);
             padding-left: 13px;
         }
-
         .brand-title {
             margin: 0;
             font-family: "Segoe UI", vars.$primary-font;
@@ -73,7 +66,6 @@
             color: var(--nav-text);
             text-wrap: balance;
         }
-
         .brand-subtitle {
             margin: 0;
             font-size: 13px;
@@ -83,13 +75,11 @@
             letter-spacing: 0.22px;
         }
     }
-
     .navbar-center-container {
         flex: 1;
         display: flex;
         justify-content: center;
     }
-
     .navbar-links-container {
         display: flex;
         align-items: center;
@@ -98,7 +88,6 @@
         margin: 0;
         padding: 0;
     }
-
     .navbar-link {
         position: relative;
         display: inline-flex;
@@ -112,7 +101,6 @@
         letter-spacing: 0.12px;
         text-decoration: none;
         transition: color 0.22s ease;
-
         &::after {
             content: "";
             position: absolute;
@@ -126,28 +114,23 @@
             transition: transform 0.22s ease;
             border-radius: 999px;
         }
-
         &:hover,
         &:focus-visible {
             color: #1f2f46;
             outline: none;
-
             &::after {
                 transform: scaleX(1);
                 transform-origin: left center;
             }
         }
-
         &.is-active {
             color: #1f2f46;
-
             &::after {
                 transform: scaleX(1);
                 transform-origin: left center;
             }
         }
     }
-
     .navbar-right-container {
         display: inline-flex;
         align-items: center;
@@ -158,7 +141,6 @@
         background: rgba(247, 246, 242, 0.9);
         flex-shrink: 0;
     }
-
     .social-icon {
         width: 36px;
         height: 36px;
@@ -168,7 +150,6 @@
         color: var(--nav-text-soft);
         border-radius: 50%;
         transition: background-color 0.22s ease, color 0.22s ease, transform 0.22s ease;
-
         &:hover,
         &:focus-visible {
             color: var(--nav-text);
@@ -177,9 +158,37 @@
             outline: none;
         }
     }
+    .navbar-hamburger {
+        display: none;
+        width: 40px;
+        height: 40px;
+        padding: 0;
+        border: 1px solid rgba(186, 159, 83, 0.28);
+        border-radius: 12px;
+        background: rgba(247, 246, 242, 0.9);
+        color: var(--nav-text);
+        cursor: pointer;
+        transition: all 0.22s ease;
+        align-items: center;
+        justify-content: center;
+        flex-shrink: 0;
+        svg {
+            width: 22px;
+            height: 22px;
+            stroke-width: 2;
+        }
+        &:hover,
+        &:focus-visible {
+            background: rgba(186, 159, 83, 0.12);
+            border-color: rgba(186, 159, 83, 0.46);
+            color: #1f2f46;
+            outline: none;
+        }
+        &:active {
+            transform: scale(0.96);
+        }
+    }
 }
-
-
 
 @media (max-width: 1150px) {
     .navbar-container {
@@ -187,23 +196,18 @@
             min-height: 88px;
             padding: 8px 18px;
         }
-
         .brand-block {
             min-width: auto;
-
             .brand-title {
                 font-size: 22px;
             }
-
             .brand-subtitle {
                 display: none;
             }
         }
-
         .navbar-link {
             font-size: 15px;
         }
-
         .navbar-links-container {
             gap: 14px;
         }
@@ -215,17 +219,19 @@
         .navbar-shell {
             min-height: 82px;
         }
-
         .navbar-center-container {
             display: none;
         }
-
+        .navbar-hamburger {
+            display: inline-flex;
+            width: 40px;
+            height: 40px;
+        }
         .brand-block {
             .kuleli-logo {
                 width: 60px;
                 height: 60px;
             }
-
             .brand-title {
                 font-size: 22px;
             }
@@ -236,37 +242,39 @@
 @media (max-width: 640px) {
     .navbar-container {
         .navbar-shell {
-            min-height: 74px;
+            min-height: 70px;
             padding: 10px 14px;
             gap: 12px;
         }
-
         .brand-block {
             gap: 8px;
-
             .kuleli-logo {
                 width: 50px;
                 height: 50px;
             }
-
             .brand-copy {
                 border-left: 0;
                 padding-left: 0;
             }
-
             .brand-title {
                 font-size: 19px;
             }
         }
-
         .navbar-right-container {
             padding: 4px;
-            gap: 4px;
+            gap: 6px;
         }
-
         .social-icon {
-            width: 29px;
-            height: 29px;
+            width: 38px;
+            height: 38px;
+        }
+        .navbar-hamburger {
+            width: 38px;
+            height: 38px;
+            svg {
+                width: 21px;
+                height: 21px;
+            }
         }
     }
 }

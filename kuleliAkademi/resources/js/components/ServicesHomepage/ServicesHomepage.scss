@@ -15,12 +15,24 @@
     --uc-muted: #5f7184;
     --uc-gold: #9c8343;
     width: 100%;
-    padding: 74px 20px 70px;
+    padding: clamp(50px, 8vw, 74px) 20px clamp(50px, 8vw, 70px);
     // background:
     // linear-gradient(180deg, var(--uc-bg-0) 0%, #f5f4f0 56%, var(--uc-bg-1) 100%);
     background-color: var(--uc-bg-0);
     border-top: 1px solid rgba(218, 224, 232, 0.66);
     // border-bottom: 1px solid rgba(218, 224, 232, 0.54);
+    @media (max-width: 900px) {
+        padding: clamp(45px, 7vw, 65px) 16px clamp(45px, 7vw, 60px);
+    }
+    @media (max-width: 768px) {
+        padding: clamp(40px, 6vw, 55px) 14px clamp(40px, 6vw, 50px);
+    }
+    @media (max-width: 640px) {
+        padding: clamp(35px, 5.5vw, 48px) 12px clamp(35px, 5.5vw, 45px);
+    }
+    @media (max-width: 500px) {
+        padding: clamp(28px, 4.5vw, 38px) 10px clamp(28px, 4.5vw, 38px);
+    }
 }
 
 .services-homepage-shell {
@@ -103,17 +115,24 @@
     border: 1px solid rgba(208, 216, 226, 0.76);
     background: linear-gradient(151deg, rgba(248, 247, 244, 0.98) 0%, rgba(237, 240, 245, 0.96) 100%);
     box-shadow: 0 10px 22px rgba(24, 39, 55, 0.08), inset 0 1px 0 rgba(255, 255, 255, 0.58);
-    min-height: clamp(360px, 31vw, 460px);
+    min-height: clamp(280px, 50vw, 460px);
     align-items: center;
     scroll-snap-align: start;
     overflow: hidden;
+    @media (max-width: 840px) {
+        min-height: clamp(240px, 45vw, 380px);
+    }
+    @media (max-width: 640px) {
+        min-height: auto;
+        flex-basis: 100%;
+    }
 }
 
 .services-homepage-card-content {
     display: flex;
     flex-direction: column;
     align-items: flex-start;
-    padding: 30px;
+    padding: clamp(18px, 4vw, 30px);
     justify-content: space-between;
     height: 100%;
     min-width: 0;
@@ -305,9 +324,11 @@
     .services-homepage-description {
         justify-self: start;
         align-self: start;
+        max-width: 100%;
     }
     .services-homepage-title {
-        max-width: 20ch;
+        max-width: none;
+        font-size: clamp(28px, 5vw, 35px);
     }
     .services-homepage-slider {
         overflow-x: auto;
@@ -316,63 +337,163 @@
         gap: 22px;
     }
     .services-homepage-card {
-        flex-basis: 78%;
-        min-height: 390px;
+        flex-basis: calc((100% - 22px) / 1.8);
+        min-height: clamp(320px, 50vw, 420px);
     }
 }
 
 @media (max-width: 840px) {
     .services-homepage-section {
-        padding-inline: 16px;
+        padding-inline: clamp(12px, 3vw, 16px);
     }
     .services-homepage-slider {
         overflow-x: auto;
+        margin-top: 28px;
     }
     .services-homepage-slider-track {
         gap: 18px;
     }
     .services-homepage-card {
-        flex-basis: 86%;
+        flex-basis: calc((100% - 18px) / 1.6);
         grid-template-columns: 1fr;
-        gap: 16px;
-        padding: 18px;
+        gap: 14px;
+        padding: clamp(16px, 3vw, 18px);
         border-radius: 24px;
     }
+    .services-homepage-card-content {
+        padding: clamp(14px, 3vw, 18px);
+    }
     .services-homepage-card-media {
-        min-height: 235px;
-        border-radius: 18px;
+        min-height: 200px;
+        border-radius: 16px;
         order: -1;
     }
     .services-homepage-card-title {
-        font-size: clamp(22px, 3.6vw, 28px);
+        font-size: clamp(20px, 4vw, 26px);
+    }
+    .services-homepage-card-description {
+        font-size: clamp(13px, 1vw, 15px);
     }
 }
 
 @media (max-width: 640px) {
+    .services-homepage-shell {
+        padding: 0;
+    }
     .services-homepage-header {
         gap: 12px;
+        margin-bottom: 20px;
+    }
+    .services-homepage-title {
+        font-size: clamp(24px, 5vw, 32px);
+        max-width: 100%;
+    }
+    .services-homepage-eyebrow {
+        font-size: 10px;
+    }
+    .services-homepage-description {
+        font-size: clamp(13px, 1vw, 15px);
+        line-height: 1.6;
     }
     .services-homepage-slider {
         padding-bottom: 8px;
+        margin-top: 24px;
     }
     .services-homepage-slider-track {
         gap: 14px;
     }
     .services-homepage-card {
         flex-basis: 100%;
-        min-height: 0;
+        grid-template-columns: 1fr;
+        min-height: auto;
+        gap: 12px;
+        padding: 16px;
+        border-radius: 18px;
     }
     .services-homepage-card-number {
         span {
-            font-size: 48px;
+            font-size: 40px;
         }
     }
-    .services-homepage-progress {
-        max-width: 160px;
+    .services-homepage-card-title {
+        font-size: clamp(18px, 4vw, 24px);
+        margin-top: 6px;
+    }
+    .services-homepage-card-description {
+        font-size: 12px;
+        margin-top: 8px;
+    }
+    .services-homepage-card-cta {
+        margin-top: 14px;
+        padding: 9px 14px;
+        font-size: 11px;
+    }
+    .services-homepage-card-media {
+        min-height: 180px;
+        border-radius: 12px;
+        order: -1;
     }
     .services-homepage-controls {
         width: min(100%, 280px);
         gap: 10px;
-        margin-top: 24px;
+        margin-top: 20px;
+    }
+    .services-homepage-control-button {
+        width: 40px;
+        height: 40px;
+        font-size: 16px;
+    }
+    .services-homepage-progress {
+        max-width: 140px;
+        height: 30px;
+        font-size: 10px;
+    }
+}
+
+@media (max-width: 480px) {
+    .services-homepage-section {
+        padding: clamp(32px, 5vw, 40px) 12px;
+    }
+    .services-homepage-slider {
+        margin-top: 18px;
+    }
+    .services-homepage-slider-track {
+        gap: 12px;
+    }
+    .services-homepage-card {
+        padding: 12px;
+        gap: 10px;
+        border-radius: 14px;
+    }
+    .services-homepage-card-content {
+        padding: clamp(10px, 2vw, 14px);
+    }
+    .services-homepage-card-number span {
+        font-size: 32px;
+    }
+    .services-homepage-card-title {
+        font-size: clamp(16px, 3.5vw, 20px);
+        margin-top: 4px;
+    }
+    .services-homepage-card-description {
+        font-size: 11px;
+        line-height: 1.5;
+    }
+    .services-homepage-card-media {
+        min-height: 150px;
+    }
+    .services-homepage-controls {
+        width: 100%;
+        justify-content: space-between;
+        gap: 8px;
+    }
+    .services-homepage-control-button {
+        width: 36px;
+        height: 36px;
+        font-size: 14px;
+    }
+    .services-homepage-progress {
+        flex: 1;
+        min-width: auto;
     }
 }

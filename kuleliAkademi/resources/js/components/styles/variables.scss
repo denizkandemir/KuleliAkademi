@@ -1,4 +1,6 @@
-$primary-font: "Trebuchet MS", "Segoe UI", sans-serif;
+$primary-font: "Trebuchet MS",
+"Segoe UI",
+sans-serif;
 $school-color: #2c3e50;
 $lightGrey-color: #f3f5f7;
 $blue-color4: #1f6fb2;
@@ -10,6 +12,24 @@ $logo-gold: #D4AF37;
 $menu-text: #F8FAFC;
 $hover-gold: #E0BE62;
 $blueGraident:linear-gradient(0deg, #162033 0%, #1E2E45 35%, #1F3A5A 70%, #2B557D 100%);
+$section-padding-mobile-y: 25px;
+$section-padding-mobile-x: 20px;
+$section-padding-mobile-y-tight: 22px;
+$section-padding-mobile-x-tight: 18px;
+$section-gap-mobile: 40px;
+@mixin mobile-section-spacing {
+    padding-top: clamp(22px, 5vw, 32px);
+    padding-bottom: clamp(22px, 5vw, 32px);
+    padding-left: $section-padding-mobile-x;
+    padding-right: $section-padding-mobile-x;
+}
+
+@mixin mobile-section-spacing-tight {
+    padding-top: $section-padding-mobile-y-tight;
+    padding-bottom: $section-padding-mobile-y-tight;
+    padding-left: $section-padding-mobile-x-tight;
+    padding-right: $section-padding-mobile-x-tight;
+}
 
 $slide-text-color: rgba(0, 0, 0, 0.7);
 $slide-caption-color: #817e7e;

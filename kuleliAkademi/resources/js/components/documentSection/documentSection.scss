@@ -48,6 +48,9 @@
 .document-section-particles {
     position: absolute;
     pointer-events: none;
+    @media (max-width: 768px) {
+        display: none;
+    }
 }
 
 .document-section-orbit-large {
@@ -208,6 +211,14 @@
     grid-template-columns: minmax(0, 0.41fr) minmax(0, 0.59fr);
     gap: 20px;
     align-items: end;
+    @media (max-width: 768px) {
+        grid-template-columns: 1fr;
+        gap: 16px;
+        align-items: start;
+    }
+    @media (max-width: 576px) {
+        gap: 12px;
+    }
 }
 
 .document-section-left,
