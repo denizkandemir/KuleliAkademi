@@ -61,6 +61,6 @@ RUN chmod +x /usr/local/bin/start-container \
     && chown -R www-data:www-data /var/www/html/storage /var/www/html/bootstrap/cache \
     && chmod -R ug+rwx /var/www/html/storage /var/www/html/bootstrap/cache
 
-EXPOSE 10000
+EXPOSE 80
 
 CMD ["start-container"]
