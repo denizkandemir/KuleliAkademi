@@ -30,12 +30,11 @@ RUN apt-get update && apt-get install -y --no-install-recommends \
         zip \
     && a2enmod rewrite headers expires \
     && sed -ri -e 's!/var/www/html!/var/www/html/public!g' /etc/apache2/sites-available/000-default.conf \
+    && sed -ri -e 's!/var/www/!/var/www/html/public!g' /etc/apache2/apache2.conf \
     && rm -rf /var/lib/apt/lists/*
 
 RUN curl -fsSL https://deb.nodesource.com/setup_20.x | bash - \
     && apt-get install -y --no-install-recommends nodejs \
-    && node --version \
-    && npm --version \
     && rm -rf /var/lib/apt/lists/*
 
 COPY --from=composer:2 /usr/bin/composer /usr/bin/composer
@@ -51,16 +50,14 @@ RUN npm ci
 COPY . .
 
 RUN npm run build \
-    && php artisan package:discover --ansi
+    && php artisan package:discover --ansi \
+    && php artisan config:clear \
+    && php artisan route:clear \
+    && php artisan view:clear
 
-COPY docker/laravel.conf /etc/apache2/conf-available/laravel.conf
-RUN a2enconf laravel
-
-COPY docker/start.sh /usr/local/bin/start-container
-RUN chmod +x /usr/local/bin/start-container \
-    && chown -R www-data:www-data /var/www/html/storage /var/www/html/bootstrap/cache \
+RUN chown -R www-data:www-data /var/www/html/storage /var/www/html/bootstrap/cache \
     && chmod -R ug+rwx /var/www/html/storage /var/www/html/bootstrap/cache
 
 EXPOSE 80
 
-CMD ["start-container"]
+CMD ["apache2-foreground"]
