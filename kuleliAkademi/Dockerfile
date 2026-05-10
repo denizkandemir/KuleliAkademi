@@ -3,7 +3,6 @@ FROM php:8.2-apache
 ENV DEBIAN_FRONTEND=noninteractive \
     COMPOSER_ALLOW_SUPERUSER=1 \
     APACHE_DOCUMENT_ROOT=/var/www/html/public
-
 RUN apt-get update && apt-get install -y --no-install-recommends \
     git \
     curl \
@@ -28,11 +27,10 @@ RUN apt-get update && apt-get install -y --no-install-recommends \
         pcntl \
         gd \
         zip \
-    && a2enmod rewrite headers expires \
+    && a2enmod rewrite \
     && sed -ri -e 's!/var/www/html!/var/www/html/public!g' /etc/apache2/sites-available/000-default.conf \
-    && sed -ri -e 's!/var/www/!/var/www/html/public!g' /etc/apache2/apache2.conf \
     && rm -rf /var/lib/apt/lists/*
-
+    
 RUN curl -fsSL https://deb.nodesource.com/setup_20.x | bash - \
     && apt-get install -y --no-install-recommends nodejs \
     && rm -rf /var/lib/apt/lists/*
