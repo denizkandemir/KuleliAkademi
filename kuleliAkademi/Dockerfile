@@ -29,11 +29,12 @@ RUN npm ci
 COPY . .
 
 RUN npm run build \
+    && ls -la public/build \
+    && test -f public/build/manifest.json \
     && php artisan package:discover --ansi \
     && php artisan config:clear \
     && php artisan route:clear \
-    && php artisan view:clear \
-    && chmod -R ug+rwx storage bootstrap/cache
+    && php artisan view:clear
 
 EXPOSE 8000
 

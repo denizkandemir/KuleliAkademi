@@ -10,7 +10,7 @@ const Navbar = () => {
     const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
 
     const navItems = [
-        { label: "Hakkımızda", href: "/hakkımızda" },
+        // { label: "Hakkımızda", href: "/hakkımızda" },
         { label: "Eğitimlerimiz", href: "/egitimlerimiz" },
         { label: "Yurt Dışında Eğitim", href: "/yurtdışıeğitim" },
         { label: "İletişim", href: "/iletişim" },
