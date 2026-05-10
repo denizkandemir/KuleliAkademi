@@ -1,6 +1,7 @@
 import React from "react";
 import "./HomepageContact.scss";
 import contactImg from "../../assets/images/studentTransparentImg.png";
+import { contactConfig } from "../../config/contactConfig";
 
 const HomepageContact = () => {
     const highlights = [
@@ -55,9 +56,9 @@ const HomepageContact = () => {
                         </ul>
 
                         <div className="homepage-contact-cta-wrap">
-                            <button type="button" className="homepage-contact-cta-button">
+                            <a href={contactConfig.whatsapp.aliaga.url} className="homepage-contact-cta-button" {...contactConfig.linkAttrs.external}>
                                 Bizimle İletişime Geçin
-                            </button>
+                            </a>
                           
                         </div>
                     </div>
