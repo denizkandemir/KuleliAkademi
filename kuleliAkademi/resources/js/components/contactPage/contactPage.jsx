@@ -1,5 +1,5 @@
 import React, { use } from "react";
-import Banner from "../banner/Banner";
+import Banner from "../Banner/Banner";
 import "./contactPage.scss";
 import contactBanner from "../../assets/images/contactBanner1.png";
 import mailIcon from "../../assets/icons/mail.png";
