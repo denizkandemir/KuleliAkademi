@@ -36,6 +36,8 @@ RUN npm run build \
     && php artisan route:clear \
     && php artisan view:clear
 
+RUN php artisan cache:clear
+
 EXPOSE 8000
 
 CMD ["sh", "-c", "php artisan serve --host=0.0.0.0 --port=8000"]
