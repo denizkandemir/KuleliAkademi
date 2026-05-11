@@ -212,12 +212,6 @@
     width: 300px;
     cursor: pointer;
     transition: all 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94);
-    @media (max-width: 1024px) {
-        width: 220px;
-    }
-    @media (max-width: 768px) {
-        width: 180px;
-    }
     &:hover {
         .events-card-visual {
             box-shadow: var(--egs-shadow-medium);
@@ -489,9 +483,6 @@
     }
     .events-gallery-description {
         font-size: 14px;
-    }
-    .events-gallery-card {
-        width: 150px;
     }
     .events-card-controls {
         bottom: 8px;

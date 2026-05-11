@@ -16,6 +16,8 @@
     max-width: 1320px;
     margin: 0 auto;
     position: relative;
+    padding: 20px;
+    padding-bottom: 0;
 }
 
 .summer-school-promo-section::before,
@@ -46,11 +48,22 @@
     min-height: 100px;
     display: flex;
     align-items: center;
+    justify-content: center;
     border: 1px solid rgba(181, 154, 88, 0.2);
     background: linear-gradient( 90deg, rgba(23, 40, 61, 0.96) 0%, rgba(36, 61, 89, 0.95) 52%, rgba(68, 100, 138, 0.92) 100%);
     box-shadow: 0 16px 30px rgba(16, 29, 44, 0.14), inset 0 1px 0 rgba(255, 255, 255, 0.08);
     overflow: hidden;
     position: relative;
+    padding: 0 42px;
+    @media (max-width: 1240px) {
+        padding: 0 24px;
+    }
+    @media (max-width: 960px) {
+        padding: 0 16px;
+    }
+    @media (max-width: 640px) {
+        padding: 0 12px;
+    }
 }
 
 .summer-school-promo-ribbon::before {
@@ -64,19 +77,33 @@
 .summer-school-promo-ribbon-track {
     position: relative;
     z-index: 1;
-    width: 100%;
-    padding: 0 42px;
+    width: max-content;
+    padding: 0;
     display: flex;
     align-items: center;
-    justify-content: center;
-    gap: 22px;
-    flex-wrap: wrap;
+    gap: 0;
+    will-change: transform;
+    animation: summerSchoolRibbonTicker 28s linear infinite;
+    @media (prefers-reduced-motion: reduce) {
+        animation: none;
+    }
+    &:hover {
+        animation-play-state: paused;
+    }
 }
 
 .summer-school-promo-ribbon-item {
     display: inline-flex;
     align-items: center;
     gap: 18px;
+}
+
+.summer-school-promo-ribbon-group {
+    display: flex;
+    align-items: center;
+    gap: 22px;
+    flex-shrink: 0;
+    min-width: max-content;
 }
 
 .summer-school-promo-ribbon-text {
@@ -95,6 +122,15 @@
     flex-shrink: 0;
     background: linear-gradient(145deg, #d3b871, #b7923e);
     box-shadow: 0 0 0 4px rgba(211, 184, 113, 0.11);
+}
+
+@keyframes summerSchoolRibbonTicker {
+    from {
+        transform: translate3d(0, 0, 0);
+    }
+    to {
+        transform: translate3d(-50%, 0, 0);
+    }
 }
 
 .summer-school-promo-grid {
@@ -402,15 +438,14 @@
         width: min(430px, 80%);
     }
     .summer-school-promo-ribbon-track {
-        padding: 0 24px;
+        animation-duration: 30s;
+    }
+    .summer-school-promo-ribbon-group {
         gap: 14px;
     }
 }
 
 @media (max-width: 960px) {
-    .summer-school-promo-section {
-        padding: 62px 16px 84px;
-    }
     .summer-school-promo-grid {
         grid-template-columns: 1fr;
         gap: 24px;
@@ -424,6 +459,7 @@
     .summer-school-promo-content {
         max-width: none;
         padding: 8px 0 86px;
+        padding-bottom: 20px;
     }
     .summer-school-promo-visual {
         min-height: 520px;
@@ -435,12 +471,12 @@
     .summer-school-promo-ribbon {
         left: 0;
         right: 0;
-        bottom: 76px;
-        min-height: 70px;
-        border-radius: 12px;
+        min-height: 100px;
     }
     .summer-school-promo-ribbon-track {
-        padding: 0 16px;
+        animation-duration: 32s;
+    }
+    .summer-school-promo-ribbon-group {
         gap: 10px;
     }
     .summer-school-promo-ribbon-item {
@@ -456,31 +492,21 @@
 }
 
 @media (max-width: 640px) {
-    .summer-school-promo-section {
-        padding: 50px 14px 72px;
-    }
     .summer-school-promo-ribbon {
         position: relative;
         left: auto;
         right: auto;
         bottom: auto;
-        margin: 0 0 16px;
-        min-height: 60px;
-        border-radius: 10px;
+        min-height: 95px;
     }
     .summer-school-promo-ribbon-track {
-        justify-content: flex-start;
-        overflow-x: auto;
-        flex-wrap: nowrap;
-        scrollbar-width: thin;
-        padding: 0 12px 2px;
+        animation-duration: 24s;
+        &:hover {
+            animation-play-state: paused;
+        }
     }
-    .summer-school-promo-ribbon-track::-webkit-scrollbar {
-        height: 5px;
-    }
-    .summer-school-promo-ribbon-track::-webkit-scrollbar-thumb {
-        border-radius: 999px;
-        background: rgba(255, 255, 255, 0.3);
+    .summer-school-promo-ribbon-group {
+        gap: 10px;
     }
     .summer-school-promo-grid {
         gap: 18px;
@@ -515,7 +541,7 @@
         font-size: 32px;
     }
     .summer-school-promo-content {
-        padding-bottom: 78px;
+        padding-bottom: 20px;
     }
     .summer-school-promo-decoration {
         width: 100px;

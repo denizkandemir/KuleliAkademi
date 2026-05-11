@@ -504,6 +504,7 @@
     @media (max-width: 760px) {
         grid-column: 1 / -1;
         grid-row: auto;
+        width: 100%;
         justify-self: center;
     }
 }
@@ -571,8 +572,6 @@
         gap: 6px;
         align-items: center;
         justify-content: center;
-        width: 92%;
-        max-width: 420px;
         &::before {
             display: none;
         }

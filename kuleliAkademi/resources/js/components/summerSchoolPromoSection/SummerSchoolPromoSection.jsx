@@ -131,14 +131,25 @@ export default function SummerSchoolPromoSection() {
 
             <div className="summer-school-promo-ribbon" aria-hidden="true">
                 <div className="summer-school-promo-ribbon-track">
-                    {ribbonItems.map((item, index) => (
-                        <div key={item} className="summer-school-promo-ribbon-item">
-                            <span className="summer-school-promo-ribbon-text">{item}</span>
-                            {index < ribbonItems.length - 1 && (
-                                <span className="summer-school-promo-ribbon-separator"></span>
-                            )}
-                        </div>
-                    ))}
+                    {[1, 2].map((groupNum) => {
+                        const groupContent = Array.from({ length: 4 }, () => ribbonItems).flat();
+                        return (
+                            <div 
+                                key={`group-${groupNum}`}
+                                className="summer-school-promo-ribbon-group"
+                                aria-hidden={groupNum === 2}
+                            >
+                                {groupContent.map((item, index) => (
+                                    <div key={`${groupNum}-${index}`} className="summer-school-promo-ribbon-item">
+                                        <span className="summer-school-promo-ribbon-text">{item}</span>
+                                        {(index % ribbonItems.length) < ribbonItems.length - 1 && (
+                                            <span className="summer-school-promo-ribbon-separator"></span>
+                                        )}
+                                    </div>
+                                ))}
+                            </div>
+                        );
+                    })}
                 </div>
             </div>
         </section>
