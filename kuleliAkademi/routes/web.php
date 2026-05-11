@@ -32,3 +32,14 @@ Route::get('/yurtdışıeğitim', function () {
 Route::get('/iletişim', function () {
     return Inertia::render('Iletisim');
 });
+
+// Instagram bio linkler sayfası
+Route::get('/linkler', function () {
+    return Inertia::render('Linkler', [
+        'title' => 'Linkler | Kuleli Akademi',
+        'description' => 'Kuleli Akademi eğitim başvuruları, Polonya üniversite danışmanlığı ve iletişim bağlantıları.',
+    ]);
+});
+
+// Alias for English-speaking users
+Route::redirect('/links', '/linkler');
