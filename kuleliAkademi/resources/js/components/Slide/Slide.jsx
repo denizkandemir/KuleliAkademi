@@ -190,36 +190,34 @@ const Slide = ({ SlideImgs,imgClass, container, id, isSlideOpen, containerRef, o
                                 key={key}
                                 className={swiperClassName}
                                 loop={shouldLoop}
+                                loopFillGroupWithBlank={false}
+                                loopAdditionalSlides={0}
                                 slidesPerView={1}
-                                centeredSlides={false}
+                                centeredSlides={true}
                                 spaceBetween={0}
                                 roundLengths={true}
-                                observer={false}
-                                observeParents={false}
+                                observer={true}
+                                observeParents={true}
                                 watchOverflow={true}
                                 watchSlidesProgress={true}
                                 effect="creative"
                                 creativeEffect={{
-                                    perspective: true,
-                                    limitProgress: 2,
+                                    perspective: false,
+                                    limitProgress: 1,
                                     prev: {
-                                        translate: ["-16%", 0, -1],
-                                        scale: 0.94,
-                                        opacity: 0.72,
-                                        shadow: true,
+                                        translate: ["-100%", 0, 0],
                                     },
                                     next: {
                                         translate: ["100%", 0, 0],
-                                        scale: 1,
-                                        opacity: 1,
                                     },
                                 }}
                                 autoplay={shouldLoop ? {
-                                    delay: 5600,
+                                    delay: 6000,
                                     disableOnInteraction: false,
                                     pauseOnMouseEnter: true,
+                                    stopOnLastSlide: false,
                                 } : false}
-                                speed={920}
+                                speed={800}
                                 pagination={{
                                     clickable: true,
                                     dynamicBullets: false,
