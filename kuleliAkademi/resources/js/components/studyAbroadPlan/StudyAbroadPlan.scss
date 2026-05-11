@@ -144,7 +144,7 @@
 }
 
 .abroad-plan-panel.is-primary {
-    right: -14%;
+    right: -9%;
     top: 37%;
     background: linear-gradient(150deg, #ff6f69 0%, #f35f61 100%);
     color: #fff;
@@ -156,6 +156,9 @@
         span {
             background: rgba(255, 255, 255, 0.95);
         }
+    }
+    @media screen and (max-width: 1400px) {
+        right: -4%;
     }
 }
 
@@ -221,12 +224,21 @@
     }
 }
 
+@media (max-width: 1150px) {
+    .secondary-description {
+        max-width: 505px;
+    }
+}
+
 @media (max-width: 1180px) {
     .abroad-plan-shell {
         grid-template-columns: 1fr;
     }
     .abroad-plan-content {
         max-width: 100%;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
     }
     .abroad-plan-visual {
         margin-top: 6px;
