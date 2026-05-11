@@ -212,7 +212,7 @@ const Slide = ({ SlideImgs,imgClass, container, id, isSlideOpen, containerRef, o
                                     },
                                 }}
                                 autoplay={shouldLoop ? {
-                                    delay: 6000,
+                                    delay: 876000,
                                     disableOnInteraction: false,
                                     pauseOnMouseEnter: true,
                                     stopOnLastSlide: false,
