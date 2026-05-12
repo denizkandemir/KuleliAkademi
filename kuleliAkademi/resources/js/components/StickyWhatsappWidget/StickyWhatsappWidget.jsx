@@ -15,14 +15,14 @@ const whatsappContacts = [
         id: 1,
         title: contactConfig.whatsapp.poland.context,
         phone: contactConfig.whatsapp.poland.number,
-        phoneRaw: "48671578693",
+        phoneRaw: contactConfig.whatsapp.poland.number.replace(/\D/g, ""),
         message: contactConfig.whatsapp.poland.message
     },
     {
         id: 2,
         title: contactConfig.whatsapp.aliaga.context,
         phone: contactConfig.whatsapp.aliaga.number,
-        phoneRaw: "905338174435",
+        phoneRaw: contactConfig.whatsapp.aliaga.number.replace(/\D/g, ""),
         message: contactConfig.whatsapp.aliaga.message
     }
 ];
