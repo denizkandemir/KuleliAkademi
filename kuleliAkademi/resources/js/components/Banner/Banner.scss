@@ -77,6 +77,22 @@
     }
 }
 
+.banner-subtitle {
+    position: relative;
+    z-index: 4;
+    max-width: min(920px, 92vw);
+    margin: 14px 0 0;
+    font-family: vars.$primary-font;
+    font-size: clamp(15px, 1.4vw, 18px);
+    line-height: 1.65;
+    text-align: center;
+    color: rgba(255, 255, 255, 0.9);
+    @media(max-width: 450px) {
+        font-size: 14px;
+        line-height: 1.55;
+    }
+}
+
 .banner-img-texts-container {
     position: relative;
     z-index: 4;

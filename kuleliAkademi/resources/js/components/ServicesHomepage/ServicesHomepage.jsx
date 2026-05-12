@@ -1,68 +1,15 @@
 import React, { useCallback, useEffect, useMemo, useRef, useState } from "react";
+import { Link } from "@inertiajs/react";
 import "./ServicesHomepage.scss";
-import service1 from "../../assets/images/servicesImg11.png";
-import service2 from "../../assets/images/servicesImg5.png";
-import service3 from "../../assets/images/servicesImg10.png";  
-import service4 from "../../assets/images/servicesImg4.png";
-import service5 from "../../assets/images/servicesImg9.png";
-
-const services = [
-  {
-    id: 1,
-    number: "01",
-    image: service1,
-    title: "Okul Başvurusu",
-    description:
-      "Sana uygun üniversite ve bölümleri belirleyip başvuru dosyanı akademik hedeflerine göre eksiksiz şekilde planlıyoruz.",
-    buttonText: "Süreci İncele",
-  },
-  {
-    id: 2,
-    number: "02",
-    image: service2,
-    title: "Vize Başvurusu",
-    description:
-      "Randevu, evrak listesi ve resmi adımları tek bir düzende yöneterek vize sürecini güvenli ve kontrollü hale getiriyoruz.",
-    buttonText: "Detayları Gör",
-  },
-  {
-    id: 3,
-    number: "03",
-    image: service3,
-    title: "Konaklama Rehberliği",
-    description:
-      "Bütçene ve kampüs lokasyonuna uygun konaklama seçeneklerini değerlendirip güvenli yerleşim kararlarını netleştiriyoruz.",
-    buttonText: "Süreci İncele",
-  },
-
-  {
-    id: 4,
-    number: "04",
-    image: service4,
-    title: "Oturum İzni Başvurusu",
-    description:
-      "Eğitim sürecin sonrasında gerekli oturum izni başvurularında evrak hazırlığı, resmi adımlar ve başvuru takibini planlı biçimde yönetmene destek oluyoruz.",
-    buttonText: "Detayları Gör",
-  },
-
-  {
-    id: 5,
-    number: "05",
-    image: service5,
-    title: "Karşılama ve Yerleşim",
-    description:
-      "Varışından ilk haftana kadar havalimanı karşılama, ulaşım, kayıt, şehir oryantasyonu ve yerleşim adımlarını birlikte planlayarak süreci stressiz ve güvenli bir deneyime dönüştürüyoruz.",
-    buttonText: "Başvuruyu Planla",
-  },
-];
+import { homepageServices } from "../../data/servicesData";
 
 const ServicesHomepage = () => {
   const sliderRef = useRef(null);
   const trackRef = useRef(null);
   const [activeIndex, setActiveIndex] = useState(0);
-  const [maxStartIndex, setMaxStartIndex] = useState(Math.max(services.length - 1, 0));
+  const [maxStartIndex, setMaxStartIndex] = useState(Math.max(homepageServices.length - 1, 0));
 
-  const totalSlides = services.length;
+  const totalSlides = homepageServices.length;
 
   const measureTrack = useCallback(() => {
     const slider = sliderRef.current;
@@ -198,28 +145,31 @@ const ServicesHomepage = () => {
 
         <div className="services-homepage-slider" ref={sliderRef}>
           <div className="services-homepage-slider-track" ref={trackRef}>
-            {services.map((service) => (
-              <article key={service.id} className="services-homepage-card">
+            {homepageServices.map((service, index) => (
+              <Link key={service.slug} href={service.href} className="services-homepage-card">
                 <div className="services-homepage-card-content">
-                  <p className="services-homepage-card-number" aria-label={`Hizmet sırası ${service.number}`}>
-                    <span>{service.number}</span>
+                  <p className="services-homepage-card-number" aria-label={`Hizmet sırası ${String(index + 1).padStart(2, "0")}`}>
+                    <span>{String(index + 1).padStart(2, "0")}</span>
                     <small>/{String(totalSlides).padStart(2, "0")}</small>
                   </p>
                   <div className="services-title-text-container">
                     <h3 className="services-homepage-card-title">{service.title}</h3>
                     <p className="services-homepage-card-description">{service.description}</p>
-                      <button type="button" className="services-homepage-card-cta">
-                    {service.buttonText}
-                  </button>
+                    <span className="services-homepage-card-cta">{service.buttonText}</span>
                   </div>
                 
                 </div>
 
                 <div className="services-homepage-card-media">
-                  <img src={service.image} alt={service.title} className="services-homepage-card-image" />
+                  <img
+                    src={service.image}
+                    alt={service.title}
+                    className="services-homepage-card-image"
+                    style={{ objectPosition: service.objectPosition || 'center' }}
+                  />
                   <span className="services-homepage-card-image-overlay" aria-hidden="true" />
                 </div>
-              </article>
+              </Link>
             ))}
           </div>
         </div>

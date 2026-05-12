@@ -33,6 +33,29 @@ Route::get('/iletişim', function () {
     return Inertia::render('Iletisim');
 });
 
+$serviceSlugs = [
+    'okul-basvurusu',
+    'vize-basvurusu',
+    'karsilama-ve-yerlesim',
+    'konaklama-destegi',
+    'oturum-izni',
+    'sehir-ve-uyum-destegi',
+];
+
+foreach ($serviceSlugs as $serviceSlug) {
+    Route::get("/hizmetler/{$serviceSlug}", function () use ($serviceSlug) {
+        return Inertia::render('ServiceDetail', [
+            'serviceSlug' => $serviceSlug,
+        ]);
+    });
+}
+
+Route::get('/hizmetler/{slug}', function ($slug) {
+    return Inertia::render('ServiceDetail', [
+        'serviceSlug' => $slug,
+    ]);
+})->where('slug', '[A-Za-z0-9-]+');
+
 // Instagram bio linkler sayfası
 Route::get('/linkler', function () {
     return Inertia::render('Linkler', [

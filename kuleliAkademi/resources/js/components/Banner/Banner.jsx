@@ -1,13 +1,15 @@
 import "./Banner.scss"
-import { Link, usePage } from "@inertiajs/react";
+import { Link } from "@inertiajs/react";
 import React from "react";
 
-const Banner = ({ text, img, location, responsiveImg }) => {
+const Banner = ({ text, subtitle, img, location, responsiveImg, wrapperClassName }) => {
+    const containerClass = `${wrapperClassName ? wrapperClassName + ' ' : ''}banner-img-title-container`;
     return (
-        <div className="banner-img-title-container">
+        <div className={containerClass}>
             <h2 className="banner-title"> {text} </h2>
+            {subtitle && <p className="banner-subtitle">{subtitle}</p>}
             <div className="banner-img-texts-container">
-                <Link to={"/"} className="banner-link">
+                <Link href="/" className="banner-link">
                     <div className="link-arrow-container">
                         <svg
                             viewBox="0 0 24 24"

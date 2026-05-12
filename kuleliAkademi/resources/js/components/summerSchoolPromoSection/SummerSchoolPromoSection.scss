@@ -459,6 +459,9 @@
     .summer-school-promo-content {
         max-width: none;
         padding: 8px 0 86px;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
         padding-bottom: 20px;
     }
     .summer-school-promo-visual {

@@ -1,0 +1,277 @@
+import { contactConfig } from "../config/contactConfig";
+import service1 from "../assets/images/servicesImg11.png";
+import service2 from "../assets/images/servicesImg5.png";
+import service3 from "../assets/images/servicesImg10.png";
+import service4 from "../assets/images/servicesImg4.png";
+import service5 from "../assets/images/servicesImg9.png";
+import service6 from "../assets/images/servicesImg8.png";
+import banner1 from "../assets/images/uniWarsaw2.png";
+import banner2 from "../assets/images/polandPicture1.png";
+import banner3 from "../assets/images/warsawImg1.png";
+import banner4 from "../assets/images/gdansk1.png";
+import banner5 from "../assets/images/lublin1.png";
+import banner6 from "../assets/images/krakow1.png";
+
+export const servicesData = [{
+        slug: "okul-basvurusu",
+        title: "Okul Başvurusu",
+        subtitle: "Sana uygun üniversite ve bölümleri belirleyip başvuru dosyanı akademik hedeflerine göre eksiksiz şekilde planlıyoruz.",
+        shortDescription: "Öğrenciye uygun üniversite ve bölüm seçimi, evrak hazırlığı ve başvuru takibi tek bir akışta yönetilir.",
+        bannerImage: banner1,
+        detailImage: service1,
+        detailObjectPosition: "50% 42%",
+        introTitle: "Okul başvurusu hizmeti nedir?",
+        introParagraphs: [
+            "Okul başvurusu sürecinde amaç, öğrencinin akademik profiline ve hedeflerine en uygun üniversite ve bölümü netleştirmektir. Bu sayede başvuru dosyası rastgele değil, planlı ve güçlü bir şekilde hazırlanır.",
+            "Evrak kontrolünden dosya düzenine, başvuru adımlarından takip sürecine kadar tüm aşamalar sistemli biçimde ilerletilir. Böylece öğrenci neyi, ne zaman yapacağını açık şekilde görür.",
+        ],
+        highlights: [
+            "Uygun üniversite ve bölüm analizi",
+            "Başvuru şartlarının değerlendirilmesi",
+            "Evrak listesinin hazırlanması",
+            "Dosya düzeni ve süreç takibi",
+        ],
+        processSteps: [
+            "Öğrencinin hedefleri ve mevcut durumu analiz edilir.",
+            "Başvuru yapılabilecek üniversite ve bölümler belirlenir.",
+            "Gerekli evraklar listelenir ve eksikler tamamlanır.",
+            "Başvuru dosyası düzenlenir ve gönderim planı oluşturulur.",
+            "Süreç boyunca öğrenciye düzenli geri bildirim verilir.",
+        ],
+        documentsOrRequirements: [
+            "Pasaport veya kimlik bilgileri",
+            "Not dökümü ve diploma/öğrenim belgeleri",
+            "Dil belgesi veya istenen ek akademik belgeler",
+            "Niyet mektubu ve başvuru formu bilgileri",
+        ],
+        sidebarShortInfo: "Başvuru sürecinin ilk adımı doğru bölüm ve üniversiteyi seçmektir. Biz bu kararı akademik hedefler ve şartlarla birlikte netleştiriyoruz.",
+        ctaTitle: "Polonya üniversite başvurusu için destek alın",
+        ctaText: "Başvuru formunu doldurarak üniversite ve bölüm seçimi sürecini birlikte planlayabiliriz.",
+        ctaButtonText: "Başvuru Formunu Doldur",
+        ctaHref: "https://docs.google.com/forms/d/e/1FAIpQLSf6EDVF2JpfO0Bzg3qZoMwefMoTFrxWuIsKUxqPZggljQvY_w/viewform?usp=dialog",
+        whatsappKey: "poland",
+        detailPageNote: "Başvurudan yerleşime kadar tüm süreci tek noktadan yönetmek için hazırlanmış danışmanlık hizmeti.",
+        homepageImage: service1,
+    },
+    {
+        slug: "vize-basvurusu",
+        title: "Vize Başvurusu",
+        subtitle: "Randevu, evrak listesi ve resmi adımları tek bir düzende yöneterek vize sürecini güvenli ve kontrollü hale getiriyoruz.",
+        shortDescription: "Vize türü, randevu, finansal belgeler ve başvuru adımları düzenli bir planla takip edilir.",
+        bannerImage: banner2,
+        detailImage: service2,
+        detailObjectPosition: "50% 34%",
+        introTitle: "Vize başvurusu hizmeti nedir?",
+        introParagraphs: [
+            "Vize süreci, öğrencinin kabul aldığı programdan ülkeye giriş hazırlığına kadar dikkatli takip edilmesi gereken resmi bir süreçtir. Bu aşamada belgelerin doğru hazırlanması ve zamanında tamamlanması kritik önem taşır.",
+            "Biz, gerekli evrakların kontrolünden randevu planına, finansal belge düzeninden başvuru takibine kadar süreci tek bir akışta yönetiyoruz.",
+        ],
+        highlights: [
+            "Vize türü ve gereklilik açıklaması",
+            "Randevu ve evrak sürecinin planlanması",
+            "Finansal belgelerin kontrolü",
+            "Başvuru takibi ve yönlendirme",
+        ],
+        processSteps: [
+            "Vize tipi ve başvuru şartları birlikte değerlendirilir.",
+            "Randevu ve evrak takvimi oluşturulur.",
+            "Finansal, konaklama ve sigorta belgeleri kontrol edilir.",
+            "Başvuru dosyası resmi kurallara uygun hale getirilir.",
+            "Süreç tamamlanana kadar öğrenci bilgilendirilir.",
+        ],
+        documentsOrRequirements: [
+            "Pasaport ve biyometrik fotoğraf",
+            "Kabul belgesi / okul evrakları",
+            "Finansal belgeler ve konaklama kanıtı",
+            "Sigorta ve başvuru formu bilgileri",
+        ],
+        sidebarShortInfo: "Vize tarafında hata payı düşüktür. Evrak ve zaman yönetimini dikkatli bir sırada ilerletmek süreci rahatlatır.",
+        ctaTitle: "Vize başvurusu için form üzerinden ilerleyin",
+        ctaText: "Vize hazırlığını birlikte planlamak ve gerekli yönlendirmeleri almak için başvuru formunu kullanabilirsiniz.",
+        ctaButtonText: "Başvuru Formunu Doldur",
+        ctaHref: "https://docs.google.com/forms/d/e/1FAIpQLSf6EDVF2JpfO0Bzg3qZoMwefMoTFrxWuIsKUxqPZggljQvY_w/viewform?usp=dialog",
+        whatsappKey: "poland",
+        detailPageNote: "Vize için gerekli resmi adımların takibini kolaylaştıran danışmanlık hizmeti.",
+        homepageImage: service2,
+    },
+    {
+        slug: "karsilama-ve-yerlesim",
+        title: "Karşılama ve Yerleşim",
+        subtitle: "Varış sonrası ilk yönlendirme, ulaşım ve yerleşim adımlarını birlikte planlayarak öğrencinin sürece güvenle başlamasını sağlıyoruz.",
+        shortDescription: "Havalimanı karşılama, ilk ulaşım ve yerleşim adımları pratik bir plan içinde yönetilir.",
+        bannerImage: banner3,
+        detailImage: service3,
+        detailObjectPosition: "50% 28%",
+        introTitle: "Karşılama ve yerleşim hizmeti nedir?",
+        introParagraphs: [
+            "Yeni bir ülkeye varışta ilk saatler ve ilk günler öğrenciler için en kritik dönemlerden biridir. Bu hizmet, varış anından yerleşimin tamamlanmasına kadar tüm yönlendirmeleri kapsar.",
+            "Havalimanı, şehir içi ulaşım, konaklama alanına geçiş ve temel ihtiyaçların planlanması gibi adımlar daha sakin ve güvenli bir şekilde ilerler.",
+        ],
+        highlights: [
+            "Varış sonrası ilk yönlendirme",
+            "Havalimanı ve şehir içi ulaşım bilgisi",
+            "Konaklama alanına geçiş desteği",
+            "İlk günlerde pratik yerleşim planı",
+        ],
+        processSteps: [
+            "Varış saati ve ulaşım planı önceden netleştirilir.",
+            "Havalimanından konaklama noktasına geçiş organize edilir.",
+            "İlk temel ihtiyaçlar için yönlendirme yapılır.",
+            "Şehir ve çevre hakkında kısa bilgilendirme paylaşılır.",
+            "Öğrenci ilk haftada düzenli olarak takip edilir.",
+        ],
+        documentsOrRequirements: [
+            "Uçuş ve varış bilgileri",
+            "Konaklama adresi ve iletişim bilgileri",
+            "Kimlik/pasaport bilgileri",
+            "Gerekli transfer veya kayıt bilgileri",
+        ],
+        sidebarShortInfo: "İlk yerleşim döneminde doğru yönlendirme, öğrencinin şehirle ve yeni düzenle daha hızlı uyum kurmasını sağlar.",
+        ctaTitle: "Varış ve yerleşim sürecini planlayalım",
+        ctaText: "Şehre ilk geliş aşamasında destek almak için bize ulaşabilir, yol haritanızı önceden netleştirebilirsiniz.",
+        ctaButtonText: "Başvuru Formunu Doldur",
+        ctaHref: "https://docs.google.com/forms/d/e/1FAIpQLSf6EDVF2JpfO0Bzg3qZoMwefMoTFrxWuIsKUxqPZggljQvY_w/viewform?usp=dialog",
+        whatsappKey: "poland",
+        detailPageNote: "Varış sonrası ilk adımların düzenli şekilde ilerlemesine yardımcı olan destek hizmeti.",
+        homepageImage: service3,
+    },
+    {
+        slug: "konaklama-destegi",
+        title: "Konaklama Desteği",
+        subtitle: "Yurt ve özel konaklama seçeneklerini bütçeye, lokasyona ve güvenliğe göre değerlendirerek en uygun alternatifi bulmanıza yardımcı oluyoruz.",
+        shortDescription: "Konaklama seçenekleri, başvuru ve rezervasyon adımları güvenli bir sırayla takip edilir.",
+        bannerImage: banner4,
+        detailImage: service4,
+        detailObjectPosition: "50% 35%",
+        introTitle: "Konaklama desteği hizmeti nedir?",
+        introParagraphs: [
+            "Konaklama seçimi, öğrencinin günlük yaşam kalitesini ve bütçe planını doğrudan etkiler. Bu yüzden seçeneklerin lokasyon, maliyet ve güvenlik açısından değerlendirilmesi gerekir.",
+            "Yurt, özel konut veya öğrenciye uygun diğer seçenekler karşılaştırılır; başvuru ve rezervasyon adımları düzenli şekilde ilerletilir.",
+        ],
+        highlights: [
+            "Yurt ve özel konaklama değerlendirmesi",
+            "Bütçe ve lokasyona göre alternatifler",
+            "Başvuru ve rezervasyon süreci",
+            "Konaklama belgelerinin takibi",
+        ],
+        processSteps: [
+            "Öğrencinin bütçesi ve şehir tercihi netleştirilir.",
+            "Uygun konaklama alternatifleri karşılaştırılır.",
+            "Rezervasyon ve başvuru adımları planlanır.",
+            "Konaklama belgeleri kontrol edilir.",
+            "Yerleşim öncesi son bilgiler öğrenciyle paylaşılır.",
+        ],
+        documentsOrRequirements: [
+            "Kimlik/pasaport bilgileri",
+            "Bütçe ve konaklama tercihleri",
+            "Okul bilgileri / kabul belgesi",
+            "Gerekirse rezervasyon için ek bilgiler",
+        ],
+        sidebarShortInfo: "Doğru konaklama tercihi, öğrencinin şehirdeki ilk deneyimini doğrudan etkiler. Güvenli ve erişilebilir seçenekleri birlikte değerlendiriyoruz.",
+        ctaTitle: "Konaklama seçeneklerini birlikte değerlendirelim",
+        ctaText: "Bütçenize ve lokasyon beklentinize uygun konaklama alternatifleri için bize ulaşabilirsiniz.",
+        ctaButtonText: "Başvuru Formunu Doldur",
+        ctaHref: "https://docs.google.com/forms/d/e/1FAIpQLSf6EDVF2JpfO0Bzg3qZoMwefMoTFrxWuIsKUxqPZggljQvY_w/viewform?usp=dialog",
+        whatsappKey: "poland",
+        detailPageNote: "Öğrencinin güvenli ve erişilebilir bir yerde kalmasına yardımcı olan konaklama danışmanlığı.",
+        homepageImage: service4,
+    },
+    {
+        slug: "oturum-izni",
+        title: "Oturum İzni",
+        subtitle: "Polonya’da yasal kalış süreci için gerekli belgeleri, randevu adımlarını ve başvuru takibini düzenli bir şekilde yönetiyoruz.",
+        shortDescription: "Oturum kartı için gerekli evraklar, randevu ve başvuru süreci planlı biçimde ilerletilir.",
+        bannerImage: banner5,
+        detailImage: service5,
+        detailObjectPosition: "50% 20%",
+        introTitle: "Oturum izni hizmeti nedir?",
+        introParagraphs: [
+            "Öğrencinin eğitim süresi boyunca yasal statüsünü koruyabilmesi için oturum izni adımlarının doğru sırayla ilerlemesi gerekir. Bu süreç, başvuru ve belge hazırlığının özenle yönetilmesini gerektirir.",
+            "Biz, oturum kartı için gereken belgelerin listesini netleştirir, randevu ve başvuru adımlarını anlaşılır bir planla takip ederiz.",
+        ],
+        highlights: [
+            "Yasal kalış sürecinin açıklanması",
+            "Oturum kartı belgeleri",
+            "Randevu ve başvuru planı",
+            "Süreç boyunca düzenli yönlendirme",
+        ],
+        processSteps: [
+            "Öğrencinin oturum hakkı ve zaman çizelgesi değerlendirilir.",
+            "Gerekli belgeler listelenir ve kontrol edilir.",
+            "Randevu ve başvuru adımları planlanır.",
+            "Başvuru dosyası resmi gerekliliklere göre hazırlanır.",
+            "Sonuçlanana kadar öğrenci bilgilendirilmeye devam edilir.",
+        ],
+        documentsOrRequirements: [
+            "Pasaport ve kimlik bilgileri",
+            "Okul kayıt / kabul belgeleri",
+            "Adres ve konaklama bilgileri",
+            "Randevu veya ek resmi belgeler",
+        ],
+        sidebarShortInfo: "Oturum izni sürecinde küçük bir eksik bile gecikme yaratabilir. Bu nedenle belge ve tarih yönetimi dikkatle yapılmalıdır.",
+        ctaTitle: "Oturum izni sürecini birlikte planlayalım",
+        ctaText: "Belgelerinizi ve zamanlamanızı doğru sırada ilerletmek için başvuru formunu kullanabilirsiniz.",
+        ctaButtonText: "Başvuru Formunu Doldur",
+        ctaHref: "https://docs.google.com/forms/d/e/1FAIpQLSf6EDVF2JpfO0Bzg3qZoMwefMoTFrxWuIsKUxqPZggljQvY_w/viewform?usp=dialog",
+        whatsappKey: "poland",
+        detailPageNote: "Polonya’daki yasal kalış sürecini düzenli biçimde yönlendiren destek hizmeti.",
+        homepageImage: service5,
+    },
+    {
+        slug: "sehir-ve-uyum-destegi",
+        title: "Şehir ve Uyum Desteği",
+        subtitle: "Şehir yaşamı, günlük ihtiyaçlar ve kültürel uyum konusunda öğrencinin ilk haftalarını daha rahat ve kontrollü geçirmesine destek oluyoruz.",
+        shortDescription: "Şehir yaşamı, ulaşım, günlük ihtiyaçlar ve uyum süreci için pratik destek sunulur.",
+        bannerImage: banner6,
+        detailImage: service6,
+        detailObjectPosition: "50% 22%",
+        introTitle: "Şehir ve uyum desteği hizmeti nedir?",
+        introParagraphs: [
+            "Yeni bir şehirde yaşamaya başlamak, derslerden bağımsız olarak ilk haftalarda ayrı bir uyum süreci gerektirir. Bu hizmet, öğrencinin şehir hayatını daha kolay anlaması ve günlük düzenini kurabilmesi için hazırlanmıştır.",
+            "Toplu taşıma, banka, telefon hattı, market, sağlık ve okul çevresi gibi günlük ihtiyaçlar için pratik bir rehberlik sunulur.",
+        ],
+        highlights: [
+            "Şehir yaşamı hakkında yönlendirme",
+            "Ulaşım, telefon ve banka hesabı bilgileri",
+            "Market, sağlık ve okul çevresi rehberi",
+            "Kültürel uyum ve öğrenci hayatı desteği",
+        ],
+        processSteps: [
+            "Şehirde ilk ihtiyaçlar ve öncelikler belirlenir.",
+            "Ulaşım, iletişim ve günlük yaşam adımları planlanır.",
+            "Okul çevresi ve temel noktalar tanıtılır.",
+            "Kültürel ve pratik uyum için yönlendirme yapılır.",
+            "İlk haftalarda ihtiyaç oldukça destek sürdürülür.",
+        ],
+        documentsOrRequirements: [
+            "Kimlik/pasaport bilgileri",
+            "Telefon hattı ve ulaşım tercihleri",
+            "Adres / okul bilgileri",
+            "Gerekirse banka veya kayıt adımları için ek bilgiler",
+        ],
+        sidebarShortInfo: "İlk haftalarda yapılan doğru yönlendirmeler, öğrencinin yeni şehirdeki adaptasyonunu ciddi şekilde hızlandırır.",
+        ctaTitle: "Şehre uyum sürecini birlikte kolaylaştıralım",
+        ctaText: "Günlük yaşam ve şehir adaptasyonu için gerekli pratik bilgileri öğrenmek üzere bizimle iletişime geçebilirsiniz.",
+        ctaButtonText: "Başvuru Formunu Doldur",
+        ctaHref: "https://docs.google.com/forms/d/e/1FAIpQLSf6EDVF2JpfO0Bzg3qZoMwefMoTFrxWuIsKUxqPZggljQvY_w/viewform?usp=dialog",
+        whatsappKey: "poland",
+        detailPageNote: "Şehir yaşamına hızlı ve pratik uyum sağlamak isteyen öğrenciler için destek hizmeti.",
+        homepageImage: service6,
+    },
+];
+
+export const serviceSlugs = servicesData.map((service) => service.slug);
+
+export const getServiceBySlug = (slug) => servicesData.find((service) => service.slug === slug);
+
+export const homepageServices = servicesData.map(({ slug, title, shortDescription, homepageImage, homepageButtonText, detailObjectPosition }) => ({
+    slug,
+    title,
+    description: shortDescription,
+    image: homepageImage,
+    buttonText: homepageButtonText || "Detayları Gör",
+    objectPosition: detailObjectPosition,
+    href: `/hizmetler/${slug}`,
+}));
+
+export const getServiceContact = (service) => contactConfig.whatsapp[service.whatsappKey] ? contactConfig.whatsapp[service.whatsappKey] : contactConfig.whatsapp.poland;

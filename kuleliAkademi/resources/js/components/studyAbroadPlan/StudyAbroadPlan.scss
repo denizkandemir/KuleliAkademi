@@ -204,6 +204,11 @@
         box-shadow: 0 12px 32px rgba(16, 29, 44, 0.18);
         background: linear-gradient(145deg, rgba(255, 251, 243, 0.42), rgba(255, 247, 230, 0.3));
     }
+    @media (max-width: 740px) {
+        margin-top: 20px;
+        margin-bottom: 20px;
+        align-self: flex-start;
+    }
 }
 
 .abroad-plan-panel.is-neutral {

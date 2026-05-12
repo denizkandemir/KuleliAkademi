@@ -41,15 +41,24 @@ const LINKS_CONFIG = [
         id: 'form-egitimler',
         title: 'Eğitimlerimize Başvurun',
         subtitle: 'Eğitim programlarımız için formu doldurun',
-        href: contactConfig.email ? 'https://forms.gle/placeholder-egitimler' : '#',
+        href: '#',
         icon: 'graduation',
+        external: true,
+        hidden: true, // kept in config but hidden from render; flip to false to show later
+    },
+    {
+        id: 'form-davranis',
+        title: 'Davranış ve Öğrenme Testine Kayıt Olun',
+        subtitle: 'Davranış ve öğrenme analizi için kayıt formunu doldurun',
+        href: 'https://docs.google.com/forms/d/e/1FAIpQLSe15zg3FXCVdX_ANvN2g_poKy-p7JI5cfoObDz21UlTtjD_pw/viewform?usp=dialog',
+        icon: 'brain',
         external: true,
     },
     {
         id: 'form-polonya',
         title: "Polonya'da Üniversite İçin Başvurun",
         subtitle: 'Polonya üniversite başvuru formu',
-        href: 'https://forms.gle/placeholder-polonya',
+        href: 'https://docs.google.com/forms/d/e/1FAIpQLSf6EDVF2JpfO0Bzg3qZoMwefMoTFrxWuIsKUxqPZggljQvY_w/viewform?usp=dialog',
         icon: 'university',
         external: true,
     },
@@ -64,7 +73,7 @@ const LINKS_CONFIG = [
     {
         id: 'whatsapp-aliaga',
         title: 'WhatsApp: Kuleli Akademi',
-        subtitle: 'Kuleli Akademi ile iletişime geçin',
+        subtitle: contactConfig.whatsapp.aliaga.number,
         href: contactConfig.whatsapp.aliaga.url,
         icon: 'whatsapp',
         external: true,
@@ -72,7 +81,7 @@ const LINKS_CONFIG = [
     {
         id: 'whatsapp-polonya',
         title: 'WhatsApp: Polonya Danışmanlık',
-        subtitle: 'Polonya danışmanlık hattımıza yazın',
+        subtitle: contactConfig.whatsapp.poland.number,
         href: contactConfig.whatsapp.poland.url,
         icon: 'whatsapp',
         external: true,
@@ -115,6 +124,8 @@ const Linkler = ({ title, description }) => {
                 return <WhatsAppIcon />;
             case 'web': 
                  return <img src={webIcon} alt="web" className="linkler-icon-img" />;    
+            case 'brain':
+                return <span className="linkler-icon-emoji" aria-hidden>{'🧠'}</span>;
             default:
                 return null;
         }
@@ -150,7 +161,7 @@ const Linkler = ({ title, description }) => {
 
                 {/* Links grid */}
                 <div className="linkler-grid">
-                    {LINKS_CONFIG.map((link) => (
+                    {LINKS_CONFIG.filter((l) => !l.hidden).map((link) => (
                         <a
                             key={link.id}
                             href={link.href}

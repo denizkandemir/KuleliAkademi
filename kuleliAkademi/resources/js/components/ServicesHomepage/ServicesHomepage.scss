@@ -116,9 +116,12 @@
     background: linear-gradient(151deg, rgba(248, 247, 244, 0.98) 0%, rgba(237, 240, 245, 0.96) 100%);
     box-shadow: 0 10px 22px rgba(24, 39, 55, 0.08), inset 0 1px 0 rgba(255, 255, 255, 0.58);
     min-height: clamp(280px, 50vw, 460px);
-    align-items: center;
+    align-items: start;
+    /* ensure content starts at top so image sizing predictable */
     scroll-snap-align: start;
     overflow: hidden;
+    text-decoration: none;
+    color: inherit;
     @media (max-width: 840px) {
         min-height: clamp(240px, 45vw, 380px);
     }
@@ -133,8 +136,8 @@
     flex-direction: column;
     align-items: flex-start;
     padding: clamp(18px, 4vw, 30px);
-    justify-content: space-between;
-    height: 100%;
+    justify-content: flex-start;
+    /* avoid large gaps between top and bottom */
     min-width: 0;
 }
 
@@ -203,7 +206,7 @@
 
 .services-homepage-card-media {
     position: relative;
-    height: 100%;
+    height: auto;
     min-width: 0;
     border-radius: 24px;
     overflow: hidden;
@@ -212,12 +215,15 @@
     border-bottom-left-radius: 0;
     box-shadow: 0 8px 18px rgba(29, 45, 63, 0.1);
     background: #d8dfe7;
+    aspect-ratio: 16 / 11;
+    /* consistent image height for desktop/tablet */
 }
 
 .services-homepage-card-image {
     width: 100%;
     height: 100%;
     object-fit: cover;
+    object-position: center;
     display: block;
 }
 
@@ -364,7 +370,8 @@
         padding: clamp(14px, 3vw, 18px);
     }
     .services-homepage-card-media {
-        min-height: 200px;
+        aspect-ratio: 3 / 3;
+        /* mobile-friendly ratio */
         border-radius: 16px;
         order: -1;
     }
@@ -480,7 +487,7 @@
         line-height: 1.5;
     }
     .services-homepage-card-media {
-        min-height: 150px;
+        aspect-ratio: 4 / 3;
     }
     .services-homepage-controls {
         width: 100%;
