@@ -1,9 +1,7 @@
 import React, { useState, useRef, useCallback, useEffect } from "react";
 import "./EventsGallerySection.scss";
 import video1 from "../../assets/videos/kuleliVideo1.mp4";
-import video2 from "../../assets/videos/kuleliVideo2.mp4";
 import video3 from "../../assets/videos/kuleliVideo3.mp4";
-import video4 from "../../assets/videos/kuleliVideo4.mp4";
 import video5 from "../../assets/videos/kuleliVideo5.mp4";
 import video6 from "../../assets/videos/kuleliVideo6.mp4";
 
@@ -206,23 +204,12 @@ export default function EventsGallerySection() {
             video: video1
         },
         {
-            id: 2,
-            title: "Akademik Takip Atölyesi",
-            color: "#f0e8f8",
-            video: video2
-        },
-        {
             id: 3,
             title: "Yaz Okulu Etkinliği",
             color: "#f8f0e8",
             video: video3
         },
-        {
-            id: 4,
-            title: "Rehberlik Semineri",
-            color: "#e8f8f0",
-            video: video4
-        },
+
         {
             id: 5,
             title: "Öğrenci Çalışma Kampı",
@@ -235,18 +222,6 @@ export default function EventsGallerySection() {
             color: "#f0f8e8",
             video: video6
         },
-        {
-            id: 7,
-            title: "Etüt ve Odak Atölyesi",
-            color: "#e8e8f8",
-            video: video1
-        },
-        {
-            id: 8,
-            title: "Sosyal Gelişim Etkinliği",
-            color: "#f8f4e8",
-            video: video2
-        }
     ];
 
     const checkScroll = useCallback(() => {

@@ -126,7 +126,7 @@ const Slide = ({ SlideImgs,imgClass, container, id, isSlideOpen, containerRef, o
 
     const swiperClassName = container === "header-slide-container" ? "hero-swiper" : "";
     const validSlides = SlideImgs.filter((slide) => slide && slide.url);
-    const shouldLoop = validSlides.length > 1;
+    const shouldRewind = validSlides.length > 1;
     const floatingNodeDefaults = [
         { top: "10%", right: "24%" },
         { top: "34%", right: "46%" },
@@ -176,7 +176,7 @@ const Slide = ({ SlideImgs,imgClass, container, id, isSlideOpen, containerRef, o
         };
     };
 
-    let key = id ? id : 0;
+    const swiperKey = `${container || "slide"}-${validSlides.map((slide) => slide.id ?? slide.slug ?? slide.url).join("-")}`;
 
     return (
         <>
@@ -184,16 +184,15 @@ const Slide = ({ SlideImgs,imgClass, container, id, isSlideOpen, containerRef, o
                 <div className={container}>
                     <div ref={containerRef} className="slide-content-container">
                         {validSlides.length > 0 && (
-                            key = shouldOpen ? key + openSlide : id,
                             <Swiper
                                 modules={[Pagination, Autoplay, EffectCreative]}
-                                key={key}
+                                key={swiperKey}
                                 className={swiperClassName}
-                                loop={shouldLoop}
-                                loopFillGroupWithBlank={false}
-                                loopAdditionalSlides={0}
+                                loop={false}
+                                rewind={shouldRewind}
                                 slidesPerView={1}
-                                centeredSlides={true}
+                                slidesPerGroup={1}
+                                centeredSlides={false}
                                 spaceBetween={0}
                                 roundLengths={true}
                                 observer={true}
@@ -211,10 +210,10 @@ const Slide = ({ SlideImgs,imgClass, container, id, isSlideOpen, containerRef, o
                                         translate: ["100%", 0, 0],
                                     },
                                 }}
-                                autoplay={shouldLoop ? {
-                                    delay: 876000,
+                                autoplay={shouldRewind ? {
+                                    delay: 5000,
                                     disableOnInteraction: false,
-                                    pauseOnMouseEnter: true,
+                                    pauseOnMouseEnter: false,
                                     stopOnLastSlide: false,
                                 } : false}
                                 speed={800}
@@ -225,7 +224,7 @@ const Slide = ({ SlideImgs,imgClass, container, id, isSlideOpen, containerRef, o
 
                             >
                                 {validSlides.map((img, index) => (
-                                    <SwiperSlide key={`${img.id ?? "slide"}-${index}`}>
+                                    <SwiperSlide key={img.id ?? img.slug ?? `slide-${index}`}>
                                     {({ isActive }) => (
                                             <div className="slide-container">
                                                 <img onClick={() => openSlide?.()} className={imgClass} src={img.url} alt={img.littleTitle || img.mainTitle || "Slide Image"} />

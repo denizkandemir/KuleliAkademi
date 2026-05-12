@@ -1,6 +1,6 @@
 import "./videoSectionHomepage.scss";
 import video1 from "../../assets/videos/kuleliVideo1.mp4";
-import video2 from "../../assets/videos/kuleliVideo2.mp4";
+import video2 from "../../assets/videos/kuleliVideo5.mp4";
 import icon1 from "../../assets/icons/training.png";
 import icon2 from "../../assets/icons/graduation2.png";
 import React, { useEffect, useRef, useState } from "react";

@@ -31,8 +31,8 @@ export const contactConfig = {
             message: 'Merhaba, Polonya danışmanlığı hakkında bilgi almak istiyorum.',
         },
         aliaga: {
-            number: '+90 547 613 35 05',
-            url: 'https://wa.me/905476133505',
+            number: '+90 547 616 35 05',
+            url: 'https://wa.me/905476163505',
             context: 'Aliağa Danışmanlık Hattı',
             message: 'Merhaba, Aliağa danışmanlığı hakkında bilgi almak istiyorum.',
         },
