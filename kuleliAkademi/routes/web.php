@@ -66,3 +66,7 @@ Route::get('/linkler', function () {
 
 // Alias for English-speaking users
 Route::redirect('/links', '/linkler');
+
+// SEO Routes - robots.txt and sitemap.xml
+Route::get('/robots.txt', 'App\Http\Controllers\RobotsController@index');
+Route::get('/sitemap.xml', 'App\Http\Controllers\SitemapController@index');

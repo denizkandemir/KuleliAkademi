@@ -9,7 +9,9 @@ export default function Layout({ children }) {
         <>
             <ScrollToTop />
             <Navbar />
-            <main>{children}</main>
+            <main role="main" className="main-content">
+                {children}
+            </main>
             <Footer />
             <StickyWhatsappWidget />
         </>

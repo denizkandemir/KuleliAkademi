@@ -15,8 +15,16 @@ import banner5 from "../assets/images/lublin1.png";
 import banner6 from "../assets/images/krakow1.png";
 
 import servicesHomepageImg1 from "../assets/images/servicesImg11.png";
-
 import widgetImg1 from "../assets/images/servicesDetailImg3.png";
+
+import serviceOneProcessIcon from "../assets/icons/academic-success.png";
+import serviceOneProcessIcon2 from "../assets/icons/university2.png";
+import serviceOneProcessIcon3 from "../assets/icons/process.png";
+import serviceOneProcessIcon4 from "../assets/icons/preparation.png";
+import serviceOneProcessIcon5 from "../assets/icons/globe.png";
+
+
+import serviceOneRequirmentsIcon1 from "../assets/icons/passport.png";
 
 const applicationFormUrl =
     "https://docs.google.com/forms/d/e/1FAIpQLSf6EDVF2JpfO0Bzg3qZoMwefMoTFrxWuIsKUxqPZggljQvY_w/viewform?usp=dialog";
@@ -34,15 +42,10 @@ export const servicesData = [{
         introTitle: "Polonya üniversite başvurusu hizmeti nedir?",
         introParagraphs: [
             "Polonya’da üniversite okumak isteyen öğrenciler için başvuru süreci yalnızca bir online form doldurmaktan ibaret değildir. Öğrencinin lise diploması, not dökümü, dil seviyesi, bütçesi, hedeflediği bölüm ve uzun vadeli kariyer planı birlikte değerlendirilmelidir. Çünkü Polonya üniversitelerinde her programın kabul kriteri, eğitim dili, başvuru takvimi ve belge beklentisi farklı olabilir.",
-
             "Polonya’daki birçok lisans programı için temel başlangıç noktası lise diploması ve transkripttir. Buna ek olarak İngilizce veya Lehçe eğitim veren programlarda dil yeterliliği istenebilir. Bazı üniversiteler IELTS, TOEFL veya Cambridge gibi uluslararası sınavları kabul ederken, bazı okullar kendi iç dil sınavı ya da hazırlık programı seçeneği sunabilir. Bu nedenle öğrencinin mevcut seviyesine göre doğrudan lisans, hazırlık eğitimi veya alternatif program seçenekleri birlikte değerlendirilmelidir.",
-
             "Başvuru dosyasında genellikle diploma, transkript, pasaport fotokopisi, biyometrik fotoğraf, niyet mektubu, başvuru formu, dil belgesi ve gerekli durumlarda onaylı çeviri veya apostil/legalizasyon işlemleri yer alabilir. Belgelerin İngilizce veya Lehçe hazırlanması, üniversitenin istediği formatta sunulması ve son başvuru tarihinden önce eksiksiz tamamlanması kabul sürecinin en önemli parçalarından biridir.",
-
             "Polonya üniversitelerinde akademik yıl çoğunlukla sonbahar döneminde başlar. Başvuru ve kayıt süreçleri genellikle yaz aylarında yoğunlaşır; ancak her üniversitenin kendi takvimi, kontenjan durumu ve son başvuru tarihi farklı olabilir. Bu yüzden öğrencinin başvuruya son dakikada değil, okul seçimi, evrak hazırlığı, kabul mektubu, vize ve konaklama adımlarını da düşünerek daha erken başlaması gerekir.",
-
-            "Bu hizmet kapsamında öğrencinin profiline uygun Polonya üniversiteleri ve bölümleri araştırılır, başvuru şartları karşılaştırılır, belge listesi çıkarılır ve dosya düzenli hale getirilir. Amaç yalnızca bir okula başvuru yapmak değil; öğrencinin akademik geçmişine, bütçesine ve hedeflerine en uygun eğitim yolunu kurmaktır. Böylece öğrenci hangi belgeyi neden hazırladığını, hangi adımı ne zaman tamamlaması gerektiğini ve kabul sonrası hangi sürecin başlayacağını net şekilde görür.",
-
+            "Bu hizmet kapsamında öğrencinin profiline uygun Polonya üniversiteleri ve bölümleri araştırılır, başvuru şartları karşılaştırılır, belge listesi çıkarılır ve dosya düzenli hale getirilir. Amaç yalnızca bir okula başvuru yapmak değil; öğrencinin akademik geçmişine, bütçesine ve hedeflerine en uygun eğitim yolunu kurmaktır.",
             "Üniversite kabul kararı her zaman ilgili okulun değerlendirmesine, kontenjanına ve program şartlarına bağlıdır. Danışmanlık hizmeti, öğrencinin başvuru dosyasını mümkün olan en doğru ve eksiksiz şekilde hazırlamasına yardımcı olur; nihai kabul kararı üniversite tarafından verilir.",
         ],
 
@@ -55,34 +58,81 @@ export const servicesData = [{
             "Çeviri, apostil ve belge formatı yönlendirmesi",
         ],
 
-        processSteps: [
-            "Öğrencinin akademik geçmişi, hedefleri, bütçesi ve dil seviyesi analiz edilir.",
-            "Polonya’da başvuru yapılabilecek uygun üniversite ve bölümler belirlenir.",
-            "Programların eğitim dili, kabul şartları, ücretleri ve başvuru tarihleri karşılaştırılır.",
-            "Gerekli belgeler listelenir; diploma, transkript, pasaport ve dil belgesi gibi evraklar kontrol edilir.",
-            "Başvuru dosyası üniversitenin istediği formata göre düzenlenir ve süreç takip edilir.",
-            "Kabul sonrası vize, konaklama ve yerleşim adımları için öğrenci bilgilendirilir.",
+        processSteps: [{
+                title: "Akademik Profil Analizi",
+                shortDescription: "Öğrencinin mezuniyet durumu, not ortalaması, dil seviyesi, hedeflediği bölüm ve bütçe aralığı birlikte değerlendirilir.",
+                icon: serviceOneProcessIcon,
+            },
+            {
+                title: "Üniversite ve Bölüm Seçimi",
+                shortDescription: "Polonya’daki uygun üniversiteler; şehir, eğitim dili, yıllık ücret, kabul şartları ve kariyer hedefleri açısından karşılaştırılır.",
+                icon: serviceOneProcessIcon2,
+            },
+            {
+                title: "Başvuru Şartlarının Kontrolü",
+                shortDescription: "Seçilen programların son başvuru tarihleri, diploma şartları, dil kriterleri, kontenjan durumu ve ek belge talepleri netleştirilir.",
+                icon: serviceOneProcessIcon3,
+            },
+            {
+                title: "Evrak Hazırlığı",
+                shortDescription: "Diploma, transkript, pasaport, dil belgesi, niyet mektubu ve gerekli çeviri/apostil süreçleri başvuru formatına göre hazırlanır.",
+                icon: serviceOneProcessIcon4,
+            },
+            {
+                title: "Kabul Sonrası Yol Haritası",
+                shortDescription: "Kabul mektubu sonrası vize, konaklama, ödeme, kayıt ve Polonya’ya geçiş adımları öğrenciyle birlikte planlanır.",
+                icon: serviceOneProcessIcon5,
+            },
         ],
 
-        documentsOrRequirements: [
-            "Pasaport veya kimlik bilgileri",
-            "Lise diploması veya mezuniyet belgesi",
-            "Transkript / not dökümü",
-            "İngilizce veya Lehçe dil yeterlilik belgesi",
-            "Niyet mektubu",
-            "Biyometrik fotoğraf",
-            "Başvuru formu bilgileri",
-            "Gerekirse onaylı çeviri, apostil veya ek akademik belgeler",
+        documentsOrRequirements: [{
+                title: "Pasaport veya Kimlik Bilgileri",
+                shortDescription: "Başvuru formu ve üniversite kayıt işlemleri için öğrencinin geçerli kimlik veya pasaport bilgileri gerekir.",
+                icon: serviceOneRequirmentsIcon1,
+            },
+            {
+                title: "Lise Diploması veya Mezuniyet Belgesi",
+                shortDescription: "Lisans başvurularında öğrencinin ortaöğretimi tamamladığını gösteren temel akademik belgedir.",
+                icon: "",
+            },
+            {
+                title: "Transkript / Not Dökümü",
+                shortDescription: "Öğrencinin derslerini, notlarını ve akademik performansını gösterir; üniversiteler uygunluğu bu belgeyle değerlendirir.",
+                icon: "",
+            },
+            {
+                title: "Dil Yeterlilik Belgesi",
+                shortDescription: "İngilizce veya Lehçe eğitim veren programlarda öğrencinin program diline uygun seviyede olduğunu gösterir.",
+                icon: "",
+            },
+            {
+                title: "Niyet Mektubu",
+                shortDescription: "Öğrencinin seçtiği bölüm, akademik hedefleri ve Polonya’da eğitim alma motivasyonunu anlatan destekleyici belgedir.",
+                icon: "",
+            },
+            {
+                title: "Biyometrik Fotoğraf",
+                shortDescription: "Başvuru formları, öğrenci kayıtları ve bazı resmi işlemler için güncel biyometrik fotoğraf gerekebilir.",
+                icon: "",
+            },
+            {
+                title: "Başvuru Formu Bilgileri",
+                shortDescription: "Üniversitenin online veya yazılı başvuru sisteminde kullanılacak kişisel, akademik ve iletişim bilgileridir.",
+                icon: "",
+            },
+            {
+                title: "Çeviri, Apostil veya Ek Belgeler",
+                shortDescription: "Üniversitenin talebine göre belgelerin yeminli çevirisi, apostil işlemi veya ek akademik evraklar gerekebilir.",
+                icon: "",
+            },
         ],
 
         sidebarShortInfo: "Polonya üniversite başvurusunda en önemli adım doğru okul ve doğru bölüm seçimidir. Öğrencinin akademik geçmişi, bütçesi, dil seviyesi ve kariyer hedefi birlikte değerlendirilerek başvuru süreci planlanır.",
-
         ctaTitle: "Polonya üniversite başvurusu için destek alın",
         ctaText: "Polonya’da üniversite okumak istiyorsanız, başvuru formunu doldurarak okul seçimi, bölüm analizi ve belge hazırlığı sürecinizi birlikte planlayabiliriz.",
         ctaButtonText: "Başvuru Formunu Doldur",
         ctaHref: applicationFormUrl,
         whatsappKey: "poland",
-
         detailPageNote: "Polonya’da üniversite eğitimi almak isteyen öğrenciler için okul seçiminden kabul sürecine kadar planlı yurtdışı eğitim danışmanlığı hizmeti.",
         homepageImage: servicesHomepageImg1,
     },
@@ -98,17 +148,12 @@ export const servicesData = [{
 
         introTitle: "Polonya öğrenci vizesi başvurusu nedir?",
         introParagraphs: [
-            "Polonya’da 90 günden uzun süre eğitim alacak öğrenciler için vize süreci, üniversite kabulünden sonra gelen en kritik resmi adımlardan biridir. Uzun süreli eğitim planlayan öğrenciler genellikle D tipi ulusal vize başvurusu yapar. Bu vize, öğrencinin Polonya’da eğitim amacıyla yasal olarak kalabilmesi için hazırlanır ve başvuru dosyasının resmi kurallara uygun şekilde düzenlenmesi gerekir.",
-
-            "Polonya öğrenci vizesi başvurusunda genellikle üniversiteden alınan kabul mektubu, geçerli pasaport, biyometrik fotoğraf, vize başvuru formu, sağlık sigortası, finansal yeterlilik belgeleri ve konaklama kanıtı gibi evraklar istenir. Sağlık sigortasının Polonya’da kalış amacına ve planlanan süreye uygun olması, ayrıca gerekli teminat koşullarını karşılaması önemlidir. Finansal belgelerde ise öğrencinin eğitim ve yaşam masraflarını karşılayabileceğini gösterebilmesi beklenir.",
-
-            "Vize sürecinde en sık yaşanan sorunlar eksik belge, yanlış belge formatı, yetersiz finansal kanıt, hatalı tarih aralıkları, geç alınan randevu veya kabul mektubu ile diğer belgeler arasındaki tutarsızlıklardır. Bu nedenle vize başvurusu yalnızca belgeleri toplamak değil; belgelerin birbirini desteklediği düzenli bir dosya hazırlamak anlamına gelir.",
-
-            "Vize başvuruları genellikle seyahat tarihinden belirli bir süre önce planlanmalıdır. Resmi süreçlerde randevu yoğunluğu, konsolosluk takvimi ve ek belge talepleri değişebileceği için öğrencinin kabul mektubu çıkar çıkmaz vize evraklarına başlaması avantaj sağlar. Bazı başvurular kısa sürede sonuçlansa da resmi değerlendirme süresi yoğunluklara göre uzayabilir.",
-
-            "Bu hizmet kapsamında öğrencinin Polonya öğrenci vizesi için ihtiyaç duyabileceği belgeler listelenir, dosya düzeni kontrol edilir, randevu ve başvuru süreci için yönlendirme yapılır. Kabul belgesi, konaklama evrakı, sigorta, finansal belgeler ve başvuru formu gibi kritik parçaların birbiriyle uyumlu olması hedeflenir.",
-
-            "Vize sonucu her zaman ilgili konsolosluk veya resmi makam tarafından değerlendirilir. Danışmanlık hizmeti, öğrencinin dosyasını eksiksiz ve anlaşılır şekilde hazırlamasına yardımcı olur; nihai karar resmi kurumlara aittir.",
+            "Polonya’da 90 günden uzun süre eğitim alacak öğrenciler için vize süreci, üniversite kabulünden sonra gelen en kritik resmi adımlardan biridir. Uzun süreli eğitim planlayan öğrenciler genellikle D tipi ulusal vize başvurusu yapar.",
+            "Polonya öğrenci vizesi başvurusunda genellikle üniversiteden alınan kabul mektubu, geçerli pasaport, biyometrik fotoğraf, vize başvuru formu, sağlık sigortası, finansal yeterlilik belgeleri ve konaklama kanıtı gibi evraklar istenir.",
+            "Vize sürecinde en sık yaşanan sorunlar eksik belge, yanlış belge formatı, yetersiz finansal kanıt, hatalı tarih aralıkları, geç alınan randevu veya kabul mektubu ile diğer belgeler arasındaki tutarsızlıklardır.",
+            "Vize başvuruları genellikle seyahat tarihinden belirli bir süre önce planlanmalıdır. Konsolosluk takvimi, randevu yoğunluğu ve ek belge talepleri dönemsel olarak değişebilir.",
+            "Bu hizmet kapsamında öğrencinin Polonya öğrenci vizesi için ihtiyaç duyabileceği belgeler listelenir, dosya düzeni kontrol edilir, randevu ve başvuru süreci için yönlendirme yapılır.",
+            "Vize sonucu her zaman ilgili konsolosluk veya resmi makam tarafından değerlendirilir. Danışmanlık hizmeti, öğrencinin dosyasını eksiksiz ve anlaşılır şekilde hazırlamasına yardımcı olur.",
         ],
 
         highlights: [
@@ -120,35 +165,91 @@ export const servicesData = [{
             "Eksik veya riskli belge noktalarının belirlenmesi",
         ],
 
-        processSteps: [
-            "Öğrencinin kabul durumu ve planlanan eğitim süresi değerlendirilir.",
-            "Polonya öğrenci vizesi için gerekli belge listesi hazırlanır.",
-            "Pasaport, kabul belgesi, sigorta, finansal evrak ve konaklama belgeleri kontrol edilir.",
-            "Başvuru formu, randevu ve dosya sıralaması için yönlendirme yapılır.",
-            "Başvuru öncesi dosyada eksik veya tutarsız bilgi olup olmadığı gözden geçirilir.",
-            "Süreç tamamlanana kadar öğrenci düzenli olarak bilgilendirilir.",
+        processSteps: [{
+                title: "Vize Türü ve Eğitim Süresi Analizi",
+                shortDescription: "Öğrencinin kabul aldığı programın süresi, eğitim amacı ve kalış planı değerlendirilerek uygun vize süreci belirlenir.",
+                icon: "",
+            },
+            {
+                title: "Randevu ve Zamanlama Planı",
+                shortDescription: "Konsolosluk yoğunluğu, seyahat tarihi ve okul başlangıç tarihi dikkate alınarak başvuru takvimi oluşturulur.",
+                icon: "",
+            },
+            {
+                title: "Vize Evrak Listesi Hazırlığı",
+                shortDescription: "Kabul mektubu, pasaport, sigorta, finansal belgeler, konaklama kanıtı ve başvuru formu gibi gerekli evraklar listelenir.",
+                icon: "",
+            },
+            {
+                title: "Finansal ve Konaklama Belgeleri Kontrolü",
+                shortDescription: "Öğrencinin eğitim ve yaşam giderlerini karşılayabildiğini gösteren belgeler ile kalış adresi bilgileri dosyaya uygun hale getirilir.",
+                icon: "",
+            },
+            {
+                title: "Dosya Tutarlılık Kontrolü",
+                shortDescription: "Belge tarihleri, isim bilgileri, okul kabul bilgisi, sigorta süresi ve seyahat planı arasında uyumsuzluk olup olmadığı incelenir.",
+                icon: "",
+            },
+            {
+                title: "Başvuru Öncesi Son Hazırlık",
+                shortDescription: "Randevu günü için dosya sıralaması, başvuru formu ve öğrencinin yanında bulundurması gereken belgeler netleştirilir.",
+                icon: "",
+            },
         ],
 
-        documentsOrRequirements: [
-            "Geçerli pasaport",
-            "Biyometrik fotoğraf",
-            "Polonya üniversite kabul belgesi",
-            "Vize başvuru formu",
-            "Sağlık sigortası",
-            "Finansal yeterlilik belgeleri",
-            "Konaklama belgesi veya adres bilgisi",
-            "Uçuş ve planlanan kalış bilgileri",
-            "Gerekirse ek resmi belgeler",
+        documentsOrRequirements: [{
+                title: "Geçerli Pasaport",
+                shortDescription: "Vize başvurusunda kimlik ve seyahat belgesi olarak kullanılır; geçerlilik süresi başvuru planına uygun olmalıdır.",
+                icon: "",
+            },
+            {
+                title: "Polonya Üniversite Kabul Belgesi",
+                shortDescription: "Öğrencinin Polonya’da eğitim alacağını gösteren resmi kabul mektubu vize dosyasının ana belgelerinden biridir.",
+                icon: "",
+            },
+            {
+                title: "Vize Başvuru Formu",
+                shortDescription: "Kişisel bilgiler, seyahat amacı, kalış süresi ve iletişim bilgilerinin yer aldığı resmi başvuru formudur.",
+                icon: "",
+            },
+            {
+                title: "Biyometrik Fotoğraf",
+                shortDescription: "Konsolosluk standartlarına uygun, güncel ve resmi başvuru formatına uygun fotoğraf gereklidir.",
+                icon: "",
+            },
+            {
+                title: "Sağlık Sigortası",
+                shortDescription: "Polonya’da planlanan kalış süresini ve gerekli teminat koşullarını karşılayan sağlık sigortası dosyada yer almalıdır.",
+                icon: "",
+            },
+            {
+                title: "Finansal Yeterlilik Belgeleri",
+                shortDescription: "Öğrencinin eğitim, konaklama ve yaşam masraflarını karşılayabileceğini gösteren banka veya gelir belgeleridir.",
+                icon: "",
+            },
+            {
+                title: "Konaklama Kanıtı",
+                shortDescription: "Yurt, kira, davet veya geçici konaklama bilgisi gibi öğrencinin Polonya’da nerede kalacağını gösteren belgedir.",
+                icon: "",
+            },
+            {
+                title: "Seyahat ve Kalış Planı",
+                shortDescription: "Uçuş bilgileri, planlanan giriş tarihi ve eğitim başlangıcıyla uyumlu kalış planını destekleyen bilgilerdir.",
+                icon: "",
+            },
+            {
+                title: "Ek Resmi Belgeler",
+                shortDescription: "Konsolosluk veya başvuru merkezi öğrencinin durumuna göre ek belge talep edebilir.",
+                icon: "",
+            },
         ],
 
         sidebarShortInfo: "Polonya öğrenci vizesi sürecinde belge düzeni, finansal kanıtlar, sigorta ve randevu zamanlaması dikkatle hazırlanmalıdır. Eksik veya tutarsız belgeler süreci zorlaştırabilir.",
-
         ctaTitle: "Polonya öğrenci vizesi sürecinizi birlikte planlayalım",
         ctaText: "Kabul belgenizi aldıktan sonra Polonya öğrenci vizesi için gerekli evrakları ve başvuru adımlarını birlikte düzenleyebiliriz.",
         ctaButtonText: "Başvuru Formunu Doldur",
         ctaHref: applicationFormUrl,
         whatsappKey: "poland",
-
         detailPageNote: "Polonya öğrenci vizesi için gerekli resmi adımları, belge hazırlığını ve başvuru dosyası düzenini kolaylaştıran danışmanlık hizmeti.",
         homepageImage: service2,
     },
@@ -164,15 +265,11 @@ export const servicesData = [{
 
         introTitle: "Polonya’da karşılama ve yerleşim desteği nedir?",
         introParagraphs: [
-            "Polonya’ya ilk kez gelen öğrenciler için varış günü çoğu zaman en stresli aşamalardan biridir. Öğrenci uçaktan indikten sonra havalimanından şehir merkezine nasıl geçeceğini, konaklama adresine nasıl ulaşacağını, telefon hattı veya internet bağlantısını nasıl çözeceğini ve ilk ihtiyaçlarını nereden karşılayacağını bilemeyebilir. Karşılama ve yerleşim desteği bu ilk karmaşayı azaltmak için hazırlanır.",
-
-            "Bu hizmette öğrencinin uçuş bilgileri, varış saati, havalimanı, şehir ve konaklama adresi önceden değerlendirilir. Varış sonrası ulaşım planı netleştirilir ve öğrencinin güvenli şekilde konaklama noktasına geçmesi hedeflenir. Özellikle Varşova, Krakow, Gdansk, Wroclaw, Poznan veya Lublin gibi öğrenci şehirlerinde havalimanı, tren, otobüs ve şehir içi ulaşım bağlantıları önceden bilinirse ilk gün çok daha rahat ilerler.",
-
-            "Yerleşim sürecinde öğrencinin konaklama noktasına geçtikten sonra temel ihtiyaçlarını hızlıca karşılaması önemlidir. İlk günlerde market, eczane, telefon hattı, toplu taşıma bileti, şehir kartı, banka hesabı ve okul çevresi gibi pratik bilgiler öğrencinin yeni hayatına daha güvenli başlamasını sağlar. Bu yüzden karşılama hizmeti yalnızca transfer değil, aynı zamanda ilk gün oryantasyonu anlamına gelir.",
-
-            "Özellikle ailesinden ilk kez ayrılan veya daha önce yurtdışında yaşamamış öğrenciler için bu süreç psikolojik olarak da önemlidir. Öğrenci yeni bir ülkeye geldiğinde yalnız hissetmek yerine, hangi adımı ne zaman atacağını bilirse adaptasyon süreci çok daha sağlıklı ilerler. Bu da eğitim hayatına daha sakin ve özgüvenli başlamasına yardımcı olur.",
-
-            "Bu hizmet kapsamında öğrencinin varış öncesi planı hazırlanır, ilk ulaşım adımları netleştirilir, konaklama adresine geçiş ve ilk hafta ihtiyaçları hakkında yönlendirme yapılır. Amaç öğrencinin Polonya’daki ilk günlerini plansız, stresli ve belirsiz geçirmek yerine kontrollü bir başlangıç yapmasını sağlamaktır.",
+            "Polonya’ya ilk kez gelen öğrenciler için varış günü çoğu zaman en stresli aşamalardan biridir. Öğrenci uçaktan indikten sonra havalimanından şehir merkezine nasıl geçeceğini, konaklama adresine nasıl ulaşacağını ve ilk ihtiyaçlarını nereden karşılayacağını bilemeyebilir.",
+            "Bu hizmette öğrencinin uçuş bilgileri, varış saati, havalimanı, şehir ve konaklama adresi önceden değerlendirilir.",
+            "Yerleşim sürecinde öğrencinin konaklama noktasına geçtikten sonra temel ihtiyaçlarını hızlıca karşılaması önemlidir.",
+            "Özellikle ailesinden ilk kez ayrılan veya daha önce yurtdışında yaşamamış öğrenciler için bu süreç psikolojik olarak da önemlidir.",
+            "Bu hizmet kapsamında öğrencinin varış öncesi planı hazırlanır, ilk ulaşım adımları netleştirilir, konaklama adresine geçiş ve ilk hafta ihtiyaçları hakkında yönlendirme yapılır.",
         ],
 
         highlights: [
@@ -184,32 +281,76 @@ export const servicesData = [{
             "İlk hafta adaptasyon süreci için destek",
         ],
 
-        processSteps: [
-            "Öğrencinin uçuş bilgileri, varış saati ve konaklama adresi alınır.",
-            "Havalimanından konaklama noktasına ulaşım planı hazırlanır.",
-            "İlk gün ihtiyaç duyulabilecek temel noktalar belirlenir.",
-            "Şehir içi ulaşım, telefon hattı ve temel alışveriş hakkında bilgilendirme yapılır.",
-            "Okul çevresi ve günlük yaşam için pratik yönlendirmeler paylaşılır.",
-            "Öğrencinin ilk hafta adaptasyon süreci takip edilir.",
+        processSteps: [{
+                title: "Varış Bilgilerinin Alınması",
+                shortDescription: "Öğrencinin uçuş saati, havalimanı, şehir, okul ve konaklama adresi önceden değerlendirilir.",
+                icon: "",
+            },
+            {
+                title: "İlk Ulaşım Planı",
+                shortDescription: "Havalimanından konaklama adresine geçiş için tren, otobüs, taksi veya transfer seçenekleri planlanır.",
+                icon: "",
+            },
+            {
+                title: "Konaklama Adresine Geçiş",
+                shortDescription: "Öğrencinin ilk gün güvenli şekilde kalacağı yere ulaşması ve giriş sürecini tamamlaması hedeflenir.",
+                icon: "",
+            },
+            {
+                title: "İlk Gün İhtiyaçları",
+                shortDescription: "Market, eczane, yemek, telefon hattı, internet ve temel alışveriş noktaları hakkında pratik yönlendirme yapılır.",
+                icon: "",
+            },
+            {
+                title: "Şehir ve Okul Çevresi Tanıtımı",
+                shortDescription: "Toplu taşıma, okul çevresi, önemli duraklar ve günlük yaşam noktaları öğrenciye anlaşılır şekilde aktarılır.",
+                icon: "",
+            },
+            {
+                title: "İlk Hafta Adaptasyon Takibi",
+                shortDescription: "Öğrencinin ilk hafta yaşadığı pratik sorunlar ve yönlendirme ihtiyaçları takip edilir.",
+                icon: "",
+            },
         ],
 
-        documentsOrRequirements: [
-            "Uçuş ve varış bilgileri",
-            "Konaklama adresi",
-            "Pasaport veya kimlik bilgileri",
-            "Telefon ve iletişim bilgileri",
-            "Okul ve şehir bilgileri",
-            "Gerekirse transfer veya kayıt bilgileri",
+        documentsOrRequirements: [{
+                title: "Uçuş ve Varış Bilgileri",
+                shortDescription: "Varış saati, havalimanı ve uçuş detayları ulaşım planının doğru yapılması için gereklidir.",
+                icon: "",
+            },
+            {
+                title: "Konaklama Adresi",
+                shortDescription: "Öğrencinin ilk gün ulaşacağı yurt, ev, otel veya geçici konaklama adresi önceden netleştirilmelidir.",
+                icon: "",
+            },
+            {
+                title: "Pasaport veya Kimlik Bilgileri",
+                shortDescription: "Varış ve yerleşim sırasında kimlik doğrulama, kayıt ve bazı pratik işlemler için gerekli olabilir.",
+                icon: "",
+            },
+            {
+                title: "Telefon ve İletişim Bilgileri",
+                shortDescription: "Öğrenciye varış günü ulaşabilmek ve acil durumlarda iletişim kurabilmek için güncel bilgiler alınır.",
+                icon: "",
+            },
+            {
+                title: "Okul ve Şehir Bilgileri",
+                shortDescription: "Öğrencinin kampüs lokasyonu, şehir içi ulaşımı ve çevre planlaması için okul bilgileri kullanılır.",
+                icon: "",
+            },
+            {
+                title: "Transfer veya Kayıt Bilgileri",
+                shortDescription: "Gerekirse yurt girişi, anahtar teslimi, resepsiyon, transfer veya ilk kayıt detayları önceden organize edilir.",
+                icon: "",
+            },
         ],
 
         sidebarShortInfo: "Polonya’ya ilk varış sürecinde doğru ulaşım ve yerleşim planı, öğrencinin yeni ülkeye daha güvenli ve rahat başlamasını sağlar.",
-
         ctaTitle: "Polonya’ya varış ve yerleşim sürecinizi planlayalım",
         ctaText: "İlk günlerinizi daha rahat geçirmek için havalimanı karşılama, ulaşım ve yerleşim sürecinizi birlikte organize edebiliriz.",
         ctaButtonText: "Başvuru Formunu Doldur",
         ctaHref: applicationFormUrl,
         whatsappKey: "poland",
-
         detailPageNote: "Polonya’ya yeni gelen öğrenciler için havalimanı, ulaşım, konaklama ve ilk hafta yerleşim adımlarını kolaylaştıran destek hizmeti.",
         homepageImage: service3,
     },
@@ -225,17 +366,12 @@ export const servicesData = [{
 
         introTitle: "Polonya oturum izni başvurusu nedir?",
         introParagraphs: [
-            "Polonya’ya öğrenci vizesi ile giriş yapan birçok öğrenci, eğitim süresi uzadığında veya uzun dönem yasal kalış hakkını devam ettirmek istediğinde geçici oturum izni başvurusu yapar. Bu süreç genellikle 'karta pobytu' olarak bilinen oturum kartı sistemi üzerinden ilerler ve öğrencinin Polonya’da eğitim amacıyla resmi olarak kalmaya devam etmesini sağlar.",
-
-            "Oturum izni sürecinde öğrencinin aktif öğrenci statüsünü, adres kaydını, sağlık sigortasını ve finansal durumunu gösterebilmesi gerekir. Başvurularda genellikle pasaport, güncel öğrenci belgesi, konaklama kanıtı, banka dökümleri, biyometrik fotoğraf ve resmi başvuru formları gibi belgeler istenir. Belgelerin eksiksiz hazırlanması ve doğru sırada sunulması sürecin daha sağlıklı ilerlemesine yardımcı olur.",
-
-            "Polonya’daki oturum başvuruları şehirden şehre değişebilen yoğunluklara sahip olabilir. Özellikle Varşova gibi büyük şehirlerde randevu süreleri ve işlem yoğunluğu daha uzun sürebilir. Bu nedenle öğrencinin mevcut vize veya yasal kalış süresi bitmeden önce hazırlıklara başlaması önemlidir.",
-
-            "Oturum izni sürecinde öğrencilerin en sık yaşadığı sorunlar eksik belge, adres kayıt problemleri, sigorta eksikliği veya yanlış başvuru zamanlamasıdır. Ayrıca bazı durumlarda ek belge talepleri veya resmi yazışmalar gelebilir. Bu yüzden öğrencinin süreç boyunca düzenli ve takip edilebilir bir dosya sistemi kullanması avantaj sağlar.",
-
-            "Bu hizmet kapsamında öğrencinin mevcut durumu değerlendirilir, gerekli belgeler listelenir ve oturum başvuru dosyası için yönlendirme yapılır. Amaç öğrencinin Polonya’daki eğitim hayatını kesintisiz ve resmi kurallara uygun şekilde sürdürebilmesine yardımcı olmaktır.",
-
-            "Oturum izni değerlendirmesi ilgili resmi kurumlar tarafından yapılır. Danışmanlık hizmeti, öğrencinin belgelerini daha düzenli ve anlaşılır şekilde hazırlamasına destek olur; nihai karar resmi makamlar tarafından verilir.",
+            "Polonya’ya öğrenci vizesi ile giriş yapan birçok öğrenci, eğitim süresi uzadığında veya uzun dönem yasal kalış hakkını devam ettirmek istediğinde geçici oturum izni başvurusu yapar.",
+            "Oturum izni sürecinde öğrencinin aktif öğrenci statüsünü, adres kaydını, sağlık sigortasını ve finansal durumunu gösterebilmesi gerekir.",
+            "Polonya’daki oturum başvuruları şehirden şehre değişebilen yoğunluklara sahip olabilir. Özellikle büyük şehirlerde randevu süreleri ve işlem yoğunluğu daha uzun sürebilir.",
+            "Oturum izni sürecinde öğrencilerin en sık yaşadığı sorunlar eksik belge, adres kayıt problemleri, sigorta eksikliği veya yanlış başvuru zamanlamasıdır.",
+            "Bu hizmet kapsamında öğrencinin mevcut durumu değerlendirilir, gerekli belgeler listelenir ve oturum başvuru dosyası için yönlendirme yapılır.",
+            "Oturum izni değerlendirmesi ilgili resmi kurumlar tarafından yapılır. Danışmanlık hizmeti, öğrencinin belgelerini daha düzenli ve anlaşılır şekilde hazırlamasına destek olur.",
         ],
 
         highlights: [
@@ -247,34 +383,86 @@ export const servicesData = [{
             "Eksik belge risklerinin azaltılması",
         ],
 
-        processSteps: [
-            "Öğrencinin mevcut vize ve eğitim durumu değerlendirilir.",
-            "Oturum izni için gerekli belgeler listelenir.",
-            "Adres kaydı, sigorta ve öğrenci belgeleri kontrol edilir.",
-            "Başvuru formu ve dosya düzeni hazırlanır.",
-            "Eksik veya riskli noktalar belirlenir.",
-            "Başvuru sonrası süreç hakkında yönlendirme yapılır.",
+        processSteps: [{
+                title: "Yasal Kalış Durumu Analizi",
+                shortDescription: "Öğrencinin mevcut vize süresi, giriş tarihi, eğitim durumu ve oturum başvurusuna uygun zamanlaması değerlendirilir.",
+                icon: "",
+            },
+            {
+                title: "Oturum Belgelerinin Listelenmesi",
+                shortDescription: "Pasaport, öğrenci belgesi, adres bilgisi, sigorta ve finansal belgeler başvuru ihtiyacına göre listelenir.",
+                icon: "",
+            },
+            {
+                title: "Adres ve Konaklama Kontrolü",
+                shortDescription: "Öğrencinin Polonya’daki konaklama durumu, adres bilgisi ve gerekli belge formatı kontrol edilir.",
+                icon: "",
+            },
+            {
+                title: "Sigorta ve Finansal Belgeler",
+                shortDescription: "Sağlık sigortası ve öğrencinin geçimini sağlayabileceğini gösteren finansal belgeler dosya düzenine eklenir.",
+                icon: "",
+            },
+            {
+                title: "Başvuru Dosyası Hazırlığı",
+                shortDescription: "Formlar, biyometrik fotoğraf, kopyalar ve destekleyici evraklar resmi başvuruya uygun şekilde düzenlenir.",
+                icon: "",
+            },
+            {
+                title: "Başvuru Sonrası Takip",
+                shortDescription: "Ek belge talepleri, resmi yazışmalar ve süreçte çıkabilecek güncellemeler için öğrenci yönlendirilir.",
+                icon: "",
+            },
         ],
 
-        documentsOrRequirements: [
-            "Pasaport",
-            "Geçerli vize veya giriş bilgileri",
-            "Öğrenci belgesi",
-            "Konaklama veya adres kaydı",
-            "Sağlık sigortası",
-            "Banka dökümleri veya finansal belgeler",
-            "Biyometrik fotoğraf",
-            "Başvuru formu",
+        documentsOrRequirements: [{
+                title: "Pasaport",
+                shortDescription: "Oturum başvurusunda kimlik ve yasal giriş bilgisini gösteren temel belgedir.",
+                icon: "",
+            },
+            {
+                title: "Geçerli Vize veya Giriş Bilgileri",
+                shortDescription: "Öğrencinin Polonya’ya hangi statüyle giriş yaptığını ve mevcut yasal kalış durumunu gösterir.",
+                icon: "",
+            },
+            {
+                title: "Öğrenci Belgesi",
+                shortDescription: "Öğrencinin Polonya’daki eğitim kurumuna kayıtlı olduğunu ve aktif öğrenci statüsünü kanıtlar.",
+                icon: "",
+            },
+            {
+                title: "Konaklama veya Adres Kaydı",
+                shortDescription: "Öğrencinin Polonya’da nerede yaşadığını gösteren kira, yurt, adres veya kayıt bilgisidir.",
+                icon: "",
+            },
+            {
+                title: "Sağlık Sigortası",
+                shortDescription: "Oturum süresince sağlık güvencesini destekleyen, Polonya’da geçerli sigorta belgesidir.",
+                icon: "",
+            },
+            {
+                title: "Finansal Belgeler",
+                shortDescription: "Öğrencinin yaşam ve eğitim masraflarını karşılayabileceğini gösteren banka veya gelir belgeleridir.",
+                icon: "",
+            },
+            {
+                title: "Biyometrik Fotoğraf",
+                shortDescription: "Oturum kartı başvurusunda kullanılmak üzere güncel ve resmi standartlara uygun fotoğraf gerekir.",
+                icon: "",
+            },
+            {
+                title: "Başvuru Formu",
+                shortDescription: "Oturum izni başvurusunda kişisel bilgiler, eğitim durumu ve kalış amacını içeren resmi formdur.",
+                icon: "",
+            },
         ],
 
         sidebarShortInfo: "Polonya’da uzun süre eğitim alacak öğrenciler için oturum izni başvurusu resmi süreçlerin en önemli parçalarından biridir.",
-
         ctaTitle: "Polonya oturum izni sürecinizi planlayalım",
         ctaText: "Oturum kartı başvurusu için gerekli belgeleri ve resmi süreci birlikte düzenleyebiliriz.",
         ctaButtonText: "Başvuru Formunu Doldur",
         ctaHref: applicationFormUrl,
         whatsappKey: "poland",
-
         detailPageNote: "Polonya’da eğitim hayatını sürdüren öğrenciler için geçici oturum izni ve karta pobytu sürecine yönelik danışmanlık desteği.",
         homepageImage: service4,
     },
@@ -290,15 +478,11 @@ export const servicesData = [{
 
         introTitle: "Polonya’da öğrenci konaklama süreci nasıl işler?",
         introParagraphs: [
-            "Polonya’da eğitim alacak öğrenciler için doğru konaklama seçimi, eğitim hayatının en önemli parçalarından biridir. Öğrencinin okula ulaşım süresi, aylık bütçesi, şehir tercihi ve yaşam tarzı konaklama seçiminde doğrudan etkili olur. Bu nedenle yalnızca ucuz veya merkezi seçeneklere bakmak yerine öğrencinin günlük hayatına uygun bir denge kurulmalıdır.",
-
-            "Polonya’da öğrenciler genellikle üniversite yurtları, özel yurtlar, paylaşımlı odalar veya kiralık daire seçeneklerini değerlendirir. Üniversite yurtları çoğu zaman daha ekonomik olabilir; ancak kontenjanları sınırlı olabilir. Özel yurtlar daha modern ve uluslararası öğrenci odaklı seçenekler sunabilirken, maliyetleri daha yüksek olabilir. Paylaşımlı ev veya oda seçenekleri ise şehir ve lokasyona göre değişken fiyatlara sahiptir.",
-
-            "Özellikle Varşova, Krakow, Gdansk ve Wroclaw gibi büyük öğrenci şehirlerinde konaklama talebi dönemsel olarak çok yoğun olabilir. Eğitim yılı başlangıcına yakın dönemlerde uygun oda veya yurt bulmak zorlaşabilir. Bu nedenle öğrencinin kabul aldıktan sonra konaklama araştırmasına erken başlaması önemlidir.",
-
-            "Konaklama sürecinde öğrencilerin dikkat etmesi gereken en önemli konular kira sözleşmesi, depozito koşulları, ulaşım bağlantıları, internet ve faturaların dahil olup olmadığı gibi detaylardır. Bazı öğrenciler yalnız yaşamayı tercih ederken bazıları paylaşımlı ev ortamında yaşam maliyetini düşürmek isteyebilir. Bu yüzden tek bir doğru seçenek yoktur; öğrencinin önceliklerine göre değerlendirme yapılmalıdır.",
-
-            "Bu hizmet kapsamında öğrencinin bütçesi, okul konumu, şehir tercihi ve yaşam beklentileri değerlendirilir; uygun konaklama seçenekleri hakkında yönlendirme yapılır. Amaç öğrencinin Polonya’daki eğitim hayatına güvenli, ulaşılabilir ve sürdürülebilir bir yaşam düzeniyle başlamasına yardımcı olmaktır.",
+            "Polonya’da eğitim alacak öğrenciler için doğru konaklama seçimi, eğitim hayatının en önemli parçalarından biridir.",
+            "Polonya’da öğrenciler genellikle üniversite yurtları, özel yurtlar, paylaşımlı odalar veya kiralık daire seçeneklerini değerlendirir.",
+            "Özellikle büyük öğrenci şehirlerinde konaklama talebi dönemsel olarak yoğun olabilir. Eğitim yılı başlangıcına yakın dönemlerde uygun oda veya yurt bulmak zorlaşabilir.",
+            "Konaklama sürecinde öğrencilerin dikkat etmesi gereken en önemli konular kira sözleşmesi, depozito koşulları, ulaşım bağlantıları, internet ve faturaların dahil olup olmadığı gibi detaylardır.",
+            "Bu hizmet kapsamında öğrencinin bütçesi, okul konumu, şehir tercihi ve yaşam beklentileri değerlendirilir; uygun konaklama seçenekleri hakkında yönlendirme yapılır.",
         ],
 
         highlights: [
@@ -310,31 +494,71 @@ export const servicesData = [{
             "Şehir bazlı öğrenci yaşam bilgileri",
         ],
 
-        processSteps: [
-            "Öğrencinin bütçesi ve şehir tercihi değerlendirilir.",
-            "Okul konumuna uygun konaklama bölgeleri belirlenir.",
-            "Yurt, oda veya daire seçenekleri karşılaştırılır.",
-            "Kira, depozito ve temel yaşam giderleri değerlendirilir.",
-            "Ulaşım ve günlük yaşam açısından uygunluk kontrol edilir.",
-            "Öğrenciye karar süreci için yönlendirme yapılır.",
+        processSteps: [{
+                title: "Bütçe ve Şehir Analizi",
+                shortDescription: "Öğrencinin aylık bütçesi, şehir tercihi, okul lokasyonu ve yaşam beklentileri birlikte değerlendirilir.",
+                icon: "",
+            },
+            {
+                title: "Konaklama Türü Belirleme",
+                shortDescription: "Üniversite yurdu, özel yurt, paylaşımlı oda veya kiralık daire seçenekleri öğrencinin ihtiyacına göre karşılaştırılır.",
+                icon: "",
+            },
+            {
+                title: "Lokasyon ve Ulaşım Kontrolü",
+                shortDescription: "Konaklama seçeneklerinin okula, toplu taşımaya, marketlere ve günlük yaşam alanlarına yakınlığı incelenir.",
+                icon: "",
+            },
+            {
+                title: "Maliyet ve Sözleşme Değerlendirmesi",
+                shortDescription: "Kira, depozito, fatura, internet, eşya durumu ve sözleşme koşulları öğrencinin bütçesine göre değerlendirilir.",
+                icon: "",
+            },
+            {
+                title: "Rezervasyon veya Başvuru Süreci",
+                shortDescription: "Uygun seçenek belirlendikten sonra yurt başvurusu, oda rezervasyonu veya ev sahibiyle iletişim süreci planlanır.",
+                icon: "",
+            },
+            {
+                title: "Yerleşim Öncesi Son Kontrol",
+                shortDescription: "Giriş tarihi, adres, ödeme koşulları ve ilk gün ihtiyaçları öğrencinin varış planıyla uyumlu hale getirilir.",
+                icon: "",
+            },
         ],
 
-        documentsOrRequirements: [
-            "Şehir ve üniversite bilgisi",
-            "Yaklaşık aylık bütçe",
-            "Planlanan kalış süresi",
-            "Konaklama tercihleri",
-            "Varsa mevcut kabul veya kayıt belgeleri",
+        documentsOrRequirements: [{
+                title: "Şehir ve Üniversite Bilgisi",
+                shortDescription: "Konaklama araştırmasının doğru bölgelerde yapılabilmesi için öğrencinin okuyacağı şehir ve okul bilgisi gerekir.",
+                icon: "",
+            },
+            {
+                title: "Yaklaşık Aylık Bütçe",
+                shortDescription: "Yurt, oda veya daire seçeneklerinin öğrencinin gerçek bütçesine göre filtrelenmesini sağlar.",
+                icon: "",
+            },
+            {
+                title: "Planlanan Kalış Süresi",
+                shortDescription: "Kısa dönem, akademik yıl veya uzun dönem konaklama seçeneklerinin belirlenmesi için gereklidir.",
+                icon: "",
+            },
+            {
+                title: "Konaklama Tercihleri",
+                shortDescription: "Tek kişilik oda, paylaşımlı oda, yurt, özel daire, merkezi lokasyon veya ekonomik seçenek gibi öncelikler netleştirilir.",
+                icon: "",
+            },
+            {
+                title: "Kabul veya Kayıt Belgesi",
+                shortDescription: "Bazı yurtlar ve öğrenci konaklama kurumları başvuru sırasında okul kabul veya kayıt belgesi isteyebilir.",
+                icon: "",
+            },
         ],
 
         sidebarShortInfo: "Polonya’da doğru konaklama seçimi öğrencinin hem bütçesini hem de günlük yaşam konforunu doğrudan etkiler.",
-
         ctaTitle: "Polonya’da konaklama seçeneklerini birlikte değerlendirelim",
         ctaText: "Şehrinize, okulunuza ve bütçenize uygun öğrenci konaklama seçeneklerini birlikte planlayabiliriz.",
         ctaButtonText: "Başvuru Formunu Doldur",
         ctaHref: applicationFormUrl,
         whatsappKey: "poland",
-
         detailPageNote: "Polonya’da öğrenci yurdu, oda ve kiralık daire seçenekleri için şehir ve bütçe odaklı konaklama danışmanlığı.",
         homepageImage: service5,
     },
@@ -350,15 +574,11 @@ export const servicesData = [{
 
         introTitle: "Polonya’da öğrenci hayatı nasıldır?",
         introParagraphs: [
-            "Polonya, son yıllarda uluslararası öğrenciler için Avrupa’daki en popüler eğitim ülkelerinden biri haline gelmiştir. Özellikle yaşam maliyetlerinin birçok Batı Avrupa ülkesine göre daha ulaşılabilir olması, güvenli şehir yapısı ve öğrenci odaklı yaşam düzeni nedeniyle birçok öğrenci tarafından tercih edilmektedir.",
-
-            "Varşova, Krakow, Gdansk, Poznan, Wroclaw ve Lublin gibi şehirlerin her biri farklı bir öğrenci deneyimi sunar. Varşova daha büyük ve hızlı bir şehir yapısına sahipken, Krakow daha tarihi ve öğrenci odaklı bir atmosfere sahip olabilir. Gdansk sahil yaşamı ve uluslararası yapısıyla dikkat çekerken, Lublin daha sakin ve ekonomik bir öğrenci yaşamı sunabilir.",
-
-            "Polonya’da öğrenci yaşamında en önemli konular genellikle ulaşım, aylık yaşam giderleri, market fiyatları, telefon hattı, banka hesabı, sağlık sistemi ve sosyal adaptasyon süreçleridir. Özellikle ilk aylarda öğrencinin şehir düzenini öğrenmesi günlük hayatı büyük ölçüde kolaylaştırır.",
-
-            "Birçok şehirde öğrenciler için indirimli toplu taşıma kartları bulunur. Ayrıca üniversitelerin çevresinde öğrenci yoğunluğu yüksek olduğu için kafe, kütüphane, çalışma alanı ve sosyal etkinlik seçenekleri oldukça yaygındır. Bunun yanında öğrencinin bütçe yönetimi yapabilmesi ve aylık giderlerini önceden planlaması da önemlidir.",
-
-            "Bu hizmet kapsamında öğrencinin gideceği şehir hakkında temel yaşam bilgileri paylaşılır, günlük hayat düzeni ve ilk dönem adaptasyonu için yönlendirme yapılır. Amaç öğrencinin yalnızca akademik değil, sosyal ve günlük yaşam açısından da Polonya’ya daha rahat uyum sağlayabilmesidir.",
+            "Polonya, son yıllarda uluslararası öğrenciler için Avrupa’daki en popüler eğitim ülkelerinden biri haline gelmiştir.",
+            "Varşova, Krakow, Gdansk, Poznan, Wroclaw ve Lublin gibi şehirlerin her biri farklı bir öğrenci deneyimi sunar.",
+            "Polonya’da öğrenci yaşamında en önemli konular genellikle ulaşım, aylık yaşam giderleri, market fiyatları, telefon hattı, banka hesabı, sağlık sistemi ve sosyal adaptasyon süreçleridir.",
+            "Birçok şehirde öğrenciler için indirimli toplu taşıma kartları bulunur. Ayrıca üniversitelerin çevresinde öğrenci yoğunluğu yüksek olduğu için kafe, kütüphane, çalışma alanı ve sosyal etkinlik seçenekleri oldukça yaygındır.",
+            "Bu hizmet kapsamında öğrencinin gideceği şehir hakkında temel yaşam bilgileri paylaşılır, günlük hayat düzeni ve ilk dönem adaptasyonu için yönlendirme yapılır.",
         ],
 
         highlights: [
@@ -370,52 +590,102 @@ export const servicesData = [{
             "İlk dönem adaptasyon desteği",
         ],
 
-        processSteps: [
-            "Öğrencinin gideceği şehir belirlenir.",
-            "Şehirdeki temel yaşam düzeni hakkında bilgilendirme yapılır.",
-            "Ulaşım, market ve günlük ihtiyaç noktaları paylaşılır.",
-            "Öğrenci bütçesi için temel gider planı değerlendirilir.",
-            "Telefon hattı, banka hesabı ve temel sistemler anlatılır.",
-            "İlk dönem adaptasyonu için pratik öneriler sunulur.",
+        processSteps: [{
+                title: "Şehir Profili Değerlendirmesi",
+                shortDescription: "Öğrencinin yaşayacağı şehir; ulaşım, öğrenci yoğunluğu, maliyet ve günlük yaşam düzeni açısından tanıtılır.",
+                icon: "",
+            },
+            {
+                title: "Ulaşım Sistemi Bilgilendirmesi",
+                shortDescription: "Toplu taşıma kartları, öğrenci indirimleri, duraklar, kampüse ulaşım ve şehir içi hareket planı anlatılır.",
+                icon: "",
+            },
+            {
+                title: "Günlük Yaşam Noktaları",
+                shortDescription: "Market, eczane, banka, telefon hattı, kafe, kütüphane ve temel ihtiyaç noktaları hakkında pratik bilgi verilir.",
+                icon: "",
+            },
+            {
+                title: "Bütçe ve Yaşam Giderleri",
+                shortDescription: "Konaklama, market, ulaşım, telefon, sosyal yaşam ve başlangıç masrafları için gerçekçi bir gider planı oluşturulur.",
+                icon: "",
+            },
+            {
+                title: "Resmi ve Pratik İşlemler",
+                shortDescription: "Banka hesabı, telefon hattı, öğrenci kartı, okul çevresi ve temel kayıt süreçleri için yönlendirme sağlanır.",
+                icon: "",
+            },
+            {
+                title: "İlk Dönem Adaptasyon Desteği",
+                shortDescription: "Öğrencinin sosyal, kültürel ve günlük yaşam açısından Polonya’ya daha rahat alışması için pratik öneriler paylaşılır.",
+                icon: "",
+            },
         ],
 
-        documentsOrRequirements: [
-            "Şehir ve üniversite bilgisi",
-            "Yaklaşık yaşam bütçesi",
-            "Konaklama bilgileri",
-            "Varış tarihi",
-            "Öğrencinin temel ihtiyaç ve beklentileri",
+        documentsOrRequirements: [{
+                title: "Şehir ve Üniversite Bilgisi",
+                shortDescription: "Öğrencinin gideceği şehir ve kampüs lokasyonu, günlük yaşam rehberinin kişiselleştirilmesini sağlar.",
+                icon: "",
+            },
+            {
+                title: "Yaklaşık Yaşam Bütçesi",
+                shortDescription: "Aylık gider planı, konaklama, ulaşım, market ve sosyal yaşam beklentilerine göre hazırlanır.",
+                icon: "",
+            },
+            {
+                title: "Konaklama Bilgileri",
+                shortDescription: "Öğrencinin yaşadığı bölgeye göre en yakın ulaşım, market, okul ve ihtiyaç noktaları belirlenir.",
+                icon: "",
+            },
+            {
+                title: "Varış Tarihi",
+                shortDescription: "İlk hafta yapılacak işlemler ve şehir oryantasyonu öğrencinin geliş tarihine göre planlanır.",
+                icon: "",
+            },
+            {
+                title: "Temel İhtiyaç ve Beklentiler",
+                shortDescription: "Telefon hattı, banka hesabı, ulaşım kartı, sosyal yaşam veya sağlık sistemi gibi öncelikler netleştirilir.",
+                icon: "",
+            },
         ],
 
         sidebarShortInfo: "Polonya’daki öğrenci hayatına hızlı adapte olmak için şehir düzenini ve günlük yaşam sistemini önceden tanımak büyük avantaj sağlar.",
-
         ctaTitle: "Polonya’daki öğrenci hayatını birlikte planlayalım",
         ctaText: "Gideceğiniz şehirde ulaşım, yaşam maliyetleri ve günlük hayat düzeni hakkında detaylı bilgi alabilirsiniz.",
         ctaButtonText: "Başvuru Formunu Doldur",
         ctaHref: applicationFormUrl,
         whatsappKey: "poland",
-
         detailPageNote: "Polonya’da eğitim hayatına başlayacak öğrenciler için şehir yaşamı, ulaşım ve günlük düzen hakkında rehberlik hizmeti.",
         homepageImage: service6,
     },
 ];
 
-export const homepageServices = servicesData.map(({ slug, title, shortDescription, homepageImage, homepageButtonText, detailObjectPosition }) => ({
-    slug,
-    title,
-    description: shortDescription,
-    image: homepageImage,
-    buttonText: homepageButtonText || "Detayları Gör",
-    objectPosition: detailObjectPosition,
-    href: `/hizmetler/${slug}`,
-}));
+export const homepageServices = servicesData.map(
+    ({
+        slug,
+        title,
+        shortDescription,
+        homepageImage,
+        homepageButtonText,
+        detailObjectPosition,
+    }) => ({
+        slug,
+        title,
+        description: shortDescription,
+        image: homepageImage,
+        buttonText: homepageButtonText || "Detayları Gör",
+        objectPosition: detailObjectPosition,
+        href: `/hizmetler/${slug}`,
+    })
+);
 
 export const getServiceBySlug = (slug) =>
     servicesData.find((service) => service.slug === slug);
 
 export const getServiceContact = (service) => {
     const whatsappKey = service ? service.whatsappKey || "poland" : "poland";
-    const whatsappContact = contactConfig.whatsapp[whatsappKey] || contactConfig.whatsapp.poland;
+    const whatsappContact =
+        contactConfig.whatsapp[whatsappKey] || contactConfig.whatsapp.poland;
 
     return {
         phone: contactConfig.phone,
