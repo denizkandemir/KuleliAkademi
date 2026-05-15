@@ -22,6 +22,17 @@ import serviceOneProcessIcon2 from "../assets/icons/university2.png";
 import serviceOneProcessIcon3 from "../assets/icons/process.png";
 import serviceOneProcessIcon4 from "../assets/icons/preparation.png";
 import serviceOneProcessIcon5 from "../assets/icons/globe.png";
+import serviceTwoProcessIcon from "../assets/icons/visa.png";
+import serviceTwoProcessIcon2 from "../assets/icons/timetable.png";
+import serviceTwoProcessIcon3 from "../assets/icons/documentation.png";
+import serviceTwoProcessIcon4 from "../assets/icons/accounting.png";
+import serviceTwoProcessIcon5 from "../assets/icons/consistent.png";
+import serviceTwoProcessIcon6 from "../assets/icons/preparation.png";
+import serviceThreeProcessIcon from "../assets/icons/arrival.png";
+import serviceThreeProcessIcon2 from "../assets/icons/building.png";
+import serviceThreeProcessIcon3 from "../assets/icons/needs.png";
+import serviceThreeProcessIcon4 from "../assets/icons/cityscape.png";
+import serviceThreeProcessIcon5 from "../assets/icons/follow-up.png";
 
 
 import serviceOneRequirmentsIcon1 from "../assets/icons/passport.png";
@@ -168,32 +179,32 @@ export const servicesData = [{
         processSteps: [{
                 title: "Vize Türü ve Eğitim Süresi Analizi",
                 shortDescription: "Öğrencinin kabul aldığı programın süresi, eğitim amacı ve kalış planı değerlendirilerek uygun vize süreci belirlenir.",
-                icon: "",
+                icon: serviceTwoProcessIcon,
             },
             {
                 title: "Randevu ve Zamanlama Planı",
                 shortDescription: "Konsolosluk yoğunluğu, seyahat tarihi ve okul başlangıç tarihi dikkate alınarak başvuru takvimi oluşturulur.",
-                icon: "",
+                icon: serviceTwoProcessIcon2,
             },
             {
                 title: "Vize Evrak Listesi Hazırlığı",
                 shortDescription: "Kabul mektubu, pasaport, sigorta, finansal belgeler, konaklama kanıtı ve başvuru formu gibi gerekli evraklar listelenir.",
-                icon: "",
+                icon: serviceTwoProcessIcon3,
             },
             {
                 title: "Finansal ve Konaklama Belgeleri Kontrolü",
                 shortDescription: "Öğrencinin eğitim ve yaşam giderlerini karşılayabildiğini gösteren belgeler ile kalış adresi bilgileri dosyaya uygun hale getirilir.",
-                icon: "",
+                icon: serviceTwoProcessIcon4,
             },
             {
                 title: "Dosya Tutarlılık Kontrolü",
                 shortDescription: "Belge tarihleri, isim bilgileri, okul kabul bilgisi, sigorta süresi ve seyahat planı arasında uyumsuzluk olup olmadığı incelenir.",
-                icon: "",
+                icon: serviceTwoProcessIcon5,
             },
             {
                 title: "Başvuru Öncesi Son Hazırlık",
                 shortDescription: "Randevu günü için dosya sıralaması, başvuru formu ve öğrencinin yanında bulundurması gereken belgeler netleştirilir.",
-                icon: "",
+                icon: serviceTwoProcessIcon6,
             },
         ],
 
@@ -284,32 +295,28 @@ export const servicesData = [{
         processSteps: [{
                 title: "Varış Bilgilerinin Alınması",
                 shortDescription: "Öğrencinin uçuş saati, havalimanı, şehir, okul ve konaklama adresi önceden değerlendirilir.",
-                icon: "",
+                icon: serviceThreeProcessIcon,
             },
-            {
-                title: "İlk Ulaşım Planı",
-                shortDescription: "Havalimanından konaklama adresine geçiş için tren, otobüs, taksi veya transfer seçenekleri planlanır.",
-                icon: "",
-            },
+
             {
                 title: "Konaklama Adresine Geçiş",
                 shortDescription: "Öğrencinin ilk gün güvenli şekilde kalacağı yere ulaşması ve giriş sürecini tamamlaması hedeflenir.",
-                icon: "",
+                icon: serviceThreeProcessIcon2,
             },
             {
                 title: "İlk Gün İhtiyaçları",
                 shortDescription: "Market, eczane, yemek, telefon hattı, internet ve temel alışveriş noktaları hakkında pratik yönlendirme yapılır.",
-                icon: "",
+                icon: serviceThreeProcessIcon3,
             },
             {
                 title: "Şehir ve Okul Çevresi Tanıtımı",
                 shortDescription: "Toplu taşıma, okul çevresi, önemli duraklar ve günlük yaşam noktaları öğrenciye anlaşılır şekilde aktarılır.",
-                icon: "",
+                icon: serviceThreeProcessIcon4,
             },
             {
                 title: "İlk Hafta Adaptasyon Takibi",
                 shortDescription: "Öğrencinin ilk hafta yaşadığı pratik sorunlar ve yönlendirme ihtiyaçları takip edilir.",
-                icon: "",
+                icon: serviceThreeProcessIcon5,
             },
         ],
 
