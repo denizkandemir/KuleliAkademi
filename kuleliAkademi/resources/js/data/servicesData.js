@@ -33,6 +33,24 @@ import serviceThreeProcessIcon2 from "../assets/icons/building.png";
 import serviceThreeProcessIcon3 from "../assets/icons/needs.png";
 import serviceThreeProcessIcon4 from "../assets/icons/cityscape.png";
 import serviceThreeProcessIcon5 from "../assets/icons/follow-up.png";
+import serviceFourProcessIcon from "../assets/icons/compliance.png";
+import serviceFourProcessIcon2 from "../assets/icons/work-order.png";
+import serviceFourProcessIcon3 from "../assets/icons/location.png";
+import serviceFourProcessIcon4 from "../assets/icons/travel-insurance.png";
+import serviceFourProcessIcon5 from "../assets/icons/application.png";
+import serviceFourProcessIcon6 from "../assets/icons/follow-up2.png";
+import serviceFiveProcessIcon from "../assets/icons/data-analysis.png";
+import serviceFiveProcessIcon2 from "../assets/icons/accommodation.png";
+import serviceFiveProcessIcon3 from "../assets/icons/bus.png";
+import serviceFiveProcessIcon4 from "../assets/icons/budget.png";
+import serviceFiveProcessIcon5 from "../assets/icons/choose.png";
+import serviceFiveProcessIcon6 from "../assets/icons/qa.png";
+import serviceSixProcessIcon from "../assets/icons/buildings.png";
+import serviceSixProcessIcon2 from "../assets/icons/bus-stop.png";
+import serviceSixProcessIcon3 from "../assets/icons/retail.png";
+import serviceSixProcessIcon4 from "../assets/icons/budget2.png";
+import serviceSixProcessIcon5 from "../assets/icons/company.png";
+import serviceSixProcessIcon6 from "../assets/icons/adaptation.png";
 
 
 import serviceOneRequirmentsIcon1 from "../assets/icons/passport.png";
@@ -393,32 +411,32 @@ export const servicesData = [{
         processSteps: [{
                 title: "Yasal Kalış Durumu Analizi",
                 shortDescription: "Öğrencinin mevcut vize süresi, giriş tarihi, eğitim durumu ve oturum başvurusuna uygun zamanlaması değerlendirilir.",
-                icon: "",
+                icon: serviceFourProcessIcon,
             },
             {
                 title: "Oturum Belgelerinin Listelenmesi",
                 shortDescription: "Pasaport, öğrenci belgesi, adres bilgisi, sigorta ve finansal belgeler başvuru ihtiyacına göre listelenir.",
-                icon: "",
+                icon: serviceFourProcessIcon2,
             },
             {
                 title: "Adres ve Konaklama Kontrolü",
                 shortDescription: "Öğrencinin Polonya’daki konaklama durumu, adres bilgisi ve gerekli belge formatı kontrol edilir.",
-                icon: "",
+                icon: serviceFourProcessIcon3,
             },
             {
                 title: "Sigorta ve Finansal Belgeler",
                 shortDescription: "Sağlık sigortası ve öğrencinin geçimini sağlayabileceğini gösteren finansal belgeler dosya düzenine eklenir.",
-                icon: "",
+                icon: serviceFourProcessIcon4,
             },
             {
                 title: "Başvuru Dosyası Hazırlığı",
                 shortDescription: "Formlar, biyometrik fotoğraf, kopyalar ve destekleyici evraklar resmi başvuruya uygun şekilde düzenlenir.",
-                icon: "",
+                icon: serviceFourProcessIcon5,
             },
             {
                 title: "Başvuru Sonrası Takip",
                 shortDescription: "Ek belge talepleri, resmi yazışmalar ve süreçte çıkabilecek güncellemeler için öğrenci yönlendirilir.",
-                icon: "",
+                icon: serviceFourProcessIcon6,
             },
         ],
 
@@ -504,32 +522,32 @@ export const servicesData = [{
         processSteps: [{
                 title: "Bütçe ve Şehir Analizi",
                 shortDescription: "Öğrencinin aylık bütçesi, şehir tercihi, okul lokasyonu ve yaşam beklentileri birlikte değerlendirilir.",
-                icon: "",
+                icon: serviceFiveProcessIcon,
             },
             {
                 title: "Konaklama Türü Belirleme",
                 shortDescription: "Üniversite yurdu, özel yurt, paylaşımlı oda veya kiralık daire seçenekleri öğrencinin ihtiyacına göre karşılaştırılır.",
-                icon: "",
+                icon: serviceFiveProcessIcon2,
             },
             {
                 title: "Lokasyon ve Ulaşım Kontrolü",
                 shortDescription: "Konaklama seçeneklerinin okula, toplu taşımaya, marketlere ve günlük yaşam alanlarına yakınlığı incelenir.",
-                icon: "",
+                icon: serviceFiveProcessIcon3,
             },
             {
                 title: "Maliyet ve Sözleşme Değerlendirmesi",
                 shortDescription: "Kira, depozito, fatura, internet, eşya durumu ve sözleşme koşulları öğrencinin bütçesine göre değerlendirilir.",
-                icon: "",
+                icon: serviceFiveProcessIcon4,
             },
             {
                 title: "Rezervasyon veya Başvuru Süreci",
                 shortDescription: "Uygun seçenek belirlendikten sonra yurt başvurusu, oda rezervasyonu veya ev sahibiyle iletişim süreci planlanır.",
-                icon: "",
+                icon: serviceFiveProcessIcon5,
             },
             {
                 title: "Yerleşim Öncesi Son Kontrol",
                 shortDescription: "Giriş tarihi, adres, ödeme koşulları ve ilk gün ihtiyaçları öğrencinin varış planıyla uyumlu hale getirilir.",
-                icon: "",
+                icon: serviceFiveProcessIcon6,
             },
         ],
 
@@ -600,32 +618,32 @@ export const servicesData = [{
         processSteps: [{
                 title: "Şehir Profili Değerlendirmesi",
                 shortDescription: "Öğrencinin yaşayacağı şehir; ulaşım, öğrenci yoğunluğu, maliyet ve günlük yaşam düzeni açısından tanıtılır.",
-                icon: "",
+                icon: serviceSixProcessIcon,
             },
             {
                 title: "Ulaşım Sistemi Bilgilendirmesi",
                 shortDescription: "Toplu taşıma kartları, öğrenci indirimleri, duraklar, kampüse ulaşım ve şehir içi hareket planı anlatılır.",
-                icon: "",
+                icon: serviceSixProcessIcon2,
             },
             {
                 title: "Günlük Yaşam Noktaları",
                 shortDescription: "Market, eczane, banka, telefon hattı, kafe, kütüphane ve temel ihtiyaç noktaları hakkında pratik bilgi verilir.",
-                icon: "",
+                icon: serviceSixProcessIcon3,
             },
             {
                 title: "Bütçe ve Yaşam Giderleri",
                 shortDescription: "Konaklama, market, ulaşım, telefon, sosyal yaşam ve başlangıç masrafları için gerçekçi bir gider planı oluşturulur.",
-                icon: "",
+                icon: serviceSixProcessIcon4,
             },
             {
                 title: "Resmi ve Pratik İşlemler",
                 shortDescription: "Banka hesabı, telefon hattı, öğrenci kartı, okul çevresi ve temel kayıt süreçleri için yönlendirme sağlanır.",
-                icon: "",
+                icon: serviceSixProcessIcon5,
             },
             {
                 title: "İlk Dönem Adaptasyon Desteği",
                 shortDescription: "Öğrencinin sosyal, kültürel ve günlük yaşam açısından Polonya’ya daha rahat alışması için pratik öneriler paylaşılır.",
-                icon: "",
+                icon: serviceSixProcessIcon6,
             },
         ],
 

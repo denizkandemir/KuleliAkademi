@@ -70,3 +70,10 @@ Route::redirect('/links', '/linkler');
 // SEO Routes - robots.txt and sitemap.xml
 Route::get('/robots.txt', 'App\Http\Controllers\RobotsController@index');
 Route::get('/sitemap.xml', 'App\Http\Controllers\SitemapController@index');
+
+// University detail page
+Route::get('/universiteler/{slug}', function ($slug) {
+    return Inertia::render('UniversityDetail', [
+        'slug' => $slug,
+    ]);
+})->where('slug', '[A-Za-z0-9-]+');

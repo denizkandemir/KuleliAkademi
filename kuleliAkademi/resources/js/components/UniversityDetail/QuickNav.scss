@@ -1,0 +1,95 @@
+@use "../styles/variables.scss" as vars;
+.ud-quicknav {
+    padding: 18px 0 8px;
+    background: transparent;
+    position: relative;
+    z-index: 10;
+}
+
+.ud-quicknav-shell {
+    max-width: 1380px;
+    margin: 0 auto;
+    display: flex;
+    gap: 10px;
+    justify-content: center;
+    flex-wrap: wrap;
+    align-items: center;
+    padding: 0 20px;
+    background: rgba(255, 255, 255, 0.88);
+    border: 1px solid rgba(31, 47, 70, 0.08);
+    border-radius: 999px;
+    box-shadow: 0 12px 30px rgba(31, 47, 70, 0.06);
+    backdrop-filter: blur(14px);
+    min-height: 66px;
+}
+
+.pill {
+    border-radius: 999px;
+    padding: 10px 18px;
+    background: transparent;
+    border: 1px solid transparent;
+    box-shadow: none;
+    color: #1f2f46;
+    font-weight: 600;
+    cursor: pointer;
+    font-size: 13px;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    backdrop-filter: blur(12px);
+}
+
+.pill:hover {
+    transform: translateY(-2px);
+    background: rgba(216, 179, 106, 0.08);
+    border-color: rgba(216, 179, 106, 0.18);
+    color: #d8b36a;
+}
+
+.pill:active {
+    background: #1f2f46;
+    color: #f7f5f2;
+    border-color: #1f2f46;
+}
+
+@media (max-width: 1024px) {
+    .ud-quicknav {
+        padding: 14px 0 6px;
+    }
+    .pill {
+        padding: 10px 18px;
+        font-size: 12px;
+    }
+}
+
+@media (max-width: 768px) {
+    .ud-quicknav {
+        padding: 12px 0 4px;
+    }
+    .ud-quicknav-shell {
+        overflow-x: auto;
+        justify-content: flex-start;
+        gap: 8px;
+        padding: 0 20px;
+        -webkit-overflow-scrolling: touch;
+        scroll-behavior: smooth;
+        flex-wrap: nowrap;
+    }
+    .pill {
+        flex: 0 0 auto;
+        padding: 10px 16px;
+        font-size: 12px;
+    }
+}
+
+@media (max-width: 640px) {
+    .ud-quicknav-shell {
+        gap: 6px;
+        padding: 0 16px;
+        border-radius: 24px;
+    }
+    .pill {
+        padding: 8px 14px;
+        font-size: 11px;
+    }
+}
