@@ -11,6 +11,7 @@ import WhySection from '../components/UniversityDetail/WhySection';
 import '../components/UniversityDetail/UniversityDetailLayout.scss';
 import bannerImg from '../assets/images/uniWarsaw2.png';
 import { getUniversityBySlug } from '../data/universitiesData';
+import CtaPanel from '../components/UniversityDetail/CtaPanel';
 
 export default function UniversityDetail({ slug }) {
   const university = getUniversityBySlug(slug);
@@ -42,7 +43,8 @@ export default function UniversityDetail({ slug }) {
             <OverviewSection university={university} />
             <GallerySection university={university} />
             <ProgramsSection university={university} />
-            <WhySection university={university} />
+            <CtaPanel  />
+            {/* <WhySection university={university} /> */}
           </main>
         </div>
       </div>

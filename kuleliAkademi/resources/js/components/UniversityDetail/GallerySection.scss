@@ -10,10 +10,6 @@
 }
 
 .ud-gallery-card.card {
-    background: #fff;
-    border: 1px solid rgba(31, 47, 70, 0.08);
-    box-shadow: 0 16px 38px rgba(31, 47, 70, 0.06);
-    border-radius: 28px;
     padding: 32px;
 }
 
@@ -56,13 +52,13 @@
 .gallery-grid {
     display: grid;
     grid-template-columns: 1.4fr 1fr 1fr;
-    grid-template-rows: 180px 180px;
+    grid-template-rows: 300px 180px;
     gap: 18px;
 }
 
 .gallery-item {
     overflow: hidden;
-    border-radius: 18px;
+    border-radius: 10px;
     box-shadow: 0 14px 34px rgba(31, 47, 70, 0.08);
     transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
     position: relative;

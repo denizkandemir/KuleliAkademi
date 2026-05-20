@@ -1,13 +1,13 @@
 import React from 'react';
 import './GallerySection.scss';
-import img1 from '../../assets/images/uniWarsaw3.jpg';
-import img2 from '../../assets/images/uniGdansk1.jpg';
-import img3 from '../../assets/images/uniWroclaw1.webp';
-import img4 from '../../assets/images/uniKrakow1.png';
-import img5 from '../../assets/images/uniPolitechnic1.jpg';
 
 export default function GallerySection({ university = {} }){
-  const images = [university.image || img1, img2, img3, img4, img5];
+  const images = Array.isArray(university.galleryImages) && university.galleryImages.length
+    ? university.galleryImages
+    : university.image
+      ? [university.image]
+      : [];
+
   return (
     <section className="ud-gallery">
       <div className="ud-gallery-shell">
@@ -20,7 +20,7 @@ export default function GallerySection({ university = {} }){
           <div className="gallery-grid">
             {images.map((img, index) => (
               <div className={`gallery-item ${index === 0 ? 'feature' : ''}`} key={`${index}-${img}`}>
-                <img src={img} alt="campus" />
+                <img src={img} alt={index === 0 ? `${university.name || 'Üniversite'} kampüs görseli` : 'Kampüs görseli'} />
               </div>
             ))}
           </div>
