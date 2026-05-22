@@ -302,6 +302,20 @@
     color: rgba(156, 131, 67, 0.92);
 }
 
+.uni-card-description {
+    margin-top: 2px;
+    font-family: styles.$primary-font;
+    font-size: 14px;
+    line-height: 1.62;
+    color: #607184;
+    display: -webkit-box;
+    margin-bottom: 8px;
+    line-clamp: 3;
+    -webkit-line-clamp: 3;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+}
+
 .university-card-text {
     margin-top: 2px;
     font-family: styles.$primary-font;

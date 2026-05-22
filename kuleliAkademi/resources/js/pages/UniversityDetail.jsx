@@ -32,7 +32,7 @@ export default function UniversityDetail({ slug }) {
     <>
       <SEOHead title={pageTitle} description={pageDescription} url={`${siteConfig.siteUrl}/universiteler/${slug}`} type="article" />
 
-      <Banner img={university.image} location={'Üniversiteler / ' + university.name} text={university.name} responsiveImg={university.image} />
+      <Banner img={university.bannerImg ? university.bannerImg : university.image} location={'Üniversiteler / ' + university.name} text={university.name} responsiveImg={university.image} />
 
       <div className="university-detail-shell">
         <div className="container">

@@ -21,6 +21,30 @@ const deriveBadgeLabel = (university) => {
     return "Universite Profili";
 };
 
+const getFirstSentence = (value) => {
+    if (typeof value !== "string") {
+        return "";
+    }
+
+    const normalized = value.trim().replace(/\s+/g, " ");
+
+    if (!normalized) {
+        return "";
+    }
+
+    const sentenceMatch = normalized.match(/^.*?[.!?](?:["')\]]+)?(?=\s|$)/u);
+
+    return (sentenceMatch ? sentenceMatch[0] : normalized).trim();
+};
+
+const getUniversityCardDescription = (university) => {
+    const sourceDescription = Array.isArray(university?.longDescriptions)
+        ? university.longDescriptions[0]
+        : university?.longDescription || university?.description || "";
+
+    return getFirstSentence(sourceDescription) || "Üniversite hakkında detaylı bilgi bulunmamaktadır.";
+};
+
 const UniversityCards = ({ universities = getUniversitiesForCards() }) => {
     const trackRef = useRef(null);
     const [canScrollLeft, setCanScrollLeft] = useState(false);

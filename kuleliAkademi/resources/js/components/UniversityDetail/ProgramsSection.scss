@@ -1,210 +1,196 @@
-@use "../styles/variables.scss" as vars;
-.ud-programs {
-    padding: 48px 0;
-    background: transparent;
-}
-
-.ud-shell {
-    max-width: 1380px;
-    margin: 0 auto;
-}
-
-.ud-programs-card.card {
-    background: #fff;
-    padding: 32px;
-    border-radius: 28px;
-    border: 1px solid rgba(31, 47, 70, 0.08);
-    box-shadow: 0 16px 38px rgba(31, 47, 70, 0.06);
-}
-
-.ud-programs-header {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    gap: 24px;
-    margin-bottom: 24px;
-}
-
-.ud-programs-header h3 {
-    font-size: 30px;
-    font-weight: 700;
-    color: #1f2f46;
-    margin: 0;
-    line-height: 1.3;
-}
-
-.ud-programs-header .btn {
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
-    padding: 12px 20px;
-    border-radius: 999px;
-    text-decoration: none;
-    font-size: 13px;
-    font-weight: 700;
-    letter-spacing: 0.04em;
-    text-transform: uppercase;
-    white-space: nowrap;
-}
-
-.program-grid {
-    display: grid;
-    grid-template-columns: repeat(4, 1fr);
-    gap: 18px;
-    margin-top: 0;
-}
-
-.program-card {
-    background: #fff;
-    padding: 24px;
-    border-radius: 22px;
-    border: 1px solid rgba(31, 47, 70, 0.08);
-    box-shadow: 0 10px 28px rgba(31, 47, 70, 0.05);
-    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
-    position: relative;
-    overflow: hidden;
-    display: flex;
-    flex-direction: column;
-    height: 100%;
-}
-
-.program-card::before {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 3px;
-    background: linear-gradient(90deg, #d8b36a, #c49a4f);
-    opacity: 0;
-    transition: opacity 0.3s ease;
-}
-
-.program-card:hover {
-    transform: translateY(-6px);
-    box-shadow: 0 18px 42px rgba(31, 47, 70, 0.1);
-    border-color: rgba(216, 179, 106, 0.15);
-}
-
-.program-card:hover::before {
-    opacity: 1;
-}
-
-.program-card .icon {
-    width: 60px;
-    height: 60px;
-    border-radius: 16px;
-    background: linear-gradient(135deg, rgba(216, 179, 106, 0.08), rgba(216, 179, 106, 0.04));
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-size: 26px;
-    margin-bottom: 14px;
-    border: 1px solid rgba(216, 179, 106, 0.1);
-    transition: all 0.3s ease;
-}
-
-.program-card:hover .icon {
-    background: linear-gradient(135deg, rgba(216, 179, 106, 0.12), rgba(216, 179, 106, 0.08));
-    transform: scale(1.08);
-}
-
-.program-card h4 {
-    margin: 0 0 8px;
-    color: #1f2f46;
-    font-size: 17px;
-    font-weight: 700;
-    line-height: 1.4;
-    transition: color 0.3s ease;
-}
-
-.program-card:hover h4 {
-    color: #d8b36a;
-}
-
-.program-card .meta {
-    color: #d8b36a;
-    font-size: 12px;
-    font-weight: 700;
-    text-transform: uppercase;
-    letter-spacing: 0.06em;
-    margin-bottom: 12px;
-}
-
-.program-card .desc {
-    color: #666666;
-    font-size: 14px;
-    line-height: 1.7;
-    margin: 0 0 auto;
-    padding-bottom: 12px;
-}
-
-.program-card .link {
-    color: #1f2f46;
-    font-weight: 700;
-    text-decoration: none;
-    font-size: 13px;
-    text-transform: uppercase;
-    letter-spacing: 0.06em;
-    transition: all 0.3s ease;
-    display: inline-flex;
-    align-items: center;
-    gap: 6px;
-}
-
-.program-card .link::after {
-    content: '→';
-    transition: transform 0.3s ease;
-}
-
-.program-card:hover .link {
-    color: #d8b36a;
-}
-
-.program-card:hover .link::after {
-    transform: translateX(4px);
-}
-
-@media (max-width: 1200px) {
-    .program-grid {
-        grid-template-columns: repeat(3, 1fr);
-        gap: 20px;
-    }
-}
-
-@media (max-width: 900px) {
+    @use "../styles/variables.scss" as vars;
     .ud-programs {
-        padding: 40px 0;
+        padding: 48px 0;
+        padding-top: 0;
+        background: transparent;
     }
-    .ud-programs-card.card {
-        padding: 28px;
+    
+    .ud-shell {
+        max-width: 1380px;
+        margin: 0 auto;
     }
+    
+    .ud-programs-card.card {}
+    
     .ud-programs-header {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        gap: 24px;
+        margin-bottom: 24px;
+    }
+    
+    .ud-programs-header h3 {
+        font-size: 30px;
+        font-weight: 700;
+        color: #1f2f46;
+        margin: 0;
+        line-height: 1.3;
+    }
+    
+    .ud-programs-header .btn {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        padding: 12px 20px;
+        border-radius: 999px;
+        text-decoration: none;
+        font-size: 13px;
+        font-weight: 700;
+        letter-spacing: 0.04em;
+        text-transform: uppercase;
+        white-space: nowrap;
+    }
+    
+    .program-grid {
+        display: grid;
+        grid-template-columns: repeat(4, 1fr);
+        gap: 18px;
+        margin-top: 0;
+    }
+    
+    .program-card {
+        background: #fff;
+        padding: 24px;
+        border-radius: 22px;
+        border: 1px solid rgba(31, 47, 70, 0.08);
+        box-shadow: 0 10px 28px rgba(31, 47, 70, 0.05);
+        transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+        position: relative;
+        overflow: hidden;
+        display: flex;
         flex-direction: column;
-        align-items: flex-start;
+        height: 100%;
     }
-    .program-grid {
-        grid-template-columns: repeat(2, 1fr);
-        gap: 16px;
+    
+    .program-card::before {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 3px;
+        background: linear-gradient(90deg, #d8b36a, #c49a4f);
+        opacity: 0;
+        transition: opacity 0.3s ease;
     }
-    .ud-programs-header h3 {
+    
+    .program-card:hover {
+        transform: translateY(-6px);
+        box-shadow: 0 18px 42px rgba(31, 47, 70, 0.1);
+        border-color: rgba(216, 179, 106, 0.15);
+    }
+    
+    .program-card:hover::before {
+        opacity: 1;
+    }
+    
+    .program-card .icon {
+        width: 60px;
+        height: 60px;
+        border-radius: 16px;
+        background: linear-gradient(135deg, rgba(216, 179, 106, 0.08), rgba(216, 179, 106, 0.04));
+        display: flex;
+        align-items: center;
+        justify-content: center;
         font-size: 26px;
+        margin-bottom: 14px;
+        border: 1px solid rgba(216, 179, 106, 0.1);
+        transition: all 0.3s ease;
     }
-}
-
-@media (max-width: 640px) {
-    .ud-programs {
-        padding: 32px 0;
+    
+    .program-card:hover .icon {
+        background: linear-gradient(135deg, rgba(216, 179, 106, 0.12), rgba(216, 179, 106, 0.08));
+        transform: scale(1.08);
     }
-    .ud-programs-card.card {
-        padding: 22px;
-        border-radius: 24px;
+    
+    .program-card h4 {
+        margin: 0 0 8px;
+        color: #1f2f46;
+        font-size: 17px;
+        font-weight: 700;
+        line-height: 1.4;
+        transition: color 0.3s ease;
     }
-    .program-grid {
-        grid-template-columns: 1fr;
-        gap: 16px;
+    
+    .program-card:hover h4 {
+        color: #d8b36a;
     }
-    .ud-programs-header h3 {
-        font-size: 22px;
+    
+    .program-card .meta {
+        color: #d8b36a;
+        font-size: 12px;
+        font-weight: 700;
+        text-transform: uppercase;
+        letter-spacing: 0.06em;
+        margin-bottom: 12px;
     }
-}
+    
+    .program-card .desc {
+        color: #666666;
+        font-size: 14px;
+        line-height: 1.7;
+        margin: 0 0 auto;
+        padding-bottom: 12px;
+    }
+    
+    .program-card .link {
+        color: #1f2f46;
+        font-weight: 700;
+        text-decoration: none;
+        font-size: 13px;
+        text-transform: uppercase;
+        letter-spacing: 0.06em;
+        transition: all 0.3s ease;
+        display: inline-flex;
+        align-items: center;
+        gap: 6px;
+    }
+    
+    .program-card .link::after {
+        content: '→';
+        transition: transform 0.3s ease;
+    }
+    
+    .program-card:hover .link {
+        color: #d8b36a;
+    }
+    
+    .program-card:hover .link::after {
+        transform: translateX(4px);
+    }
+    
+    @media (max-width: 1200px) {
+        .program-grid {
+            grid-template-columns: repeat(3, 1fr);
+            gap: 20px;
+        }
+    }
+    
+    @media (max-width: 900px) {
+        .ud-programs {
+            padding: 40px 0;
+            padding-top: 0;
+        }
+        .ud-programs-header {
+            flex-direction: column;
+            align-items: flex-start;
+        }
+        .program-grid {
+            grid-template-columns: repeat(2, 1fr);
+            gap: 16px;
+        }
+        .ud-programs-header h3 {
+            font-size: 26px;
+        }
+    }
+    
+    @media (max-width: 640px) {
+        .program-grid {
+            grid-template-columns: 1fr;
+            gap: 16px;
+        }
+        .ud-programs-header h3 {
+            font-size: 22px;
+        }
+    }

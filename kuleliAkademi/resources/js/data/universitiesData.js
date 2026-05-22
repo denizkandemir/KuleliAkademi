@@ -1,9 +1,45 @@
-import uniWarsaw from '../assets/images/uniWarsaw3.jpg';
 import uniPolitechnic from '../assets/images/uniPolitechnic1.jpg';
 import uniWroclaw from '../assets/images/uniWroclaw1.webp';
 import uniGdansk from '../assets/images/uniGdansk1.jpg';
 import uniKrakow from '../assets/images/uniKrakow1.png';
 import uniPoznan from '../assets/images/uniPoznan1.png';
+
+//uni Warsaw
+import uniWarsawBannerImg from '../assets/images/uniWarsaw2.png';
+import uniWarsaw from '../assets/images/uniWarsaw3.jpg';
+import uniWarsaw2 from '../assets/images/uniWarsawImg2.jpg';
+import uniWarsaw3 from '../assets/images/uniWarsawImg.jpg';
+import uniWarsaw4 from '../assets/images/uniWarsawImg3.jpg';
+import uniWarsaw5 from '../assets/images/uniWarsawImg5.jpg';
+
+//Uni Krakow
+import uniJagiellonian1 from '../assets/images/uniJagiellonian1.jpg';
+// import uniJagiellonianBannerImg from '../assets/images/uniJagiellonianBanner.jpg';
+import uniJagiellonian2 from '../assets/images/uniJagiellonian2.webp';
+import uniJagiellonian3 from '../assets/images/uniJagiellonian3.jpg';
+import uniJagiellonian4 from '../assets/images/uniJagiellonian4.jpg';
+import uniJagiellonian5 from '../assets/images/uniJagiellonian6.jpg';
+
+//Uni politechnic Warsaw
+import uniPolitechnic1 from '../assets/images/politechicWarsaw1.png';
+import uniPolitechnic2 from '../assets/images/politechicWarsaw2.jpg';
+import uniPolitechnicBannerImg from '../assets/images/politechicWarsaw3.jpg';
+import uniPolitechnic3 from '../assets/images/politechicWarsaw4.jpg';
+import uniPolitechnic4 from '../assets/images/politechicWarsaw5.jpg';
+
+//Uni Agh Krakow
+import aghUni1 from '../assets/images/aghUni1.jpg';
+import aghUni2 from '../assets/images/aghUni2.jpg';
+import aghUni3 from '../assets/images/aghUni3.jpg';
+import aghUni4 from '../assets/images/aghUni4.jpg';
+import aghUni5 from '../assets/images/aghUni5.jpg';
+
+//uni Wroclaw
+import uniWroclaw2 from '../assets/images/uniWroclaw3.jpg';
+import uniWroclaw3 from '../assets/images/uniWroclaw8.jpg';
+import uniWroclaw4 from '../assets/images/uniWroclaw5.webp';
+import uniWroclaw5 from '../assets/images/uniWroclaw6.jpg';
+import uniWroclaw6 from '../assets/images/uniWroclaw7.webp';
 
 const universityCardImages = {
     'university-of-warsaw': uniWarsaw,
@@ -13,16 +49,18 @@ const universityCardImages = {
     'jagiellonian-university': uniKrakow,
     'adam-mickiewicz-university': uniPoznan,
     'university-of-gdansk': uniGdansk,
+    'agh-university-of-krakow': aghUni4,
 };
 
 const universityDetailImages = {
-    'university-of-warsaw': [uniWarsaw, uniPolitechnic, uniGdansk, uniWroclaw, uniKrakow],
-    'jagiellonian-university': [uniKrakow, uniWarsaw, uniGdansk, uniWroclaw, uniPoznan],
+    'university-of-warsaw': [uniWarsawBannerImg, uniWarsaw4, uniWarsaw3, uniWarsaw2, uniWarsaw5],
+    'jagiellonian-university': [uniJagiellonian1, uniJagiellonian2, uniJagiellonian3, uniJagiellonian4, uniJagiellonian5],
     'adam-mickiewicz-university': [uniPoznan, uniWarsaw, uniWroclaw, uniGdansk, uniKrakow],
-    'warsaw-university-of-technology': [uniPolitechnic, uniWarsaw, uniWroclaw, uniGdansk, uniKrakow],
+    'warsaw-university-of-technology': [uniPolitechnic1, uniPolitechnic2, uniPolitechnicBannerImg, uniPolitechnic3, uniPolitechnic4],
     'wroclaw-university-of-science-and-technology': [uniWroclaw, uniWarsaw, uniPolitechnic, uniGdansk, uniKrakow],
-    'university-of-wroclaw': [uniWroclaw, uniWarsaw, uniGdansk, uniPolitechnic, uniKrakow],
+    'university-of-wroclaw': [uniWroclaw6, uniWroclaw2, uniWroclaw3, uniWroclaw5, uniWroclaw4],
     'university-of-gdansk': [uniGdansk, uniWarsaw, uniWroclaw, uniPolitechnic, uniKrakow],
+    'agh-university-of-krakow': [aghUni2, aghUni4, aghUni3, aghUni1, aghUni5],
 };
 
 const getCardImage = (university) => {
@@ -41,13 +79,32 @@ const getCardImage = (university) => {
     return uniWarsaw;
 };
 
+const getCardDescription = (university) => {
+    const sourceDescription =
+        Array.isArray(university.longDescriptions) ? university.longDescriptions[0] : "Üniversite bilgisi bulunmamaktadır.";
+
+    if (typeof sourceDescription !== 'string') {
+        return '';
+    }
+
+    const normalized = sourceDescription.trim().replace(/\s+/g, ' ');
+
+    if (!normalized) {
+        return '';
+    }
+
+    const sentenceMatch = normalized.match(/^.*?[.!?](?:["')\]]+)?(?=\s|$)/u);
+
+    return (sentenceMatch ? sentenceMatch[0] : normalized).trim();
+};
+
 const normalizeUniversityForCard = (university) => ({
     id: university.id,
     image: getCardImage(university),
     name: university.name,
     city: university.city,
     badge: university.badge || university.type || university.region,
-    description: university.description || university.longDescription || university.longDescription2 || '',
+    description: getCardDescription(university),
     tags: university.tags,
     cta: university.cta || 'Detayları İncele',
     slug: university.slug || university.id,
@@ -79,6 +136,7 @@ const normalizeUniversityForDetail = (university) => {
     return {
         ...university,
         localName: university.name_local || university.localName || university.name,
+        bannerImg: university.banner_image || university.bannerImg || getCardImage(university),
         founded: university.established || university.founded,
         students: university.student_count || university.students,
         ranking: university.qs_ranking || university.ranking,
@@ -156,12 +214,13 @@ export const universitiesData = [{
                 "Institute of Philosophy"
             ],
             "popular_programs": [
-                "American Studies",
+                "Psychology",
+                "Computer Science",
+                "Physics",
+                "Biology",
                 "Economics",
                 "Finance, Investments and Accounting",
                 "International Relations",
-                "Psychology",
-                "Computer Science"
             ],
             "english_taught_programs": {
                 "bachelor": [
@@ -169,7 +228,11 @@ export const universitiesData = [{
                     "Archeology",
                     "Finance, Investments and Accounting",
                     "International Relations",
-                    "Philosophy"
+                    "Philosophy",
+                    "Psychology",
+                    "Physics",
+                    "Biology",
+                    "Economics",
                 ],
                 "master": [
                     "American Studies",
@@ -205,7 +268,10 @@ export const universitiesData = [{
                 'University of Warsaw, öğrencilerine yalnızca güçlü bir akademik diploma değil; başkent merkezli bir kariyer çevresi, uluslararası araştırma kültürü ve Avrupa kurumlarına yakın bir gelişim alanı sunar. Varşova’daki şirketler, elçilikler, araştırma merkezleri ve kültürel kurumlarla çevrili olmak, özellikle ekonomi, siyaset bilimi, psikoloji, finans ve uluslararası ilişkiler öğrencileri için okul dışındaki öğrenme deneyimini de güçlendirir.',
             ],
             "notes": "İngilizce program listesi study.gov.pl kaydı üzerinden derlendi. Üniversite genel ücret tablosu program ve statüye göre değiştiği için fee alanları standart aralık olarak verilmedi; yayımdan önce sources içindeki admissions ve fee sayfaları ayrıca kontrol edilmelidir.",
-            "gallery": [],
+            "gallery": [
+
+            ],
+            "banner_image": uniWarsawBannerImg,
             "sources": [
                 "https://study.gov.pl/university/university-warsaw",
                 "https://en.uw.edu.pl",
@@ -308,6 +374,7 @@ export const universitiesData = [{
             "contact_email": "students.cwm@pw.edu.pl",
             "contact_phone": null,
             "address": null,
+            "banner_image": uniPolitechnicBannerImg,
             "coordinates": null,
             "faculties": [
                 "Faculty of Architecture",
@@ -392,6 +459,7 @@ export const universitiesData = [{
             "student_count": 34190,
             "qs_ranking": "801-850",
             "type": "public",
+            "banner_image": aghUni1,
             "language_of_instruction": "İngilizce ve Lehçe",
             "tuition_undergrad_eur": "programa göre değişir",
             "tuition_postgrad_eur": "programa göre değişir",
@@ -464,6 +532,7 @@ export const universitiesData = [{
             "name": "University of Wrocław",
             "name_local": "Uniwersytet Wrocławski",
             "city": "Wrocław",
+            "banner_image": uniWroclaw6,
             "region": "Dolnośląskie",
             "website": "https://uwr.edu.pl/en/",
             "established": 1702,
@@ -783,71 +852,7 @@ export const universitiesData = [{
                 "https://www.topuniversities.com/universities/university-gdansk"
             ]
         },
-        {
-            "id": "medical-university-of-gdansk",
-            "name": "Medical University of Gdańsk",
-            "name_local": "Gdański Uniwersytet Medyczny",
-            "city": "Gdańsk",
-            "region": "Pomorskie",
-            "website": "https://mug.edu.pl",
-            "established": 1945,
-            "student_count": 6910,
-            "qs_ranking": null,
-            "type": "public",
-            "language_of_instruction": "İngilizce ve Lehçe",
-            "tuition_undergrad_eur": "programa göre değişir",
-            "tuition_postgrad_eur": "programa göre değişir",
-            "acceptance_rate": null,
-            "contact_email": "admission@gumed.edu.pl",
-            "contact_phone": null,
-            "address": null,
-            "coordinates": null,
-            "faculties": [
-                "Faculty of Medicine",
-                "Faculty of Pharmacy",
-                "Faculty of Health Sciences",
-                "Intercollegiate Faculty of Biotechnology"
-            ],
-            "popular_programs": [
-                "6-year M.D. Programme",
-                "Master in Pharmacy",
-                "Bachelor of Nursing",
-                "International Master in Sustainable Drug Discovery",
-                "Premedical Course"
-            ],
-            "english_taught_programs": {
-                "bachelor": [
-                    "Nursing"
-                ],
-                "master": [
-                    "International Master in Sustainable Drug Discovery"
-                ],
-                "long_cycle_master": [
-                    "Medicine",
-                    "Pharmaceutical Science"
-                ],
-                "doctoral": [
-                    "Doctoral School in Medicine",
-                    "Doctoral School in Pharmacy",
-                    "Doctoral School in Health Sciences"
-                ],
-                "non_degree_or_foundation": [
-                    "Premedical Course"
-                ]
-            },
-            longDescriptions: [
-                "Medical University of Gdańsk, kuzey Polonya’daki en güçlü tıp odaklı kurumlardan biridir ve İngilizce sağlık eğitimi portföyü oldukça nettir. Özellikle 6 yıllık MD, eczacılık, hemşirelik ve foundation/pre-medical yolunda ilerlemek isteyen öğrenciler için çok anlaşılır bir uluslararası başvuru yapısı sunar.",
-                "Klinik altyapı, araştırma üniversitesi statüsü ve uluslararası öğrenci oranının yüksekliği bu kurumu sağlık alanında güvenli bir seçenek haline getirir. Site üzerinde medicine ve pharmacy başvurularını ayrı funnel mantığıyla göstermek dönüşüm açısından doğru olur; çünkü aday profilleri ve karar süreçleri birbirinden farklıdır.",
-                "Medical University of Gdańsk, sağlık bilimleri alanında İngilizce eğitim almak isteyen öğrenciler için güçlü klinik altyapı, araştırma odaklı akademik ortam ve uluslararası öğrenci deneyimi sunar. Tıp, eczacılık, hemşirelik ve ilaç araştırmaları gibi alanlarda öğrenciler yalnızca teorik bilgiyle değil, klinik uygulama ve bilimsel araştırma kültürüyle de desteklenen bir eğitim sürecinden geçer.",
-            ],
-            "notes": "QS alanında burada genel küresel sıra yerine konu bazlı sonuçlar daha görünür olduğu için `qs_ranking` null bırakıldı. Medicine ve Pharmacy ücretleri ile lisans şartları her intake için resmî admission sayfasından yeniden teyit edilmelidir.",
-            "gallery": [],
-            "sources": [
-                "https://study.gov.pl/university/medical-university-gdansk",
-                "https://admission.mug.edu.pl/",
-                "https://www.topuniversities.com/universities/medical-university-gdansk"
-            ]
-        },
+
         {
             "id": "adam-mickiewicz-university-poznan",
             "name": "Adam Mickiewicz University, Poznań",
@@ -1302,58 +1307,7 @@ export const universitiesData = [{
                 "https://www.topuniversities.com/universities/lodz-university-technology"
             ]
         },
-        {
-            "id": "medical-university-of-lodz",
-            "name": "Medical University of Lodz",
-            "name_local": "Uniwersytet Medyczny w Łodzi",
-            "city": "Łódź",
-            "region": "Łódzkie",
-            "website": "https://studymed.umed.pl",
-            "established": 1945,
-            "student_count": 9300,
-            "qs_ranking": null,
-            "type": "public",
-            "language_of_instruction": "İngilizce ve Lehçe",
-            "tuition_undergrad_eur": "programa göre değişir",
-            "tuition_postgrad_eur": "programa göre değişir",
-            "acceptance_rate": null,
-            "contact_email": "admission@umed.lodz.pl",
-            "contact_phone": null,
-            "address": null,
-            "coordinates": null,
-            "faculties": [
-                "Faculty of Medicine",
-                "Faculty of Dentistry"
-            ],
-            "popular_programs": [
-                "Medicine",
-                "Dentistry",
-                "Preparatory Course in English"
-            ],
-            "english_taught_programs": {
-                "bachelor": [],
-                "master": [],
-                "long_cycle_master": [
-                    "Dentistry",
-                    "Medicine"
-                ],
-                "doctoral": [],
-                "non_degree_or_foundation": [
-                    "Preparatory Course in English"
-                ]
-            },
-            longDescriptions: [
-                "Medical University of Lodz, İngilizce tıp ve diş hekimliği eğitimi konusunda uzun süredir uluslararası öğrenci alan kurumlardan biridir. Özellikle English Division geçmişi ve ayrı premedical/preparatory yapısı nedeniyle doğrudan sağlık kariyeri hedefleyen adaylar için net bir başvuru rotası sunar.",
-                "Danışmanlık tarafında bu üniversite, Kuzey Amerika ve diğer uluslararası pazarlara açık geçmişi nedeniyle güven veren bir sağlık kurumu olarak konumlandırılabilir. Online yürüyen admission mantığı ve hazırlanmış İngilizce portali, adayların süreci takip etmesini kolaylaştırır.",
-                "Medical University of Lodz, İngilizce tıp ve diş hekimliği eğitimi almak isteyen öğrenciler için düzenli başvuru sistemi, uluslararası öğrenci deneyimi ve sağlık odaklı akademik yapısıyla dikkat çeker. Łódź’un daha yönetilebilir yaşam maliyeti, uzun süreli sağlık eğitimi alan öğrenciler için bütçe planlamasını kolaylaştırırken klinik ve akademik gelişim sürecini destekler.",
-            ],
-            "notes": "MUL için özellikle entrance exam, preparatory route ve medicine/dentistry belge listesi her intake’te ayrıca teyit edilmelidir. `qs_ranking` genel WUR yerine konu bazlı görünürlüğe kaydığı için null tutuldu.",
-            "gallery": [],
-            "sources": [
-                "https://study.gov.pl/university/medical-university-lodz",
-                "https://studymed.umed.pl/"
-            ]
-        },
+
         {
             "id": "university-of-silesia-in-katowice",
             "name": "University of Silesia in Katowice",
@@ -1646,8 +1600,6 @@ export const universitiesData = [{
                 "https://www.topuniversities.com/universities/swps-university"
             ]
         }
-
-
         /* Additional university objects (Pozna\u0144 University of Economics, University of Silesia, University of \u0141\u00f3d\u017a, Medical University of Warsaw, Krak\u00f3w University of Economics, etc.) would follow in the same format to reach 15-20 entries, including their Turkish descriptions. Each would include at least: id, name, name_local, city, region, website, established, student_count, qs_ranking, type, language_of_instruction, tuition_undergrad_eur, tuition_postgrad_eur, acceptance_rate, contact_email, contact_phone, address, coordinates, faculties, popular_programs, longDescription, longDescription2, notes, gallery (images URLs), sources. If data is missing, fields are null. Example fields already include citations where available. */
     ]
 }];
