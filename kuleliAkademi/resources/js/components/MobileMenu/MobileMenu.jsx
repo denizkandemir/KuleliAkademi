@@ -1,13 +1,15 @@
 import React, { useEffect } from "react";
-import { Link } from "@inertiajs/react";
+import { Link, usePage } from "@inertiajs/react";
 import "./MobileMenu.scss";
 import { contactConfig } from "../../config/contactConfig";
 
 const MobileMenu = ({ isOpen, onClose }) => {
+    const { url } = usePage();
     const navItems = [
         { label: "Hakkımızda", href: "/hakkımızda" },
         { label: "Eğitimlerimiz", href: "/egitimlerimiz" },
         { label: "Yurt Dışında Eğitim", href: "/yurtdışıeğitim" },
+        { label: "Üniversiteler", href: "/universities" },
         { label: "İletişim", href: "/iletişim" },
     ];
 
@@ -89,7 +91,7 @@ const MobileMenu = ({ isOpen, onClose }) => {
                             <li key={item.href} className="mobile-menu-item">
                                 <Link
                                     href={item.href}
-                                    className="mobile-menu-link"
+                                    className={`mobile-menu-link${url.startsWith(item.href) ? " is-active" : ""}`}
                                     onClick={handleLinkClick}
                                 >
                                     {item.label}

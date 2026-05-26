@@ -177,6 +177,13 @@
     &:active {
         background: rgba(186, 159, 83, 0.14);
     }
+    &.is-active {
+        background: rgba(186, 159, 83, 0.1);
+        color: #1f2f46;
+        &::before {
+            opacity: 1;
+        }
+    }
 }
 
 

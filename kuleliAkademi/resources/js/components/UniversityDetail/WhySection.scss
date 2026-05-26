@@ -5,12 +5,14 @@
 }
 
 .ud-why-shell {
-    max-width: 1380px;
+    width: min(calc(100% - 32px), 1200px);
+    max-width: 100%;
     margin: 0 auto;
     display: grid;
     grid-template-columns: minmax(0, 1.2fr) minmax(340px, 0.8fr);
     gap: 48px;
     align-items: start;
+    box-sizing: border-box;
 }
 
 .ud-why-list.card {

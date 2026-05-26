@@ -88,6 +88,14 @@ const LINKS_CONFIG = [
         icon: 'whatsapp',
         external: true,
     },
+    {
+        id: 'üniversiteler',
+        title: 'Üniversiteler',
+        subtitle: "Polonya'da yer alan üniversiteleri keşfedin",
+        href: '/üniversiteler',
+        icon: 'university',
+        external: false,
+    }
 ];
 
 

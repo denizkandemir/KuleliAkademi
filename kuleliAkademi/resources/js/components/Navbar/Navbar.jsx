@@ -13,6 +13,7 @@ const Navbar = () => {
         // { label: "Hakkımızda", href: "/hakkımızda" },
         { label: "Eğitimlerimiz", href: "/egitimlerimiz" },
         { label: "Yurt Dışında Eğitim", href: "/yurtdışıeğitim" },
+        { label: "Üniversiteler", href: "/üniversiteler" },
         { label: "İletişim", href: "/iletişim" },
     ];
 

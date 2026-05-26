@@ -5,7 +5,7 @@
    ============================================ */
 
 .ud-hero {
-    padding: 48px 20px 36px;
+    padding: 48px 0 36px;
     background: linear-gradient(180deg, rgba(248, 246, 242, 0.6) 0%, rgba(255, 255, 255, 0) 100%);
     animation: fadeInHero 0.8s ease-out;
 }
@@ -20,8 +20,10 @@
 }
 
 .ud-hero-container {
-    max-width: 1380px;
+    width: min(calc(100% - 32px), 1200px);
+    max-width: 100%;
     margin: 0 auto;
+    box-sizing: border-box;
 }
 
 .ud-hero-shell {
@@ -30,6 +32,7 @@
     border: 1px solid rgba(31, 47, 70, 0.06);
     border-radius: 32px;
     box-shadow: 0 20px 48px rgba(31, 47, 70, 0.08), inset 0 1px 0 rgba(255, 255, 255, 0.8);
+    min-width: 0;
 }
 
 
@@ -41,6 +44,7 @@
     animation: slideInLeft 0.8s cubic-bezier(0.4, 0, 0.2, 1);
     flex: 1;
     height: 100%;
+    min-width: 0;
 }
 
 @keyframes slideInLeft {
@@ -146,6 +150,7 @@
     min-height: 560px;
     overflow: hidden;
     animation: slideInRight 0.8s cubic-bezier(0.4, 0, 0.2, 1);
+    min-width: 0;
 }
 
 @keyframes slideInRight {
@@ -414,7 +419,7 @@
         align-items: center;
     }
     .ud-title {
-        font-size: 36px;
+        font-size: clamp(30px, 4vw, 36px);
     }
     .ud-info-grid {
         gap: 14px;
@@ -427,9 +432,13 @@
 
 @media (max-width: 900px) {
     .ud-hero-shell {
-        grid-template-columns: 1fr;
-        gap: 32px;
+        flex-direction: column;
+        gap: 22px;
         align-items: start;
+    }
+    .ud-hero-left,
+    .ud-hero-right {
+        width: 100%;
     }
     .ud-image {
         min-height: 380px;
@@ -441,7 +450,7 @@
         font-size: 32px;
     }
     .ud-hero-right {
-        padding: 32px;
+        padding: 28px;
     }
     .ud-info-grid {
         grid-template-columns: repeat(2, 1fr);
@@ -451,20 +460,24 @@
 
 @media (max-width: 640px) {
     .ud-hero {
-        padding: 36px 16px 28px;
+        padding: 28px 0 24px;
     }
     .ud-hero-shell {
-        gap: 28px;
+        gap: 18px;
+        border-radius: 24px;
     }
     .ud-image {
         min-height: 280px;
     }
     .ud-image-wrap {
         min-height: 280px;
-        border-radius: 24px;
+        border-top-left-radius: 24px;
+        border-top-right-radius: 24px;
+        border-bottom-left-radius: 24px;
+        border-bottom-right-radius: 24px;
     }
     .ud-title {
-        font-size: 24px;
+        font-size: clamp(22px, 7.2vw, 28px);
     }
     .ud-local {
         font-size: 14px;
@@ -480,7 +493,7 @@
         margin-bottom: 22px;
     }
     .ud-hero-right {
-        padding: 24px;
+        padding: 20px;
         border-radius: 24px;
     }
     .ud-info-grid {
@@ -533,10 +546,10 @@
 
 @media (max-width: 480px) {
     .ud-hero {
-        padding: 28px 12px 24px;
+        padding: 24px 0 22px;
     }
     .ud-title {
-        font-size: 22px;
+        font-size: clamp(21px, 7vw, 24px);
         margin-bottom: 6px;
     }
     .ud-local {

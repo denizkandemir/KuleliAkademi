@@ -29,6 +29,10 @@ Route::get('/yurtdışıeğitim', function () {
     return Inertia::render('YurtDisindaEgitim');
 });
 
+Route::get('/üniversiteler', function () {
+    return Inertia::render('Universities');
+})->name('üniversiteler');
+
 Route::get('/iletişim', function () {
     return Inertia::render('Iletisim');
 });

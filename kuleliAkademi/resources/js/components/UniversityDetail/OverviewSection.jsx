@@ -5,6 +5,7 @@ import erasmusIcon from '../../assets/icons/europe.png';
 import accreditationIcon from '../../assets/icons/regulatory-compliance.png';
 import costIcon from '../../assets/icons/asset-allocation.png';
 import jobsIcon from '../../assets/icons/job-description.png';
+import { contactConfig } from '../../config/contactConfig';
 
 export default function OverviewSection({ university = {} }) {
   
@@ -136,7 +137,7 @@ export default function OverviewSection({ university = {} }) {
                 <span>Ücretsiz Danışmanlık Alın</span>
                 <p>Uzman danışmanlarımız sürecin her adımında yanınızda.</p>
               </div>
-              <a className="ud-consultation-btn" href="#">
+              <a className="ud-consultation-btn" href={contactConfig.form.consultation.url} target="_blank" rel="noopener noreferrer">
                 Danışmanlık Al
               </a>
             </div>

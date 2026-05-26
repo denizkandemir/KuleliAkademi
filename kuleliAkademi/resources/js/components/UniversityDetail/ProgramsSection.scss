@@ -6,8 +6,10 @@
     }
     
     .ud-shell {
-        max-width: 1380px;
+        width: min(calc(100% - 32px), 1200px);
+        max-width: 100%;
         margin: 0 auto;
+        box-sizing: border-box;
     }
     
     .ud-programs-card.card {}
@@ -29,12 +31,13 @@
     }
     
     .ud-programs-header .btn {
-        display: inline-flex;
+        // display: inline-flex;
         align-items: center;
         justify-content: center;
         padding: 12px 20px;
         border-radius: 999px;
         text-decoration: none;
+        display: none;
         font-size: 13px;
         font-weight: 700;
         letter-spacing: 0.04em;

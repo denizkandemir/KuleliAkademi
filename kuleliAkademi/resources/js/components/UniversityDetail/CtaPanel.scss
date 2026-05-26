@@ -5,6 +5,10 @@
     align-items: stretch;
     overflow: visible;
     animation: service-detail-modern-cta-fade-up 0.8s ease both;
+    width: min(calc(100% - 32px), 1200px);
+    max-width: 100%;
+    margin-inline: auto;
+    box-sizing: border-box;
     @keyframes service-detail-modern-cta-fade-up {
         from {
             opacity: 0;
@@ -60,12 +64,16 @@
         -webkit-backdrop-filter: blur(18px);
         overflow: hidden;
     }
-    .service-detail-modern-cta-panel::before {
-        content: "";
-        position: absolute;
-        inset: 0;
-        background: radial-gradient(circle at 18% 0%, rgba(212, 167, 60, 0.08), transparent 24%), linear-gradient(180deg, rgba(255, 255, 255, 0.05), transparent 32%);
-        pointer-events: none;
+    .service-detail-modern-cta-contact-phone {
+        display: flex;
+        gap: 10px;
+    }
+    .site-footer-social-icon {
+        svg {
+            width: 25px;
+            height: 25px;
+            fill: rgba(218, 229, 241, 0.9);
+        }
     }
     .service-detail-modern-cta-panel::after {
         content: "";
@@ -79,7 +87,10 @@
     .service-detail-modern-cta-panel-inner {
         position: relative;
         z-index: 1;
-        display: grid;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        height: 100%;
         gap: 18px;
         padding: 14px 12px 12px;
     }
@@ -102,7 +113,6 @@
     }
     .service-detail-modern-cta-title {
         margin: 0;
-        max-width: 12ch;
         color: #ffffff;
         font-family: vars.$primary-font;
         font-size: clamp(30px, 3.6vw, 40px);
@@ -183,7 +193,7 @@
     }
     .service-detail-modern-cta-contact-copy {
         display: grid;
-        gap: 3px;
+        gap: 6px;
     }
     .service-detail-modern-cta-contact-copy strong {
         font-family: vars.$primary-font;
@@ -218,8 +228,9 @@
         color: rgba(248, 250, 252, 0.72);
     }
     @media (max-width: 1024px) {
-        .service-detail-modern-cta {
+        .service-detail-modern-cta-uni {
             grid-template-columns: 1fr;
+            width: min(calc(100% - 32px), 1200px);
         }
         .service-detail-modern-cta-media {
             min-height: 460px;
@@ -229,26 +240,37 @@
         }
         .service-detail-modern-cta-panel {
             margin-left: 0;
-            margin-top: -22px;
         }
     }
     @media (max-width: 820px) {
+        .service-detail-modern-cta-uni {
+            gap: 0;
+        }
         .service-detail-modern-cta-panel {
             padding: 20px;
+            position: relative;
+            border-radius: 28px;
+            width: 100%;
+            min-width: 0;
+            margin-left: 0;
+        }
+        .service-detail-modern-cta-media {
+            display: none;
         }
         .service-detail-modern-cta-button {
             width: 100%;
         }
-        .service-detail-modern-cta-title {
-            max-width: 14ch;
+        .service-detail-modern-cta-image {
+            display: none;
         }
         .service-detail-modern-cta-copy p {
             font-size: 15px;
         }
     }
     @media (max-width: 680px) {
-        .service-detail-modern-cta {
+        .service-detail-modern-cta-uni {
             gap: 0;
+            width: calc(100% - 32px);
         }
         .service-detail-modern-cta-media {
             min-height: 320px;
@@ -261,6 +283,8 @@
             padding: 16px;
             border-radius: 24px;
             margin-top: -16px;
+            width: 100%;
+            box-sizing: border-box;
         }
         .service-detail-modern-cta-panel-inner {
             gap: 14px;
@@ -282,9 +306,14 @@
         }
         .service-detail-modern-cta-contact-copy strong {
             font-size: 15px;
+            overflow-wrap: anywhere;
+        }
+        .service-detail-modern-cta-contact-copy span {
+            overflow-wrap: anywhere;
         }
         .service-detail-modern-cta-security p {
             font-size: 11px;
+            overflow-wrap: anywhere;
         }
     }
 }
