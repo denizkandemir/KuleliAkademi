@@ -21,8 +21,11 @@ RUN mkdir -p storage/framework/cache \
     storage/framework/sessions \
     storage/framework/views \
     bootstrap/cache \
+    public/storage \
+    && rm -rf public/storage \
+    && ln -s /var/www/html/storage/app/public /var/www/html/public/storage \
     && chmod -R 775 storage bootstrap/cache
-
+    
 RUN composer install --no-dev --prefer-dist --no-interaction --optimize-autoloader --no-scripts
 
 RUN npm ci
