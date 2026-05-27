@@ -4,6 +4,7 @@ import video2 from "../../assets/videos/kuleliVideo5.mp4";
 import icon1 from "../../assets/icons/training.png";
 import icon2 from "../../assets/icons/graduation2.png";
 import React, { useEffect, useRef, useState } from "react";
+import { Link, usePage } from "@inertiajs/react";
 
 const VideoSectionHomepage = () => {
     const [activeVideo, setActiveVideo] = useState(null);
@@ -169,10 +170,9 @@ const VideoSectionHomepage = () => {
 
                         <div className="video-home-actions">
                             <p className="video-home-note">Yüz yüze takip, düzenli bilgilendirme ve güven veren sistemli ilerleme.</p>
-
-                            <button type="button" className="video-home-cta">
+                            <Link href={"/egitimlerimiz"} className="video-home-cta">
                                 Programi Kesfet
-                            </button>
+                            </Link>
                         </div>
                     </article>
 

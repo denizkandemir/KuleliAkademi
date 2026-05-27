@@ -1,4 +1,6 @@
 import React from "react";
+import SEOHead from '../components/SEOHead/SEOHead';
+import { siteConfig } from '../utils/seoHelpers';
 import bannerImg from "../assets/images/coursesBannerImg2.png";
 import Banner from "../components/Banner/Banner";
 import SummerSchoolPromoSection from "../components/summerSchoolPromoSection/SummerSchoolPromoSection";
@@ -8,9 +10,19 @@ import EventsGallerySection from "../components/eventsGallerySection/EventsGalle
 import HomepageContact from "../components/homepageContact/HomepageContact";
 
 export default function Egitimlerimiz() {
+    const pageTitle = 'Hizmetlerimiz | Kuleli Akademi - Polonya Eğitim Danışmanlığı';
+    const pageDescription = 'Polonya üniversite başvurusu, vizesi, konaklama ve uyum desteği gibi tüm yurtdışı eğitim hizmetlerini bir arada sağlıyoruz.';
+
     return (
         <>
-            <Banner img={bannerImg} location={"Eğitimlerimiz"} text={"Eğitimlerimiz"} responsiveImg={bannerImg}  />
+            <SEOHead
+                title={pageTitle}
+                description={pageDescription}
+                url={`${siteConfig.siteUrl}/egitimlerimiz`}
+                type="services"
+            />
+            
+            <Banner img={bannerImg} location={"Eğitimlerimiz"} text={"Eğitimlerimiz"} responsiveImg={bannerImg} role="img" aria-label="Eğitimlerimiz banner" />
             <OurCoursesCollage />
             <EducationProcessTimeline />
             <SummerSchoolPromoSection />

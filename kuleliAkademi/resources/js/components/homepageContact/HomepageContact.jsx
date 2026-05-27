@@ -2,6 +2,7 @@ import React from "react";
 import "./HomepageContact.scss";
 import contactImg from "../../assets/images/studentTransparentImg.png";
 import { contactConfig } from "../../config/contactConfig";
+import { Link, usePage } from "@inertiajs/react";
 
 const HomepageContact = () => {
     const highlights = [
@@ -21,7 +22,6 @@ const HomepageContact = () => {
         {
             id:4,
             text: "Öğrenciye özel rota ve sürdürülebilir gelişim planı",
-
         }
     ];
 
@@ -56,10 +56,9 @@ const HomepageContact = () => {
                         </ul>
 
                         <div className="homepage-contact-cta-wrap">
-                            <a href={contactConfig.whatsapp.aliaga.url} className="homepage-contact-cta-button" {...contactConfig.linkAttrs.external}>
+                            <Link href={"/iletişim"} className="homepage-contact-cta-button">
                                 Bizimle İletişime Geçin
-                            </a>
-                          
+                            </Link>
                         </div>
                     </div>
 

@@ -2,7 +2,7 @@
     position: fixed;
     bottom: 24px;
     left: 24px;
-    z-index: 999;
+    z-index: 80;
     font-family: "Trebuchet MS", "Segoe UI", sans-serif;
     /* Main WhatsApp Button */
     .whatsapp-main-button {
@@ -111,8 +111,8 @@
 
 @media (max-width: 768px) {
     .sticky-whatsapp-widget {
-        bottom: 20px;
-        left: 20px;
+        bottom: calc(20px + env(safe-area-inset-bottom));
+        left: calc(16px + env(safe-area-inset-left));
         .whatsapp-main-button {
             width: 52px;
             height: 52px;
@@ -151,8 +151,8 @@
 
 @media (max-width: 480px) {
     .sticky-whatsapp-widget {
-        bottom: 16px;
-        left: 16px;
+        bottom: calc(16px + env(safe-area-inset-bottom));
+        left: calc(16px + env(safe-area-inset-left));
         .whatsapp-main-button {
             width: 48px;
             height: 48px;

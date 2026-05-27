@@ -169,6 +169,12 @@
     }
 }
 
+@media (max-width: 608px) {
+    .events-gallery-nav {
+        display: none;
+    }
+}
+
 @media (max-width: 480px) {
     .events-nav-btn {
         width: 48px;

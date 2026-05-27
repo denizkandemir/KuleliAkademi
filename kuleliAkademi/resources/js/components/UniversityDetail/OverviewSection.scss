@@ -1,0 +1,469 @@
+@use "../styles/variables.scss" as vars;
+.ud-overview {
+    padding: 56px 0;
+    padding-top: 0;
+    background: linear-gradient(180deg, #f8f6f2 0%, rgba(248, 246, 242, 0.35) 100%);
+}
+
+.ud-overview-shell {
+    width: min(calc(100% - 32px), 1200px);
+    max-width: 100%;
+    margin: 0 auto;
+    box-sizing: border-box;
+}
+
+.ud-overview-grid {
+    display: grid;
+    grid-template-columns: minmax(0, 1.7fr) minmax(320px, 0.9fr);
+    gap: 40px;
+    align-items: stretch;
+}
+
+.ud-overview-card.card,
+.ud-facts-card.card {
+    background: linear-gradient(180deg, rgba(255, 255, 255, 0.98) 0%, rgba(255, 255, 255, 0.92) 100%);
+    border: 1px solid rgba(31, 47, 70, 0.06);
+    box-shadow: 0 18px 44px rgba(31, 47, 70, 0.06), inset 0 1px 0 rgba(255, 255, 255, 0.75);
+    border-radius: 15px;
+    padding: 34px;
+    position: relative;
+    overflow: hidden;
+    transition: transform 0.35s ease, box-shadow 0.35s ease, border-color 0.35s ease;
+}
+
+.ud-highlight-quote {
+    margin-top: 42px;
+    padding: 28px 32px;
+    border-radius: 24px;
+    background: linear-gradient( 135deg, rgba(214, 180, 94, 0.08), rgba(255, 255, 255, 0.9));
+    border: 1px solid rgba(214, 180, 94, 0.15);
+    position: relative;
+    p {
+        margin: 0;
+        font-size: 1.05rem;
+        line-height: 1.9;
+        color: #44506a;
+        font-style: italic;
+        font-weight: 500;
+        max-width: 90%;
+    }
+    .line {
+        position: absolute;
+        left: 32px;
+        top: -12px;
+        width: 80px;
+        height: 2px;
+        background: linear-gradient( 90deg, #d6b45e, transparent);
+    }
+}
+
+.ud-overview-card.card:hover,
+.ud-facts-card.card:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 24px 56px rgba(31, 47, 70, 0.08), inset 0 1px 0 rgba(255, 255, 255, 0.85);
+}
+
+.ud-overview-card.card::before,
+.ud-facts-card.card::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: radial-gradient(circle at top right, rgba(216, 179, 106, 0.08), transparent 38%);
+    pointer-events: none;
+}
+
+.ud-section-kicker {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 18px;
+    position: relative;
+    z-index: 1;
+}
+
+.section-label {
+    margin: 0;
+    color: #c9a356;
+    font-size: 11px;
+    font-weight: 800;
+    text-transform: uppercase;
+    letter-spacing: 0.18em;
+    white-space: nowrap;
+}
+
+.section-kicker-line {
+    width: 28px;
+    height: 1px;
+    background: linear-gradient(90deg, #d8b36a 0%, rgba(216, 179, 106, 0.25) 100%);
+    flex-shrink: 0;
+}
+
+.ud-overview-card h3 {
+    font-size: 44px;
+    font-weight: 700;
+    letter-spacing: -0.03em;
+    color: #1f2f46;
+    margin: 0;
+    line-height: 1.05;
+    position: relative;
+    z-index: 1;
+}
+
+.section-divider {
+    width: 44px;
+    height: 2px;
+    margin: 18px 0 24px;
+    border-radius: 999px;
+    background: linear-gradient(90deg, #d8b36a 0%, #caa55a 100%);
+    position: relative;
+    z-index: 1;
+}
+
+.ud-copy {
+    max-width: 900px;
+    position: relative;
+    z-index: 1;
+}
+
+.lead {
+    color: #36475f;
+    font-size: 17px;
+    line-height: 1.95;
+    margin: 0 0 18px;
+    font-weight: 500;
+}
+
+.ud-overview-card p {
+    color: #5f6b80;
+    font-size: 20px;
+    line-height: 1.9;
+    margin: 0 0 16px;
+}
+
+.ud-overview-card p:last-child {
+    margin-bottom: 0;
+}
+
+.ud-highlight-grid {
+    display: none;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 16px;
+    margin-top: 32px;
+    position: relative;
+    z-index: 1;
+}
+
+.ud-highlight-card {
+    padding: 22px 18px 20px;
+    border-radius: 22px;
+    border: 1px solid rgba(31, 47, 70, 0.07);
+    background: linear-gradient(180deg, rgba(248, 246, 242, 0.82) 0%, rgba(255, 255, 255, 1) 100%);
+    box-shadow: 0 10px 26px rgba(31, 47, 70, 0.05);
+    text-align: center;
+    transition: transform 0.35s ease, box-shadow 0.35s ease, border-color 0.35s ease;
+}
+
+.ud-highlight-card:hover {
+    transform: translateY(-4px);
+    border-color: rgba(216, 179, 106, 0.18);
+    box-shadow: 0 16px 34px rgba(31, 47, 70, 0.08);
+}
+
+.ud-highlight-icon {
+    width: 52px;
+    height: 52px;
+    margin: 0 auto 14px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+    background: rgba(216, 179, 106, 0.08);
+    color: #c9a356;
+    font-size: 22px;
+    box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.8);
+}
+
+.ud-highlight-card span {
+    display: block;
+    color: #7a8496;
+    font-size: 11px;
+    font-weight: 800;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    margin-bottom: 8px;
+}
+
+.ud-highlight-card strong {
+    color: #1f2f46;
+    font-size: 16px;
+    line-height: 1.4;
+    font-weight: 700;
+}
+
+.ud-facts-card {
+    position: relative;
+    overflow: hidden;
+    border-left: 3px solid rgba(216, 179, 106, 0.75);
+}
+
+.ud-facts-head {
+    position: relative;
+    z-index: 1;
+}
+
+.ud-facts-head h4 {
+    margin: 0;
+    color: #1f2f46;
+    font-size: 28px;
+    font-weight: 700;
+    line-height: 1.1;
+    letter-spacing: -0.02em;
+}
+
+.ud-facts-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    position: relative;
+    z-index: 1;
+}
+
+.ud-facts-list li {
+    display: flex;
+    align-items: flex-start;
+    gap: 14px;
+    padding: 16px 0;
+    border-bottom: 1px solid rgba(31, 47, 70, 0.06);
+}
+
+.ud-facts-list li:last-child {
+    border-bottom: none;
+    padding-bottom: 8px;
+}
+
+.fact-icon {
+    width: 44px;
+    height: 44px;
+    border-radius: 50%;
+    background: rgba(248, 246, 242, 0.96);
+    border: 1px solid rgba(216, 179, 106, 0.14);
+    color: #c9a356;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+    box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.9);
+}
+
+.fact-icon svg {
+    width: 20px;
+    height: 20px;
+}
+
+.fact-body {
+    min-width: 0;
+}
+
+.fact-label {
+    display: block;
+    color: #7a8496;
+    font-size: 11px;
+    font-weight: 800;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    margin-bottom: 4px;
+}
+
+.ud-facts-list strong {
+    color: #1f2f46;
+    font-size: 15px;
+    font-weight: 700;
+    line-height: 1.45;
+}
+
+.ud-consultation-card {
+    margin-top: 22px;
+    padding: 18px 18px 18px 18px;
+    border-radius: 22px;
+    background: linear-gradient(180deg, rgba(248, 246, 242, 0.88) 0%, rgba(255, 248, 232, 0.72) 100%);
+    border: 1px solid rgba(216, 179, 106, 0.16);
+    box-shadow: 0 12px 30px rgba(31, 47, 70, 0.06);
+    position: relative;
+    overflow: hidden;
+    display: grid;
+    grid-template-columns: 48px minmax(0, 1fr);
+    gap: 14px;
+    align-items: center;
+}
+
+.ud-consultation-card::before {
+    content: '';
+    position: absolute;
+    inset: auto -10% 0 auto;
+    width: 220px;
+    height: 120px;
+    background: radial-gradient(circle at center, rgba(216, 179, 106, 0.16), transparent 62%);
+    opacity: 0.7;
+    pointer-events: none;
+}
+
+.ud-consultation-icon {
+    width: 48px;
+    height: 48px;
+    border-radius: 50%;
+    background: #ffffff;
+    color: #c9a356;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 8px 18px rgba(31, 47, 70, 0.08);
+    flex-shrink: 0;
+}
+
+.ud-consultation-icon svg {
+    width: 22px;
+    height: 22px;
+}
+
+.ud-consultation-copy {
+    min-width: 0;
+}
+
+.ud-consultation-copy span {
+    display: block;
+    color: #1f2f46;
+    font-size: 15px;
+    font-weight: 700;
+    margin-bottom: 4px;
+}
+
+.ud-consultation-copy p {
+    margin: 0;
+    color: #667085;
+    font-size: 13px;
+    line-height: 1.7;
+}
+
+.ud-consultation-btn {
+    grid-column: 1 / -1;
+    margin-top: 4px;
+    height: 48px;
+    border-radius: 14px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    background: #1f2f46;
+    color: #f7f5f2;
+    text-decoration: none;
+    font-size: 13px;
+    font-weight: 700;
+    letter-spacing: 0.02em;
+    box-shadow: 0 12px 28px rgba(31, 47, 70, 0.18);
+    transition: transform 0.35s ease, box-shadow 0.35s ease, background 0.35s ease;
+    position: relative;
+    z-index: 1;
+}
+
+.ud-consultation-btn:hover {
+    transform: translateY(-2px);
+    background: #16233a;
+    box-shadow: 0 16px 34px rgba(31, 47, 70, 0.24);
+}
+
+.ud-overview-card {
+    background-color: none;
+    background: none;
+    box-shadow: none;
+    border: none;
+    border-radius: none;
+}
+
+@media (max-width: 1100px) {
+    .ud-overview-grid {
+        gap: 32px;
+    }
+    .ud-overview-card.card,
+    .ud-facts-card.card {
+        padding: 30px;
+    }
+    .ud-overview-card h3 {
+        font-size: 38px;
+    }
+    .ud-facts-head h4 {
+        font-size: 26px;
+    }
+}
+
+@media (max-width: 900px) {
+    .ud-overview {
+        padding: 42px 0;
+    }
+    .ud-overview-grid {
+        grid-template-columns: 1fr;
+        gap: 28px;
+    }
+    .ud-highlight-grid {
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+    }
+}
+
+@media (max-width: 760px) {
+    .ud-highlight-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+    .ud-overview-card h3 {
+        font-size: 34px;
+    }
+}
+
+@media (max-width: 640px) {
+    .ud-overview {
+        padding: 32px 0;
+    }
+    .ud-overview-card.card,
+    .ud-facts-card.card {
+        padding: 24px;
+        border-radius: 24px;
+    }
+    .ud-overview-card h3 {
+        font-size: 28px;
+    }
+    .lead {
+        font-size: 15px;
+        line-height: 1.85;
+    }
+    .ud-overview-card p {
+        font-size: 14px;
+    }
+    .ud-highlight-grid {
+        grid-template-columns: 1fr;
+        gap: 12px;
+        margin-top: 26px;
+    }
+    .ud-highlight-card {
+        padding: 20px 16px 18px;
+    }
+    .ud-facts-head h4 {
+        font-size: 22px;
+    }
+    .ud-facts-list li {
+        gap: 12px;
+        padding: 14px 0;
+    }
+    .fact-icon {
+        width: 40px;
+        height: 40px;
+    }
+    .ud-consultation-card {
+        grid-template-columns: 44px minmax(0, 1fr);
+        padding: 16px;
+        gap: 12px;
+    }
+    .ud-consultation-icon {
+        width: 44px;
+        height: 44px;
+    }
+}
