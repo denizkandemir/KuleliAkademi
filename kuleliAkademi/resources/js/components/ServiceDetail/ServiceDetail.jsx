@@ -12,6 +12,7 @@ import applyImg from "../../assets/images/apply-section-img.png";
 import applyIcon1 from "../../assets/icons/professional-success.png";
 import applyIcon2 from "../../assets/icons/folder.png";
 import applyIcon3 from "../../assets/icons/iteration.png";
+import { contactConfig } from "../../config/contactConfig";
 
 
 const normalizeStep = (step, index) =>
@@ -76,7 +77,7 @@ const ServiceNotFound = ({ slug }) => {
 const ServiceSidebar = ({ service }) => {
     const whatsappContact = getServiceContact(service);
     const whatsappMessage = service.whatsappMessage || whatsappContact.message;
-    const whatsappHref = `${whatsappContact.url}?text=${encodeURIComponent(whatsappMessage)}`;
+    const whatsappHref = contactConfig.whatsapp.poland.url;
 
     return (
         <aside className="service-detail-sidebar" aria-label="Hizmet yan menüsü">

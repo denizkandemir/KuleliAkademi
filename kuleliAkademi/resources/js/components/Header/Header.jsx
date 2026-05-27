@@ -14,7 +14,7 @@ import floatingIcon6 from "../../assets/icons/education.png";
 import floatingIcon7 from "../../assets/icons/eng.png";
 import floatingIcon8 from "../../assets/icons/globe.png";
 import floatingIcon9 from "../../assets/icons/online-test.png";
-
+import {contactConfig} from "../../config/contactConfig";
 
 const slideImgs = [
     {
@@ -167,6 +167,9 @@ const slideImgs = [
     },
 ];
 
+const buttonUrl = contactConfig.form.consultation.url;
+const buttonText = contactConfig.form.consultation.title;
+
 const Header = () => {
 
     return (
@@ -176,6 +179,8 @@ const Header = () => {
                 container={"header-slide-container"}
                 id={1}
                 imgClass={"header-slide-img"}
+                buttonUrl={buttonUrl}
+                buttonText={buttonText}
                 openSlide={() => { }}
             />
         </header>

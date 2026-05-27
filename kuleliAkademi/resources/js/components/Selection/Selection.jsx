@@ -4,6 +4,7 @@ import abroadImg from "../../assets/images/headerImg6.png";
 import educationImg from "../../assets/images/studentsPicture6.png";
 import kuleliLogoGold from "../../assets/images/kuleliLogoGold.png";
 import { useState } from "react";
+import { Link, usePage } from "@inertiajs/react";
 
 const Selection = ({ onLocalSelect, onGlobalSelect }) => {
     const [activePanel, setActivePanel] = useState("none");
@@ -44,9 +45,9 @@ const Selection = ({ onLocalSelect, onGlobalSelect }) => {
                             <p className="selection-panel-label"> Eğitim ve Danışmanlık </p>
                             <h3 className="selection-panel-title">Yurt Dışı Eğitim Danismanligi</h3>
                             <p className="selection-panel-text">Başvuru, kabul ve yerleşim sürecinde profesyonel yönlendirme.</p>
-                            <button type="button" className="selection-panel-link" onClick={onGlobalSelect}>
+                            <Link href={"/yurtdışıeğitim"} className="selection-panel-link" onClick={onGlobalSelect}>
                                 Danışmanlığı Keşfet
-                            </button>
+                            </Link>
                         </div>
                     </article>
 
@@ -63,9 +64,9 @@ const Selection = ({ onLocalSelect, onGlobalSelect }) => {
                             <p className="selection-panel-label">Türkiye&apos;de Eğitim Desteği</p>
                             <h3 className="selection-panel-title">Türkiye&apos;de Yüz Yüze Eğitim</h3>
                             <p className="selection-panel-text">Kişiye özel akademik planlama ve sürekli birebir takip.</p>
-                            <button type="button" className="selection-panel-link" onClick={onLocalSelect}>
+                            <Link href={"/egitimlerimiz"} className="selection-panel-link" onClick={onLocalSelect}>
                                 Programları İncele
-                            </button>
+                            </Link>
                         </div>
                     </article>
 
@@ -77,8 +78,8 @@ const Selection = ({ onLocalSelect, onGlobalSelect }) => {
                         </span>
                     </div>
                 </div>
-            </div>
-        </section>
+            </div >
+        </section >
 
     );
 };

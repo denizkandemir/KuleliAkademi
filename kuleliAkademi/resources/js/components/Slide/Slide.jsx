@@ -109,7 +109,7 @@ const floatingLabelVariants = {
 };
 
 
-const Slide = ({ SlideImgs,imgClass, container, id, isSlideOpen, containerRef, openSlide, shouldOpen }) => {
+const Slide = ({ SlideImgs,imgClass,buttonUrl, buttonText, container, id, isSlideOpen, containerRef, openSlide, shouldOpen }) => {
    
     const [isMobile, setIsMobile] = useState(typeof window !== 'undefined' && window.innerWidth <= 768);
 
@@ -289,7 +289,10 @@ const Slide = ({ SlideImgs,imgClass, container, id, isSlideOpen, containerRef, o
                                                         )}
 
                                                         <motion.div className="slide-cta-row" variants={fadeUp(0.82, 0.54, 12)}>
-                                                            <button type="button" className="slide-primary-cta">Bilgi Al</button>
+                                                            <a href={buttonUrl} className="slide-primary-cta" target="_blank" rel="noopener noreferrer">
+                                                                {buttonText}
+                                                            </a>
+                                                            {/* <button type="button" className="slide-primary-cta">Bilgi Al</button> */}
                                                         </motion.div>
                                                     </motion.div>
 

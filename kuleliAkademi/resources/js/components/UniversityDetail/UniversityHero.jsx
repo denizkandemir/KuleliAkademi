@@ -8,6 +8,8 @@ import rankingIcon from '../../assets/icons/quality.png';
 import locationIcon from '../../assets/icons/city.png';
 import languageIcon from '../../assets/icons/languages2.png';
 import typeIcon from '../../assets/icons/university3.png';
+import { Link, usePage } from "@inertiajs/react";
+import {contactConfig} from "../../config/contactConfig";
 
 export default function UniversityHero({ university = {} }) {
   const data = {
@@ -119,10 +121,10 @@ export default function UniversityHero({ university = {} }) {
 
             {/* CTA BUTTONS */}
             <div className="ud-cta-row">
-              <a className="btn btn-primary" href="#">
-                <span>Programa Başvur</span>
-              </a>
-              <a className="btn btn-secondary" href="#">
+              <Link className="btn btn-primary" href="/iletişim">
+                <span>İletişim</span>
+              </Link>
+              <a target="_blank" rel="noopener noreferrer" className="btn btn-secondary" href={contactConfig.form.consultation.url}>
                 <span>Danışmanlık Al</span>
               </a>
             </div>

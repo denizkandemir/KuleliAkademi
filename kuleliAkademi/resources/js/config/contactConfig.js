@@ -24,7 +24,7 @@ export const contactConfig = {
 
     form: {
         consultation: {
-            title: 'Ücretsiz Danışmanlık Talebi',
+            title: 'Danışmanlık Talebi Formu',
             description: 'Eğitim ihtiyaçlarınızı bize iletin, uzman ekibimiz sizinle iletişime geçsin.',
             url: 'https://docs.google.com/forms/d/e/1FAIpQLSf6EDVF2JpfO0Bzg3qZoMwefMoTFrxWuIsKUxqPZggljQvY_w/viewform?usp=dialog',
         },

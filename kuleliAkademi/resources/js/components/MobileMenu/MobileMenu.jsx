@@ -1,7 +1,8 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import { Link, usePage } from "@inertiajs/react";
 import "./MobileMenu.scss";
 import { contactConfig } from "../../config/contactConfig";
+import { servicesData } from "../../data/servicesData";
 
 const MobileMenu = ({ isOpen, onClose }) => {
     const { url } = usePage();
@@ -12,6 +13,8 @@ const MobileMenu = ({ isOpen, onClose }) => {
         { label: "Üniversiteler", href: "/universities" },
         { label: "İletişim", href: "/iletişim" },
     ];
+
+    const [servicesOpen, setServicesOpen] = useState(false);
 
     // Prevent body scroll when mobile menu is open
     useEffect(() => {
@@ -98,6 +101,32 @@ const MobileMenu = ({ isOpen, onClose }) => {
                                 </Link>
                             </li>
                         ))}
+
+                        {/* Mobile services collapsible */}
+                        <li className={`mobile-menu-item mobile-services ${servicesOpen ? "is-open" : ""}`}>
+                            <button
+                                type="button"
+                                className="mobile-menu-link mobile-services-toggle"
+                                onClick={() => setServicesOpen((s) => !s)}
+                                aria-expanded={servicesOpen}
+                            >
+                                Hizmetlerimiz
+                            </button>
+
+                            <ul className="mobile-services-list" aria-hidden={!servicesOpen}>
+                                {servicesData.map((service) => (
+                                    <li key={service.slug} className="mobile-services-item">
+                                        <Link
+                                            href={`/hizmetler/${service.slug}`}
+                                            className="mobile-menu-link"
+                                            onClick={handleLinkClick}
+                                        >
+                                            {service.title}
+                                        </Link>
+                                    </li>
+                                ))}
+                            </ul>
+                        </li>
                     </ul>
                 </nav>
 

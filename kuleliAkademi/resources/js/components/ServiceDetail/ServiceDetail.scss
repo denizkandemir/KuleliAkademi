@@ -147,8 +147,6 @@
     }
     
     .service-process-title {
-        background: radial-gradient(circle at 30% 30%, rgba(255, 250, 235, 0.95), rgba(244, 181, 40, 0.34));
-        box-shadow: 0 0 4px rgba(244, 181, 40, 0.28), 0 0 8px rgba(244, 181, 40, 0.14);
         font-family: vars.$primary-font;
         font-size: clamp(1.75rem, 2.8vw, 2.45rem);
         line-height: 1.12;

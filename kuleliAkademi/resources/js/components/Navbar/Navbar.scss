@@ -88,6 +88,73 @@
         margin: 0;
         padding: 0;
     }
+    .navbar-dropdown {
+        position: relative;
+        .dropdown-trigger {
+            background: none;
+            border: 0;
+            padding: 0;
+            cursor: pointer;
+        }
+        .dropdown-menu {
+            position: absolute;
+            top: calc(100% + 8px);
+            left: 0;
+            min-width: 240px;
+            max-width: 280px;
+            width: 260px;
+            background: #fbfbf9; /* soft off-white */
+            border: 1px solid rgba(36,54,77,0.08);
+            box-shadow: 0 6px 20px rgba(18,27,39,0.08);
+            border-radius: 10px;
+            padding: 6px 6px;
+            opacity: 0;
+            visibility: hidden;
+            transform: translateY(-6px);
+            transition: opacity 0.22s ease, transform 0.22s ease, visibility 0.22s;
+            z-index: 100010;
+        }
+        &.is-open:hover .dropdown-menu,
+        &:hover .dropdown-menu,
+        &.is-open .dropdown-menu {
+            opacity: 1;
+            visibility: visible;
+            transform: translateY(0);
+        }
+        .dropdown-list {
+            list-style: none;
+            margin: 0;
+            padding: 4px 0;
+        }
+        .dropdown-list-item {
+            padding: 0;
+        }
+        .navbar-service-dropdown-item {
+            display: block;
+            padding: 8px 12px;
+            color: var(--nav-text);
+            text-decoration: none;
+            border-bottom: 1px solid rgba(31,47,70,0.12);
+            border-radius: 6px;
+            transition: background 0.16s ease, color 0.16s ease;
+            font-weight: 600;
+            font-size: 15px;
+            line-height: 1.2;
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
+        }
+        .navbar-service-dropdown-item:hover {
+            background: rgba(196,154,74,0.08);
+            color: #1F2F46;
+        }
+        .navbar-service-dropdown-item:last-child {
+            border-bottom: none;
+        }
+        .navbar-service-dropdown-title {
+            display: inline-block;
+        }
+    }
     .navbar-link {
         position: relative;
         display: inline-flex;

@@ -4,10 +4,12 @@ import kuleliLogoGold from "../../assets/images/kuleliLogoGold.png";
 import { Link, usePage } from "@inertiajs/react";
 import MobileMenu from "../MobileMenu/MobileMenu";
 import { contactConfig } from "../../config/contactConfig";
+import { servicesData } from "../../data/servicesData";
 
 const Navbar = () => {
     const { url } = usePage();
     const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+    const [servicesOpen, setServicesOpen] = useState(false);
 
     const navItems = [
         // { label: "Hakkımızda", href: "/hakkımızda" },
@@ -41,6 +43,41 @@ const Navbar = () => {
                                 </li>
                             );
                         })}
+
+                        {/* Hizmetlerimiz dropdown */}
+                        <li
+                            className={`navbar-dropdown ${servicesOpen ? " is-open" : ""}`}
+                            onMouseEnter={() => setServicesOpen(true)}
+                            onMouseLeave={() => setServicesOpen(false)}
+                        >
+                            <button
+                                type="button"
+                                className={`navbar-link dropdown-trigger`}
+                                onClick={(e) => {
+                                    e.preventDefault();
+                                    setServicesOpen((s) => !s);
+                                }}
+                                aria-haspopup="true"
+                                aria-expanded={servicesOpen}
+                            >
+                                Hizmetlerimiz
+                            </button>
+
+                            <div className="dropdown-menu navbar-service-dropdown" role="menu">
+                                <ul className="dropdown-list">
+                                    {servicesData.map((service, idx) => (
+                                        <li key={service.slug} className="dropdown-list-item">
+                                            <Link
+                                                href={`/hizmetler/${service.slug}`}
+                                                className="navbar-service-dropdown-item"
+                                            >
+                                                <span className="navbar-service-dropdown-title">{service.title || service.name}</span>
+                                            </Link>
+                                        </li>
+                                    ))}
+                                </ul>
+                            </div>
+                        </li>
                     </ul>
                 </nav>
 
