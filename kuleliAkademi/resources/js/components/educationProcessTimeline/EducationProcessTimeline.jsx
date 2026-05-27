@@ -1,11 +1,11 @@
 import React from "react";
 import "./EducationProcessTimeline.scss";
-import timelineImg1 from "../../assets/images/numberPicture1.webp";
-import timelineImg3 from "../../assets/images/numberPicture2.webp";
-import timelineImg4 from "../../assets/images/numberPicture3.webp";
-import timelineImg5 from "../../assets/images/numberPicture7.webp";
-import timelineImg6 from "../../assets/images/numberPicture5.webp";
-import timelineImg7 from "../../assets/images/numberPicture6.webp";
+const timelineImg1 = "/storage/images/numberPicture1.webp";
+const timelineImg3 = "/storage/images/numberPicture2.webp";
+const timelineImg4 = "/storage/images/numberPicture3.webp";
+const timelineImg5 = "/storage/images/numberPicture7.webp";
+const timelineImg6 = "/storage/images/numberPicture5.webp";
+const timelineImg7 = "/storage/images/numberPicture6.webp";
 
 const steps = [
     {

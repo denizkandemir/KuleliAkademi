@@ -1,8 +1,6 @@
 import React from "react";
 import "./WhyPoland.scss";
-// import polandImg from "../../assets/images/uniWarsaw4.webp";
-// import polandImg from "../../assets/images/uniPolitechnic1.webp";
-import polandImg from "../../assets/images/uniGdansk1.webp";
+const polandImg = "/storage/images/uniGdansk1.webp";
 import diplomaIcon from "../../assets/icons/global-education.png";
 import languageIcon from "../../assets/icons/thesis.png";
 import walletIcon from "../../assets/icons/crypto-wallet.png";

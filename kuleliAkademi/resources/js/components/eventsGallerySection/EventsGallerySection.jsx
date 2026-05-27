@@ -1,9 +1,9 @@
 import React, { useState, useRef, useCallback, useEffect } from "react";
 import "./EventsGallerySection.scss";
-import video1 from "../../assets/videos/kuleliVideo1.mp4";
-import video3 from "../../assets/videos/kuleliVideo3.mp4";
-import video5 from "../../assets/videos/kuleliVideo5.mp4";
-import video6 from "../../assets/videos/kuleliVideo6.mp4";
+const video1 = "/storage/videos/kuleliVideo1.mp4";
+const video3 = "/storage/videos/kuleliVideo3.mp4";
+const video5 = "/storage/videos/kuleliVideo5.mp4";
+const video6 = "/storage/videos/kuleliVideo6.mp4";
 
 function VideoCard({ event, onCardClick }) {
     const videoRef = useRef(null);

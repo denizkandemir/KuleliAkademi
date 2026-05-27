@@ -1,7 +1,7 @@
 import React from "react";
 import { Link } from "@inertiajs/react";
 import "./Footer.scss";
-import kuleliLogoGold from "../../assets/images/kuleliLogoGold.webp";
+const kuleliLogoGold = "/storage/images/kuleliLogoGold.webp";
 import { contactConfig } from "../../config/contactConfig";
 
 const Footer = () => {

@@ -1,5 +1,5 @@
 import React from "react";
-import planImg2 from "../../assets/images/studentsPicture11.webp";
+const planImg2 = "/storage/images/studentsPicture11.webp";
 import "./StudyAbroadPlan.scss";
 import { contactConfig } from "../../config/contactConfig";
 import { Link, usePage } from "@inertiajs/react";

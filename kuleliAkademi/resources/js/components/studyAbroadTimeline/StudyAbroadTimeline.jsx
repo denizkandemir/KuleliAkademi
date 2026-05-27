@@ -7,13 +7,13 @@ import {
 } from "framer-motion";
 import "./StudyAbroadTimeline.scss";
 
-import collageImageOne from "../../assets/images/timelineImg1.webp";
-import collageImageTwo from "../../assets/images/uniKrakow1.webp";
-import collageImageThree from "../../assets/images/timelineImg3.webp";
-import collageImageSix from "../../assets/images/timelineImg52.webp";
-import collageImageFour from "../../assets/images/timelineImg4.webp";
-import collageImageFive from "../../assets/images/timelineImg5.webp";
-import collageImageSeven from "../../assets/images/timelineImg7.webp";
+const collageImageOne = "/storage/images/timelineImg1.webp";
+const collageImageTwo = "/storage/images/uniKrakow1.webp";
+const collageImageThree = "/storage/images/timelineImg3.webp";
+const collageImageSix = "/storage/images/timelineImg52.webp";
+const collageImageFour = "/storage/images/timelineImg4.webp";
+const collageImageFive = "/storage/images/timelineImg5.webp";
+const collageImageSeven = "/storage/images/timelineImg7.webp";
 
 
 const steps = [

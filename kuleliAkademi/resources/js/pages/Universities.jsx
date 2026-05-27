@@ -6,7 +6,7 @@ import { getUniversitiesForCards } from '../data/universitiesData';
 import '../components/universityCards/UniversityCards.scss';
 import './Universities.scss';
 import Banner from '../components/Banner/Banner';
-import bannerImg from '../assets/images/universitiesBanner.webp';
+const bannerImg = '/storage/images/universitiesBanner.webp';
 
 const universities = getUniversitiesForCards();
 

@@ -24,7 +24,8 @@ RUN npm run build
 
 RUN php artisan package:discover --ansi \
     && php artisan config:clear \
-    && php artisan route:clear
+    && php artisan route:clear \
+    && php artisan storage:link || true
 
 EXPOSE 8000
 

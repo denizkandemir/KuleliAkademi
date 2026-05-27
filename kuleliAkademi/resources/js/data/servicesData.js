@@ -1,21 +1,21 @@
 import { contactConfig } from "../config/contactConfig";
 
-import service1 from "../assets/images/servicesDetailImg2.webp";
-import service2 from "../assets/images/servicesImg5.webp";
-import service3 from "../assets/images/servicesImg10.webp";
-import service4 from "../assets/images/servicesImg4.webp";
-import service5 from "../assets/images/servicesImg9.webp";
-import service6 from "../assets/images/servicesImg8.webp";
+const service1 = "/storage/images/servicesDetailImg2.webp";
+const service2 = "/storage/images/servicesImg5.webp";
+const service3 = "/storage/images/servicesImg10.webp";
+const service4 = "/storage/images/servicesImg4.webp";
+const service5 = "/storage/images/servicesImg9.webp";
+const service6 = "/storage/images/servicesImg8.webp";
 
-import banner1 from "../assets/images/uniWarsaw2.webp";
-import banner2 from "../assets/images/polandPicture1.webp";
-import banner3 from "../assets/images/warsawImg1.webp";
-import banner4 from "../assets/images/gdansk1.webp";
-import banner5 from "../assets/images/lublin1.webp";
-import banner6 from "../assets/images/krakow1.webp";
+const banner1 = "/storage/images/uniWarsaw2.webp";
+const banner2 = "/storage/images/polandPicture1.webp";
+const banner3 = "/storage/images/warsawImg1.webp";
+const banner4 = "/storage/images/gdansk1.webp";
+const banner5 = "/storage/images/lublin1.webp";
+const banner6 = "/storage/images/krakow1.webp";
 
-import servicesHomepageImg1 from "../assets/images/servicesImg11.webp";
-import widgetImg1 from "../assets/images/servicesDetailImg3.webp";
+const servicesHomepageImg1 = "/storage/images/servicesImg11.webp";
+const widgetImg1 = "/storage/images/servicesDetailImg3.webp";
 
 import serviceOneProcessIcon from "../assets/icons/academic-success.png";
 import serviceOneProcessIcon2 from "../assets/icons/university2.png";

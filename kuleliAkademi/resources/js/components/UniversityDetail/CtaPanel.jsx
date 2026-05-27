@@ -1,6 +1,6 @@
 import React from "react";
 import "./CtaPanel.scss";
-import applyImg from "../../assets/images/uniDetailCtaImg5.webp";
+const applyImg = "/storage/images/uniDetailCtaImg5.webp";
 import { FaWhatsapp } from "react-icons/fa";
 import { contactConfig } from "../../config/contactConfig";
 

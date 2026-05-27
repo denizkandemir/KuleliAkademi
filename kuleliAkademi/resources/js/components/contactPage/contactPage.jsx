@@ -1,7 +1,7 @@
 import React, { use } from "react";
 import Banner from "../Banner/Banner";
 import "./contactPage.scss";
-import contactBanner from "../../assets/images/contactBanner1.webp";
+const contactBanner = "/storage/images/contactBanner1.webp";
 import mailIcon from "../../assets/icons/mail.png";
 import { contactConfig } from "../../config/contactConfig";
 // import useFadeInOnScroll from "../../hooks/FadeInAnimation/FadeInAnimation";

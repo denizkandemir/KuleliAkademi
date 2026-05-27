@@ -9,7 +9,7 @@ import GallerySection from '../components/UniversityDetail/GallerySection';
 import ProgramsSection from '../components/UniversityDetail/ProgramsSection';
 import WhySection from '../components/UniversityDetail/WhySection';
 import '../components/UniversityDetail/UniversityDetailLayout.scss';
-import bannerImg from '../assets/images/uniWarsaw2.webp';
+const bannerImg = '/storage/images/uniWarsaw2.webp';
 import { getUniversityBySlug } from '../data/universitiesData';
 import CtaPanel from '../components/UniversityDetail/CtaPanel';
 

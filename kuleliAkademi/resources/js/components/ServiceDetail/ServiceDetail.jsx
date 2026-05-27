@@ -8,7 +8,7 @@ import { getServiceBySlug, getServiceContact, servicesData } from "../../data/se
 import "./ServiceDetail.scss";
 import serviceOneProcessIcon from "../../assets/icons/completed-task.png";
 import infoIcon from "../../assets/icons/processing.png";
-import applyImg from "../../assets/images/apply-section-img.webp";
+const applyImg = "/storage/images/apply-section-img.webp";
 import applyIcon1 from "../../assets/icons/professional-success.png";
 import applyIcon2 from "../../assets/icons/folder.png";
 import applyIcon3 from "../../assets/icons/iteration.png";
