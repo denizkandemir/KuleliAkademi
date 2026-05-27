@@ -17,6 +17,12 @@ WORKDIR /var/www/html
 
 COPY . .
 
+RUN mkdir -p storage/framework/cache \
+    storage/framework/sessions \
+    storage/framework/views \
+    bootstrap/cache \
+    && chmod -R 775 storage bootstrap/cache
+
 RUN composer install --no-dev --prefer-dist --no-interaction --optimize-autoloader --no-scripts
 
 RUN npm ci
@@ -26,6 +32,8 @@ RUN php artisan package:discover --ansi \
     && php artisan config:clear \
     && php artisan route:clear \
     && php artisan storage:link || true
+   
+    
 
 EXPOSE 8000
 
