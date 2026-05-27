@@ -1,39 +1,33 @@
+FROM node:20 AS frontend
+
+WORKDIR /app
+
+COPY package*.json ./
+RUN npm ci
+
+COPY . .
+RUN npm run build
+
+
 FROM php:8.2-cli
 
-ENV DEBIAN_FRONTEND=noninteractive \
-    COMPOSER_ALLOW_SUPERUSER=1
-
-RUN apt-get update && apt-get install -y --no-install-recommends \
-    git curl unzip zip \
-    libzip-dev libpng-dev libjpeg62-turbo-dev libfreetype6-dev \
-    libonig-dev libxml2-dev libicu-dev libpq-dev \
-    && docker-php-ext-configure gd --with-freetype --with-jpeg \
-    && docker-php-ext-install -j"$(nproc)" \
-        pdo pdo_mysql pdo_pgsql mbstring bcmath exif pcntl gd zip \
-    && rm -rf /var/lib/apt/lists/*
-
-RUN curl -fsSL https://deb.nodesource.com/setup_20.x | bash - \
-    && apt-get install -y --no-install-recommends nodejs \
-    && rm -rf /var/lib/apt/lists/*
+RUN apt-get update && apt-get install -y \
+    git unzip curl libzip-dev zip \
+    && docker-php-ext-install pdo pdo_mysql zip
 
 COPY --from=composer:2 /usr/bin/composer /usr/bin/composer
 
 WORKDIR /var/www/html
 
-COPY composer.json composer.lock ./
-RUN composer install --no-dev --prefer-dist --no-interaction --optimize-autoloader --no-scripts
-
-COPY package.json package-lock.json ./
-RUN npm ci
-
+# ÖNCE TÜM PROJE
 COPY . .
 
-RUN npm run build \
-    && ls -la public/build \
-    && test -f public/build/manifest.json \
-    && php artisan package:discover --ansi \
-    && php artisan config:clear \
-    && php artisan route:clear 
+# SONRA COMPOSER
+RUN composer install --no-dev --prefer-dist --no-interaction
+
+# FRONTEND BUILD COPY
+COPY --from=frontend /app/public/build ./public/build
+
 EXPOSE 8000
 
-CMD ["sh", "-c", "php artisan serve --host=0.0.0.0 --port=8000"]
+CMD ["php", "artisan", "serve", "--host=0.0.0.0", "--port=8000"]
