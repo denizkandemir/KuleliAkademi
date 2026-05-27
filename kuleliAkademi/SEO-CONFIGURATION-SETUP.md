@@ -11,7 +11,7 @@ export const siteConfig = {
   siteUrl: 'https://akademikuleli.com', // ← CHANGE TO YOUR DOMAIN
   siteDescription: '...',
   siteLocale: 'tr_TR',
-  logo: 'https://akademikuleli.com/logo.png', // ← CHANGE TO YOUR LOGO URL
+  logo: 'https://akademikuleli.com/logo.webp', // ← CHANGE TO YOUR LOGO URL
   organizationName: 'Kuleli Akademi',
   organizationEmail: 'info@akademikuleli.com', // ← CHANGE TO YOUR EMAIL
   organizationPhone: '+90XXX-XXX-XXXX', // ← CHANGE TO YOUR PHONE
@@ -49,13 +49,13 @@ sameAs: [
 You need a social sharing image (1200x630px):
 
 **Recommended**:
-- Create: `public/og-image.png` (1200x630px)
+- Create: `public/og-image.webp` (1200x630px)
 - Format: PNG or JPG
 - Content: Your logo + "Polonya Üniversite Danışmanlığı"
 - Update reference in `resources/views/app.blade.php` if different location
 
 ```html
-<meta property="og:image" content="{{ url('/og-image.png') }}">
+<meta property="og:image" content="{{ url('/og-image.webp') }}">
 ```
 
 ---

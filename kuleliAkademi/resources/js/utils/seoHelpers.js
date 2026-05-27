@@ -7,7 +7,7 @@ export const siteConfig = {
     siteUrl: 'https://akademikuleli.com',
     siteDescription: 'Polonya üniversite başvurusu, öğrenci vizesi ve yurtdışı eğitim danışmanlığı hizmeti sunan uzman danışmanlık platformu.',
     siteLocale: 'tr_TR',
-    logo: 'https://akademikuleli.com/logo.png',
+    logo: 'https://akademikuleli.com/logo.webp',
     organizationName: 'Kuleli Akademi',
     organizationEmail: 'info@akademikuleli.com',
     organizationPhone: '+90XXX-XXX-XXXX', // Update with actual phone
@@ -81,7 +81,7 @@ export const generateOGTags = (data) => {
         'og:description': data.description || siteConfig.siteDescription,
         'og:type': data.type || 'website',
         'og:url': data.url || siteConfig.siteUrl,
-        'og:image': data.image || `${siteConfig.siteUrl}/og-image.png`,
+        'og:image': data.image || `${siteConfig.siteUrl}/og-image.webp`,
         'og:site_name': siteConfig.siteName,
         'og:locale': siteConfig.siteLocale,
     };
@@ -95,7 +95,7 @@ export const generateTwitterTags = (data) => {
         'twitter:card': data.card || 'summary_large_image',
         'twitter:title': data.title || siteConfig.siteName,
         'twitter:description': data.description || siteConfig.siteDescription,
-        'twitter:image': data.image || `${siteConfig.siteUrl}/og-image.png`,
+        'twitter:image': data.image || `${siteConfig.siteUrl}/og-image.webp`,
         'twitter:site': data.site || '@KuleliAkademi', // Update with actual Twitter handle
     };
 };

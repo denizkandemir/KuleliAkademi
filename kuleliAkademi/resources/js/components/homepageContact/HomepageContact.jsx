@@ -1,6 +1,6 @@
 import React from "react";
 import "./HomepageContact.scss";
-import contactImg from "../../assets/images/studentTransparentImg.png";
+import contactImg from "../../assets/images/studentTransparentImg.webp";
 import { contactConfig } from "../../config/contactConfig";
 import { Link, usePage } from "@inertiajs/react";
 

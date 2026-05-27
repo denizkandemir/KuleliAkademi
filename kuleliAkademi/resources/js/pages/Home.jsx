@@ -23,7 +23,7 @@ export default function Home({ message }) {
         description={pageDescription}
         url={pageUrl}
         type="website"
-        image={`${siteConfig.siteUrl}/og-image.png`}
+        image={`${siteConfig.siteUrl}/og-image.webp`}
       />
       
       <OrganizationSchema

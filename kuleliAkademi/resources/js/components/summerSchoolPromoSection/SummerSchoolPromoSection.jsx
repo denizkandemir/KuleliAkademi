@@ -1,6 +1,6 @@
 import React from "react";
 import "./SummerSchoolPromoSection.scss";
-import studentImage from "../../assets/images/summerSchoolImg.png";
+import studentImage from "../../assets/images/summerSchoolImg.webp";
 
 const ribbonItems = [
     "AKADEMİK BAŞARI",

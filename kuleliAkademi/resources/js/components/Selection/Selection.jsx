@@ -1,8 +1,8 @@
 import "./Selection.scss";
 import React from "react";
-import abroadImg from "../../assets/images/headerImg6.png";
-import educationImg from "../../assets/images/studentsPicture6.png";
-import kuleliLogoGold from "../../assets/images/kuleliLogoGold.png";
+import abroadImg from "../../assets/images/headerImg6.webp";
+import educationImg from "../../assets/images/studentsPicture6.webp";
+import kuleliLogoGold from "../../assets/images/kuleliLogoGold.webp";
 import { useState } from "react";
 import { Link, usePage } from "@inertiajs/react";
 

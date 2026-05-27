@@ -1,7 +1,7 @@
 import React from "react";
 import SEOHead from '../components/SEOHead/SEOHead';
 import { siteConfig } from '../utils/seoHelpers';
-import bannerImg from "../assets/images/coursesBannerImg2.png";
+import bannerImg from "../assets/images/coursesBannerImg2.webp";
 import Banner from "../components/Banner/Banner";
 import SummerSchoolPromoSection from "../components/summerSchoolPromoSection/SummerSchoolPromoSection";
 import OurCoursesCollage from "../components/ourCoursesCollage/ourCoursesCollage";

@@ -1,7 +1,7 @@
 import React from 'react';
 import './UniversityHero.scss';
 import { MdLocationOn, MdEmojiEvents, MdSchool } from 'react-icons/md';
-import uniLogo from '../../assets/images/kuleliLogoGold.png';
+import uniLogo from '../../assets/images/kuleliLogoGold.webp';
 import foundationIcon from '../../assets/icons/calendar.png';
 import studentsIcon from '../../assets/icons/graduated.png';
 import rankingIcon from '../../assets/icons/quality.png';

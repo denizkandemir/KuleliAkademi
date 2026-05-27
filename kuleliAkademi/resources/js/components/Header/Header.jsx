@@ -1,10 +1,10 @@
 import React from "react";
 import "./Header.scss";
 import Slide from "../Slide/Slide";
-import slideImg1 from "../../assets/images/headerImg7.png"; //Kesin kalsın aşırı iyi
-import slideImg2 from "../../assets/images/headerImg18.png"; //Bunu aliağadaki eğitimler için kullan veya 12 numara
-import slideImg3 from "../../assets/images/polandPicture2.png"; //Polonya ile alakalı bir şeyde kullan
-import slideImg4 from "../../assets/images/uniWarsaw2.png";
+import slideImg1 from "../../assets/images/headerImg7.webp"; //Kesin kalsın aşırı iyi
+import slideImg2 from "../../assets/images/headerImg18.webp"; //Bunu aliağadaki eğitimler için kullan veya 12 numara
+import slideImg3 from "../../assets/images/polandPicture2.webp"; //Polonya ile alakalı bir şeyde kullan
+import slideImg4 from "../../assets/images/uniWarsaw2.webp";
 import floatingIcon1 from "../../assets/icons/conversation.png";
 import floatingIcon2 from "../../assets/icons/boarding-pass.png";
 import floatingIcon3 from "../../assets/icons/green-card.png";

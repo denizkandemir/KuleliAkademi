@@ -1,189 +1,189 @@
-import uniPolitechnic from '../assets/images/uniPolitechnic1.jpg';
+import uniPolitechnic from '../assets/images/uniPolitechnic1.webp';
 import uniWroclaw from '../assets/images/uniWroclaw1.webp';
-import uniGdansk from '../assets/images/uniGdansk1.jpg';
-import uniKrakow from '../assets/images/uniKrakow1.png';
-import uniPoznan from '../assets/images/uniPoznan1.png';
+import uniGdansk from '../assets/images/uniGdansk1.webp';
+import uniKrakow from '../assets/images/uniKrakow1.webp';
+import uniPoznan from '../assets/images/uniPoznan1.webp';
 
 //uni Warsaw
-import uniWarsawBannerImg from '../assets/images/uniWarsaw2.png';
-import uniWarsaw from '../assets/images/uniWarsaw3.jpg';
-import uniWarsaw2 from '../assets/images/uniWarsawImg2.jpg';
-import uniWarsaw3 from '../assets/images/uniWarsawImg.jpg';
-import uniWarsaw4 from '../assets/images/uniWarsawImg3.jpg';
-import uniWarsaw5 from '../assets/images/uniWarsawImg5.jpg';
+import uniWarsawBannerImg from '../assets/images/uniWarsaw2.webp';
+import uniWarsaw from '../assets/images/uniWarsaw3.webp';
+import uniWarsaw2 from '../assets/images/uniWarsawImg2.webp';
+import uniWarsaw3 from '../assets/images/uniWarsawImg.webp';
+import uniWarsaw4 from '../assets/images/uniWarsawImg3.webp';
+import uniWarsaw5 from '../assets/images/uniWarsawImg5.webp';
 
 //Uni Krakow
-import uniJagiellonian1 from '../assets/images/uniJagiellonian1.jpg';
-// import uniJagiellonianBannerImg from '../assets/images/uniJagiellonianBanner.jpg';
+import uniJagiellonian1 from '../assets/images/uniJagiellonian1.webp';
+// import uniJagiellonianBannerImg from '../assets/images/uniJagiellonianBanner.webp';
 import uniJagiellonian2 from '../assets/images/uniJagiellonian2.webp';
-import uniJagiellonian3 from '../assets/images/uniJagiellonian3.jpg';
-import uniJagiellonian4 from '../assets/images/uniJagiellonian4.jpg';
-import uniJagiellonian5 from '../assets/images/uniJagiellonian6.jpg';
+import uniJagiellonian3 from '../assets/images/uniJagiellonian3.webp';
+import uniJagiellonian4 from '../assets/images/uniJagiellonian4.webp';
+import uniJagiellonian5 from '../assets/images/uniJagiellonian6.webp';
 
 //Uni politechnic Warsaw
-import uniPolitechnic1 from '../assets/images/politechicWarsaw1.png';
-import uniPolitechnic2 from '../assets/images/politechicWarsaw2.jpg';
-import uniPolitechnicBannerImg from '../assets/images/politechicWarsaw3.jpg';
-import uniPolitechnic3 from '../assets/images/politechicWarsaw4.jpg';
-import uniPolitechnic4 from '../assets/images/politechicWarsaw5.jpg';
+import uniPolitechnic1 from '../assets/images/politechicWarsaw1.webp';
+import uniPolitechnic2 from '../assets/images/politechicWarsaw2.webp';
+import uniPolitechnicBannerImg from '../assets/images/politechicWarsaw3.webp';
+import uniPolitechnic3 from '../assets/images/politechicWarsaw4.webp';
+import uniPolitechnic4 from '../assets/images/politechicWarsaw5.webp';
 
 //Uni Agh Krakow
-import aghUni1 from '../assets/images/aghUni1.jpg';
-import aghUni2 from '../assets/images/aghUni2.jpg';
-import aghUni3 from '../assets/images/aghUni3.jpg';
-import aghUni4 from '../assets/images/aghUni4.jpg';
-import aghUni5 from '../assets/images/aghUni5.jpg';
+import aghUni1 from '../assets/images/aghUni1.webp';
+import aghUni2 from '../assets/images/aghUni2.webp';
+import aghUni3 from '../assets/images/aghUni3.webp';
+import aghUni4 from '../assets/images/aghUni4.webp';
+import aghUni5 from '../assets/images/aghUni5.webp';
 
 //uni Wroclaw
-import uniWroclaw2 from '../assets/images/uniWroclaw3.jpg';
-import uniWroclaw3 from '../assets/images/uniWroclaw8.jpg';
+import uniWroclaw2 from '../assets/images/uniWroclaw3.webp';
+import uniWroclaw3 from '../assets/images/uniWroclaw8.webp';
 import uniWroclaw4 from '../assets/images/uniWroclaw5.webp';
-import uniWroclaw5 from '../assets/images/uniWroclaw6.jpg';
+import uniWroclaw5 from '../assets/images/uniWroclaw6.webp';
 import uniWroclaw6 from '../assets/images/uniWroclaw7.webp';
 import uniWroclaw7 from '../assets/images/uniWroclaw9.webp';
 
 //Politechnic Wroclaw
-import poliWroclaw1 from '../assets/images/poliWroclaw1.jpg';
+import poliWroclaw1 from '../assets/images/poliWroclaw1.webp';
 import poliWroclaw2 from '../assets/images/poliWroclaw2.webp';
-import poliWroclaw3 from '../assets/images/poliWroclaw3.jpg';
+import poliWroclaw3 from '../assets/images/poliWroclaw3.webp';
 import poliWroclaw4 from '../assets/images/poliWroclaw4.avif';
 import poliWroclaw5 from '../assets/images/poliWroclaw5.webp';
 import poliWroclaw6 from '../assets/images/poliWroclaw6.webp';
 
 //politechnic Gdansk
-import poliGdansk1 from '../assets/images/poliGdansk1.jpg';
-import poliGdansk2 from '../assets/images/poliGdansk2.jpg';
-import poliGdansk3 from '../assets/images/poliGdansk3.jpg';
-import poliGdansk4 from '../assets/images/poliGdansk4.jpg';
-import poliGdansk5 from '../assets/images/poliGdansk5.jpg';
+import poliGdansk1 from '../assets/images/poliGdansk1.webp';
+import poliGdansk2 from '../assets/images/poliGdansk2.webp';
+import poliGdansk3 from '../assets/images/poliGdansk3.webp';
+import poliGdansk4 from '../assets/images/poliGdansk4.webp';
+import poliGdansk5 from '../assets/images/poliGdansk5.webp';
 
 //uni Gdansk
-import uniGdansk2 from '../assets/images/uniGdansk2.jpg';
-import uniGdansk3 from '../assets/images/uniGdansk3.jpg';
-import uniGdansk4 from '../assets/images/uniGdansk4.jpg';
-import uniGdansk5 from '../assets/images/uniGdansk5.jpg';
-import uniGdansk6 from '../assets/images/uniGdansk6.jpg';
+import uniGdansk2 from '../assets/images/uniGdansk2.webp';
+import uniGdansk3 from '../assets/images/uniGdansk3.webp';
+import uniGdansk4 from '../assets/images/uniGdansk4.webp';
+import uniGdansk5 from '../assets/images/uniGdansk5.webp';
+import uniGdansk6 from '../assets/images/uniGdansk6.webp';
 
 //adam Mickiewicz University
-import uniPoznan2 from '../assets/images/uniPoznan2.png';
-import uniPoznan3 from '../assets/images/uniPoznan3.png';
-import uniPoznan4 from '../assets/images/uniPoznan4.jpg';
+import uniPoznan2 from '../assets/images/uniPoznan2.webp';
+import uniPoznan3 from '../assets/images/uniPoznan3.webp';
+import uniPoznan4 from '../assets/images/uniPoznan4.webp';
 import uniPoznan5 from '../assets/images/uniPoznan5.webp';
-import uniPoznan6 from '../assets/images/uniPoznan6.jpg';
-import uniPoznan7 from '../assets/images/uniPoznan7.jpg';
+import uniPoznan6 from '../assets/images/uniPoznan6.webp';
+import uniPoznan7 from '../assets/images/uniPoznan7.webp';
 
 //politechnic Poznan
 import poliPoznan1 from '../assets/images/poliPoznan.avif';
-import poliPoznan2 from '../assets/images/poliPoznan2.jpeg';
+import poliPoznan2 from '../assets/images/poliPoznan2.webp';
 import poliPoznan3 from '../assets/images/poliPoznan3.webp';
-import poliPoznan4 from '../assets/images/poliPoznan4.png';
-import poliPoznan5 from '../assets/images/poliPoznan5.jpg';
-import poliPoznan6 from '../assets/images/poliPoznan6.jpeg';
+import poliPoznan4 from '../assets/images/poliPoznan4.webp';
+import poliPoznan5 from '../assets/images/poliPoznan5.webp';
+import poliPoznan6 from '../assets/images/poliPoznan6.webp';
 
 //business school poznan
-import businessPoznan1 from '../assets/images/businessPoznan.jpg';
-import businessPoznan2 from '../assets/images/businessPoznan2.jpg';
+import businessPoznan1 from '../assets/images/businessPoznan.webp';
+import businessPoznan2 from '../assets/images/businessPoznan2.webp';
 import businessPoznan3 from '../assets/images/businessPoznan3.webp';
 import businessPoznan4 from '../assets/images/businessPoznan4.webp';
-import businessPoznan5 from '../assets/images/businessPoznan5.jpg';
+import businessPoznan5 from '../assets/images/businessPoznan5.webp';
 
 //uni Lodz
-import uniLodz1 from '../assets/images/uniLodz1.jpg';
+import uniLodz1 from '../assets/images/uniLodz1.webp';
 import uniLodz2 from '../assets/images/uniLodz2.webp';
 import uniLodz3 from '../assets/images/uniLodz3.webp';
-import uniLodz4 from '../assets/images/uniLodz4.jpg';
-import uniLodz5 from '../assets/images/uniLodz5.jpg';
+import uniLodz4 from '../assets/images/uniLodz4.webp';
+import uniLodz5 from '../assets/images/uniLodz5.webp';
 
 //Poli lodz
-import poliLodz1 from '../assets/images/poliLodz1.jpg';
-import poliLodz2 from '../assets/images/poliLodz2.jpg';
+import poliLodz1 from '../assets/images/poliLodz1.webp';
+import poliLodz2 from '../assets/images/poliLodz2.webp';
 import poliLodz3 from '../assets/images/poliLodz3.webp';
-import poliLodz4 from '../assets/images/poliLodz4.jpg';
-import poliLodz5 from '../assets/images/poliLodz5.jpg';
+import poliLodz4 from '../assets/images/poliLodz4.webp';
+import poliLodz5 from '../assets/images/poliLodz5.webp';
 
 //uni Silesia
-import uniSilesia1 from '../assets/images/uniSilesia1.jpg';
-import uniSilesia2 from '../assets/images/uniSilesia2.jpg';
-import uniSilesia3 from '../assets/images/uniSilesia3.jpg';
-import uniSilesia4 from '../assets/images/uniSilesia4.jpg';
-import uniSilesia5 from '../assets/images/uniSilesia5.jpg';
+import uniSilesia1 from '../assets/images/uniSilesia1.webp';
+import uniSilesia2 from '../assets/images/uniSilesia2.webp';
+import uniSilesia3 from '../assets/images/uniSilesia3.webp';
+import uniSilesia4 from '../assets/images/uniSilesia4.webp';
+import uniSilesia5 from '../assets/images/uniSilesia5.webp';
 
 //Poli Silesia
-import poliSilesia1 from '../assets/images/poliSilesian1.jpg';
-import poliSilesia2 from '../assets/images/poliSilesian2.jpg';
-import poliSilesia3 from '../assets/images/poliSilesian3.jpg';
-import poliSilesia4 from '../assets/images/poliSilesian4.jpg';
+import poliSilesia1 from '../assets/images/poliSilesian1.webp';
+import poliSilesia2 from '../assets/images/poliSilesian2.webp';
+import poliSilesia3 from '../assets/images/poliSilesian3.webp';
+import poliSilesia4 from '../assets/images/poliSilesian4.webp';
 import poliSilesia5 from '../assets/images/poliSilesian5.avif';
 
 //uni Kozminski
-import uniKozminski1 from '../assets/images/uniKozminski1.jpeg';
+import uniKozminski1 from '../assets/images/uniKozminski1.webp';
 import uniKozminski2 from '../assets/images/uniKozminski2.avif';
-import uniKozminski3 from '../assets/images/uniKozminski3.jpg';
-import uniKozminski4 from '../assets/images/uniKozminski4.jpg';
+import uniKozminski3 from '../assets/images/uniKozminski3.webp';
+import uniKozminski4 from '../assets/images/uniKozminski4.webp';
 
 //uni Swps
 import uniSwps1 from '../assets/images/uniSwps.webp';
-import uniSwps2 from '../assets/images/uniSwps2.jpg';
+import uniSwps2 from '../assets/images/uniSwps2.webp';
 import uniSwps3 from '../assets/images/uniSwps3.webp';
 import uniSwps4 from '../assets/images/uniSwps4.webp';
 
 //uni Andrzej Frycz Modrzewski Krakow
 import uniAndrzej1 from '../assets/images/uniAndrzej1.avif';
-import uniAndrzej2 from '../assets/images/uniAndrzej2.jpg';
-import uniAndrzej3 from '../assets/images/uniAndrzej3.jpg';
-import uniAndrzej4 from '../assets/images/uniAndrzej4.jpg';
-import uniAndrzej5 from '../assets/images/uniAndrzej5.jpg';
+import uniAndrzej2 from '../assets/images/uniAndrzej2.webp';
+import uniAndrzej3 from '../assets/images/uniAndrzej3.webp';
+import uniAndrzej4 from '../assets/images/uniAndrzej4.webp';
+import uniAndrzej5 from '../assets/images/uniAndrzej5.webp';
 
 //uni Ideis
-import uniIdeis1 from '../assets/images/uniIdeis1.jpg';
+import uniIdeis1 from '../assets/images/uniIdeis1.webp';
 import uniIdeis2 from '../assets/images/uniIdeis2.webp';
-import uniIdeis3 from '../assets/images/uniIdeis3.jpg';
+import uniIdeis3 from '../assets/images/uniIdeis3.webp';
 
 //uni Civitas
-import uniCivitas1 from '../assets/images/uniCivitas1.jpg';
-import uniCivitas2 from '../assets/images/uniCivitas2.jpg';
+import uniCivitas1 from '../assets/images/uniCivitas1.webp';
+import uniCivitas2 from '../assets/images/uniCivitas2.webp';
 
 //uni daVinci
-import uniDaVinci1 from '../assets/images/uniDaVinci1.jpg';
-import uniDaVinci2 from '../assets/images/uniDaVinci2.jpg';
-import uniDaVinci3 from '../assets/images/uniDaVinci3.jpg';
+import uniDaVinci1 from '../assets/images/uniDaVinci1.webp';
+import uniDaVinci2 from '../assets/images/uniDaVinci2.webp';
+import uniDaVinci3 from '../assets/images/uniDaVinci3.webp';
 
 //medical gdansk
-import medicalGdansk1 from '../assets/images/medicalGdansk.jpg';
-import medicalGdansk2 from '../assets/images/medicalGdansk2.png';
+import medicalGdansk1 from '../assets/images/medicalGdansk.webp';
+import medicalGdansk2 from '../assets/images/medicalGdansk2.webp';
 import medicalGdansk3 from '../assets/images/medicalGdansk3.webp';
-import medicalGdansk4 from '../assets/images/medicalGdansk4.jpg';
+import medicalGdansk4 from '../assets/images/medicalGdansk4.webp';
 
 //uni Lazarski
-import uniLazarski1 from '../assets/images/uniLazarski.jpg';
-import uniLazarski2 from '../assets/images/uniLazarski2.png';
-import uniLazarski3 from '../assets/images/uniLazarski3.jpg';
-import uniLazarski4 from '../assets/images/uniLazarski4.jpg';
+import uniLazarski1 from '../assets/images/uniLazarski.webp';
+import uniLazarski2 from '../assets/images/uniLazarski2.webp';
+import uniLazarski3 from '../assets/images/uniLazarski3.webp';
+import uniLazarski4 from '../assets/images/uniLazarski4.webp';
 
 //medical lodz
-import medicalLodz1 from '../assets/images/medicalLodz1.jpg';
-import medicalLodz2 from '../assets/images/medicalLodz2.jpg';
-import medicalLodz3 from '../assets/images/medicalLodz3.jpg';
+import medicalLodz1 from '../assets/images/medicalLodz1.webp';
+import medicalLodz2 from '../assets/images/medicalLodz2.webp';
+import medicalLodz3 from '../assets/images/medicalLodz3.webp';
 import medicalLodz4 from '../assets/images/medicalLodz4.webp';
 
 //medical lublin
-import medicalLublin1 from '../assets/images/medicalLublin.jpg';
-import medicalLublin2 from '../assets/images/medicalLublin2.jpg';
-import medicalLublin3 from '../assets/images/medicalLublin3.jpg';
-import medicalLublin4 from '../assets/images/medicalLublin4.jpg';
+import medicalLublin1 from '../assets/images/medicalLublin.webp';
+import medicalLublin2 from '../assets/images/medicalLublin2.webp';
+import medicalLublin3 from '../assets/images/medicalLublin3.webp';
+import medicalLublin4 from '../assets/images/medicalLublin4.webp';
 
 //Uni Maria
-import uniMaria1 from '../assets/images/uniMaria.jpg';
+import uniMaria1 from '../assets/images/uniMaria.webp';
 import uniMaria2 from '../assets/images/uniMaria3.avif';
-import uniMaria3 from '../assets/images/uniMaria4.jpg';
-import uniMaria4 from '../assets/images/uniMaria5.jpg';
-import uniMaria5 from '../assets/images/uniMaria6.jpg';
+import uniMaria3 from '../assets/images/uniMaria4.webp';
+import uniMaria4 from '../assets/images/uniMaria5.webp';
+import uniMaria5 from '../assets/images/uniMaria6.webp';
 
 //Uni Japan
-import uniJapan1 from '../assets/images/uniJapan.jpg';
-import uniJapan2 from '../assets/images/uniJapan2.jpg';
-import uniJapan3 from '../assets/images/uniJapan3.jpg';
-import uniJapan4 from '../assets/images/uniJapan4.jpg';
+import uniJapan1 from '../assets/images/uniJapan.webp';
+import uniJapan2 from '../assets/images/uniJapan2.webp';
+import uniJapan3 from '../assets/images/uniJapan3.webp';
+import uniJapan4 from '../assets/images/uniJapan4.webp';
 
 //art Poznan
 import artPoznan1 from '../assets/images/artPoznan2.webp';
@@ -193,45 +193,45 @@ import artPoznan4 from '../assets/images/artPoznan5.webp';
 
 //medical Poznan
 import medicalPoznan1 from '../assets/images/medicalPoznan.webp';
-import medicalPoznan2 from '../assets/images/medicalPoznan2.png';
-import medicalPoznan3 from '../assets/images/medicalPoznan3.jpg';
-import medicalPoznan4 from '../assets/images/medicalPoznan4.jpg';
-import medicalPoznan5 from '../assets/images/medicalPoznan5.jpg';
+import medicalPoznan2 from '../assets/images/medicalPoznan2.webp';
+import medicalPoznan3 from '../assets/images/medicalPoznan3.webp';
+import medicalPoznan4 from '../assets/images/medicalPoznan4.webp';
+import medicalPoznan5 from '../assets/images/medicalPoznan5.webp';
 
 //university of Life Sciences in Poznan
-import lifePoznan1 from '../assets/images/lifePoznan.jpg';
-import lifePoznan2 from '../assets/images/lifePoznan2.jpg';
+import lifePoznan1 from '../assets/images/lifePoznan.webp';
+import lifePoznan2 from '../assets/images/lifePoznan2.webp';
 
 //medical Katowice
-import medicalKatowice1 from '../assets/images/medicalKatowice.jpg';
-import medicalKatowice2 from '../assets/images/medicalKatowice2.jpg';
-import medicalKatowice3 from '../assets/images/medicalKatowice3.jpg';
+import medicalKatowice1 from '../assets/images/medicalKatowice.webp';
+import medicalKatowice2 from '../assets/images/medicalKatowice2.webp';
+import medicalKatowice3 from '../assets/images/medicalKatowice3.webp';
 
 //Film School Warsaw
-import filmWarsaw1 from '../assets/images/filmWarsaw.jpg';
+import filmWarsaw1 from '../assets/images/filmWarsaw.webp';
 import filmWarsaw2 from '../assets/images/filmWarsaw2.webp';
-import filmWarsaw3 from '../assets/images/filmWarsaw3.jpg';
+import filmWarsaw3 from '../assets/images/filmWarsaw3.webp';
 
 //medical Warsaw
-import medicalWarsaw1 from '../assets/images/medicalWarsaw.jpg';
-import medicalWarsaw2 from '../assets/images/medicalWarsaw2.jpg';
+import medicalWarsaw1 from '../assets/images/medicalWarsaw.webp';
+import medicalWarsaw2 from '../assets/images/medicalWarsaw2.webp';
 import medicalWarsaw3 from '../assets/images/medicalWarsaw3.webp';
 
 //life sciences Warsaw
-import lifeWarsaw1 from '../assets/images/lifeWarsaw6.jpg';
-import lifeWarsaw2 from '../assets/images/lifeWarsaw2.jpg';
-import lifeWarsaw3 from '../assets/images/lifeWarsaw3.jpg';
-import lifeWarsaw4 from '../assets/images/lifeWarsaw4.jpg';
-import lifeWarsaw5 from '../assets/images/lifeWarsaw5.jpg';
+import lifeWarsaw1 from '../assets/images/lifeWarsaw6.webp';
+import lifeWarsaw2 from '../assets/images/lifeWarsaw2.webp';
+import lifeWarsaw3 from '../assets/images/lifeWarsaw3.webp';
+import lifeWarsaw4 from '../assets/images/lifeWarsaw4.webp';
+import lifeWarsaw5 from '../assets/images/lifeWarsaw5.webp';
 
 //uni Vincent
-import uniVincent1 from '../assets/images/uniVincent.jpg';
-import uniVincent2 from '../assets/images/uniVincent2.jpg';
+import uniVincent1 from '../assets/images/uniVincent.webp';
+import uniVincent2 from '../assets/images/uniVincent2.webp';
 
 //uni Vizja
-import uniVizja1 from '../assets/images/uniVizja.jpg';
+import uniVizja1 from '../assets/images/uniVizja.webp';
 import uniVizja2 from '../assets/images/uniVizja2.avif';
-import uniVizja3 from '../assets/images/uniVizja3.jpg';
+import uniVizja3 from '../assets/images/uniVizja3.webp';
 
 //life Wroclaw 
 import lifeWroclaw1 from '../assets/images/lifeWroclaw1.webp';
@@ -245,9 +245,9 @@ import businessWroclaw3 from '../assets/images/businessWroclaw3.webp';
 
 //medical Wroclaw
 import medicalWroclaw1 from '../assets/images/medicalWroclaw.webp';
-import medicalWroclaw2 from '../assets/images/medicalWroclaw2.jpg';
-import medicalWroclaw3 from '../assets/images/medicalWroclaw3.jpg';
-import medicalWroclaw4 from '../assets/images/medicalWroclaw4.jpg';
+import medicalWroclaw2 from '../assets/images/medicalWroclaw2.webp';
+import medicalWroclaw3 from '../assets/images/medicalWroclaw3.webp';
+import medicalWroclaw4 from '../assets/images/medicalWroclaw4.webp';
 
 //uni Wsb
 import uniWsb1 from '../assets/images/uniWsb.webp';

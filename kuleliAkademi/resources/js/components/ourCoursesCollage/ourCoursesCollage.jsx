@@ -2,7 +2,7 @@ import React, { useRef, useEffect, useState, useCallback } from "react";
 import "./ourCoursesCollage.scss";
 import courseVideo from "../../assets/videos/kuleliVideo6.mp4";
 import courseVideo2 from "../../assets/videos/kuleliVideo5.mp4";
-import ourCoursesImg1 from "../../assets/images/ourCoursesImg1.png";
+import ourCoursesImg1 from "../../assets/images/ourCoursesImg1.webp";
 import { Link, usePage } from "@inertiajs/react";
 
 export default function OurCoursesCollage() {

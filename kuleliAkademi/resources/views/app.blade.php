@@ -18,7 +18,7 @@
     <meta property="og:type" content="website">
     <meta property="og:title" content="Polonya Üniversite Danışmanlığı | Kuleli Akademi">
     <meta property="og:description" content="Polonya üniversite başvurusu, öğrenci vizesi ve yurtdışı eğitim danışmanlığı hizmeti sunan uzman platform.">
-    <meta property="og:image" content="{{ url('/og-image.png') }}">
+    <meta property="og:image" content="{{ url('/og-image.webp') }}">
     <meta property="og:url" content="{{ url('/') }}">
     <meta property="og:site_name" content="Kuleli Akademi">
     <meta property="og:locale" content="tr_TR">
@@ -27,7 +27,7 @@
     <meta name="twitter:card" content="summary_large_image">
     <meta name="twitter:title" content="Polonya Üniversite Danışmanlığı | Kuleli Akademi">
     <meta name="twitter:description" content="Polonya üniversite başvurusu, öğrenci vizesi ve yurtdışı eğitim danışmanlığı hizmeti sunan uzman platform.">
-    <meta name="twitter:image" content="{{ url('/og-image.png') }}">
+    <meta name="twitter:image" content="{{ url('/og-image.webp') }}">
     
     <!-- Canonical URL -->
     <link rel="canonical" href="{{ url()->current() }}">
@@ -52,7 +52,7 @@
         "name": "Kuleli Akademi",
         "description": "Polonya üniversite başvurusu, öğrenci vizesi ve yurtdışı eğitim danışmanlığı hizmeti sunan uzman danışmanlık platformu.",
         "url": "{{ url('/') }}",
-        "logo": "{{ url('/logo.png') }}",
+        "logo": "{{ url('/logo.webp') }}",
         "sameAs": [
             "https://www.facebook.com/kuleliakademi",
             "https://www.instagram.com/kuleliakademi",

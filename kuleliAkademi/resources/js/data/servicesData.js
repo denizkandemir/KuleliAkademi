@@ -1,21 +1,21 @@
 import { contactConfig } from "../config/contactConfig";
 
-import service1 from "../assets/images/servicesDetailImg2.png";
-import service2 from "../assets/images/servicesImg5.png";
-import service3 from "../assets/images/servicesImg10.png";
-import service4 from "../assets/images/servicesImg4.png";
-import service5 from "../assets/images/servicesImg9.png";
-import service6 from "../assets/images/servicesImg8.png";
+import service1 from "../assets/images/servicesDetailImg2.webp";
+import service2 from "../assets/images/servicesImg5.webp";
+import service3 from "../assets/images/servicesImg10.webp";
+import service4 from "../assets/images/servicesImg4.webp";
+import service5 from "../assets/images/servicesImg9.webp";
+import service6 from "../assets/images/servicesImg8.webp";
 
-import banner1 from "../assets/images/uniWarsaw2.png";
-import banner2 from "../assets/images/polandPicture1.png";
-import banner3 from "../assets/images/warsawImg1.png";
-import banner4 from "../assets/images/gdansk1.png";
-import banner5 from "../assets/images/lublin1.png";
-import banner6 from "../assets/images/krakow1.png";
+import banner1 from "../assets/images/uniWarsaw2.webp";
+import banner2 from "../assets/images/polandPicture1.webp";
+import banner3 from "../assets/images/warsawImg1.webp";
+import banner4 from "../assets/images/gdansk1.webp";
+import banner5 from "../assets/images/lublin1.webp";
+import banner6 from "../assets/images/krakow1.webp";
 
-import servicesHomepageImg1 from "../assets/images/servicesImg11.png";
-import widgetImg1 from "../assets/images/servicesDetailImg3.png";
+import servicesHomepageImg1 from "../assets/images/servicesImg11.webp";
+import widgetImg1 from "../assets/images/servicesDetailImg3.webp";
 
 import serviceOneProcessIcon from "../assets/icons/academic-success.png";
 import serviceOneProcessIcon2 from "../assets/icons/university2.png";

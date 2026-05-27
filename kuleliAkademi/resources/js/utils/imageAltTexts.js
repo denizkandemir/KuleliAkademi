@@ -53,7 +53,7 @@ export const imageAltTexts = {
 
 /**
  * Component for Image with proper SEO attributes
- * Usage: <SEOImage src="image.png" alt="descriptive alt text" />
+ * Usage: <SEOImage src="image.webp" alt="descriptive alt text" />
  */
 export const SEOImageProps = {
     /**
@@ -109,7 +109,7 @@ export const altTextGuidelines = {
     ],
 
     examples: [{
-            bad: 'image1.jpg',
+            bad: 'image1.webp',
             good: 'Polonya üniversite kampüsü ve öğrenciler',
         },
         {

@@ -2,7 +2,7 @@ import React from 'react';
 import SEOHead from '../components/SEOHead/SEOHead';
 import { siteConfig } from '../utils/seoHelpers';
 import '../components/linkler/Linkler.scss';
-import kuleliLogoGold from '../assets/images/kuleliLogoGold.png';
+import kuleliLogoGold from '../assets/images/kuleliLogoGold.webp';
 import { contactConfig } from '../config/contactConfig';
 import graduationIcon from '../assets/icons/exam-time.png';
 import webIcon from '../assets/icons/ux.png';

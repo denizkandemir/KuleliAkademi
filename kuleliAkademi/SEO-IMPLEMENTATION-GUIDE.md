@@ -225,7 +225,7 @@ Service pages now link to related services through:
   siteUrl: 'https://akademikuleli.com', // UPDATE WITH ACTUAL URL
   siteDescription: 'Polonya üniversite başvurusu, öğrenci vizesi ve yurtdışı eğitim danışmanlığı hizmeti sunan uzman danışmanlık platformu.',
   siteLocale: 'tr_TR',
-  logo: 'https://akademikuleli.com/logo.png', // UPDATE WITH ACTUAL LOGO
+  logo: 'https://akademikuleli.com/logo.webp', // UPDATE WITH ACTUAL LOGO
   organizationName: 'Kuleli Akademi',
   organizationEmail: 'info@akademikuleli.com', // UPDATE WITH ACTUAL EMAIL
   organizationPhone: '+90XXX-XXX-XXXX', // UPDATE WITH ACTUAL PHONE

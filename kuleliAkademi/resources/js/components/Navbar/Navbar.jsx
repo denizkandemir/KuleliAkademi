@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import "./Navbar.scss";
-import kuleliLogoGold from "../../assets/images/kuleliLogoGold.png";
+import kuleliLogoGold from "../../assets/images/kuleliLogoGold.webp";
 import { Link, usePage } from "@inertiajs/react";
 import MobileMenu from "../MobileMenu/MobileMenu";
 import { contactConfig } from "../../config/contactConfig";

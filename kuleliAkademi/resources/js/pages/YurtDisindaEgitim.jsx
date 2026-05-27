@@ -7,7 +7,7 @@ import DocumentSection from "../components/documentSection/documentSection";
 import StudyAbroadTimeline from "../components/studyAbroadTimeline/StudyAbroadTimeline";
 import UniversityCards from "../components/universityCards/UniversityCards";
 import FaqSection from "../components/faqSection/faqSection";
-import bannerImg from "../assets/images/uniWarsaw2.png";
+import bannerImg from "../assets/images/uniWarsaw2.webp";
 import HomepageContact from "../components/homepageContact/HomepageContact";
 import ServicesHomepage from "../components/ServicesHomepage/ServicesHomepage";
 
