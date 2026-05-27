@@ -466,7 +466,7 @@
     font-size: clamp(13px, 1.02vw, 14px);
     letter-spacing: 0.01em;
     line-height: 1;
-    padding: 15px 50px;
+    padding: 15px;
     border-radius: 10px;
     cursor: pointer;
     backdrop-filter: blur(9px) saturate(112%);
@@ -993,7 +993,7 @@
     }
     .slide-primary-cta {
         width: fit-content;
-        padding: 12px 28px;
+        padding: 12px;
         font-size: 13px;
         margin-bottom: 0;
     }
@@ -1002,7 +1002,7 @@
 @media(max-width: 768px) {
     .slide-primary-cta {
         width: fit-content;
-        padding: 8px 19px;
+        padding: 8px;
         font-size: 13px;
         min-height: 35px;
         margin-bottom: 0;

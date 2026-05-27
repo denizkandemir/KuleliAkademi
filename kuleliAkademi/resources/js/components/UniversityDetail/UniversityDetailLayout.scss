@@ -1,0 +1,121 @@
+@use "../styles/variables.scss" as vars;
+.university-detail-shell {
+    background: linear-gradient(180deg, #f8f6f2 0%, #fbfaf7 100%);
+    position: relative;
+    padding-bottom: 56px;
+    overflow-x: clip;
+}
+
+.university-detail-shell .container {
+    width: min(calc(100% - 32px), 1200px);
+    max-width: 100%;
+    margin: 0 auto;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+.content-primary {
+    display: flex;
+    flex-direction: column;
+    gap: 0;
+}
+
+.content-primary>section {
+    margin: 0;
+    width: 100%;
+    max-width: 100%;
+    min-width: 0;
+    box-sizing: border-box;
+}
+
+@media (max-width: 900px) {
+    .university-detail-shell .container {
+        width: min(calc(100% - 32px), 1200px);
+    }
+}
+
+@media (max-width: 640px) {
+    .university-detail-shell .container {
+        width: min(calc(100% - 32px), 1200px);
+    }
+}
+
+.ud-hero,
+.ud-programs,
+.ud-overview,
+.ud-why,
+.ud-gallery {
+    margin: 0;
+    padding-top: 0;
+    padding-bottom: 0;
+    width: 100%;
+    max-width: 100%;
+    box-sizing: border-box;
+}
+
+.ud-hero {
+    padding-top: 70px;
+    padding-bottom: 28px;
+}
+
+.ud-quicknav {
+    margin-top: -4px;
+    margin-bottom: 0;
+}
+
+.ud-programs {
+    padding-top: 48px;
+    padding-bottom: 48px;
+}
+
+.ud-why {
+    padding-top: 48px;
+    padding-bottom: 56px;
+}
+
+.ud-gallery {
+    padding-top: 48px;
+    padding-bottom: 48px;
+}
+
+@media (max-width: 900px) {
+    .ud-hero {
+        padding-top: 28px;
+        padding-bottom: 22px;
+    }
+    .ud-programs {
+        padding-top: 40px;
+        padding-bottom: 40px;
+    }
+    .ud-overview {
+        padding-top: 40px;
+        padding-bottom: 40px;
+    }
+    .ud-why {
+        padding-top: 40px;
+        padding-bottom: 44px;
+    }
+    .ud-gallery {
+        padding-top: 40px;
+        padding-bottom: 40px;
+    }
+}
+
+@media (max-width: 640px) {
+    .ud-hero {
+        padding-top: 22px;
+        padding-bottom: 18px;
+    }
+    .ud-programs {
+        padding-top: 32px;
+        padding-bottom: 32px;
+    }
+    .ud-why {
+        padding-top: 32px;
+        padding-bottom: 36px;
+    }
+    .ud-gallery {
+        padding-top: 32px;
+        padding-bottom: 32px;
+    }
+}

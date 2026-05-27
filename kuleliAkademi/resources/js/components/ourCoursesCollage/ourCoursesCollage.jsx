@@ -3,6 +3,7 @@ import "./ourCoursesCollage.scss";
 import courseVideo from "../../assets/videos/kuleliVideo6.mp4";
 import courseVideo2 from "../../assets/videos/kuleliVideo5.mp4";
 import ourCoursesImg1 from "../../assets/images/ourCoursesImg1.png";
+import { Link, usePage } from "@inertiajs/react";
 
 export default function OurCoursesCollage() {
     const highlights = [
@@ -193,12 +194,12 @@ export default function OurCoursesCollage() {
                         </div>
 
                         {/* CTA Button */}
-                        <a href="#" className="our-courses-collage-cta">
+                        <Link href="/iletişim" className="our-courses-collage-cta">
                             İletişime Geçin
                             <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
                                 <path d="M3 8H13M10 5L13 8L10 11" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
                             </svg>
-                        </a>
+                        </Link>
                     </div>
 
                     {/* Right Visual Section - Editorial Collage */}

@@ -29,6 +29,10 @@ Route::get('/yurtdışıeğitim', function () {
     return Inertia::render('YurtDisindaEgitim');
 });
 
+Route::get('/üniversiteler', function () {
+    return Inertia::render('Universities');
+})->name('üniversiteler');
+
 Route::get('/iletişim', function () {
     return Inertia::render('Iletisim');
 });
@@ -66,3 +70,14 @@ Route::get('/linkler', function () {
 
 // Alias for English-speaking users
 Route::redirect('/links', '/linkler');
+
+// SEO Routes - robots.txt and sitemap.xml
+Route::get('/robots.txt', 'App\Http\Controllers\RobotsController@index');
+Route::get('/sitemap.xml', 'App\Http\Controllers\SitemapController@index');
+
+// University detail page
+Route::get('/universiteler/{slug}', function ($slug) {
+    return Inertia::render('UniversityDetail', [
+        'slug' => $slug,
+    ]);
+})->where('slug', '[A-Za-z0-9-]+');

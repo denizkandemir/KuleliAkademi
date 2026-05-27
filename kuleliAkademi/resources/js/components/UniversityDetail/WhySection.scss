@@ -1,0 +1,185 @@
+@use "../styles/variables.scss" as vars;
+.ud-why {
+    padding: 48px 0 56px;
+    background: transparent;
+}
+
+.ud-why-shell {
+    width: min(calc(100% - 32px), 1200px);
+    max-width: 100%;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: minmax(0, 1.2fr) minmax(340px, 0.8fr);
+    gap: 48px;
+    align-items: start;
+    box-sizing: border-box;
+}
+
+.ud-why-list.card {
+    padding: 32px;
+    border-radius: 28px;
+    background: #fff;
+    border: 1px solid rgba(31, 47, 70, 0.08);
+    box-shadow: 0 16px 38px rgba(31, 47, 70, 0.06);
+}
+
+.ud-why-list h3 {
+    margin: 0 0 20px;
+    color: #1f2f46;
+    font-size: 32px;
+    font-weight: 700;
+    line-height: 1.3;
+}
+
+.ud-why-list ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.ud-why-list li {
+    background: linear-gradient(180deg, rgba(248, 246, 242, 0.95) 0%, #fff 100%);
+    padding: 16px 18px;
+    border-radius: 16px;
+    border: 1px solid rgba(31, 47, 70, 0.06);
+    transition: all 0.3s ease;
+    color: #333333;
+    font-size: 15px;
+    line-height: 1.6;
+    display: flex;
+    align-items: center;
+    gap: 14px;
+}
+
+.ud-why-list li:first-child {
+    border-top-left-radius: 16px;
+    border-top-right-radius: 16px;
+}
+
+.ud-why-list li:hover {
+    background: rgba(216, 179, 106, 0.04);
+    border-color: rgba(216, 179, 106, 0.15);
+    transform: translateX(4px);
+}
+
+.tick {
+    color: #d8b36a;
+    margin: 0;
+    font-weight: 800;
+    font-size: 18px;
+    flex-shrink: 0;
+}
+
+.ud-why-cta.card {
+    padding: 32px;
+    border-radius: 28px;
+    background: linear-gradient(135deg, #fbf7ef 0%, #f7f3ea 100%);
+    box-shadow: 0 16px 40px rgba(31, 47, 70, 0.08);
+    border: 1px solid rgba(216, 179, 106, 0.18);
+    position: relative;
+    transition: all 0.3s ease;
+    overflow: hidden;
+}
+
+.ud-why-cta.card::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: radial-gradient(circle at top right, rgba(216, 179, 106, 0.14), transparent 45%);
+    pointer-events: none;
+}
+
+.ud-why-cta.card:hover {
+    box-shadow: 0 20px 48px rgba(31, 47, 70, 0.12);
+    transform: translateY(-4px);
+}
+
+.ud-why-cta h4 {
+    margin: 0 0 12px;
+    color: #1f2f46;
+    font-size: 18px;
+    font-weight: 700;
+}
+
+.ud-why-cta p {
+    margin: 0 0 20px;
+    color: #666666;
+    font-size: 14px;
+    line-height: 1.6;
+}
+
+.ud-why-cta .btn {
+    display: block;
+    width: 100%;
+    margin-bottom: 10px;
+    text-align: center;
+    padding: 13px 20px;
+    font-size: 13px;
+}
+
+.ud-why-cta .btn:last-child {
+    margin-bottom: 0;
+}
+
+.ud-why-cta .btn-primary {
+    background: #1f2f46;
+    color: #f7f5f2;
+    font-weight: 700;
+}
+
+.ud-why-cta .btn-primary:hover {
+    background: #0f1824;
+}
+
+.ud-why-cta .btn-soft {
+    background: transparent;
+    border: 2px solid #1f2f46;
+    color: #1f2f46;
+}
+
+.ud-why-cta .btn-soft:hover {
+    background: #1f2f46;
+    color: #f7f5f2;
+}
+
+@media (max-width: 1100px) {
+    .ud-why-shell {
+        gap: 36px;
+    }
+    .ud-why-list h3 {
+        font-size: 28px;
+    }
+}
+
+@media (max-width: 900px) {
+    .ud-why {
+        padding: 48px 0;
+    }
+    .ud-why-shell {
+        grid-template-columns: 1fr;
+        gap: 32px;
+    }
+    .ud-why-list h3 {
+        font-size: 26px;
+    }
+}
+
+@media (max-width: 640px) {
+    .ud-why {
+        padding: 32px 0 36px;
+    }
+    .ud-why-list h3 {
+        font-size: 22px;
+    }
+    .ud-why-list li {
+        padding: 14px 16px;
+        font-size: 14px;
+    }
+    .ud-why-cta.card {
+        padding: 22px;
+        border-radius: 24px;
+    }
+}

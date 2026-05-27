@@ -1,6 +1,8 @@
 import React from "react";
 import planImg2 from "../../assets/images/studentsPicture11.png";
 import "./StudyAbroadPlan.scss";
+import { contactConfig } from "../../config/contactConfig";
+import { Link, usePage } from "@inertiajs/react";
 
 const advantagePanels = [
 	{
@@ -46,10 +48,12 @@ const StudyAbroadPlan = () => {
                     	<p className="abroad-plan-description secondary-description">
 						Üniversite ve bölüm seçimi yalnızca eğitim kalitesine göre değil; şehir yaşamı, bütçe, konaklama olanakları ve uzun vadeli hedefler birlikte değerlendirilerek yapılmalıdır. Polonya, bu dengeyi kurmak isteyen öğrenciler için hem erişilebilir hem de gelişime açık bir eğitim ortamı sunar.
 					</p>
-
-                    <button className="study-abroad-plan-button">
+                   
+				   <button className="study-abroad-plan-button">
+                    <Link href={contactConfig.form.consultation.url} >
                         Geleceğinizi Beraber Planlayalım
-                    </button>
+                    </Link>
+					</button>
 				</div>
 
 				<div className="abroad-plan-visual" aria-label="Polonya'da eğitim avantajları görsel alanı">

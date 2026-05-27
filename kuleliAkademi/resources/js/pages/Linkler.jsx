@@ -1,4 +1,6 @@
 import React from 'react';
+import SEOHead from '../components/SEOHead/SEOHead';
+import { siteConfig } from '../utils/seoHelpers';
 import '../components/linkler/Linkler.scss';
 import kuleliLogoGold from '../assets/images/kuleliLogoGold.png';
 import { contactConfig } from '../config/contactConfig';
@@ -86,14 +88,25 @@ const LINKS_CONFIG = [
         icon: 'whatsapp',
         external: true,
     },
+    {
+        id: 'üniversiteler',
+        title: 'Üniversiteler',
+        subtitle: "Polonya'da yer alan üniversiteleri keşfedin",
+        href: '/üniversiteler',
+        icon: 'university',
+        external: false,
+    }
 ];
 
 
 
 const Linkler = ({ title, description }) => {
+    const pageTitle = title || 'Linkler | Kuleli Akademi';
+    const pageDescription = description || 'Kuleli Akademi eğitim başvuruları, Polonya üniversite danışmanlığı ve iletişim bağlantıları. Instagram biyografisinden hızlı erişim.';
+
     // Set page meta information
     React.useEffect(() => {
-        document.title = title || 'Linkler | Kuleli Akademi';
+        document.title = pageTitle;
         
         // Update or create meta description
         let metaDescription = document.querySelector('meta[name="description"]');
@@ -102,8 +115,8 @@ const Linkler = ({ title, description }) => {
             metaDescription.name = 'description';
             document.head.appendChild(metaDescription);
         }
-        metaDescription.content = description || 'Kuleli Akademi eğitim başvuruları, Polonya üniversite danışmanlığı ve iletişim bağlantıları.';
-    }, [title, description]);
+        metaDescription.content = pageDescription;
+    }, [pageTitle, pageDescription]);
 
     const renderIcon = (iconType) => {
         switch (iconType) {
@@ -132,7 +145,15 @@ const Linkler = ({ title, description }) => {
     };
 
     return (
-        <div className="linkler-page">
+        <>
+            <SEOHead
+                title={pageTitle}
+                description={pageDescription}
+                url={`${siteConfig.siteUrl}/linkler`}
+                type="navigation"
+            />
+
+            <div className="linkler-page">
             {/* Background decoration */}
             <div className="linkler-background-decoration">
                 <div className="linkler-orb linkler-orb-1"></div>
@@ -191,6 +212,7 @@ const Linkler = ({ title, description }) => {
                 </div>
             </div>
         </div>
+        </>
     );
 };
 

@@ -1,80 +1,7 @@
 import React, { useCallback, useEffect, useRef, useState } from "react";
 import "./UniversityCards.scss";
-import uniWarsaw from "../../assets/images/uniWarsaw3.jpg";
-import uniGdansk from "../../assets/images/uniGdansk1.jpg";
-import uniWroclaw from "../../assets/images/uniWroclaw1.webp";
-import uniKrakow from "../../assets/images/uniKrakow1.png";
-import uniPolitechnic from "../../assets/images/uniPolitechnic1.jpg";
-import uniPoznan from "../../assets/images/uniPoznan1.png";
-
-const sampleUniversities = [
-    {
-        id: 1,
-        image: uniWarsaw,
-        name: "University of Warsaw",
-        city: "Varşova",
-        badge: "Devlet Üniversitesi",
-        description:
-            "Geniş akademik programları, güçlü araştırma altyapısı ve uluslararası öğrenci topluluğuyla Polonya'nın en önde gelen üniversitelerinden biridir.",
-        tags: ["İngilizce Program", "Güçlü Akademik Ağ", "Merkezi Konum"],
-        cta: "Detayları İncele",
-    },
-    {
-        id: 2,
-        image: uniPolitechnic,
-        name: "Warsaw University of Technology",
-        city: "Varşova",
-        badge: "Mühendislik Güçlü",
-        description:
-            "Mühendislik ve teknoloji alanlarında uygulama odaklı eğitim modeliyle öne çıkar; sektörel bağlantıları güçlü bir üniversite seçeneğidir.",
-        tags: ["Teknoloji Odağı", "Yüksek İstihdam", "Staj İmkanları"],
-        cta: "Programları Gör",
-    },
-    {
-        id: 3,
-        image: uniWroclaw,
-        name: "University of Wrocław",
-        city: "Wrocław",
-        badge: "Köklü Üniversite",
-        description:
-            "Köklü tarihi, sosyal bilimlerden fen bilimlerine uzanan güçlü fakülte yapısı ve canlı öğrenci yaşamıyla dikkat çeker.",
-        tags: ["Köklü Üniversite", "Kültürel Şehir", "Uluslararası Ortam"],
-        cta: "Detaylara Git",
-    },
-    {
-        id: 4,
-        image: uniGdansk,
-        name: "Gdańsk University of Technology",
-        city: "Gdańsk",
-        badge: "Öğrenci Dostu Şehir",
-        description:
-            "Deniz kenti atmosferi, modern kampüs olanakları ve disiplinler arası eğitim yaklaşımıyla dengeli bir üniversite deneyimi sunar.",
-        tags: ["Modern Kampüs", "Uygun Yaşam Maliyeti", "Sosyal Yaşam"],
-        cta: "Kampüsü Keşfet",
-    },
-    {
-        id: 5,
-        image: uniKrakow,
-        name: "Jagiellonian University",
-        city: "Kraków",
-        badge: "Akademik Prestij",
-        description:
-            "Avrupa'nın en eski üniversiteleri arasında yer alan kurum, akademik prestij ve zengin şehir kültürünü bir araya getirir.",
-        tags: ["Yüksek Prestij", "Tarihi Merkez", "Akademik Derinlik"],
-        cta: "Üniversiteyi İncele",
-    },
-    {
-        id: 6,
-        image: uniPoznan,
-        name: "Adam Mickiewicz University",
-        city: "Poznań",
-        badge: "Araştırma Odaklı",
-        description:
-            "Araştırma odaklı yaklaşımı, uluslararası iş birlikleri ve öğrenci dostu şehir yapısıyla güven veren bir tercih sunar.",
-        tags: ["Araştırma Odağı", "Öğrenci Dostu", "Çok Disiplinli"],
-        cta: "Bölümleri Gör",
-    },
-];
+import { Link } from "@inertiajs/react";
+import { getUniversitiesForCards } from "../../data/universitiesData";
 
 const deriveBadgeLabel = (university) => {
     if (!university || typeof university !== "object") {
@@ -94,7 +21,31 @@ const deriveBadgeLabel = (university) => {
     return "Universite Profili";
 };
 
-const UniversityCards = ({ universities = sampleUniversities }) => {
+const getFirstSentence = (value) => {
+    if (typeof value !== "string") {
+        return "";
+    }
+
+    const normalized = value.trim().replace(/\s+/g, " ");
+
+    if (!normalized) {
+        return "";
+    }
+
+    const sentenceMatch = normalized.match(/^.*?[.!?](?:["')\]]+)?(?=\s|$)/u);
+
+    return (sentenceMatch ? sentenceMatch[0] : normalized).trim();
+};
+
+const getUniversityCardDescription = (university) => {
+    const sourceDescription = Array.isArray(university?.longDescriptions)
+        ? university.longDescriptions[0]
+        : university?.longDescription || university?.description || "";
+
+    return getFirstSentence(sourceDescription) || "Üniversite hakkında detaylı bilgi bulunmamaktadır.";
+};
+
+const UniversityCards = ({ universities = getUniversitiesForCards() }) => {
     const trackRef = useRef(null);
     const [canScrollLeft, setCanScrollLeft] = useState(false);
     const [canScrollRight, setCanScrollRight] = useState(true);
@@ -257,9 +208,9 @@ const UniversityCards = ({ universities = sampleUniversities }) => {
                                         </div>
                                         <p className="university-card-text">{university.description}</p>
 
-                                        <button type="button" className="university-card-cta">
+                                        <Link href={`/universiteler/${university.slug}`} className="university-card-cta">
                                             {university.cta || "Detayları İncele"}
-                                        </button>
+                                        </Link>
                                     </div>
                                 </article>
                             );
