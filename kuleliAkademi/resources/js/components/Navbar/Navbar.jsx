@@ -65,13 +65,14 @@ const Navbar = () => {
 
                             <div className="dropdown-menu navbar-service-dropdown" role="menu">
                                 <ul className="dropdown-list">
-                                    {servicesData.map((service, idx) => (
+                                    {servicesData.map((service) => (
                                         <li key={service.slug} className="dropdown-list-item">
                                             <Link
                                                 href={`/hizmetler/${service.slug}`}
                                                 className="navbar-service-dropdown-item"
                                             >
                                                 <span className="navbar-service-dropdown-title">{service.title || service.name}</span>
+                                                <span className="navbar-service-dropdown-line" aria-hidden="true" />
                                             </Link>
                                         </li>
                                     ))}

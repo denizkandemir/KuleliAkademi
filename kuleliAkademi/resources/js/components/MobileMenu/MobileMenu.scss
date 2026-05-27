@@ -131,7 +131,6 @@
 
 .mobile-menu-item {
     display: flex;
-    align-items: center;
     &:not(:last-child) {
         border-bottom: 1px solid rgba(184, 198, 213, 0.12);
     }
@@ -186,7 +185,9 @@
     }
 }
 
+
 /* Mobile services collapsible */
+
 .mobile-services {
     flex-direction: column;
     .mobile-services-toggle {
