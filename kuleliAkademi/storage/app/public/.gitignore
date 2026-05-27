@@ -1,2 +1,6 @@
 *
+!images/
+!images/**
+!videos/
+!videos/**
 !.gitignore
