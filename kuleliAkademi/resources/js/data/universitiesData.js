@@ -144,9 +144,9 @@ import uniCivitas1 from '../assets/images/uniCivitas1.webp';
 import uniCivitas2 from '../assets/images/uniCivitas2.webp';
 
 //uni daVinci
-import uniDaVinci1 from '../assets/images/uniDaVinci1.webp';
-import uniDaVinci2 from '../assets/images/uniDaVinci2.webp';
-import uniDaVinci3 from '../assets/images/uniDaVinci3.webp';
+import uniDaVinci1 from '../assets/images/uniDavinci1.webp';
+import uniDaVinci2 from '../assets/images/uniDavinci2.webp';
+import uniDaVinci3 from '../assets/images/uniDavinci3.webp';
 
 //medical gdansk
 import medicalGdansk1 from '../assets/images/medicalGdansk.webp';
