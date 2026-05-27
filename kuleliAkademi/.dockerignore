@@ -1,8 +1,9 @@
 node_modules
 vendor
-.env
-.env.*
-!.env.example
 .git
-storage/logs/*
-bootstrap/cache/*.php
+public/build
+storage/logs
+storage/framework/cache
+storage/framework/sessions
+storage/framework/views
+npm-debug.log
