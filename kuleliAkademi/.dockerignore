@@ -2,6 +2,9 @@ node_modules
 vendor
 .git
 public/build
+public/storage
+public/storage/
+public/storage/**
 storage/logs
 storage/framework/cache
 storage/framework/sessions

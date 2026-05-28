@@ -1,0 +1,156 @@
+.application-page {
+    min-height: calc(100vh - 120px);
+    padding: 48px 24px 64px;
+    background: radial-gradient(circle at top right, rgba(186, 159, 83, 0.12), transparent 30%), linear-gradient(180deg, #f7f4ec 0%, #eef2f7 100%);
+}
+
+.application-shell {
+    width: min(100%, 1080px);
+    margin: 0 auto;
+    display: grid;
+    gap: 24px;
+}
+
+.application-hero {
+    padding: 32px;
+    border-radius: 28px;
+    background: rgba(255, 255, 255, 0.78);
+    border: 1px solid rgba(31, 47, 70, 0.08);
+    box-shadow: 0 26px 70px rgba(16, 26, 40, 0.08);
+}
+
+.application-hero h1 {
+    margin: 10px 0 12px;
+    font-size: clamp(2rem, 3vw, 3rem);
+    line-height: 1.05;
+    color: #101a28;
+}
+
+.application-kicker {
+    margin: 0;
+    color: #9a7b33;
+    font-weight: 800;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    font-size: 0.8rem;
+}
+
+.application-card {
+    padding: 28px;
+    border-radius: 28px;
+    background: #fff;
+    border: 1px solid rgba(31, 47, 70, 0.08);
+    box-shadow: 0 22px 60px rgba(16, 26, 40, 0.08);
+}
+
+.application-form {
+    display: grid;
+    gap: 18px;
+}
+
+.application-grid {
+    display: grid;
+    gap: 16px;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+}
+
+.application-field {
+    display: grid;
+    gap: 8px;
+}
+
+.application-field label,
+.application-field span {
+    font-weight: 700;
+    color: #1f2f46;
+}
+
+.application-field input,
+.application-field select,
+.application-field textarea {
+    width: 100%;
+    min-height: 48px;
+    padding: 0 14px;
+    border-radius: 14px;
+    border: 1px solid rgba(31, 47, 70, 0.14);
+    background: #fff;
+    color: #101a28;
+    outline: none;
+}
+
+.application-field textarea {
+    min-height: 140px;
+    padding-top: 12px;
+    resize: vertical;
+}
+
+.application-field input:focus,
+.application-field select:focus,
+.application-field textarea:focus {
+    border-color: rgba(180, 142, 58, 0.8);
+    box-shadow: 0 0 0 4px rgba(180, 142, 58, 0.12);
+}
+
+.application-message {
+    min-height: 140px;
+}
+
+.application-note,
+.application-error,
+.application-success {
+    margin: 0;
+    border-radius: 14px;
+    padding: 12px 14px;
+}
+
+.application-note {
+    background: rgba(31, 47, 70, 0.06);
+    color: #526077;
+}
+
+.application-error {
+    background: rgba(185, 28, 28, 0.08);
+    color: #991b1b;
+}
+
+.application-success {
+    background: rgba(17, 122, 76, 0.08);
+    color: #11673f;
+}
+
+.application-actions {
+    display: flex;
+    justify-content: flex-end;
+}
+
+.application-button {
+    min-height: 50px;
+    border: 0;
+    padding: 0 22px;
+    border-radius: 14px;
+    background: linear-gradient(135deg, #d9c07a, #b48e3a);
+    color: #101a28;
+    font-weight: 800;
+    box-shadow: 0 16px 28px rgba(180, 142, 58, 0.2);
+}
+
+@media (max-width: 768px) {
+    .application-page {
+        padding-left: 18px;
+        padding-right: 18px;
+    }
+    .application-hero,
+    .application-card {
+        padding: 22px;
+        border-radius: 24px;
+    }
+    .application-grid {
+        grid-template-columns: 1fr;
+    }
+    .application-actions {
+        justify-content: stretch;
+    }
+    .application-button {
+        width: 100%;
+    }
+}

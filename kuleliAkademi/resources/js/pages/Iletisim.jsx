@@ -15,7 +15,7 @@ export default function Iletisim() {
                 url={`${siteConfig.siteUrl}/iletişim`}
                 type="contact"
             />
-            <ContactPage />
+            <ContactPage formAction="/iletişim" />
         </>
     );
 }

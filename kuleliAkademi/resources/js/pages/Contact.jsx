@@ -1,5 +1,6 @@
 import React from 'react';
 import SEOHead from '../components/SEOHead/SEOHead';
+import ContactPage from '../components/contactPage/contactPage';
 import { siteConfig } from '../utils/seoHelpers';
 
 export default function Contact() {
@@ -14,14 +15,7 @@ export default function Contact() {
         url={`${siteConfig.siteUrl}/contact`}
         type="contact"
       />
-
-      <div style={{ padding: '40px', fontFamily: 'Arial' }}>
-        <h1>İletişim</h1>
-        <p>Polonya üniversite başvurusu ve yurtdışı eğitim hakkında sorularınız veya önerileriniz varsa, lütfen bize ulaşın.</p>
-        <p>Uzman danışmanlarımız en kısa sürede yanıtlamak ve size yardımcı olmak için hazırdır.</p>
-        <p>Email: {siteConfig.organizationEmail}</p>
-        <p>Telefon: {siteConfig.organizationPhone}</p>
-      </div>
+      <ContactPage formAction="/contact" />
     </>
   );
 }
