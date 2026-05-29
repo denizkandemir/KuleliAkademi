@@ -1,6 +1,6 @@
 import React from 'react';
 import SEOHead from '../components/SEOHead/SEOHead';
-import { siteConfig } from '../utils/seoHelpers';
+import { generateCanonical } from '../utils/seoHelpers';
 import Banner from '../components/Banner/Banner';
 import UniversityHero from '../components/UniversityDetail/UniversityHero';
 import QuickNav from '../components/UniversityDetail/QuickNav';
@@ -30,7 +30,7 @@ export default function UniversityDetail({ slug }) {
 
   return (
     <>
-      <SEOHead title={pageTitle} description={pageDescription} url={`${siteConfig.siteUrl}/universiteler/${slug}`} type="article" />
+      <SEOHead title={pageTitle} description={pageDescription} url={generateCanonical(`/universiteler/${slug}`)} type="article" />
 
       <Banner img={university.bannerImg ? university.bannerImg : university.image} location={'Üniversiteler / ' + university.name} text={university.name} responsiveImg={university.image} />
 

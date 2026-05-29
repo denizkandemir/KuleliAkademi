@@ -1,6 +1,6 @@
 import React from 'react';
 import SEOHead from '../components/SEOHead/SEOHead';
-import { siteConfig } from '../utils/seoHelpers';
+import { generateCanonical } from '../utils/seoHelpers';
 import '../components/linkler/Linkler.scss';
 const kuleliLogoGold = '/storage/images/kuleliLogoGold.webp';
 import { contactConfig } from '../config/contactConfig';
@@ -40,20 +40,11 @@ const LINKS_CONFIG = [
         external: false,
     },
     {
-        id: 'form-egitimler',
-        title: 'Eğitimlerimize Başvurun',
-        subtitle: 'Eğitim programlarımız için formu doldurun',
-        href: '#',
-        icon: 'graduation',
-        external: true,
-        hidden: true, // kept in config but hidden from render; flip to false to show later
-    },
-    {
         id: 'form-davranis',
-        title: 'Davranış ve Öğrenme Testine Kayıt Olun',
-        subtitle: 'Davranış ve öğrenme analizi için kayıt formunu doldurun',
-        href: 'https://docs.google.com/forms/d/e/1FAIpQLSe15zg3FXCVdX_ANvN2g_poKy-p7JI5cfoObDz21UlTtjD_pw/viewform?usp=dialog',
-        icon: 'brain',
+        title: 'Danışmanlık Talebi Formu',
+        subtitle: 'Uzman ekibimizle görüşmek için formu doldurun',
+        href: 'https://docs.google.com/forms/d/e/1FAIpQLSf6EDVF2JpfO0Bzg3qZoMwefMoTFrxWuIsKUxqPZggljQvY_w/viewform?usp=dialog',
+        icon: 'graduation',
         external: true,
     },
     {
@@ -104,20 +95,6 @@ const Linkler = ({ title, description }) => {
     const pageTitle = title || 'Linkler | Kuleli Akademi';
     const pageDescription = description || 'Kuleli Akademi eğitim başvuruları, Polonya üniversite danışmanlığı ve iletişim bağlantıları. Instagram biyografisinden hızlı erişim.';
 
-    // Set page meta information
-    React.useEffect(() => {
-        document.title = pageTitle;
-        
-        // Update or create meta description
-        let metaDescription = document.querySelector('meta[name="description"]');
-        if (!metaDescription) {
-            metaDescription = document.createElement('meta');
-            metaDescription.name = 'description';
-            document.head.appendChild(metaDescription);
-        }
-        metaDescription.content = pageDescription;
-    }, [pageTitle, pageDescription]);
-
     const renderIcon = (iconType) => {
         switch (iconType) {
             case 'globe':
@@ -149,7 +126,7 @@ const Linkler = ({ title, description }) => {
             <SEOHead
                 title={pageTitle}
                 description={pageDescription}
-                url={`${siteConfig.siteUrl}/linkler`}
+                url={generateCanonical('/linkler')}
                 type="navigation"
             />
 

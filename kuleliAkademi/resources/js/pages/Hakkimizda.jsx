@@ -1,7 +1,7 @@
 import React from "react";
 import SEOHead from '../components/SEOHead/SEOHead';
 import { OrganizationSchema } from '../components/SchemaMarkup/SchemaMarkup';
-import { siteConfig } from '../utils/seoHelpers';
+import { generateCanonical, siteConfig } from '../utils/seoHelpers';
 
 export default function Hakkimizda() {
     const pageTitle = 'Hakkımızda | Kuleli Akademi';
@@ -12,7 +12,7 @@ export default function Hakkimizda() {
             <SEOHead
                 title={pageTitle}
                 description={pageDescription}
-                url={`${siteConfig.siteUrl}/hakkımızda`}
+                url={generateCanonical('/hakkımızda')}
                 type="about"
             />
             

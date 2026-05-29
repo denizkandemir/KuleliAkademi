@@ -1,7 +1,7 @@
 import React from 'react';
 import SEOHead from '../components/SEOHead/SEOHead';
 import { OrganizationSchema, WebPageSchema } from '../components/SchemaMarkup/SchemaMarkup';
-import { siteConfig } from '../utils/seoHelpers';
+import { generateCanonical, siteConfig } from '../utils/seoHelpers';
 import Header from '../components/Header/Header';
 import Selection from '../components/Selection/Selection';
 import VideoSectionHomepage from '../components/videoSectionHomepage/videoSectionHomepage';
@@ -14,7 +14,7 @@ import HomepageContact from '../components/homepageContact/HomepageContact';
 export default function Home({ message }) {
   const pageTitle = 'Polonya Üniversite Danışmanlığı | Kuleli Akademi';
   const pageDescription = 'Polonya üniversite başvurusu, öğrenci vizesi ve yurtdışı eğitim danışmanlığı hizmeti. Öğrencilerinizin başvuru dosyasını eksiksiz hazırlamada uzman danışmanlık sağlıyoruz.';
-  const pageUrl = siteConfig.siteUrl;
+  const pageUrl = generateCanonical('/');
 
   return (
     <>

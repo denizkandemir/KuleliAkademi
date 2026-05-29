@@ -1,7 +1,8 @@
 import React from 'react';
 import { Link } from '@inertiajs/react';
 import SEOHead from '../components/SEOHead/SEOHead';
-import { siteConfig } from '../utils/seoHelpers';
+import { BreadcrumbSchema } from '../components/SchemaMarkup/SchemaMarkup';
+import { generateCanonical } from '../utils/seoHelpers';
 import { getUniversitiesForCards } from '../data/universitiesData';
 import '../components/universityCards/UniversityCards.scss';
 import './Universities.scss';
@@ -19,8 +20,15 @@ const Universities = () => {
             <SEOHead
                 title={pageTitle}
                 description={pageDescription}
-                url={`${siteConfig.siteUrl}/universities`}
+                url={generateCanonical('/üniversiteler')}
                 type="website"
+            />
+
+            <BreadcrumbSchema
+                items={[
+                    { name: 'Ana Sayfa', url: generateCanonical('/') },
+                    { name: 'Üniversiteler', url: generateCanonical('/üniversiteler') },
+                ]}
             />
 
             <div className="universities-page">

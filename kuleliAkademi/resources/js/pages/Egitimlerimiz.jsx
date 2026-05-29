@@ -1,6 +1,6 @@
 import React from "react";
 import SEOHead from '../components/SEOHead/SEOHead';
-import { siteConfig } from '../utils/seoHelpers';
+import { generateCanonical } from '../utils/seoHelpers';
 const bannerImg = "/storage/images/coursesBannerImg2.webp";
 import Banner from "../components/Banner/Banner";
 import SummerSchoolPromoSection from "../components/summerSchoolPromoSection/SummerSchoolPromoSection";
@@ -18,7 +18,7 @@ export default function Egitimlerimiz() {
             <SEOHead
                 title={pageTitle}
                 description={pageDescription}
-                url={`${siteConfig.siteUrl}/egitimlerimiz`}
+                url={generateCanonical('/egitimlerimiz')}
                 type="services"
             />
             

@@ -1,4 +1,4 @@
-import React, { use } from "react";
+import React from "react";
 import Banner from "../Banner/Banner";
 import "./contactPage.scss";
 const contactBanner = "/storage/images/contactBanner1.webp";

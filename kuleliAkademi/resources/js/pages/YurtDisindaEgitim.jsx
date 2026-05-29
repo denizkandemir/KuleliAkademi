@@ -1,6 +1,6 @@
 import React from "react";
 import SEOHead from '../components/SEOHead/SEOHead';
-import { siteConfig } from '../utils/seoHelpers';
+import { generateCanonical } from '../utils/seoHelpers';
 import Banner from "../components/Banner/Banner";
 import StudyAbroadPlan from "../components/studyAbroadPlan/StudyAbroadPlan";
 import DocumentSection from "../components/documentSection/documentSection";
@@ -19,7 +19,7 @@ const YurtDisindaEgitim = () => {
         <SEOHead
             title={pageTitle}
             description={pageDescription}
-            url={`${siteConfig.siteUrl}/yurtdışıeğitim`}
+            url={generateCanonical('/yurtdışıeğitim')}
             type="services"
         />
         

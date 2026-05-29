@@ -1,6 +1,7 @@
 import React from 'react';
 import SEOHead from '../components/SEOHead/SEOHead';
-import { siteConfig } from '../utils/seoHelpers';
+import { generateCanonical } from '../utils/seoHelpers';
+import { contactConfig } from '../config/contactConfig';
 
 export default function Contact() {
   const pageTitle = 'İletişim | Kuleli Akademi';
@@ -11,7 +12,7 @@ export default function Contact() {
       <SEOHead
         title={pageTitle}
         description={pageDescription}
-        url={`${siteConfig.siteUrl}/contact`}
+        url={generateCanonical('/iletişim')}
         type="contact"
       />
 
@@ -19,8 +20,9 @@ export default function Contact() {
         <h1>İletişim</h1>
         <p>Polonya üniversite başvurusu ve yurtdışı eğitim hakkında sorularınız veya önerileriniz varsa, lütfen bize ulaşın.</p>
         <p>Uzman danışmanlarımız en kısa sürede yanıtlamak ve size yardımcı olmak için hazırdır.</p>
-        <p>Email: {siteConfig.organizationEmail}</p>
-        <p>Telefon: {siteConfig.organizationPhone}</p>
+        <p>Email: {contactConfig.email}</p>
+        <p>WhatsApp: {contactConfig.whatsapp.poland.number}</p>
+        <p>WhatsApp: {contactConfig.whatsapp.aliaga.number}</p>
       </div>
     </>
   );

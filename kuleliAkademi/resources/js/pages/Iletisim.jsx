@@ -1,6 +1,6 @@
 import React from "react";
 import SEOHead from '../components/SEOHead/SEOHead';
-import { siteConfig } from '../utils/seoHelpers';
+import { generateCanonical } from '../utils/seoHelpers';
 import ContactPage from "../components/contactPage/contactPage";
 
 export default function Iletisim() {
@@ -12,7 +12,7 @@ export default function Iletisim() {
             <SEOHead
                 title={pageTitle}
                 description={pageDescription}
-                url={`${siteConfig.siteUrl}/iletişim`}
+                url={generateCanonical('/iletişim')}
                 type="contact"
             />
             <ContactPage />

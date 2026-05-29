@@ -16,7 +16,7 @@ export const contactConfig = {
             account: 'akademi.kuleli',
         },
         facebook: {
-            url: 'https://www.facebook.com/people/Kuleli-Akademi/61586618973410/#',
+            url: 'https://www.facebook.com/people/Kuleli-Akademi/61586618973410/',
             label: 'Facebook',
             account: 'Akademi Kuleli',
         },

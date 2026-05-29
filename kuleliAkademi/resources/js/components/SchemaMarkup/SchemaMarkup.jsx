@@ -115,9 +115,15 @@ export function WebPageSchema({
     name,
     description,
     url,
-    datePublished: datePublished || new Date().toISOString(),
-    dateModified: dateModified || new Date().toISOString(),
   };
+
+  if (datePublished) {
+    schema.datePublished = datePublished;
+  }
+
+  if (dateModified) {
+    schema.dateModified = dateModified;
+  }
 
   return <SchemaMarkup schema={schema} id="webpage-schema" />;
 }

@@ -2,10 +2,6 @@
 
 ## Critical Configuration Updates Required
 
-### 1. Update Site Configuration
-**File**: `resources/js/utils/seoHelpers.js`
-
-```javascript
 export const siteConfig = {
   siteName: 'Kuleli Akademi',
   siteUrl: 'https://akademikuleli.com', // ← CHANGE TO YOUR DOMAIN
@@ -13,48 +9,43 @@ export const siteConfig = {
   siteLocale: 'tr_TR',
   logo: 'https://akademikuleli.com/logo.webp', // ← CHANGE TO YOUR LOGO URL
   organizationName: 'Kuleli Akademi',
-  organizationEmail: 'info@akademikuleli.com', // ← CHANGE TO YOUR EMAIL
-  organizationPhone: '+90XXX-XXX-XXXX', // ← CHANGE TO YOUR PHONE
+  organizationEmail: 'akademikuleli@gmail.com',
+  organizationPhone: '+90 547 616 35 05',
 };
 ```
 
 **Action Items**:
-- [ ] Replace `https://akademikuleli.com` with your actual domain
-- [ ] Replace with actual logo URL (1200x630px recommended for social sharing)
-- [ ] Update contact email address
-- [ ] Update phone number with country code
+- [x] Domain set to `https://akademikuleli.com`
+- [x] Logo URL set to the production asset path
+- [x] Contact email set to `akademikuleli@gmail.com`
+- [x] Phone number set to production contact details
 
 ---
 
 ### 2. Update Social Media Links
-**File**: `resources/js/utils/seoHelpers.js`
 
 In `generateOrganizationSchema()` function:
 ```javascript
 sameAs: [
-  'https://www.facebook.com/kuleliakademi', // ← UPDATE
-  'https://www.instagram.com/kuleliakademi', // ← UPDATE
-  'https://www.linkedin.com/company/kuleliakademi', // ← UPDATE
+  'https://www.instagram.com/akademi.kuleli/',
+  'https://www.facebook.com/people/Kuleli-Akademi/61586618973410/',
 ]
 ```
 
 **Action Items**:
-- [ ] Replace with actual Facebook page URL
-- [ ] Replace with actual Instagram profile URL
-- [ ] Replace with actual LinkedIn company page URL
+- [x] Facebook page URL updated
+- [x] Instagram profile URL updated
+- [x] LinkedIn reference removed because no account exists
 
 ---
 
-### 3. Create OpenGraph Image
 You need a social sharing image (1200x630px):
-
 **Recommended**:
 - Create: `public/og-image.webp` (1200x630px)
 - Format: PNG or JPG
 - Content: Your logo + "Polonya Üniversite Danışmanlığı"
 - Update reference in `resources/views/app.blade.php` if different location
 
-```html
 <meta property="og:image" content="{{ url('/og-image.webp') }}">
 ```
 
@@ -64,12 +55,7 @@ You need a social sharing image (1200x630px):
 **File**: `resources/views/app.blade.php`
 
 ```html
-<!-- Add your verification codes -->
-<meta name="google-site-verification" content="YOUR_CODE_HERE">
-<meta name="msvalidate.01" content="YOUR_CODE_HERE">
-```
 
-**Steps**:
 1. Go to [Google Search Console](https://search.google.com/search-console)
 2. Add property with your domain
 3. Choose HTML tag verification method
@@ -84,41 +70,34 @@ You need a social sharing image (1200x630px):
 ```javascript
 export const generateTwitterTags = (data) => {
   return {
-    // ...
-    'twitter:site': data.site || '@KuleliAkademi', // ← CHANGE TO YOUR HANDLE
-  };
+    'twitter:card': 'summary_large_image',
+    'twitter:title': data.title,
+    'twitter:description': data.description,
+    'twitter:image': data.image,
+3. Click "Request indexing"
 };
 ```
 
 **Action Items**:
-- [ ] Replace `@KuleliAkademi` with your actual Twitter/X handle
+- [x] No Twitter/X account is configured, so only the minimum Twitter Card preview tags are used
 
 ---
-
-## Testing & Validation
-
-### 1. Test Robots.txt
-Visit: `https://your-domain.com/robots.txt`
-
+Visit: `https://akademikuleli.com/robots.txt`
 **Expected Output**:
 ```
 User-agent: *
 Allow: /
 Allow: /hizmetler/
 ...
-Sitemap: https://your-domain.com/sitemap.xml
+Sitemap: https://akademikuleli.com/sitemap.xml
 ```
 
 ---
-
-### 2. Test Sitemap.xml
-Visit: `https://your-domain.com/sitemap.xml`
 
 **Expected Output**: XML with all URLs and proper formatting
 
 ---
 
-### 3. Validate Structured Data
 Use: [Google Structured Data Testing Tool](https://developers.google.com/search/docs/advanced/structured-data)
 
 **Check**:
@@ -136,27 +115,15 @@ Use: [Facebook Sharing Debugger](https://developers.facebook.com/tools/debug/)
 1. Paste your homepage URL
 2. Verify og:title, og:description, og:image appear correctly
 3. Check preview image displays properly
-4. Repeat for service detail pages
 
 ---
 
 ### 5. Check Twitter Cards
-Use: [Twitter Card Validator](https://cards-dev.twitter.com/validator)
-
-**Actions**:
 1. Paste your homepage URL
 2. Verify summary_large_image format
-3. Check title and description
-4. Verify image displays
-
 ---
 
-### 6. Mobile-Friendly Test
-Use: [Google Mobile-Friendly Test](https://search.google.com/test/mobile-friendly)
 
-**Expected**: "Page is mobile friendly"
-
----
 
 ### 7. Lighthouse SEO Audit
 In Chrome DevTools:
@@ -175,53 +142,17 @@ In Chrome DevTools:
 
 ## Google Search Console Setup
 
-### 1. Add Property
 1. Go to [Search Console](https://search.google.com/search-console)
 2. Click "Add property"
 3. Enter your domain with `https://`
 4. Follow verification steps
 
-### 2. Submit Sitemap
-1. In GSC, go to "Sitemaps"
-2. Click "Add/Test sitemaps"
-3. Enter: `sitemap.xml`
-4. Click "Submit"
-
 ### 3. Request Indexing
-1. In GSC, use URL Inspection tool
-2. Enter: `https://your-domain.com/`
-3. Click "Request indexing"
-4. Repeat for key pages:
-   - `/hizmetler/okul-basvurusu`
-   - `/hizmetler/vize-basvurusu`
-   - `/egitimlerimiz`
-
 ### 4. Monitor Performance
-Check these regularly:
 - **Coverage**: All pages indexed?
 - **Performance**: Impressions, clicks, CTR
 - **Enhancements**: Rich snippets/structured data
-- **Mobile Usability**: Any issues?
-
----
-
-## Bing Webmaster Tools Setup (Optional but recommended)
-
-### 1. Add Site
-1. Go to [Bing Webmaster Tools](https://www.bing.com/webmasters)
-2. Click "Add a site"
-3. Enter your domain
-
-### 2. Verify Ownership
-Choose from:
-- XML file upload
-- Meta tag in header
-- CNAME record
-
-### 3. Submit Sitemap
-1. Go to "Sitemaps"
 2. Add: `sitemap.xml`
-
 ---
 
 ## Local SEO Enhancement (Optional)
