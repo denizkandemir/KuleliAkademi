@@ -35,13 +35,13 @@ const normalizedUniversities = rawUniversities.map((university) => {
     const cardUniversity = universityCards.get(slug);
     const detailUniversity = getUniversityBySlug(slug) || {};
 
-    const country = university.country
-        ? university.country
-        : (detailUniversity.country ? detailUniversity.country : 'Poland');
+    const country = university.country ?
+        university.country :
+        (detailUniversity.country ? detailUniversity.country : 'Poland');
     const cardImage = cardUniversity && cardUniversity.image ? cardUniversity.image : null;
-    const bannerImage = detailUniversity.bannerImg
-        ? detailUniversity.bannerImg
-        : (university.banner_image ? university.banner_image : cardImage);
+    const bannerImage = detailUniversity.bannerImg ?
+        detailUniversity.bannerImg :
+        (university.banner_image ? university.banner_image : cardImage);
 
     return {
         ...university,
