@@ -1,19 +1,18 @@
 import React from 'react';
 import SEOHead from '../components/SEOHead/SEOHead';
-import { generateCanonical } from '../utils/seoHelpers';
+import { generateCanonical, getPageMetadata } from '../utils/seoHelpers';
 import { contactConfig } from '../config/contactConfig';
 
 export default function Contact() {
-  const pageTitle = 'İletişim | Kuleli Akademi';
-  const pageDescription = 'Polonya üniversite başvurusu ve yurtdışı eğitim hakkında sorularınızı Kuleli Akademi iletişim formu aracılığıyla bize iletebilirsiniz. Uzman danışmanlarımız sizinle en kısa sürede iletişime geçecektir.';
+  const pageSeo = getPageMetadata('/iletişim');
 
   return (
     <>
       <SEOHead
-        title={pageTitle}
-        description={pageDescription}
+        title={pageSeo.title}
+        description={pageSeo.description}
         url={generateCanonical('/iletişim')}
-        type="contact"
+        type={pageSeo.type}
       />
 
       <div style={{ padding: '40px', fontFamily: 'Arial' }}>

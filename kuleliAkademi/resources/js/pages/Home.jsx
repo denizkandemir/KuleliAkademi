@@ -1,7 +1,7 @@
 import React from 'react';
 import SEOHead from '../components/SEOHead/SEOHead';
 import { OrganizationSchema, WebPageSchema } from '../components/SchemaMarkup/SchemaMarkup';
-import { generateCanonical, siteConfig } from '../utils/seoHelpers';
+import { generateCanonical, getPageMetadata, siteConfig } from '../utils/seoHelpers';
 import Header from '../components/Header/Header';
 import Selection from '../components/Selection/Selection';
 import VideoSectionHomepage from '../components/videoSectionHomepage/videoSectionHomepage';
@@ -12,18 +12,17 @@ import ServicesHomepage from '../components/ServicesHomepage/ServicesHomepage';
 import HomepageContact from '../components/homepageContact/HomepageContact';
 
 export default function Home({ message }) {
-  const pageTitle = 'Polonya Üniversite Danışmanlığı | Kuleli Akademi';
-  const pageDescription = 'Polonya üniversite başvurusu, öğrenci vizesi ve yurtdışı eğitim danışmanlığı hizmeti. Öğrencilerinizin başvuru dosyasını eksiksiz hazırlamada uzman danışmanlık sağlıyoruz.';
+  const pageSeo = getPageMetadata('/');
   const pageUrl = generateCanonical('/');
 
   return (
     <>
       <SEOHead
-        title={pageTitle}
-        description={pageDescription}
+        title={pageSeo.title}
+        description={pageSeo.description}
         url={pageUrl}
-        type="website"
-        image={`${siteConfig.siteUrl}/og-image.webp`}
+        type={pageSeo.type}
+        image={siteConfig.ogImage}
       />
       
       <OrganizationSchema
@@ -35,8 +34,8 @@ export default function Home({ message }) {
       />
       
       <WebPageSchema
-        name={pageTitle}
-        description={pageDescription}
+        name={pageSeo.title}
+        description={pageSeo.description}
         url={pageUrl}
       />
 

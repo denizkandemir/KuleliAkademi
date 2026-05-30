@@ -65,7 +65,7 @@ const HomepageContact = () => {
                     <div className="homepage-contact-visual" aria-hidden="true">
                         <span className="homepage-contact-visual-glow" />
                         <span className="homepage-contact-visual-ring" />
-                        <img src={contactImg} alt="" className="homepage-contact-image" />
+                        <img src={contactImg} alt="Kuleli Akademi iletişim ve danışmanlık görseli" className="homepage-contact-image" />
                     </div>
                 </div>
             </div>

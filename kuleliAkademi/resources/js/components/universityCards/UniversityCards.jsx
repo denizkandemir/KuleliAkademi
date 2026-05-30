@@ -169,7 +169,7 @@ const UniversityCards = ({ universities = getUniversitiesForCards() }) => {
                                     <div className="university-card-image-wrap">
                                         <img
                                             src={university.image}
-                                            alt={`${university.name} kampus gorunumu`}
+                                            alt={`${university.name} kampüs görüntüsü`}
                                             className="university-card-image"
                                         />
                                         <span className="university-card-overlay" aria-hidden="true" />

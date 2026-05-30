@@ -1,6 +1,6 @@
 import React from "react";
 import SEOHead from '../components/SEOHead/SEOHead';
-import { generateCanonical } from '../utils/seoHelpers';
+import { generateCanonical, getPageMetadata } from '../utils/seoHelpers';
 import Banner from "../components/Banner/Banner";
 import StudyAbroadPlan from "../components/studyAbroadPlan/StudyAbroadPlan";
 import DocumentSection from "../components/documentSection/documentSection";
@@ -12,15 +12,14 @@ import HomepageContact from "../components/homepageContact/HomepageContact";
 import ServicesHomepage from "../components/ServicesHomepage/ServicesHomepage";
 
 const YurtDisindaEgitim = () => {
-    const pageTitle = 'Yurtdışında Eğitim | Kuleli Akademi - Polonya Üniversitesi';
-    const pageDescription = 'Polonya ve Avrupa üniversitelerinde eğitim almak isteyen öğrenciler için tam danışmanlık hizmetleri. Başvurudan yerleşime kadar tüm adımlar boyunca destek sunuyoruz.';
+    const pageSeo = getPageMetadata('/yurtdışıeğitim');
 
     return <>
         <SEOHead
-            title={pageTitle}
-            description={pageDescription}
+            title={pageSeo.title}
+            description={pageSeo.description}
             url={generateCanonical('/yurtdışıeğitim')}
-            type="services"
+            type={pageSeo.type}
         />
         
         <Banner text="Yurt Dışında Eğitim" img={bannerImg} responsiveImg={bannerImg} location="Yurt Dışında Eğitim" role="img" aria-label="Yurt dışında eğitim banner" />

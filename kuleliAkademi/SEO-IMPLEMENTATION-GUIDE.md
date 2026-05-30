@@ -49,9 +49,7 @@ This document covers all SEO optimizations implemented for the Kuleli Akademi we
 - **Features**:
   - Allows all crawlers (User-agent: *)
   - Permits all public paths
-  - Disallows admin and private paths
-  - Sets crawl delay
-  - References sitemap.xml
+  - References the canonical sitemap on `https://akademikuleli.com`
 
 ### ✅ 5. Sitemap.xml
 - **File**: `app/Http/Controllers/SitemapController.php`
@@ -61,6 +59,7 @@ This document covers all SEO optimizations implemented for the Kuleli Akademi we
   - About pages (priority 0.8, monthly)
   - Services listing (priority 0.9, weekly)
   - All 6 service detail pages (priority 0.9, weekly)
+  - All university detail pages (priority 0.75, monthly)
   - Contact pages (priority 0.7, monthly)
   - Links page (priority 0.6, monthly)
   - Proper lastmod dates
@@ -201,7 +200,7 @@ Service pages now link to related services through:
 - Points to primary version
 
 ### ✅ Social Sharing
-- OpenGraph tags for all platforms (Facebook, WhatsApp, Discord, LinkedIn)
+- OpenGraph tags for all platforms (Facebook, WhatsApp, Discord)
 - Twitter Card tags for X/Twitter
 - Image previews for social sharing
 - Proper title and description on share

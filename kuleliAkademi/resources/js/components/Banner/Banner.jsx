@@ -2,8 +2,9 @@ import "./Banner.scss"
 import { Link } from "@inertiajs/react";
 import React from "react";
 
-const Banner = ({ text, subtitle, img, location, responsiveImg, wrapperClassName }) => {
+const Banner = ({ text, subtitle, img, location, responsiveImg, wrapperClassName, alt }) => {
     const containerClass = `${wrapperClassName ? wrapperClassName + ' ' : ''}banner-img-title-container`;
+    const imageAlt = alt || `${text || location || 'Kuleli Akademi'} banner görseli`;
     return (
         <div className={containerClass}>
             <h2 className="banner-title"> {text} </h2>
@@ -38,8 +39,8 @@ const Banner = ({ text, subtitle, img, location, responsiveImg, wrapperClassName
                 <p className="banner-p"> {location} </p>
             </div>
             <div className="banner-img-container">
-                <img src={img} alt="" className="banner-img" />
-                <img src={responsiveImg} className="banner-responsive-img" alt="" />
+                <img src={img} alt={imageAlt} className="banner-img" />
+                <img src={responsiveImg} className="banner-responsive-img" alt={imageAlt} />
             </div>
         </div>
     )

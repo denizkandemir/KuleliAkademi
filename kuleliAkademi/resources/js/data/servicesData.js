@@ -56,7 +56,7 @@ import serviceSixProcessIcon6 from "../assets/icons/adaptation.png";
 import serviceOneRequirmentsIcon1 from "../assets/icons/passport.png";
 
 const applicationFormUrl =
-    "https://docs.google.com/forms/d/e/1FAIpQLSf6EDVF2JpfO0Bzg3qZoMwefMoTFrxWuIsKUxqPZggljQvY_w/viewform?usp=dialog";
+    contactConfig.form.consultation.url;
 
 export const servicesData = [{
         slug: "okul-basvurusu",
@@ -705,7 +705,10 @@ export const homepageServices = servicesData.map(
 );
 
 export const getServiceBySlug = (slug) =>
-    servicesData.find((service) => service.slug === slug);
+    servicesData.find((service) => service.slug === slug || ({
+        'konaklama-destegi': 'konaklama-danismanligi',
+        'sehir-ve-uyum-destegi': 'sehir-ve-ogrenci-hayati-rehberligi',
+    }[slug] || '') === service.slug);
 
 export const getServiceContact = (service) => {
     const whatsappKey = service ? service.whatsappKey || "poland" : "poland";

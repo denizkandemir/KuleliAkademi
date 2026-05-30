@@ -1,8 +1,8 @@
 import React, { useEffect } from "react";
 import { Link } from "@inertiajs/react";
 import SEOHead from "../SEOHead/SEOHead";
-import { ServiceSchema, BreadcrumbSchema } from "../SchemaMarkup/SchemaMarkup";
-import { keywordMap, siteConfig, generateCanonical } from "../../utils/seoHelpers";
+import { BreadcrumbSchema } from "../SchemaMarkup/SchemaMarkup";
+import { siteConfig, generateCanonical, getServicePageMetadata } from "../../utils/seoHelpers";
 import Banner from "../Banner/Banner";
 import { getServiceBySlug, getServiceContact, servicesData } from "../../data/servicesData";
 import "./ServiceDetail.scss";
@@ -129,12 +129,7 @@ const ServiceSidebar = ({ service }) => {
 
 const ServiceDetail = ({ serviceSlug }) => {
     const service = getServiceBySlug(serviceSlug);
-
-    // Get SEO metadata from keyword map
-    const seoData = keywordMap[serviceSlug] || {
-        title: `${serviceSlug} | Kuleli Akademi`,
-        description: service?.shortDescription || 'Polonya üniversite danışmanlığı hizmeti',
-    };
+    const seoData = getServicePageMetadata(serviceSlug, service);
 
     const canonicalUrl = generateCanonical(`/hizmetler/${serviceSlug}`);
 
@@ -166,16 +161,8 @@ const ServiceDetail = ({ serviceSlug }) => {
                 description={seoData.description}
                 url={canonicalUrl}
                 type="article"
-                image={service.bannerImage}
-            />
-
-            <ServiceSchema
-                name={service.title}
-                description={service.shortDescription}
-                provider={{
-                    name: siteConfig.organizationName,
-                    url: siteConfig.siteUrl,
-                }}
+                image={seoData.image}
+                schema={seoData.schema}
             />
 
             <BreadcrumbSchema items={breadcrumbs} />
@@ -355,6 +342,26 @@ const ServiceDetail = ({ serviceSlug }) => {
                                 <div className="service-detail-modern-cta-float service-detail-modern-cta-float--bottom">✓</div> */}
                                 </div>
                             </div>
+
+                            {seoData.faqs.length ? (
+                                <section className="service-detail-faq-section" aria-labelledby="service-detail-faq-title">
+                                    <div className="service-detail-faq-header">
+                                        <p className="service-detail-eyebrow">Sık Sorulan Sorular</p>
+                                        <h2 id="service-detail-faq-title" className="service-detail-title">Merak Edilenler</h2>
+                                    </div>
+
+                                    <div className="service-detail-faq-list">
+                                        {seoData.faqs.map((faq, index) => (
+                                            <details key={faq.question} className="service-detail-faq-item" open={index === 0}>
+                                                <summary className="service-detail-faq-question">{faq.question}</summary>
+                                                <div className="service-detail-faq-answer">
+                                                    <p>{faq.answer}</p>
+                                                </div>
+                                            </details>
+                                        ))}
+                                    </div>
+                                </section>
+                            ) : null}
                         </article>
 
                         <ServiceSidebar service={service} />

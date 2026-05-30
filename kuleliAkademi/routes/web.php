@@ -15,6 +15,7 @@ Route::middleware([ForceCanonicalDomain::class])->group(function () {
     Route::redirect('/contact', '/iletişim', 301);
     Route::redirect('/links', '/linkler', 301);
     Route::redirect('/universities', '/üniversiteler', 301);
+    Route::redirect('/hizmetler', '/egitimlerimiz', 301);
 
     Route::get('/hakkımızda', function () {
         return Inertia::render('Hakkimizda');
@@ -36,13 +37,16 @@ Route::middleware([ForceCanonicalDomain::class])->group(function () {
         return Inertia::render('Iletisim');
     });
 
+    Route::redirect('/hizmetler/konaklama-destegi', '/hizmetler/konaklama-danismanligi', 301);
+    Route::redirect('/hizmetler/sehir-ve-uyum-destegi', '/hizmetler/sehir-ve-ogrenci-hayati-rehberligi', 301);
+
     $serviceSlugs = [
         'okul-basvurusu',
         'vize-basvurusu',
         'karsilama-ve-yerlesim',
-        'konaklama-destegi',
+        'konaklama-danismanligi',
         'oturum-izni',
-        'sehir-ve-uyum-destegi',
+        'sehir-ve-ogrenci-hayati-rehberligi',
     ];
 
     foreach ($serviceSlugs as $serviceSlug) {
@@ -61,10 +65,7 @@ Route::middleware([ForceCanonicalDomain::class])->group(function () {
 
     // Instagram bio linkler sayfası
     Route::get('/linkler', function () {
-        return Inertia::render('Linkler', [
-            'title' => 'Linkler | Kuleli Akademi',
-            'description' => 'Kuleli Akademi eğitim başvuruları, Polonya üniversite danışmanlığı ve iletişim bağlantıları.',
-        ]);
+        return Inertia::render('Linkler');
     });
 
     // SEO Routes - robots.txt and sitemap.xml

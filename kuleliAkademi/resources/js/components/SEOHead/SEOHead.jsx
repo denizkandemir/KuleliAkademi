@@ -24,7 +24,9 @@ export default function SEOHead({
 }) {
   const headTitle = generateTitle(title);
   const headDescription = generateDescription(description || siteConfig.siteDescription);
-  const canonicalUrl = url || (typeof window !== 'undefined' ? generateCanonical(window.location.pathname) : generateCanonical('/'));
+  const canonicalUrl = generateCanonical(
+    url || (typeof window !== 'undefined' ? window.location.pathname : '/')
+  );
 
   const ogTags = generateOGTags({
     title: headTitle,
@@ -54,13 +56,14 @@ export default function SEOHead({
         <meta key={key} name={key} content={value} />
       ))}
 
-      {schema ? (
+      {(Array.isArray(schema) ? schema : [schema]).filter(Boolean).map((item, index) => (
         <script
-          id="seo-schema"
+          key={`seo-schema-${index}`}
+          id={`seo-schema-${index}`}
           type="application/ld+json"
-          dangerouslySetInnerHTML={{ __html: JSON.stringify(schema) }}
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(item) }}
         />
-      ) : null}
+      ))}
     </Head>
   );
 }

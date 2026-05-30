@@ -1,6 +1,6 @@
 import React from 'react';
 import SEOHead from '../components/SEOHead/SEOHead';
-import { generateCanonical } from '../utils/seoHelpers';
+import { generateCanonical, getPageMetadata } from '../utils/seoHelpers';
 import '../components/linkler/Linkler.scss';
 const kuleliLogoGold = '/storage/images/kuleliLogoGold.webp';
 import { contactConfig } from '../config/contactConfig';
@@ -43,7 +43,7 @@ const LINKS_CONFIG = [
         id: 'form-davranis',
         title: 'Danışmanlık Talebi Formu',
         subtitle: 'Uzman ekibimizle görüşmek için formu doldurun',
-        href: 'https://docs.google.com/forms/d/e/1FAIpQLSf6EDVF2JpfO0Bzg3qZoMwefMoTFrxWuIsKUxqPZggljQvY_w/viewform?usp=dialog',
+        href: contactConfig.form.consultation.url,
         icon: 'graduation',
         external: true,
     },
@@ -51,7 +51,7 @@ const LINKS_CONFIG = [
         id: 'form-polonya',
         title: "Polonya'da Üniversite İçin Başvurun",
         subtitle: 'Polonya üniversite başvuru formu',
-        href: 'https://docs.google.com/forms/d/e/1FAIpQLSf6EDVF2JpfO0Bzg3qZoMwefMoTFrxWuIsKUxqPZggljQvY_w/viewform?usp=dialog',
+        href: contactConfig.form.consultation.url,
         icon: 'university',
         external: true,
     },
@@ -92,8 +92,9 @@ const LINKS_CONFIG = [
 
 
 const Linkler = ({ title, description }) => {
-    const pageTitle = title || 'Linkler | Kuleli Akademi';
-    const pageDescription = description || 'Kuleli Akademi eğitim başvuruları, Polonya üniversite danışmanlığı ve iletişim bağlantıları. Instagram biyografisinden hızlı erişim.';
+    const pageSeo = getPageMetadata('/linkler');
+    const pageTitle = title || pageSeo.title;
+    const pageDescription = description || pageSeo.description;
 
     const renderIcon = (iconType) => {
         switch (iconType) {
@@ -127,7 +128,7 @@ const Linkler = ({ title, description }) => {
                 title={pageTitle}
                 description={pageDescription}
                 url={generateCanonical('/linkler')}
-                type="navigation"
+                type={pageSeo.type}
             />
 
             <div className="linkler-page">

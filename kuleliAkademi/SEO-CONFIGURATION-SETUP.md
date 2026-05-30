@@ -35,7 +35,7 @@ sameAs: [
 **Action Items**:
 - [x] Facebook page URL updated
 - [x] Instagram profile URL updated
-- [x] LinkedIn reference removed because no account exists
+- [x] No LinkedIn account is configured, so no LinkedIn metadata is emitted
 
 ---
 
@@ -64,7 +64,7 @@ You need a social sharing image (1200x630px):
 
 ---
 
-### 5. Update Twitter Handle
+### 5. Twitter Card Metadata
 **File**: `resources/js/utils/seoHelpers.js`
 
 ```javascript
@@ -80,6 +80,7 @@ export const generateTwitterTags = (data) => {
 
 **Action Items**:
 - [x] No Twitter/X account is configured, so only the minimum Twitter Card preview tags are used
+- [x] `twitter:site` and `twitter:creator` are intentionally omitted
 
 ---
 Visit: `https://akademikuleli.com/robots.txt`
@@ -87,8 +88,6 @@ Visit: `https://akademikuleli.com/robots.txt`
 ```
 User-agent: *
 Allow: /
-Allow: /hizmetler/
-...
 Sitemap: https://akademikuleli.com/sitemap.xml
 ```
 

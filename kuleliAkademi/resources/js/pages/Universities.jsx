@@ -2,7 +2,7 @@ import React from 'react';
 import { Link } from '@inertiajs/react';
 import SEOHead from '../components/SEOHead/SEOHead';
 import { BreadcrumbSchema } from '../components/SchemaMarkup/SchemaMarkup';
-import { generateCanonical } from '../utils/seoHelpers';
+import { generateCanonical, getPageMetadata } from '../utils/seoHelpers';
 import { getUniversitiesForCards } from '../data/universitiesData';
 import '../components/universityCards/UniversityCards.scss';
 import './Universities.scss';
@@ -12,16 +12,15 @@ const bannerImg = '/storage/images/universitiesBanner.webp';
 const universities = getUniversitiesForCards();
 
 const Universities = () => {
-    const pageTitle = 'Polonya’daki Üniversiteler | Kuleli Akademi';
-    const pageDescription = 'Polonya’da İngilizce eğitim veren devlet ve özel üniversiteleri keşfedin, program seçeneklerini karşılaştırın ve size en uygun üniversiteyi bulun.';
+    const pageSeo = getPageMetadata('/üniversiteler');
 
     return (
         <>
             <SEOHead
-                title={pageTitle}
-                description={pageDescription}
+                title={pageSeo.title}
+                description={pageSeo.description}
                 url={generateCanonical('/üniversiteler')}
-                type="website"
+                type={pageSeo.type}
             />
 
             <BreadcrumbSchema
@@ -58,7 +57,7 @@ const Universities = () => {
                                         <div className="university-card-image-wrap">
                                             <img
                                                 src={img}
-                                                alt={title ? `${title} kampus gorunumu` : 'Üniversite görseli'}
+                                                alt={title ? `${title} kampüs görüntüsü` : 'Üniversite görseli'}
                                                 className="university-card-image"
                                                 loading="lazy"
                                             />
