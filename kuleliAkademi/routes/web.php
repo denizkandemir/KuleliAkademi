@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\Admin\DashboardController;
 use App\Http\Controllers\Admin\AccommodationController;
+use App\Http\Controllers\Admin\DocumentController;
 use App\Http\Controllers\Admin\EducationOptionController;
 use App\Http\Controllers\Admin\EducationVideoController;
 use App\Http\Controllers\Admin\FaqController;
@@ -142,5 +143,6 @@ Route::prefix('admin')->as('admin.')->middleware(['auth', 'admin'])->group(funct
     Route::resource('applications', ApplicationController::class)->only(['index', 'update', 'destroy']);
     Route::resource('contact-messages', ContactMessageController::class)->only(['index', 'update', 'destroy']);
     Route::resource('notifications', NotificationController::class)->except(['show']);
+    Route::get('/documents', [DocumentController::class, 'index'])->name('documents');
     Route::resource('settings', SettingController::class)->except(['show']);
 });
