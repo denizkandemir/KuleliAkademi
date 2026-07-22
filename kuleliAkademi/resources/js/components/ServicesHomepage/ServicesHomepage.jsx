@@ -1,15 +1,14 @@
 import React, { useCallback, useEffect, useMemo, useRef, useState } from "react";
 import { Link } from "@inertiajs/react";
 import "./ServicesHomepage.scss";
-import { homepageServices } from "../../data/servicesData";
 
-const ServicesHomepage = () => {
+const ServicesHomepage = ({ services = [] }) => {
   const sliderRef = useRef(null);
   const trackRef = useRef(null);
   const [activeIndex, setActiveIndex] = useState(0);
-  const [maxStartIndex, setMaxStartIndex] = useState(Math.max(homepageServices.length - 1, 0));
+  const [maxStartIndex, setMaxStartIndex] = useState(Math.max(services.length - 1, 0));
 
-  const totalSlides = homepageServices.length;
+  const totalSlides = services.length;
 
   const measureTrack = useCallback(() => {
     const slider = sliderRef.current;
@@ -126,6 +125,10 @@ const ServicesHomepage = () => {
     return activeIndex / maxStartIndex;
   }, [activeIndex, maxStartIndex]);
 
+  if (services.length === 0) {
+    return null;
+  }
+
   return (
     <section className="services-homepage-section" aria-labelledby="services-homepage-title">
       <div className="services-homepage-shell">
@@ -145,7 +148,7 @@ const ServicesHomepage = () => {
 
         <div className="services-homepage-slider" ref={sliderRef}>
           <div className="services-homepage-slider-track" ref={trackRef}>
-            {homepageServices.map((service, index) => (
+            {services.map((service, index) => (
               <Link key={service.slug} href={service.href} className="services-homepage-card">
                 <div className="services-homepage-card-content">
                   <p className="services-homepage-card-number" aria-label={`Hizmet sırası ${String(index + 1).padStart(2, "0")}`}>

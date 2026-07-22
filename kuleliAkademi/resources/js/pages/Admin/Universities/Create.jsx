@@ -5,9 +5,9 @@ import { slugify } from '../../../utils/slugify';
 
 const blankImage = { image_url: '', alt_text: '', sort_order: 0, is_cover: false };
 
-function UniversitiesCreate() {
+function UniversitiesCreate({ countryOptions = [], defaultCountry = 'Polonya' }) {
   const { data, setData, post, processing, errors } = useForm({
-    name: '', slug: '', short_name: '', country: 'Poland', city: '', short_description: '', description: '', website_url: '', application_url: '', main_image_url: '', logo_url: '', tuition_fee: '', currency: 'EUR', duration: '', language: '', ranking: '', is_featured: false, is_active: true, sort_order: 0, images: [blankImage],
+    name: '', slug: '', short_name: '', country: defaultCountry, city: '', short_description: '', description: '', website_url: '', application_url: '', main_image_url: '', logo_url: '', tuition_fee: '', currency: 'EUR', duration: '', language: '', ranking: '', is_featured: false, is_active: true, sort_order: 0, images: [blankImage],
   });
   const [slugTouched, setSlugTouched] = useState(false);
 
@@ -30,7 +30,16 @@ function UniversitiesCreate() {
             </div>
             <div className="admin-form-grid">
               <label className="admin-field"><span>Şehir</span><input value={data.city} onChange={(e) => setData('city', e.target.value)} /></label>
-              <label className="admin-field"><span>Ülke</span><input value={data.country} onChange={(e) => setData('country', e.target.value)} /></label>
+              <label className="admin-field">
+                <span>Ülke</span>
+                <input list="university-country-options" value={data.country} onChange={(e) => setData('country', e.target.value)} required />
+                <datalist id="university-country-options">
+                  {countryOptions.map((option) => (
+                    <option key={option.value} value={option.label} />
+                  ))}
+                </datalist>
+                {errors.country && <small className="admin-field-error">{errors.country}</small>}
+              </label>
             </div>
             <div className="admin-form-grid">
               <label className="admin-field"><span>Ana Görsel URL</span><input type="url" value={data.main_image_url} onChange={(e) => setData('main_image_url', e.target.value)} /></label>

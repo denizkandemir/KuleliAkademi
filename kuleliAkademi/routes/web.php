@@ -19,17 +19,36 @@ use App\Http\Controllers\FormSubmissionController;
 use App\Http\Controllers\RobotsController;
 use App\Http\Controllers\ServiceController;
 use App\Http\Controllers\SitemapController;
+use App\Http\Resources\ServiceResource;
 use App\Models\EducationOption;
 use App\Models\EducationVideo;
 use App\Models\Form;
 use App\Models\Service;
 use App\Models\University;
+use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 use Inertia\Inertia;
 
 Route::get('/', function () {
+    $services = Service::query()
+        ->with('homepageImage')
+        ->where('is_active', true)
+        ->orderBy('sort_order')
+        ->orderBy('id')
+        ->get()
+        ->map(fn (Service $service): array => [
+            'slug' => $service->slug,
+            'title' => $service->title,
+            'description' => $service->short_description,
+            'image' => $service->resolvedCoverImageUrl(),
+            'buttonText' => $service->homepage_button_text ?: 'Detayları Gör',
+            'objectPosition' => optional($service->homepageImage)->object_position,
+            'href' => "/hizmetler/{$service->slug}",
+        ]);
+
     return Inertia::render('Home', [
         'message' => 'İlk sayfa başarıyla açıldı.',
+        'dbServices' => $services,
     ]);
 });
 
@@ -71,9 +90,36 @@ Route::get('/yurtdışıeğitim', function () {
     ]);
 });
 
-Route::get('/üniversiteler', function () {
+Route::get('/üniversiteler', function (Request $request) {
+    $countryOptions = University::countryOptions();
+    $defaultCountry = University::normalizeCountrySlug(University::DEFAULT_COUNTRY);
+
+    $selectedCountry = University::normalizeCountrySlug(
+        $request->input('country', University::DEFAULT_COUNTRY)
+    );
+
+    $availableCountrySlugs = array_column($countryOptions, 'value');
+
+    if (! in_array($selectedCountry, $availableCountrySlugs, true)) {
+        $selectedCountry = $defaultCountry;
+    }
+
+    $universities = University::query()
+        ->with('coverImage')
+        ->where('is_active', true)
+        ->byCountry($selectedCountry)
+        ->orderBy('sort_order')
+        ->orderBy('id')
+        ->get();
+
+    $selectedCountryOption = collect($countryOptions)->firstWhere('value', $selectedCountry);
+
     return Inertia::render('Universities', [
-        'dbUniversities' => University::query()->where('is_active', true)->orderBy('sort_order')->get(),
+        'dbUniversities' => $universities,
+        'countryOptions' => $countryOptions,
+        'selectedCountry' => $selectedCountry,
+        'selectedCountryLabel' => $selectedCountryOption['label'] ?? University::DEFAULT_COUNTRY,
+        'defaultCountry' => University::DEFAULT_COUNTRY_SLUG,
     ]);
 })->name('üniversiteler');
 
@@ -87,27 +133,23 @@ Route::get('/basvuru', [ApplicationController::class, 'create'])->name('applicat
 Route::post('/basvuru', [ApplicationController::class, 'store'])->name('applications.public.store');
 Route::post('/forms/{form:slug}/submit', [FormSubmissionController::class, 'store'])->name('forms.submissions.store');
 
-$serviceSlugs = [
-    'okul-basvurusu',
-    'vize-basvurusu',
-    'karsilama-ve-yerlesim',
-    'konaklama-destegi',
-    'oturum-izni',
-    'sehir-ve-uyum-destegi',
-];
+Route::get('/hizmetler/{slug}', function (string $slug) {
+    $service = Service::query()
+        ->where('slug', $slug)
+        ->where('is_active', true)
+        ->with(['images', 'introParagraphs', 'highlights', 'processSteps', 'requirements'])
+        ->first();
 
-foreach ($serviceSlugs as $serviceSlug) {
-    Route::get("/hizmetler/{$serviceSlug}", function () use ($serviceSlug) {
-        return Inertia::render('ServiceDetail', [
-            'serviceSlug' => $serviceSlug,
-        ]);
-    });
-}
+    $services = Service::query()
+        ->where('is_active', true)
+        ->orderBy('sort_order')
+        ->orderBy('id')
+        ->get(['id', 'slug', 'title']);
 
-Route::get('/hizmetler/{slug}', function ($slug) {
     return Inertia::render('ServiceDetail', [
         'serviceSlug' => $slug,
-        'dbService' => Service::query()->where('slug', $slug)->first(),
+        'service' => $service ? new ServiceResource($service) : null,
+        'services' => $services,
     ]);
 })->where('slug', '[A-Za-z0-9-]+');
 
@@ -126,6 +168,7 @@ Route::get('/sitemap.xml', [SitemapController::class, 'index']);
 Route::get('/universiteler/{slug}', function ($slug) {
     return Inertia::render('UniversityDetail', [
         'slug' => $slug,
+        'dbUniversity' => University::query()->with('images')->where('slug', $slug)->first(),
     ]);
 })->where('slug', '[A-Za-z0-9-]+');
 

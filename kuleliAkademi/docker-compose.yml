@@ -10,6 +10,7 @@ services:
       - .:/var/www/html
     depends_on:
       - mysql
+      - mysql_test
     environment:
       DB_CONNECTION: mysql
       DB_HOST: mysql
@@ -29,7 +30,21 @@ services:
       MYSQL_ROOT_PASSWORD: root
     volumes:
       - mysql_data:/var/lib/mysql
-       
+
+  # Disposable database used ONLY by scripts/test-safe.ps1 / phpunit. Never
+  # holds real data — safe to wipe, migrate:fresh, or recreate at any time.
+  mysql_test:
+    image: mysql:8.0
+    container_name: kuleli_mysql_test
+    restart: unless-stopped
+    ports:
+      - "3308:3306"
+    environment:
+      MYSQL_DATABASE: kuleliakademi_test
+      MYSQL_ROOT_PASSWORD: root
+    volumes:
+      - mysql_test_data:/var/lib/mysql
+
   phpmyadmin:
     image: phpmyadmin/phpmyadmin
     container_name: kuleli_phpmyadmin
@@ -44,3 +59,4 @@ services:
 
 volumes:
   mysql_data:
+  mysql_test_data:

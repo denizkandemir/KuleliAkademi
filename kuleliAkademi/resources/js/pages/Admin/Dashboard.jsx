@@ -10,6 +10,7 @@ import applyIcon from '../../assets/icons/application.png';
 import messageIcon from '../../assets/icons/new-email.png';
 import notificationIcon from '../../assets/icons/notification.png';
 
+
 const statCards = [
   { key: 'totalUniversities', label: 'Toplam Üniversite', description: 'Aktif üniversite kaydı', icon: universityIcon, accent: 'gold' },
   { key: 'newFormSubmissions', label: 'Yeni Form Başvurusu', description: 'Son 30 gün içinde', icon: applyIcon, accent: 'navy' },
@@ -24,7 +25,9 @@ function Dashboard({
   todaySummary = [],
   universityDistribution = [],
 }) {
-  const distributionPercent = universityDistribution[0]?.percent ?? 100;
+  const topCountry = universityDistribution[0] || { label: 'Polonya', value: 0, percent: 0 };
+  const distributionPercent = topCountry.percent ?? 0;
+  const distributionTitle = universityDistribution.length > 0 ? `${topCountry.label} %${topCountry.percent}` : 'Üniversite Dağılımı';
 
   return (
     <>
@@ -90,25 +93,33 @@ function Dashboard({
             </AdminPanelCard>
 
             <div className="admin-dashboard-bottom-grid">
-              <AdminPanelCard eyebrow="Üniversite Dağılımı" title="Polonya %100">
+              <AdminPanelCard eyebrow="Üniversite Dağılımı" title={distributionTitle}>
                 <div className="admin-chart-card">
                   <div className="admin-donut" style={{ '--donut-angle': `${distributionPercent}%` }}>
                     <div className="admin-donut-center">
-                      <strong>1</strong>
+                      <strong>{stats?.totalUniversities ?? 0}</strong>
                       <span>Toplam</span>
                     </div>
                   </div>
 
                   <div className="admin-chart-legend">
-                    <div className="admin-chart-row">
-                      <span className="admin-chart-dot" />
-                      <strong>Polonya</strong>
-                      <span>1</span>
-                      <span>100%</span>
-                    </div>
+                    {universityDistribution.length > 0 ? (
+                      universityDistribution.map((item) => (
+                        <div className="admin-chart-row" key={item.slug || item.label}>
+                          <span className="admin-chart-dot" />
+                          <strong>{item.label}</strong>
+                          <span>{item.value}</span>
+                          <span>{item.percent}%</span>
+                        </div>
+                      ))
+                    ) : (
+                      <p className="admin-chart-note">
+                        Henüz üniversite kaydı bulunmuyor.
+                      </p>
+                    )}
 
                     <p className="admin-chart-note">
-                      Şu anda yalnızca Polonya'daki üniversitelerimiz aktiftir. Yeni üniversiteler eklendikçe dağılım burada güncellenecektir.
+                      Üniversite kayıtları ülke bazında otomatik olarak gruplanır ve yeni kayıtlar eklendikçe dağılım güncellenir.
                     </p>
                   </div>
                 </div>

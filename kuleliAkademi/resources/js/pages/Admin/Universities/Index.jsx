@@ -2,10 +2,25 @@ import React from 'react';
 import { Head, Link, router } from '@inertiajs/react';
 import AdminLayout from '../../../Layouts/AdminLayout';
 
-function UniversitiesIndex({ universities }) {
+function UniversitiesIndex({ universities, countryOptions = [], selectedCountry = null }) {
+  const activeCountry = countryOptions.find((option) => option.value === selectedCountry);
+
   const handleDelete = (item) => {
     if (!window.confirm(`\"${item.name}\" kaydını silmek istiyor musunuz?`)) return;
     router.delete(`/admin/universities/${item.id}`);
+  };
+
+  const handleCountryChange = (event) => {
+    const nextCountry = event.target.value;
+
+    router.get(
+      '/admin/universities',
+      nextCountry ? { country: nextCountry } : {},
+      {
+        preserveScroll: true,
+        replace: true,
+      }
+    );
   };
 
   return (
@@ -15,9 +30,22 @@ function UniversitiesIndex({ universities }) {
         <section className="admin-page-toolbar">
           <div>
             <p className="admin-page-kicker">Üniversite Yönetimi</p>
-            <h2>DB-first üniversite kayıtları</h2>
+            <h2>{selectedCountry ? `${activeCountry?.label || 'Seçili ülke'} üniversiteleri` : 'Tüm üniversite kayıtları'}</h2>
           </div>
-          <Link href="/admin/universities/create" className="admin-primary-button">Yeni Üniversite</Link>
+          <div style={{ display: 'flex', gap: '12px', alignItems: 'flex-end', flexWrap: 'wrap' }}>
+            <label className="admin-field" style={{ minWidth: '220px' }}>
+              <span>Ülke Filtresi</span>
+              <select value={selectedCountry || ''} onChange={handleCountryChange}>
+                <option value="">Tüm Ülkeler</option>
+                {countryOptions.map((option) => (
+                  <option key={option.value} value={option.value}>
+                    {option.label} ({option.count})
+                  </option>
+                ))}
+              </select>
+            </label>
+            <Link href="/admin/universities/create" className="admin-primary-button">Yeni Üniversite</Link>
+          </div>
         </section>
 
         <section className="admin-table-card">
@@ -25,6 +53,7 @@ function UniversitiesIndex({ universities }) {
             <thead>
               <tr>
                 <th>Üniversite</th>
+                <th>Ülke</th>
                 <th>Şehir</th>
                 <th>Sıra</th>
                 <th>Durum</th>
@@ -43,6 +72,7 @@ function UniversitiesIndex({ universities }) {
                       </div>
                     </div>
                   </td>
+                  <td>{item.country || '-'}</td>
                   <td>{item.city || '-'}</td>
                   <td>{item.sort_order}</td>
                   <td><span className={`admin-status-badge${item.is_active ? ' is-active' : ''}`}>{item.is_active ? 'Aktif' : 'Pasif'}</span></td>
@@ -53,7 +83,7 @@ function UniversitiesIndex({ universities }) {
                     </div>
                   </td>
                 </tr>
-              )) : <tr><td colSpan="5" className="admin-empty-state">Kayıt yok.</td></tr>}
+              )) : <tr><td colSpan="6" className="admin-empty-state">Kayıt yok.</td></tr>}
             </tbody>
           </table>
         </section>

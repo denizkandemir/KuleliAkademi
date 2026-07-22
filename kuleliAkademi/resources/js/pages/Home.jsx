@@ -11,7 +11,7 @@ import WhyPoland from '../components/WhyPoland/WhyPoland';
 import ServicesHomepage from '../components/ServicesHomepage/ServicesHomepage';
 import HomepageContact from '../components/homepageContact/HomepageContact';
 
-export default function Home({ message }) {
+export default function Home({ message, dbServices = [] }) {
   const pageTitle = 'Polonya Üniversite Danışmanlığı | Kuleli Akademi';
   const pageDescription = 'Polonya üniversite başvurusu, öğrenci vizesi ve yurtdışı eğitim danışmanlığı hizmeti. Öğrencilerinizin başvuru dosyasını eksiksiz hazırlamada uzman danışmanlık sağlıyoruz.';
   const pageUrl = siteConfig.siteUrl;
@@ -45,7 +45,7 @@ export default function Home({ message }) {
       <VideoSectionHomepage />
       <UniversityCards />
       <WhyPoland />
-      <ServicesHomepage />
+      <ServicesHomepage services={dbServices} />
       <HomepageContact />
     </>
   );

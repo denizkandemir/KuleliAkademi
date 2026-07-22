@@ -26,7 +26,7 @@ class UniversityStoreRequest extends FormRequest
             'name' => ['required', 'string', 'max:255'],
             'slug' => ['required', 'string', 'max:255', Rule::unique('universities', 'slug')],
             'short_name' => ['nullable', 'string', 'max:255'],
-            'country' => ['nullable', 'string', 'max:255'],
+            'country' => ['required', 'string', 'max:255'],
             'city' => ['nullable', 'string', 'max:255'],
             'short_description' => ['nullable', 'string'],
             'description' => ['nullable', 'string'],

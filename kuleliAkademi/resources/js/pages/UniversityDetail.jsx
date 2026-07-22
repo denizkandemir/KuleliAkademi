@@ -13,8 +13,45 @@ const bannerImg = '/storage/images/uniWarsaw2.webp';
 import { getUniversityBySlug } from '../data/universitiesData';
 import CtaPanel from '../components/UniversityDetail/CtaPanel';
 
-export default function UniversityDetail({ slug }) {
-  const university = getUniversityBySlug(slug);
+const normalizeDbUniversity = (university) => {
+  if (!university) {
+    return null;
+  }
+
+  const galleryImages = Array.isArray(university.images)
+    ? university.images.map((image) => image?.image_url).filter((imageUrl) => typeof imageUrl === 'string' && imageUrl.trim())
+    : [];
+
+  const image = university.main_image_url || galleryImages[0] || bannerImg;
+  const longDescriptions = [university.short_description, university.description]
+    .filter((value) => typeof value === 'string' && value.trim())
+    .map((value) => value.trim());
+
+  return {
+    id: university.id,
+    slug: university.slug,
+    name: university.name || 'Üniversite',
+    localName: university.short_name || university.name || 'Üniversite',
+    city: university.city || 'Warsaw',
+    country: university.country || 'Polonya',
+    language: university.language || 'İngilizce',
+    ranking: university.ranking || '400+',
+    founded: university.founded || university.established || '1816',
+    students: university.students || '40.000+',
+    type: university.type || 'Devlet Üniversitesi',
+    website: university.website_url || university.website || '#',
+    image,
+    bannerImg: image,
+    galleryImages: galleryImages.length > 0 ? galleryImages : [image],
+    longDescriptions: longDescriptions.length > 0 ? longDescriptions : ['Bu üniversite için detaylı açıklama henüz eklenmedi.'],
+    programs: [],
+    facts: [],
+    benefits: [],
+  };
+};
+
+export default function UniversityDetail({ slug, dbUniversity = null }) {
+  const university = getUniversityBySlug(slug) || normalizeDbUniversity(dbUniversity);
 
   if (!university) {
     return (

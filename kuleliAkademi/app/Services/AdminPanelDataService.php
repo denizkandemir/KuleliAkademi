@@ -167,13 +167,22 @@ class AdminPanelDataService
     {
         $totalUniversities = University::query()->count();
 
-        return [
-            [
-                'label' => 'Polonya',
-                'value' => $totalUniversities,
-                'percent' => $totalUniversities > 0 ? 100 : 0,
-            ],
-        ];
+        if ($totalUniversities === 0) {
+            return [];
+        }
+
+        return collect(University::countryOptions())
+            ->map(function (array $option) use ($totalUniversities): array {
+                return [
+                    'label' => $option['label'],
+                    'value' => $option['count'],
+                    'percent' => (int) round(($option['count'] / $totalUniversities) * 100),
+                    'slug' => $option['value'],
+                ];
+            })
+            ->sortByDesc('value')
+            ->values()
+            ->all();
     }
 
     private function applicationStatus(?string $status): array

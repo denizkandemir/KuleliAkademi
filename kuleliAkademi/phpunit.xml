@@ -23,9 +23,23 @@
         <env name="BCRYPT_ROUNDS" value="4"/>
         <env name="BROADCAST_CONNECTION" value="null"/>
         <env name="CACHE_STORE" value="array"/>
-        <env name="DB_CONNECTION" value="sqlite"/>
-        <env name="DB_DATABASE" value=":memory:"/>
-        <env name="DB_URL" value=""/>
+        <!--
+            These MUST use force="true": docker-compose.yml sets DB_CONNECTION/
+            DB_HOST/etc as real container environment variables for the app
+            service (pointing at the real dev DB), and PHPUnit's <env> only
+            overrides an already-set OS env var when force="true" is given.
+            Without force, tests silently run against the real dev database.
+            This block points tests at the disposable mysql_test container/
+            database (see docker-compose.yml's `mysql_test` service) — never
+            at kuleli_mysql/kuleliakademi.
+        -->
+        <env name="DB_CONNECTION" value="mysql" force="true"/>
+        <env name="DB_HOST" value="mysql_test" force="true"/>
+        <env name="DB_PORT" value="3306" force="true"/>
+        <env name="DB_DATABASE" value="kuleliakademi_test" force="true"/>
+        <env name="DB_USERNAME" value="root" force="true"/>
+        <env name="DB_PASSWORD" value="root" force="true"/>
+        <env name="DB_URL" value="" force="true"/>
         <env name="MAIL_MAILER" value="array"/>
         <env name="QUEUE_CONNECTION" value="sync"/>
         <env name="SESSION_DRIVER" value="array"/>

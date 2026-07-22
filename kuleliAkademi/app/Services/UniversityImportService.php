@@ -94,7 +94,7 @@ class UniversityImportService
             'name' => (string) ($sourceUniversity['name'] ?? $slug),
             'slug' => $slug,
             'short_name' => $this->normalizeMixedText($sourceUniversity['name_local'] ?? null),
-            'country' => $this->normalizeMixedText($sourceUniversity['country'] ?? null) ?? 'Poland',
+            'country' => University::normalizeCountry($this->normalizeMixedText($sourceUniversity['country'] ?? null)),
             'city' => $this->normalizeMixedText($sourceUniversity['city'] ?? null),
             'description' => $description ?: null,
             'short_description' => $shortDescription ?: null,

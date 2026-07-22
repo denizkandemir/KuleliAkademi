@@ -33,7 +33,7 @@ class UniversityRequest extends FormRequest
                 Rule::unique('universities', 'slug')->ignore($university),
             ],
             'short_name' => ['nullable', 'string', 'max:255'],
-            'country' => ['nullable', 'string', 'max:255'],
+            'country' => ['required', 'string', 'max:255'],
             'city' => ['nullable', 'string', 'max:255'],
             'description' => ['nullable', 'string'],
             'short_description' => ['nullable', 'string'],

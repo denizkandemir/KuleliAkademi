@@ -42,11 +42,17 @@ function ServicesIndex({ services }) {
                   <tr key={service.id}>
                     <td>
                       <div className="admin-service-cell">
-                        {service.image_url ? (
-                          <img src={service.image_url} alt={service.title} />
-                        ) : (
-                          <span className="admin-service-thumb admin-service-thumb--empty">KA</span>
-                        )}
+                        {service.cover_image_url ? (
+                          <img
+                            src={service.cover_image_url}
+                            alt={service.title}
+                            onError={(event) => {
+                              event.currentTarget.style.display = 'none';
+                              event.currentTarget.nextElementSibling?.classList.remove('is-hidden');
+                            }}
+                          />
+                        ) : null}
+                        <span className={`admin-service-thumb admin-service-thumb--empty${service.cover_image_url ? ' is-hidden' : ''}`}>KA</span>
                         <div>
                           <strong>{service.title}</strong>
                           <small>{service.short_description || 'Kısa açıklama eklenmemiş.'}</small>

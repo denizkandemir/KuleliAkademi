@@ -2,11 +2,12 @@
 
 namespace App\Http\Controllers\Admin;
 
+use App\Http\Controllers\Controller;
 use App\Http\Requests\UniversityStoreRequest;
 use App\Http\Requests\UniversityUpdateRequest;
-use App\Http\Controllers\Controller;
 use App\Models\University;
 use App\Models\UniversityImage;
+use Illuminate\Http\Request;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Support\Facades\DB;
 use Inertia\Inertia;
@@ -17,14 +18,32 @@ class UniversityController extends Controller
     /**
      * Display a listing of the resource.
      */
-    public function index(): Response
+    public function index(Request $request): Response
     {
+        $countryOptions = University::countryOptions();
+        $defaultCountry = University::normalizeCountrySlug(University::DEFAULT_COUNTRY);
+
+        $selectedCountry = University::normalizeCountrySlug(
+            $request->input('country', University::DEFAULT_COUNTRY)
+        );
+
+        $availableCountrySlugs = array_column($countryOptions, 'value');
+
+        if (! in_array($selectedCountry, $availableCountrySlugs, true)) {
+            $selectedCountry = $defaultCountry;
+        }
+
+        $universitiesQuery = University::query()
+            ->with('coverImage')
+            ->byCountry($selectedCountry)
+            ->orderBy('sort_order')
+            ->orderBy('id');
+
         return Inertia::render('Admin/Universities/Index', [
-            'universities' => University::query()
-                ->with('coverImage')
-                ->orderBy('sort_order')
-                ->latest('id')
-                ->get(),
+            'universities' => $universitiesQuery->get(),
+            'countryOptions' => $countryOptions,
+            'selectedCountry' => $selectedCountry,
+            'defaultCountry' => University::DEFAULT_COUNTRY,
         ]);
     }
 
@@ -33,7 +52,10 @@ class UniversityController extends Controller
      */
     public function create(): Response
     {
-        return Inertia::render('Admin/Universities/Create');
+        return Inertia::render('Admin/Universities/Create', [
+            'countryOptions' => University::countryOptions(),
+            'defaultCountry' => University::DEFAULT_COUNTRY,
+        ]);
     }
 
     /**
@@ -66,6 +88,8 @@ class UniversityController extends Controller
     {
         return Inertia::render('Admin/Universities/Edit', [
             'university' => $university->load('images'),
+            'countryOptions' => University::countryOptions(),
+            'defaultCountry' => University::DEFAULT_COUNTRY,
         ]);
     }
 
@@ -91,7 +115,7 @@ class UniversityController extends Controller
     {
         $university->delete();
 
-        return redirect()->route('admin.universities.index')->with('success', 'Üniversite silindi.');
+        return back()->with('success', 'Üniversite silindi.');
     }
 
     private function extractUniversityData(array $validated): array
@@ -100,7 +124,7 @@ class UniversityController extends Controller
             'name' => $validated['name'],
             'slug' => $validated['slug'],
             'short_name' => $validated['short_name'] ?? null,
-            'country' => $validated['country'] ?? 'Poland',
+            'country' => University::normalizeCountry($validated['country'] ?? null),
             'city' => $validated['city'] ?? null,
             'short_description' => $validated['short_description'] ?? null,
             'description' => $validated['description'] ?? null,
