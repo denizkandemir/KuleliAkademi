@@ -278,7 +278,7 @@ export const generateServiceSchema = (service) => {
         '@context': 'https://schema.org',
         '@type': 'Service',
         name: service.title,
-        description: service.shortDescription || service.description,
+        description: service.shortDescription || service.short_description || service.description,
         provider: {
             '@type': 'EducationalOrganization',
             name: siteConfig.organizationName,
@@ -324,7 +324,7 @@ export const generateCollegeOrUniversitySchema = (university, canonicalUrl) => {
 
     // sameAs: only when a valid external website exists
     const website = university.website || university.officialWebsite || university.url || university.homepage || null;
-    if (website && typeof website === 'string' && website.trim() && !isForbiddenHost(website)) {
+    if (website && typeof website === 'string' && /^https?:\/\//i.test(website.trim()) && !isForbiddenHost(website)) {
         schema.sameAs = [website.trim()];
     }
 
@@ -351,7 +351,9 @@ export const buildServiceFaqs = (service) => {
     return [
         {
             question: `${service.title} için hangi belgeler gerekir?`,
-            answer: service.documentsOrRequirements?.[0]?.shortDescription || 'İhtiyaç duyulan belgeler hizmet kapsamına ve öğrencinin profiline göre değişebilir.',
+            answer: service.documentsOrRequirements?.[0]?.shortDescription
+                || service.requirements?.[0]?.short_description
+                || 'İhtiyaç duyulan belgeler hizmet kapsamına ve öğrencinin profiline göre değişebilir.',
         },
         {
             question: `${service.title} süreci ne kadar sürer?`,
@@ -395,16 +397,23 @@ export const buildUniversityFaqs = (university) => {
 export const getServicePageMetadata = (serviceSlug, service) => {
     const match = keywordMap[serviceSlug];
     const title = match?.title || (service?.title ? `${service.title} | Kuleli Akademi` : 'Hizmetler | Kuleli Akademi');
-    const description = match?.description || service?.shortDescription || siteConfig.siteDescription;
+    const description = match?.description || service?.shortDescription || service?.short_description || siteConfig.siteDescription;
     const canonicalUrl = generateCanonical(`/hizmetler/${serviceSlug}`);
     const schema = generateServiceSchema(service);
     const faqs = buildServiceFaqs(service);
+
+    // Static data exposes `bannerImage`; admin-managed services expose `images.banner.url`,
+    // which may be a site-relative /storage path. og:image must be absolute.
+    let image = service?.bannerImage || service?.images?.banner?.url || siteConfig.ogImage;
+    if (typeof image === 'string' && image.startsWith('/')) {
+        image = `${siteConfig.siteUrl}${image}`;
+    }
 
     return {
         title,
         description,
         canonicalUrl,
-        image: service?.bannerImage || siteConfig.ogImage,
+        image,
         schema: schema ? [schema, generateFaqSchema(faqs)].filter(Boolean) : generateFaqSchema(faqs),
         faqs,
     };
@@ -524,6 +533,11 @@ export const getPageMetadata = (pathname) => {
         '/linkler': {
             title: 'Hızlı Bağlantılar | Kuleli Akademi',
             description: 'Kuleli Akademi’nin danışmanlık formu, sosyal medya ve üniversite bağlantılarına tek sayfadan hızlıca ulaşın.',
+            type: 'website',
+        },
+        '/basvuru': {
+            title: 'Hizmet Başvurusu | Kuleli Akademi',
+            description: 'Polonya üniversite başvurusu, vize ve yerleşim hizmetleri için başvuru formunu doldurun; Kuleli Akademi danışmanları size en kısa sürede dönüş yapsın.',
             type: 'website',
         },
     };

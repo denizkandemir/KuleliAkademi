@@ -4,10 +4,10 @@ const kuleliLogoGold = "/storage/images/kuleliLogoGold.webp";
 import { Link, usePage } from "@inertiajs/react";
 import MobileMenu from "../MobileMenu/MobileMenu";
 import { contactConfig } from "../../config/contactConfig";
-import { servicesData } from "../../data/servicesData";
 
 const Navbar = () => {
-    const { url } = usePage();
+    const { url, props } = usePage();
+    const navServices = props.navServices || [];
     const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
     const [servicesOpen, setServicesOpen] = useState(false);
 
@@ -65,13 +65,13 @@ const Navbar = () => {
 
                             <div className="dropdown-menu navbar-service-dropdown" role="menu">
                                 <ul className="dropdown-list">
-                                    {servicesData.map((service) => (
+                                    {navServices.map((service) => (
                                         <li key={service.slug} className="dropdown-list-item">
                                             <Link
                                                 href={`/hizmetler/${service.slug}`}
                                                 className="navbar-service-dropdown-item"
                                             >
-                                                <span className="navbar-service-dropdown-title">{service.title || service.name}</span>
+                                                <span className="navbar-service-dropdown-title">{service.title}</span>
                                                 <span className="navbar-service-dropdown-line" aria-hidden="true" />
                                             </Link>
                                         </li>

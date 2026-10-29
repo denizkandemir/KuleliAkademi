@@ -14,6 +14,7 @@ class RobotsController extends Controller
         $content = '';
         $content .= "User-agent: *\n";
         $content .= "Allow: /\n";
+        $content .= "Disallow: /admin\n";
         $content .= "Sitemap: " . self::CANONICAL_BASE . "/sitemap.xml\n";
 
         return response($content, 200)

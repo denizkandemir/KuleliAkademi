@@ -1,5 +1,5 @@
 import React from "react";
-import "./LanguageSchools.scss";
+import "./LanguageSchoolsBanner.scss";
 
 const LanguageSchoolsBanner = () => {
     return (

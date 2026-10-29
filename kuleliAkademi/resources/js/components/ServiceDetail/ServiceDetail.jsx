@@ -1,12 +1,11 @@
-import React, { useEffect } from "react";
+import React from "react";
 import { Link } from "@inertiajs/react";
 import SEOHead from "../SEOHead/SEOHead";
 import { BreadcrumbSchema } from "../SchemaMarkup/SchemaMarkup";
 import { siteConfig, generateCanonical, getServicePageMetadata } from "../../utils/seoHelpers";
 import Banner from "../Banner/Banner";
-import { getServiceBySlug, getServiceContact, servicesData } from "../../data/servicesData";
 import "./ServiceDetail.scss";
-import serviceOneProcessIcon from "../../assets/icons/completed-task.png";
+import defaultProcessIcon from "../../assets/icons/completed-task.png";
 import infoIcon from "../../assets/icons/processing.png";
 const applyImg = "/storage/images/apply-section-img.webp";
 import applyIcon1 from "../../assets/icons/professional-success.png";
@@ -14,32 +13,13 @@ import applyIcon2 from "../../assets/icons/folder.png";
 import applyIcon3 from "../../assets/icons/iteration.png";
 import { contactConfig } from "../../config/contactConfig";
 
+const resolveWhatsappContact = (whatsappKey) => {
+    const key = whatsappKey && contactConfig.whatsapp[whatsappKey] ? whatsappKey : "poland";
 
-const normalizeStep = (step, index) =>
-    typeof step === "string"
-        ? { title: `Adım ${index + 1}`, shortDescription: step, icon: "" }
-        : {
-            title: step?.title || `Adım ${index + 1}`,
-            shortDescription: step?.shortDescription || "",
-            icon: step?.icon || serviceOneProcessIcon,
-        };
-
-const normalizeDoc = (doc, index) =>
-    typeof doc === "string"
-        ? { title: doc || `Belge ${index + 1}`, shortDescription: "", icon: "" }
-        : {
-            title: doc?.title || `Belge ${index + 1}`,
-            shortDescription: doc?.shortDescription || "",
-            icon: doc?.icon || "",
-        };
+    return contactConfig.whatsapp[key];
+};
 
 const ServiceNotFound = ({ slug }) => {
-    useEffect(() => {
-        document.title = "Hizmet bulunamadı | Kuleli Akademi";
-    }, []);
-
-
-
     return (
         <>
             <SEOHead
@@ -68,23 +48,23 @@ const ServiceNotFound = ({ slug }) => {
     );
 };
 
- const applyArray = [
+const applyArray = [
     { title: "Uzman Danışmanlık", description: "Kişisel profilinize uygun yönlendirme", icon: applyIcon1 },
     { title: "Güvenli Süreç", description: "Belgelerinizin doğru hazırlanması", icon: applyIcon2 },
     { title: "Süreç Takibi", description: "Başvurunuzun her adımında bilgilendirme", icon: applyIcon3 },
- ]   
+];
 
-const ServiceSidebar = ({ service }) => {
-    const whatsappContact = getServiceContact(service);
-    const whatsappMessage = service.whatsappMessage || whatsappContact.message;
+const ServiceSidebar = ({ service, services }) => {
+    const whatsappContact = resolveWhatsappContact(service.whatsapp_key);
     const whatsappHref = contactConfig.whatsapp.poland.url;
+    const sidebarImage = service.images?.sidebar_widget?.url || service.images?.detail?.url;
 
     return (
         <aside className="service-detail-sidebar" aria-label="Hizmet yan menüsü">
             <div className="service-detail-sidebar-card service-detail-sidebar-services-card">
                 <h3 className="service-detail-sidebar-title">Hizmetlerimiz</h3>
                 <nav className="service-detail-service-nav" aria-label="Tüm hizmetler">
-                    {servicesData.map((item) => {
+                    {services.map((item) => {
                         const isActive = item.slug === service.slug;
                         return (
                             <Link
@@ -103,15 +83,15 @@ const ServiceSidebar = ({ service }) => {
             <div
                 className="service-detail-sidebar-card service-detail-sidebar-cta"
                 style={{
-                    backgroundImage: `linear-gradient(135deg, rgba(10,18,38,0.68), rgba(10,18,38,0.38)), url(${service.ctaImage || service.detailImage})`,
+                    backgroundImage: `linear-gradient(135deg, rgba(10,18,38,0.68), rgba(10,18,38,0.38)), url(${sidebarImage || ""})`,
                     backgroundSize: "cover",
                     backgroundPosition: "center",
                 }}
             >
                 <div className="service-detail-sidebar-cta-inner">
-                    <p className="service-detail-sidebar-eyebrow">BU HİZMET HAKKINDA BİLGİ ALIN</p>
-                    <h3 className="service-detail-sidebar-cta-title">{service.ctaTitle}</h3>
-                    <p className="service-detail-sidebar-copy">{service.ctaText}</p>
+                    <p className="service-detail-sidebar-eyebrow">{service.cta.eyebrow}</p>
+                    <h3 className="service-detail-sidebar-cta-title">{service.cta.title}</h3>
+                    <p className="service-detail-sidebar-copy">{service.cta.text}</p>
                     <a href={whatsappHref} className="service-detail-sidebar-button" target="_blank" rel="noopener noreferrer">
                         WhatsApp’tan Yaz
                     </a>
@@ -119,40 +99,33 @@ const ServiceSidebar = ({ service }) => {
                 </div>
             </div>
 
-            <div className="service-detail-sidebar-card service-detail-sidebar-info">
-                <h3 className="service-detail-sidebar-title">Kısa bilgi</h3>
-                <p className="service-detail-sidebar-info-copy">{service.sidebarShortInfo}</p>
-            </div>
+            {service.sidebar_short_info ? (
+                <div className="service-detail-sidebar-card service-detail-sidebar-info">
+                    <h3 className="service-detail-sidebar-title">Kısa bilgi</h3>
+                    <p className="service-detail-sidebar-info-copy">{service.sidebar_short_info}</p>
+                </div>
+            ) : null}
         </aside>
     );
 };
 
-const ServiceDetail = ({ serviceSlug }) => {
-    const service = getServiceBySlug(serviceSlug);
-    const seoData = getServicePageMetadata(serviceSlug, service);
+const ServiceDetail = ({ service, services = [], serviceSlug }) => {
+    if (!service) return <ServiceNotFound slug={serviceSlug} />;
 
-    const canonicalUrl = generateCanonical(`/hizmetler/${serviceSlug}`);
+    const seoData = getServicePageMetadata(service.slug, service);
+    const canonicalUrl = generateCanonical(`/hizmetler/${service.slug}`);
 
     // Breadcrumb items for schema
     const breadcrumbs = [
         { name: 'Ana Sayfa', url: siteConfig.siteUrl },
         { name: 'Hizmetler', url: `${siteConfig.siteUrl}/egitimlerimiz` },
-        { name: service?.title || 'Hizmet', url: canonicalUrl },
+        { name: service.title, url: canonicalUrl },
     ];
 
-    const processSteps = Array.isArray(service?.processSteps) ? service.processSteps : [];
-    const documentsOrRequirements = Array.isArray(service?.documentsOrRequirements) ? service.documentsOrRequirements : [];
-
-    useEffect(() => {
-        if (!service) {
-            document.title = "Hizmet bulunamadı | Kuleli Akademi";
-            return;
-        }
-
-        document.title = `${service.title} | Kuleli Akademi`;
-    }, [service]);
-
-    if (!service) return <ServiceNotFound slug={serviceSlug} />;
+    const detailImage = service.images?.detail;
+    const bannerImage = service.images?.banner;
+    const detailObjectPosition = detailImage?.object_position || service.detail_object_position || "center";
+    const hasIntro = Boolean(service.intro_title) || service.intro_paragraphs.length > 0;
 
     return (
         <>
@@ -172,58 +145,64 @@ const ServiceDetail = ({ serviceSlug }) => {
                     wrapperClassName="service-detail-banner"
                     text={service.title}
                     subtitle={service.subtitle}
-                    img={service.bannerImage}
-                    responsiveImg={service.bannerImage}
+                    img={bannerImage?.url}
+                    responsiveImg={bannerImage?.url}
                     location={service.title}
                 />
 
                 <div className="service-detail-shell">
                     <div className="service-detail-layout">
                         <article className="service-detail-main">
-                            <div className="service-detail-image-card">
-                                <img
-                                    src={service.detailImage}
-                                    alt={service.title}
-                                    className="service-detail-image"
-                                    style={{ objectPosition: service.detailObjectPosition || "center" }}
-                                />
-                            </div>
+                            {detailImage?.url ? (
+                                <div className="service-detail-image-card">
+                                    <img
+                                        src={detailImage.url}
+                                        alt={service.title}
+                                        className="service-detail-image"
+                                        style={{ objectPosition: detailObjectPosition }}
+                                    />
+                                </div>
+                            ) : null}
 
-                            <div className="service-detail-summary-grid">
-                                {service.highlights.map((highlight, index) => (
-                                    <div key={highlight} className="service-detail-summary-item">
-                                        <span className="service-detail-summary-kicker">
-                                            {String(index + 1).padStart(2, "0")}
-                                        </span>
-                                        <p>{highlight}</p>
-                                    </div>
-                                ))}
-                            </div>
-
-                            <div className="service-detail-section">
-                                <p className="service-detail-eyebrow">Bu hizmet nedir?</p>
-                                <h2 id="service-detail-title" className="service-detail-title">
-                                    {service.introTitle}
-                                </h2>
-                                <div className="service-detail-copy-block">
-                                    {service.introParagraphs.map((paragraph) => (
-                                        <p key={paragraph}>{paragraph}</p>
+                            {service.highlights.length > 0 ? (
+                                <div className="service-detail-summary-grid">
+                                    {service.highlights.map((highlight, index) => (
+                                        <div key={highlight} className="service-detail-summary-item">
+                                            <span className="service-detail-summary-kicker">
+                                                {String(index + 1).padStart(2, "0")}
+                                            </span>
+                                            <p>{highlight}</p>
+                                        </div>
                                     ))}
                                 </div>
-                            </div>
+                            ) : null}
 
-                            <section className="service-process-section">
-                                <div className="service-process-header">
-                                    <p className="service-detail-eyebrow">Süreç nasıl ilerliyor?</p>
-                                    <h2 className="service-process-title">Başvuru Süreci</h2>
+                            {hasIntro ? (
+                                <div className="service-detail-section">
+                                    <p className="service-detail-eyebrow">{service.intro_eyebrow}</p>
+                                    {service.intro_title ? (
+                                        <h2 id="service-detail-title" className="service-detail-title">
+                                            {service.intro_title}
+                                        </h2>
+                                    ) : null}
+                                    <div className="service-detail-copy-block">
+                                        {service.intro_paragraphs.map((paragraph, index) => (
+                                            <p key={index}>{paragraph}</p>
+                                        ))}
+                                    </div>
                                 </div>
+                            ) : null}
 
-                                <ol className="service-process-timeline">
-                                    {processSteps.map((step, index) => {
-                                        const normalizedStep = normalizeStep(step, index);
+                            {service.process_steps.length > 0 ? (
+                                <section className="service-process-section">
+                                    <div className="service-process-header">
+                                        <p className="service-detail-eyebrow">{service.process_eyebrow}</p>
+                                        <h2 className="service-process-title">{service.process_title}</h2>
+                                    </div>
 
-                                        return (
-                                            <li key={normalizedStep.title || index} className="service-process-item">
+                                    <ol className="service-process-timeline">
+                                        {service.process_steps.map((step, index) => (
+                                            <li key={step.id} className="service-process-item">
                                                 <div className="service-process-rail">
                                                     <span className="service-process-badge">
                                                         {String(index + 1).padStart(2, "0")}
@@ -232,114 +211,106 @@ const ServiceDetail = ({ serviceSlug }) => {
 
                                                 <div className="service-process-card">
                                                     <div className="service-process-icon" aria-hidden="true">
-                                                        <img src={normalizedStep.icon} alt="" className="process-icon-img" />
+                                                        <img src={step.icon_url || defaultProcessIcon} alt="" className="process-icon-img" />
                                                     </div>
 
                                                     <div className="service-process-content">
-                                                        <h3 className="service-process-card-title">{normalizedStep.title}</h3>
-                                                        <p className="service-process-description">{normalizedStep.shortDescription}</p>
+                                                        <h3 className="service-process-card-title">{step.title}</h3>
+                                                        <p className="service-process-description">{step.short_description}</p>
                                                     </div>
                                                 </div>
                                             </li>
-                                        );
-                                    })}
-                                </ol>
-                            </section>
+                                        ))}
+                                    </ol>
+                                </section>
+                            ) : null}
 
-                            <section className="service-documents-section">
-                                <div className="service-documents-header">
-                                    <p className="service-documents-eyebrow">Bu hizmet kapsamında neler var?</p>
-                                    <h2 className="service-documents-title">Gerekli Evrak ve Belgeler</h2>
-                                    <p className="service-documents-description">
-                                        Başvuru sürecinin sorunsuz ilerlemesi için aşağıdaki belgelerin hazırlanması gerekebilir.
-                                    </p>
-                                </div>
+                            {service.requirements.length > 0 ? (
+                                <section className="service-documents-section">
+                                    <div className="service-documents-header">
+                                        <p className="service-documents-eyebrow">{service.requirements_eyebrow}</p>
+                                        <h2 className="service-documents-title">{service.requirements_title}</h2>
+                                        {service.requirements_description ? (
+                                            <p className="service-documents-description">{service.requirements_description}</p>
+                                        ) : null}
+                                    </div>
 
-                                <div className="service-documents-grid">
-                                    {documentsOrRequirements.map((doc, index) => {
-                                        const normalizedDoc = normalizeDoc(doc, index);
-
-                                        return (
-                                            <article key={normalizedDoc.title || index} className="service-document-card">
+                                    <div className="service-documents-grid">
+                                        {service.requirements.map((item) => (
+                                            <article key={item.id} className="service-document-card">
                                                 <span className="service-document-check" aria-hidden="true">
                                                     ✓
                                                 </span>
-                                                {/* 
-                                            <div className="service-document-icon" aria-hidden="true">
-                                                <img src={normalizedDoc.icon} alt="" className="document-icon" />
-                                            </div> */}
+
+                                                {item.icon_url ? (
+                                                    <div className="service-document-icon" aria-hidden="true">
+                                                        <img src={item.icon_url} alt="" className="document-icon" />
+                                                    </div>
+                                                ) : null}
 
                                                 <div className="service-document-content">
-                                                    <h3 className="service-document-title">{normalizedDoc.title}</h3>
-                                                    <p className="service-document-description">{normalizedDoc.shortDescription}</p>
+                                                    <h3 className="service-document-title">{item.title}</h3>
+                                                    <p className="service-document-description">{item.short_description}</p>
                                                 </div>
                                             </article>
-                                        );
-                                    })}
-                                </div>
+                                        ))}
+                                    </div>
 
-                                <div className="service-documents-info">
-                                    <div className="service-documents-info-icon">
-                                        <img src={infoIcon} alt="" className="document-info-img" />
+                                    <div className="service-documents-info">
+                                        <div className="service-documents-info-icon">
+                                            <img src={service.requirements_note.icon_url || infoIcon} alt="" className="document-info-img" />
+                                        </div>
+                                        <div>
+                                            <p className="service-documents-info-title">
+                                                {service.requirements_note.title}
+                                            </p>
+                                            <p className="service-documents-info-text">
+                                                {service.requirements_note.text}
+                                            </p>
+                                        </div>
                                     </div>
-                                    <div>
-                                        <p className="service-documents-info-title">
-                                            Belgelerinizin güncel ve eksiksiz olması başvurunuzun daha sağlıklı ilerlemesine yardımcı olur.
-                                        </p>
-                                        <p className="service-documents-info-text">
-                                            Belgeler üniversiteye, başvuru dönemine ve resmi kurum taleplerine göre değişiklik gösterebilir.
-                                        </p>
-                                    </div>
-                                </div>
-                            </section>
+                                </section>
+                            ) : null}
 
                             <div className="service-detail-modern-cta">
                                 <div className="service-detail-modern-cta-content">
                                     <p className="service-detail-modern-cta-eyebrow">Başvuru desteği</p>
 
-                                    <h3 className="service-detail-modern-cta-title">Polonya Üniversite Başvurusu İçin Desteğimizden Yararlanın</h3>
+                                    <h3 className="service-detail-modern-cta-title">{service.cta.title}</h3>
 
                                     <p className="service-detail-modern-cta-description">
-                                        Okul seçimi, bölüm analizi, belge hazırlığı ve başvuru sürecinizi adım adım planlayarak
-                                        Polonya’da eğitim yolculuğunuzu kolaylaştırıyoruz.
+                                        {service.cta.text}
                                     </p>
 
-                                    <div className="service-detail-modern-cta-features">                            
-                                            {
-                                                applyArray.map((item, index) => (
-                                                    <div key={index} className="service-detail-modern-cta-feature">
-                                                        <div className="service-detail-modern-cta-feature-icon" aria-hidden="true">
-                                                            <img src={item.icon} alt="" className="feature-icon-img" />
-                                                        </div>
-                                                        <div>
-                                                            <h4>{item.title}</h4>
-                                                            <p>{item.description}</p>
-                                                        </div>
-                                                    </div>
-                                                ))
-                                            }                   
+                                    <div className="service-detail-modern-cta-features">
+                                        {applyArray.map((item, index) => (
+                                            <div key={index} className="service-detail-modern-cta-feature">
+                                                <div className="service-detail-modern-cta-feature-icon" aria-hidden="true">
+                                                    <img src={item.icon} alt="" className="feature-icon-img" />
+                                                </div>
+                                                <div>
+                                                    <h4>{item.title}</h4>
+                                                    <p>{item.description}</p>
+                                                </div>
+                                            </div>
+                                        ))}
                                     </div>
 
                                     <div className="service-detail-modern-cta-actions">
                                         <a
-                                            href={service.ctaHref}
+                                            href={service.cta.href}
                                             className="service-detail-modern-cta-button"
                                             target="_blank"
                                             rel="noopener noreferrer"
                                         >
-                                            {service.ctaButtonText}
+                                            {service.cta.button_text}
                                         </a>
-
-                                        {/* <div className="service-detail-modern-cta-note">Form açılacak ve bilgilerinizi güvenle iletebilirsiniz.</div> */}
                                     </div>
                                 </div>
 
                                 <div className="service-detail-modern-cta-visual" aria-hidden="true">
-
                                     <img src={applyImg} alt="" className="aplly-section-img" />
                                     <div className="service-detail-modern-cta-pencil" />
-                                    {/* <div className="service-detail-modern-cta-float service-detail-modern-cta-float--top">✈</div>
-                                <div className="service-detail-modern-cta-float service-detail-modern-cta-float--bottom">✓</div> */}
                                 </div>
                             </div>
 
@@ -364,7 +335,7 @@ const ServiceDetail = ({ serviceSlug }) => {
                             ) : null}
                         </article>
 
-                        <ServiceSidebar service={service} />
+                        <ServiceSidebar service={service} services={services} />
                     </div>
                 </div>
             </section>

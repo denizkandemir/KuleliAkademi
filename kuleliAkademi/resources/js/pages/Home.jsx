@@ -11,7 +11,7 @@ import WhyPoland from '../components/WhyPoland/WhyPoland';
 import ServicesHomepage from '../components/ServicesHomepage/ServicesHomepage';
 import HomepageContact from '../components/homepageContact/HomepageContact';
 
-export default function Home({ message }) {
+export default function Home({ message, dbServices = [] }) {
   const pageSeo = getPageMetadata('/');
   const pageUrl = generateCanonical('/');
 
@@ -44,7 +44,7 @@ export default function Home({ message }) {
       <VideoSectionHomepage />
       <UniversityCards />
       <WhyPoland />
-      <ServicesHomepage />
+      <ServicesHomepage services={dbServices} />
       <HomepageContact />
     </>
   );

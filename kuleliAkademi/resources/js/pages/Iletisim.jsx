@@ -14,7 +14,7 @@ export default function Iletisim() {
                 url={generateCanonical('/iletişim')}
                 type={pageSeo.type}
             />
-            <ContactPage />
+            <ContactPage formAction="/iletişim" />
         </>
     );
 }

@@ -2,6 +2,9 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Service;
+use App\Models\University;
+
 class SitemapController extends Controller
 {
     private const CANONICAL_BASE = 'https://akademikuleli.com';
@@ -50,32 +53,47 @@ class SitemapController extends Controller
         ];
     }
 
+    /**
+     * Service detail pages are rendered from the database, so only active
+     * services have a live page.
+     */
     private function extractServiceSlugs(): array
     {
-        $file = base_path('resources/js/data/servicesData.js');
-
-        if (! file_exists($file)) {
-            return [];
-        }
-
-        $content = file_get_contents($file);
-        preg_match_all('/slug:\s*"([^"]+)"/', $content, $matches);
-
-        return array_values(array_unique($matches[1] ?? []));
+        return Service::query()
+            ->where('is_active', true)
+            ->orderBy('sort_order')
+            ->orderBy('id')
+            ->pluck('slug')
+            ->filter()
+            ->unique()
+            ->values()
+            ->all();
     }
 
+    /**
+     * University detail pages resolve the static data first and fall back to
+     * the database, so both sources produce live URLs.
+     */
     private function extractUniversitySlugs(): array
     {
+        $slugs = [];
         $file = base_path('resources/js/data/universitiesData.js');
 
-        if (! file_exists($file)) {
-            return [];
+        if (file_exists($file)) {
+            $content = file_get_contents($file);
+            preg_match_all('/"id":\s*"([^"]+)"/', $content, $matches);
+            $slugs = $matches[1] ?? [];
         }
 
-        $content = file_get_contents($file);
-        preg_match_all('/"id":\s*"([^"]+)"/', $content, $matches);
+        $databaseSlugs = University::query()
+            ->where('is_active', true)
+            ->orderBy('sort_order')
+            ->orderBy('id')
+            ->pluck('slug')
+            ->filter()
+            ->all();
 
-        return array_values(array_unique($matches[1] ?? []));
+        return array_values(array_unique(array_merge($slugs, $databaseSlugs)));
     }
 
     /**

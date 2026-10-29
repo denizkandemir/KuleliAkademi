@@ -2,10 +2,10 @@ import React, { useEffect, useState } from "react";
 import { Link, usePage } from "@inertiajs/react";
 import "./MobileMenu.scss";
 import { contactConfig } from "../../config/contactConfig";
-import { servicesData } from "../../data/servicesData";
 
 const MobileMenu = ({ isOpen, onClose }) => {
-    const { url } = usePage();
+    const { url, props } = usePage();
+    const navServices = props.navServices || [];
     const navItems = [
         { label: "Hakkımızda", href: "/hakkımızda" },
         { label: "Eğitimlerimiz", href: "/egitimlerimiz" },
@@ -114,7 +114,7 @@ const MobileMenu = ({ isOpen, onClose }) => {
                             </button>
 
                             <ul className="mobile-services-list" aria-hidden={!servicesOpen}>
-                                {servicesData.map((service) => (
+                                {navServices.map((service) => (
                                     <li key={service.slug} className="mobile-services-item">
                                         <Link
                                             href={`/hizmetler/${service.slug}`}
