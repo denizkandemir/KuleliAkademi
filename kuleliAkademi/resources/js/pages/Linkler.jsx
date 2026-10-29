@@ -86,6 +86,14 @@ const LINKS_CONFIG = [
         href: '/üniversiteler',
         icon: 'university',
         external: false,
+    },
+    {
+        id: 'dil-okullari',
+        title: 'Dil Okulları',
+        subtitle: "Avrupa'da yer alan dil okullarını keşfedin",
+        href: '/dilOkullari',
+        icon: 'graduation', //değiştirilebilir
+        external: false,
     }
 ];
 
