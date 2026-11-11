@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Application;
 use App\Models\Notification;
 use App\Models\Service;
+use App\Support\StudyPrograms;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
 use Inertia\Inertia;
@@ -23,6 +24,7 @@ class ApplicationController extends Controller
     {
         $validated = $request->validate([
             'service_id' => ['nullable', 'exists:services,id'],
+            'program' => StudyPrograms::rule(),
             'full_name' => ['required', 'string', 'max:255'],
             'email' => ['required', 'email', 'max:255'],
             'phone' => ['nullable', 'string', 'max:50'],
@@ -36,7 +38,9 @@ class ApplicationController extends Controller
 
         Notification::query()->create([
             'title' => 'Yeni başvuru alındı',
-            'message' => $validated['full_name'] ?? null,
+            'message' => StudyPrograms::label($validated['program'] ?? null)
+                ? "{$validated['full_name']} · ".StudyPrograms::label($validated['program'])
+                : $validated['full_name'],
             'type' => 'application',
             'related_type' => Application::class,
         ]);

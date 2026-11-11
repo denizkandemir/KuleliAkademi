@@ -4,6 +4,7 @@ import Banner from "../Banner/Banner";
 import "./contactPage.scss";
 import mailIcon from "../../assets/icons/mail.png";
 import { contactConfig } from "../../config/contactConfig";
+import { isStudyProgram, studyPrograms } from "../../data/destinationsData";
 // import useFadeInOnScroll from "../../hooks/FadeInAnimation/FadeInAnimation";
 import { useForm, usePage } from '@inertiajs/react';
 
@@ -39,7 +40,10 @@ const contactCards = [
     id: 1,
     title: 'Instagram',
     type: 'social',
-    items: [{ label: `@${contactConfig.social.instagram.account}`, link: contactConfig.social.instagram.url }],
+    items: [
+      { sublabel: 'Yurt dışı eğitim', label: `@${contactConfig.social.instagramInternational.account}`, link: contactConfig.social.instagramInternational.url },
+      { sublabel: 'Aliağa dersleri', label: `@${contactConfig.social.instagram.account}`, link: contactConfig.social.instagram.url },
+    ],
     icon: <InstagramIcon />,
   },
   {
@@ -77,8 +81,11 @@ const contactCards = [
 ];
 
 export default function ContactPage({ formAction = '/iletişim' }) {
-  const { props } = usePage();
+  const { props, url } = usePage();
+  // ?program=malta_language gibi bağlantılarla gelen program önceden seçilir
+  const requestedProgram = new URLSearchParams(url.split('?')[1] || '').get('program');
   const { data, setData, post, processing, errors, reset } = useForm({
+    program: isStudyProgram(requestedProgram) ? requestedProgram : '',
     name: '',
     email: '',
     phone: '',
@@ -115,7 +122,7 @@ export default function ContactPage({ formAction = '/iletişim' }) {
                   <div className="card-texts-container">
                     <h3 className="card-title">{card.title}</h3>
 
-                    {card.type !== 'whatsapp' ? (
+                    {card.items.length === 1 ? (
                       <div className="card-item">
                         <a className="card-link" href={card.items[0].link} {...contactConfig.linkAttrs.external}>
                           <span className="card-label">{card.items[0].label}</span>
@@ -167,15 +174,29 @@ export default function ContactPage({ formAction = '/iletişim' }) {
                   {errors.phone ? <small className="contact-field-error">{errors.phone}</small> : null}
                 </label>
 
-                <div className="contact-field contact-field--note">
-                  <span>Not</span>
-                  <p>Başvurular ve iletişim mesajları tek bir panelden takip edilir.</p>
-                </div>
+                <label className="contact-field">
+                  <span>Program</span>
+                  <select value={data.program} onChange={(event) => setData('program', event.target.value)}>
+                    <option value="">Genel soru</option>
+                    {studyPrograms.map((program) => (
+                      <option key={program.value} value={program.value}>
+                        {program.label}
+                      </option>
+                    ))}
+                  </select>
+                  {errors.program ? <small className="contact-field-error">{errors.program}</small> : null}
+                </label>
               </div>
 
               <label className="contact-field contact-field--textarea">
                 <span>Mesaj</span>
-                <textarea value={data.message} onChange={(event) => setData('message', event.target.value)} rows="5" required />
+                <textarea
+                  value={data.message}
+                  onChange={(event) => setData('message', event.target.value)}
+                  rows="5"
+                  placeholder={data.program === 'malta_language' ? 'Kaç hafta, ne zaman ve hangi İngilizce seviyesinde düşünüyorsunuz?' : undefined}
+                  required
+                />
                 {errors.message ? <small className="contact-field-error">{errors.message}</small> : null}
               </label>
 

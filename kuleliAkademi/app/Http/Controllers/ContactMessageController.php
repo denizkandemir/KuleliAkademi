@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\ContactMessage;
 use App\Models\Notification;
+use App\Support\StudyPrograms;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
 use Inertia\Inertia;
@@ -17,6 +18,7 @@ class ContactMessageController extends Controller
             'name' => ['required', 'string', 'max:255'],
             'email' => ['required', 'email', 'max:255'],
             'phone' => ['nullable', 'string', 'max:50'],
+            'program' => StudyPrograms::rule(),
             'message' => ['required', 'string'],
         ]);
 
@@ -27,7 +29,9 @@ class ContactMessageController extends Controller
 
         Notification::query()->create([
             'title' => 'Yeni iletişim mesajı',
-            'message' => $message->name,
+            'message' => StudyPrograms::label($message->program)
+                ? "{$message->name} · ".StudyPrograms::label($message->program)
+                : $message->name,
             'type' => 'contact_message',
             'related_type' => ContactMessage::class,
             'related_id' => $message->id,

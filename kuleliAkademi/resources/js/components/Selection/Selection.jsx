@@ -38,13 +38,13 @@ const Selection = ({ onLocalSelect, onGlobalSelect }) => {
                         onFocus={() => setActivePanel("right")}
                         onBlur={() => setActivePanel("none")}
                     >
-                        <img src={abroadImg} alt="Yurt disi egitim danismanligi" className="selection-panel-media selection-panel-media-right" />
+                        <img src={abroadImg} alt="Yurt dışı eğitim danışmanlığı" className="selection-panel-media selection-panel-media-right" />
                         <span className="selection-panel-overlay" aria-hidden="true" />
 
                         <div className="selection-panel-content">
                             <p className="selection-panel-label"> Eğitim ve Danışmanlık </p>
-                            <h3 className="selection-panel-title">Yurt Dışı Eğitim Danismanligi</h3>
-                            <p className="selection-panel-text">Başvuru, kabul ve yerleşim sürecinde profesyonel yönlendirme.</p>
+                            <h3 className="selection-panel-title">Yurt Dışı Eğitim Danışmanlığı</h3>
+                            <p className="selection-panel-text">Polonya’da üniversite, İspanya’da dil okulu ve üniversiteye hazırlık; yakında Malta.</p>
                             <Link href={"/yurtdışıeğitim"} className="selection-panel-link" onClick={onGlobalSelect}>
                                 Danışmanlığı Keşfet
                             </Link>
@@ -57,13 +57,13 @@ const Selection = ({ onLocalSelect, onGlobalSelect }) => {
                         onFocus={() => setActivePanel("left")}
                         onBlur={() => setActivePanel("none")}
                     >
-                        <img src={educationImg} alt="Turkiye'de yuz yuze egitim destegi" className="selection-panel-media selection-panel-media-left" />
+                        <img src={educationImg} alt="Aliağa'da yüz yüze eğitim desteği" className="selection-panel-media selection-panel-media-left" />
                         <span className="selection-panel-overlay" aria-hidden="true" />
 
                         <div className="selection-panel-content">
-                            <p className="selection-panel-label">Türkiye&apos;de Eğitim Desteği</p>
+                            <p className="selection-panel-label">Aliağa&apos;da Eğitim Desteği</p>
                             <h3 className="selection-panel-title">Türkiye&apos;de Yüz Yüze Eğitim</h3>
-                            <p className="selection-panel-text">Kişiye özel akademik planlama ve sürekli birebir takip.</p>
+                            <p className="selection-panel-text">LGS hazırlık, ortaokul ve akademik destek; birebir takip.</p>
                             <Link href={"/egitimlerimiz"} className="selection-panel-link" onClick={onLocalSelect}>
                                 Programları İncele
                             </Link>

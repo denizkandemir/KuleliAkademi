@@ -34,17 +34,25 @@ export const imageAltTexts = {
 
     // Homepage Images
     homepage: {
-        header: 'Kuleli Akademi - Polonya üniversite danışmanlığı',
+        header: 'Kuleli Akademi - yurt dışı eğitim danışmanlığı',
         universities: 'Polonya üniversiteleri ve kampüsleri',
-        services: 'Polonya eğitim danışmanlığı hizmetleri',
+        services: 'Polonya hizmetleri: başvuru, vize ve yerleşim',
         process: 'Başvuru süreci adımları',
         contact: 'İletişim formu ve danışma hizmeti',
+    },
+
+    // Spain images (storage/app/public/images/spainImg*.webp)
+    spain: {
+        spainImg1: 'Gün batımında Barselona ve Sagrada Família, İspanya’da dil eğitimi',
+        spainImg2: 'Gün batımında Madrid’de Gran Vía caddesi',
+        spainImg3: 'Madrid’de Metropolis binası ve Gran Vía',
+        spainImg4: 'Barselona’da Park Güell’den şehir ve deniz manzarası',
     },
 
     // General Images
     logo: 'Kuleli Akademi logosu',
     favicon: 'Kuleli Akademi favicon',
-    ogImage: 'Polonya üniversite danışmanlığı - Kuleli Akademi',
+    ogImage: 'Kuleli Akademi - yurt dışı eğitim danışmanlığı ve Aliağa dersleri',
 
     // Navigation and UI
     navbar: 'Navigasyon menüsü',

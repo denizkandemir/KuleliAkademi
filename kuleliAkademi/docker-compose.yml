@@ -8,6 +8,9 @@ services:
       - "8000:8000"
     volumes:
       - .:/var/www/html
+      # public/storage is a Windows junction on the host, which does not resolve inside
+      # the Linux container; mount the real directory at the same path instead.
+      - ./storage/app/public:/var/www/html/public/storage
     depends_on:
       - mysql
       - mysql_test

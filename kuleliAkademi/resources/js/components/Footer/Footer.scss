@@ -303,3 +303,11 @@
         padding: 9px 13px;
     }
 }
+.site-footer-title--spaced {
+    margin-top: 22px;
+}
+
+.site-footer-link.is-disabled {
+    opacity: 0.6;
+    cursor: default;
+}

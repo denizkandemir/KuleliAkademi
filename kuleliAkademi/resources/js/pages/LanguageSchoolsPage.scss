@@ -1,0 +1,86 @@
+@use "../components/styles/variables.scss" as styles;
+
+.language-schools-page {
+    width: 100%;
+    background: #f6f4ef;
+    font-family: styles.$primary-font;
+    color: #1f2e45;
+}
+
+.language-schools-page-shell {
+    max-width: 1280px;
+    margin: 0 auto;
+    padding: 32px 32px 80px;
+    @media (max-width: 640px) {
+        padding: 24px 16px 56px;
+    }
+}
+
+.language-schools-page-results {
+    margin-top: 40px;
+}
+
+.language-schools-page-results-header {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: baseline;
+    justify-content: space-between;
+    gap: 8px 16px;
+    margin-bottom: 22px;
+}
+
+.language-schools-page-title {
+    margin: 0;
+    font-size: clamp(22px, 2.2vw, 30px);
+    font-weight: 700;
+}
+
+.language-schools-page-count {
+    margin: 0;
+    font-size: 16px;
+    color: #5a6577;
+    strong {
+        color: #1f2e45;
+    }
+}
+
+.language-schools-page-grid {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: 22px;
+    > li {
+        display: flex;
+        > article {
+            flex: 1;
+        }
+    }
+    @media (max-width: 400px) {
+        grid-template-columns: 1fr;
+    }
+}
+
+.language-schools-page-empty {
+    margin: 0;
+    padding: 24px;
+    border-radius: 16px;
+    background: #ffffff;
+    border: 1px solid #e7e2d8;
+    font-size: 15px;
+    a {
+        color: #1f2e45;
+        font-weight: 700;
+    }
+}
+
+.language-schools-page-more {
+    margin: 18px 0 0;
+    font-size: 15px;
+    color: #5a6577;
+    a {
+        color: #1f2e45;
+        font-weight: 700;
+    }
+}

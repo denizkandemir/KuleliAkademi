@@ -30,10 +30,14 @@ RUN npm run build
 
 RUN php artisan package:discover --ansi \
     && php artisan config:clear \
-    && php artisan route:clear \
-    && php artisan storage:link --force || true
-   
-    
+    && php artisan route:clear
+
+# public/storage is excluded by .dockerignore, so this creates the standard link to
+# storage/app/public. Fail the build if the link is missing instead of hiding errors.
+RUN php artisan storage:link --force \
+    && test -L public/storage \
+    && test -d public/storage/images
+
 
 EXPOSE 8000
 

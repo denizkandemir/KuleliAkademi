@@ -29,8 +29,8 @@ const benefits = [
   {
     id: 4,
     icon: testIcon,
-    title: "YKS Şartı Olmadan ve Sınavsız Kayıt Seçenekleri",
-    text: "YKS zorunluluğu olmadan, başvuru odaklı ve daha erişilebilir kayıt süreçleriyle üniversite eğitimine geçiş imkanı sağlar.",
+    title: "YKS Şartı Olmadan Başvuru Seçenekleri",
+    text: "Başvuru YKS puanıyla değil; lise diploması, transkript ve dil yeterliliğiyle yapılır. Şartlar okula ve bölüme göre değişir.",
   },
   {
     id: 5,

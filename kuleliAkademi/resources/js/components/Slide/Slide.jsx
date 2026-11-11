@@ -1,5 +1,6 @@
 import React from "react";
 import { motion } from "framer-motion";
+import { Link } from "@inertiajs/react";
 import { Swiper, SwiperSlide } from "swiper/react";
 import {
     Pagination,
@@ -227,7 +228,7 @@ const Slide = ({ SlideImgs,imgClass,buttonUrl, buttonText, container, id, isSlid
                                     <SwiperSlide key={img.id ?? img.slug ?? `slide-${index}`}>
                                     {({ isActive }) => (
                                             <div className="slide-container">
-                                                <img onClick={() => openSlide?.()} className={imgClass} src={img.url} alt={img.littleTitle || img.mainTitle || "Slide Image"} />
+                                                <img onClick={() => openSlide?.()} className={imgClass} src={img.url} alt={img.alt || img.littleTitle || img.mainTitle || "Slide Image"} />
 
                                             <div className="slide-overlay" />
 
@@ -289,9 +290,16 @@ const Slide = ({ SlideImgs,imgClass,buttonUrl, buttonText, container, id, isSlid
                                                         )}
 
                                                         <motion.div className="slide-cta-row" variants={fadeUp(0.82, 0.54, 12)}>
-                                                            <a href={buttonUrl} className="slide-primary-cta" target="_blank" rel="noopener noreferrer">
-                                                                {buttonText}
-                                                            </a>
+                                                            {img.ctaUrl ? (
+                                                                // Slide-specific CTA (internal page link)
+                                                                <Link href={img.ctaUrl} className="slide-primary-cta">
+                                                                    {img.ctaText || buttonText}
+                                                                </Link>
+                                                            ) : (
+                                                                <a href={buttonUrl} className="slide-primary-cta" target="_blank" rel="noopener noreferrer">
+                                                                    {buttonText}
+                                                                </a>
+                                                            )}
                                                             {/* <button type="button" className="slide-primary-cta">Bilgi Al</button> */}
                                                         </motion.div>
                                                     </motion.div>

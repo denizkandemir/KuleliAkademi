@@ -1,0 +1,190 @@
+@use "../styles/variables.scss" as styles;
+
+.destination-picker {
+    width: 100%;
+    padding: 64px 20px;
+    background: #ffffff;
+    border-top: 1px solid rgba(221, 229, 238, 0.75);
+    @media (max-width: 768px) {
+        padding: 44px 16px;
+    }
+}
+
+.destination-picker-shell {
+    max-width: 1240px;
+    margin: 0 auto;
+}
+
+.destination-picker-header {
+    max-width: 720px;
+    margin-bottom: 32px;
+}
+
+.destination-picker-eyebrow {
+    font-family: styles.$primary-font;
+    text-transform: uppercase;
+    letter-spacing: 0.14em;
+    font-size: clamp(11px, 0.86vw, 13px);
+    color: #7b8896;
+    margin: 0;
+}
+
+.destination-picker-title {
+    margin: 8px 0 0;
+    font-family: styles.$primary-font;
+    font-size: clamp(24px, 2.4vw, 32px);
+    font-weight: 600;
+    line-height: 1.14;
+    color: #24364d;
+    text-wrap: balance;
+}
+
+.destination-picker-description {
+    margin: 14px 0 0;
+    font-family: styles.$primary-font;
+    font-size: clamp(14px, 1.02vw, 17px);
+    line-height: 1.65;
+    color: #5f6f80;
+}
+
+.destination-picker-grid {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+    gap: 20px;
+}
+
+.destination-card {
+    display: flex;
+    flex-direction: column;
+    border-radius: 20px;
+    overflow: hidden;
+    border: 1px solid rgba(198, 210, 223, 0.64);
+    background: #fcfdfe;
+    box-shadow: 0 8px 18px rgba(22, 35, 52, 0.08);
+    transition: transform 0.22s ease, box-shadow 0.22s ease, border-color 0.22s ease;
+    &:hover {
+        transform: translateY(-2px);
+        box-shadow: 0 14px 26px rgba(22, 35, 52, 0.12);
+        border-color: rgba(182, 156, 86, 0.34);
+    }
+    &.is-soon {
+        background: #f7f6f2;
+        .destination-card-media img {
+            filter: grayscale(0.4);
+        }
+    }
+}
+
+.destination-card-media {
+    position: relative;
+    height: 170px;
+    background: #e9edf1;
+    img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        display: block;
+    }
+}
+
+.destination-card-country,
+.destination-card-badge {
+    position: absolute;
+    top: 12px;
+    padding: 6px 12px;
+    border-radius: 999px;
+    font-family: styles.$primary-font;
+    font-size: 13px;
+    font-weight: 700;
+}
+
+.destination-card-country {
+    left: 12px;
+    background: rgba(255, 255, 255, 0.92);
+    color: #24364d;
+}
+
+.destination-card-badge {
+    right: 12px;
+    background: #24364d;
+    color: #ffffff;
+}
+
+.destination-card-body {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    padding: 20px 20px 22px;
+    flex: 1;
+}
+
+.destination-card-program {
+    margin: 0;
+    font-family: styles.$primary-font;
+    font-size: 12px;
+    font-weight: 700;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: #8a6a1f;
+}
+
+.destination-card-title {
+    margin: 0;
+    font-family: styles.$primary-font;
+    font-size: 20px;
+    font-weight: 600;
+    line-height: 1.25;
+    color: #24364d;
+}
+
+.destination-card-text {
+    margin: 0;
+    font-family: styles.$primary-font;
+    font-size: 14px;
+    line-height: 1.6;
+    color: #5f6f80;
+}
+
+.destination-card-highlights {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 6px;
+    li {
+        padding: 5px 10px;
+        border-radius: 8px;
+        background: #f6f1e3;
+        color: #7a5d18;
+        font-family: styles.$primary-font;
+        font-size: 12px;
+        font-weight: 700;
+    }
+}
+
+.destination-card-link {
+    margin-top: auto;
+    align-self: flex-start;
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    min-height: 44px;
+    padding: 0 16px;
+    border-radius: 10px;
+    border: 1px solid rgba(36, 54, 77, 0.2);
+    color: #24364d;
+    font-family: styles.$primary-font;
+    font-size: 15px;
+    font-weight: 700;
+    text-decoration: none;
+    transition: background 0.2s ease, color 0.2s ease;
+    &:hover,
+    &:focus-visible {
+        background: #24364d;
+        color: #ffffff;
+    }
+}

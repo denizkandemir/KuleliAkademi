@@ -131,4 +131,29 @@ class Service extends Model
 
         return $this->resolvedImageUrl();
     }
+
+    /**
+     * Active services shaped for the homepage / Poland page service cards.
+     *
+     * @return array<int, array<string, mixed>>
+     */
+    public static function homepageCards(): array
+    {
+        return static::query()
+            ->with('homepageImage')
+            ->where('is_active', true)
+            ->orderBy('sort_order')
+            ->orderBy('id')
+            ->get()
+            ->map(fn (self $service): array => [
+                'slug' => $service->slug,
+                'title' => $service->title,
+                'description' => $service->short_description,
+                'image' => $service->resolvedCoverImageUrl(),
+                'buttonText' => $service->homepage_button_text ?: 'Detayları Gör',
+                'objectPosition' => optional($service->homepageImage)->object_position,
+                'href' => "/hizmetler/{$service->slug}",
+            ])
+            ->all();
+    }
 }

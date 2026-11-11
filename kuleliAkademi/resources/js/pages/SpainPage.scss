@@ -1,0 +1,74 @@
+@use "../components/styles/variables.scss" as styles;
+
+.spain-city-list {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    li {
+        padding: 8px 14px;
+        border-radius: 999px;
+        background: #f6f1e3;
+        color: #7a5d18;
+        font-family: styles.$primary-font;
+        font-size: 14px;
+        font-weight: 700;
+    }
+}
+
+.spain-page-anchors {
+    margin-top: 22px;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    a {
+        display: inline-flex;
+        align-items: center;
+        min-height: 44px;
+        padding: 0 16px;
+        border-radius: 10px;
+        border: 1px solid rgba(36, 54, 77, 0.2);
+        color: #24364d;
+        font-family: styles.$primary-font;
+        font-size: 15px;
+        font-weight: 700;
+        text-decoration: none;
+        &:hover,
+        &:focus-visible {
+            background: #24364d;
+            color: #ffffff;
+        }
+    }
+}
+
+.spain-page-link-row {
+    margin-top: 20px;
+}
+
+.spain-page-link {
+    display: inline-flex;
+    align-items: center;
+    min-height: 44px;
+    font-family: styles.$primary-font;
+    font-size: 15px;
+    font-weight: 700;
+    color: #24364d;
+    text-decoration: none;
+    &:hover,
+    &:focus-visible {
+        color: #8a6a1f;
+    }
+}
+
+.spain-page-spacer {
+    height: 22px;
+}
+
+#dil-okullari,
+#universite-hazirlik,
+#fiyatlar,
+#vize {
+    scroll-margin-top: 110px;
+}

@@ -1,13 +1,18 @@
 import React from 'react';
-import { useForm } from '@inertiajs/react';
+import { useForm, usePage } from '@inertiajs/react';
 import Layout from '../../Layout';
 import SEOHead from '../../components/SEOHead/SEOHead';
 import { generateCanonical, getPageMetadata } from '../../utils/seoHelpers';
+import { isStudyProgram, studyPrograms } from '../../data/destinationsData';
 import './Application.scss';
 
 function ApplicationCreate({ services }) {
   const pageSeo = getPageMetadata('/basvuru');
+  const { url } = usePage();
+  // ?program=spain_language gibi bağlantılarla gelen program önceden seçilir
+  const requestedProgram = new URLSearchParams(url.split('?')[1] || '').get('program');
   const { data, setData, post, processing, errors, recentlySuccessful, reset } = useForm({
+    program: isStudyProgram(requestedProgram) ? requestedProgram : '',
     service_id: '',
     full_name: '',
     email: '',
@@ -34,9 +39,9 @@ function ApplicationCreate({ services }) {
       <div className="application-shell">
         <section className="application-hero">
           <p className="application-kicker">Başvuru Formu</p>
-          <h1>Hizmet başvurusunu hızlıca gönderin.</h1>
+          <h1>Danışmanlık başvurunuzu gönderin.</h1>
           <p>
-            İlgilendiğiniz hizmeti seçin, iletişim bilgilerinizi bırakın. En kısa sürede size dönüş yapılsın.
+            İlgilendiğiniz programı seçin, iletişim bilgilerinizi bırakın. Danışmanımız en kısa sürede size dönüş yapsın.
           </p>
         </section>
 
@@ -45,7 +50,20 @@ function ApplicationCreate({ services }) {
           <form className="application-form" onSubmit={handleSubmit}>
             <div className="application-grid">
               <label className="application-field">
-                <span>Hizmet</span>
+                <span>Program</span>
+                <select value={data.program} onChange={(event) => setData('program', event.target.value)}>
+                  <option value="">Henüz karar vermedim</option>
+                  {studyPrograms.map((program) => (
+                    <option key={program.value} value={program.value}>
+                      {program.label}
+                    </option>
+                  ))}
+                </select>
+                {errors.program ? <small className="application-error">{errors.program}</small> : null}
+              </label>
+
+              <label className="application-field">
+                <span>Polonya hizmeti (isteğe bağlı)</span>
                 <select value={data.service_id} onChange={(event) => setData('service_id', event.target.value)}>
                   <option value="">Genel başvuru</option>
                   {services.map((service) => (
@@ -56,21 +74,23 @@ function ApplicationCreate({ services }) {
                 </select>
                 {errors.service_id ? <small className="application-error">{errors.service_id}</small> : null}
               </label>
+            </div>
 
+            <div className="application-grid">
               <label className="application-field">
                 <span>Ad Soyad</span>
                 <input type="text" value={data.full_name} onChange={(event) => setData('full_name', event.target.value)} required />
                 {errors.full_name ? <small className="application-error">{errors.full_name}</small> : null}
               </label>
-            </div>
 
-            <div className="application-grid">
               <label className="application-field">
                 <span>E-posta</span>
                 <input type="email" value={data.email} onChange={(event) => setData('email', event.target.value)} required />
                 {errors.email ? <small className="application-error">{errors.email}</small> : null}
               </label>
+            </div>
 
+            <div className="application-grid">
               <label className="application-field">
                 <span>Telefon</span>
                 <input type="tel" value={data.phone} onChange={(event) => setData('phone', event.target.value)} />
@@ -83,7 +103,7 @@ function ApplicationCreate({ services }) {
               <textarea
                 value={data.message}
                 onChange={(event) => setData('message', event.target.value)}
-                placeholder="Kısaca ihtiyacınızı yazın"
+                placeholder="Hedefinizi, başlangıç tarihinizi ve dil seviyenizi kısaca yazın"
               />
               {errors.message ? <small className="application-error">{errors.message}</small> : null}
             </label>

@@ -47,7 +47,10 @@ class SitemapController extends Controller
             ['url' => '/hakkımızda', 'priority' => 0.8, 'changefreq' => 'monthly'],
             ['url' => '/egitimlerimiz', 'priority' => 0.9, 'changefreq' => 'weekly'],
             ['url' => '/üniversiteler', 'priority' => 0.85, 'changefreq' => 'weekly'],
-            ['url' => '/yurtdışıeğitim', 'priority' => 0.8, 'changefreq' => 'monthly'],
+            ['url' => '/yurtdışıeğitim', 'priority' => 0.9, 'changefreq' => 'monthly'],
+            ['url' => '/polonyada-universite', 'priority' => 0.9, 'changefreq' => 'monthly'],
+            ['url' => '/ispanyada-egitim', 'priority' => 0.9, 'changefreq' => 'monthly'],
+            ['url' => '/dil-okullari', 'priority' => 0.8, 'changefreq' => 'weekly'],
             ['url' => '/iletişim', 'priority' => 0.7, 'changefreq' => 'monthly'],
             ['url' => '/linkler', 'priority' => 0.6, 'changefreq' => 'monthly'],
         ];

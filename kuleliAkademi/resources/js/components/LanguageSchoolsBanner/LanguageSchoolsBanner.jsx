@@ -1,21 +1,22 @@
 import React from "react";
 import "./LanguageSchoolsBanner.scss";
+import Banner from "../Banner/Banner";
 
+// [DOLDURULACAK] Dil okullarına özel görsel / kısa video eklenince değiştirilecek (şu an genel öğrenci görseli)
+const bannerImg = "/storage/images/studentsPicture8.webp";
+
+// Dil okulları sayfasının hero alanı: sitedeki alt sayfa banner'ı ile aynı görsel dil.
 const LanguageSchoolsBanner = () => {
     return (
-        <section className="language-schools-banner">
-            <div className="language-schools-banner-content">
-                <h1 className="language-schools-banner-title">Dil Okulları</h1>
-                <p className="language-schools-banner-description">
-                    Avrupa'da yer alan dil okullarını keşfedin ve dil becerilerinizi geliştirmek için en iyi seçenekleri bulun.
-                </p>
-                <form className="language-schools-banner-form" action="">
-
-                </form>
-           </div>
-          <div className="language-schools-video-container">
-
-          </div>
+        <section className="language-schools-banner" aria-label="Dil okulları">
+            <Banner
+                text="Dil Okulları"
+                subtitle="İspanya'daki partner okullarımız; Malta yakında"
+                img={bannerImg}
+                responsiveImg={bannerImg}
+                location="Dil Okulları"
+                alt="Birlikte ders çalışan dil okulu öğrencileri"
+            />
         </section>
     );
 }

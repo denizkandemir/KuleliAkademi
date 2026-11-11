@@ -1,6 +1,7 @@
 import React from 'react';
 import { Head, router } from '@inertiajs/react';
 import AdminLayout from '../../../Layouts/AdminLayout';
+import { getStudyProgramLabel } from '../../../data/destinationsData';
 
 function ApplicationsIndex({ applications, statusOptions }) {
   const handleStatusChange = (application, status) => {
@@ -33,6 +34,7 @@ function ApplicationsIndex({ applications, statusOptions }) {
                 <th>Ad Soyad</th>
                 <th>E-posta</th>
                 <th>Telefon</th>
+                <th>Program</th>
                 <th>Hizmet</th>
                 <th>Status</th>
                 <th>Tarih</th>
@@ -46,6 +48,7 @@ function ApplicationsIndex({ applications, statusOptions }) {
                     <td>{application.full_name}</td>
                     <td>{application.email}</td>
                     <td>{application.phone || '-'}</td>
+                    <td>{getStudyProgramLabel(application.program) || '-'}</td>
                     <td>{application.service?.title || 'Genel'}</td>
                     <td>
                       <select
@@ -70,7 +73,7 @@ function ApplicationsIndex({ applications, statusOptions }) {
                 ))
               ) : (
                 <tr>
-                  <td colSpan="7" className="admin-empty-state">
+                  <td colSpan="8" className="admin-empty-state">
                     Henüz başvuru yok.
                   </td>
                 </tr>

@@ -1,0 +1,90 @@
+@use "../styles/variables.scss" as styles;
+
+.how-we-work {
+    width: 100%;
+    padding: 60px 20px;
+    background: linear-gradient(180deg, #f8f7f4 0%, #f5f4ef 100%);
+    @media (max-width: 768px) {
+        padding: 44px 16px;
+    }
+}
+
+.how-we-work-shell {
+    max-width: 1240px;
+    margin: 0 auto;
+}
+
+.how-we-work-header {
+    margin-bottom: 28px;
+}
+
+.how-we-work-eyebrow {
+    margin: 0;
+    font-family: styles.$primary-font;
+    text-transform: uppercase;
+    letter-spacing: 0.14em;
+    font-size: clamp(11px, 0.86vw, 13px);
+    color: #7b8896;
+}
+
+.how-we-work-title {
+    margin: 8px 0 0;
+    font-family: styles.$primary-font;
+    font-size: clamp(24px, 2.4vw, 32px);
+    font-weight: 600;
+    line-height: 1.14;
+    color: #24364d;
+}
+
+.how-we-work-steps {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
+    gap: 18px;
+}
+
+.how-we-work-step {
+    padding: 22px 20px;
+    border-radius: 18px;
+    background: #ffffff;
+    border: 1px solid rgba(198, 210, 223, 0.64);
+    box-shadow: 0 8px 18px rgba(22, 35, 52, 0.06);
+}
+
+.how-we-work-step-number {
+    display: inline-block;
+    font-family: styles.$primary-font;
+    font-size: 14px;
+    font-weight: 700;
+    letter-spacing: 0.08em;
+    color: #8a6a1f;
+}
+
+.how-we-work-step-title {
+    margin: 10px 0 0;
+    font-family: styles.$primary-font;
+    font-size: 18px;
+    font-weight: 600;
+    color: #24364d;
+}
+
+.how-we-work-step-text {
+    margin: 8px 0 0;
+    font-family: styles.$primary-font;
+    font-size: 14px;
+    line-height: 1.6;
+    color: #5f6f80;
+}
+
+.how-we-work-note {
+    margin: 22px 0 0;
+    padding: 14px 18px;
+    border-radius: 14px;
+    background: rgba(36, 54, 77, 0.05);
+    font-family: styles.$primary-font;
+    font-size: 14px;
+    line-height: 1.6;
+    color: #44556a;
+}

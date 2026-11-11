@@ -48,6 +48,30 @@ const LINKS_CONFIG = [
         external: true,
     },
     {
+        id: 'yurt-disi-egitim',
+        title: 'Yurt Dışında Eğitim',
+        subtitle: 'Polonya, İspanya ve yakında Malta',
+        href: '/yurtdışıeğitim',
+        icon: 'globe',
+        external: false,
+    },
+    {
+        id: 'polonyada-universite',
+        title: "Polonya'da Üniversite",
+        subtitle: 'Lisans, yüksek lisans ve hazırlık programları',
+        href: '/polonyada-universite',
+        icon: 'university',
+        external: false,
+    },
+    {
+        id: 'ispanyada-egitim',
+        title: "İspanya'da Dil Okulu ve Hazırlık",
+        subtitle: 'Enforex, Hispania, Linguaschools; 12 şehir',
+        href: '/ispanyada-egitim',
+        icon: 'graduation',
+        external: false,
+    },
+    {
         id: 'form-polonya',
         title: "Polonya'da Üniversite İçin Başvurun",
         subtitle: 'Polonya üniversite başvuru formu',
@@ -65,7 +89,7 @@ const LINKS_CONFIG = [
     },
     {
         id: 'whatsapp-aliaga',
-        title: 'WhatsApp: Kuleli Akademi',
+        title: 'WhatsApp: Aliağa Dersleri',
         subtitle: contactConfig.whatsapp.aliaga.number,
         href: contactConfig.whatsapp.aliaga.url,
         icon: 'whatsapp',
@@ -73,7 +97,7 @@ const LINKS_CONFIG = [
     },
     {
         id: 'whatsapp-polonya',
-        title: 'WhatsApp: Polonya Danışmanlık',
+        title: 'WhatsApp: Yurt Dışı Eğitim',
         subtitle: contactConfig.whatsapp.poland.number,
         href: contactConfig.whatsapp.poland.url,
         icon: 'whatsapp',
@@ -81,7 +105,7 @@ const LINKS_CONFIG = [
     },
     {
         id: 'üniversiteler',
-        title: 'Üniversiteler',
+        title: 'Polonya Üniversiteleri',
         subtitle: "Polonya'da yer alan üniversiteleri keşfedin",
         href: '/üniversiteler',
         icon: 'university',
@@ -90,8 +114,8 @@ const LINKS_CONFIG = [
     {
         id: 'dil-okullari',
         title: 'Dil Okulları',
-        subtitle: "Avrupa'da yer alan dil okullarını keşfedin",
-        href: '/dilOkullari',
+        subtitle: "İspanya'daki partner okullar; Malta yakında",
+        href: '/dil-okullari',
         icon: 'graduation', //değiştirilebilir
         external: false,
     }

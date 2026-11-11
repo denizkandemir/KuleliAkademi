@@ -3,7 +3,7 @@ import "./faqSection.scss";
 
 const INITIAL_VISIBLE_COUNT = 6;
 const EXPANDED_VISIBLE_COUNT = 10;
-const faqItems = [
+const defaultFaqItems = [
   {
     id: 1,
     question: "Polonya'da üniversite başvurusu için hangi belgeler gerekir?",
@@ -66,12 +66,19 @@ const faqItems = [
   },
 ];
 
-const faqSection = () => {
-  const [expandedItemId, setExpandedItemId] = useState(faqItems[0].id);
+// Varsayılan sorular Polonya'ya özeldir; genel sayfalar `items` ve başlık prop'larıyla kendi sorularını verir.
+const faqSection = ({
+  items = defaultFaqItems,
+  eyebrow = "Sıkça Sorulan Sorular",
+  title = "Merak Edilenleri Netleştirelim",
+  description = "Polonya'da eğitim, başvuru, şehir seçimi ve süreç planlamasıyla ilgili en çok sorulan başlıkları bu alanda sade ve net bir dille bulabilirsin.",
+}) => {
+  const faqItems = items;
+  const [expandedItemId, setExpandedItemId] = useState(faqItems[0]?.id ?? null);
   const [showAllItems, setShowAllItems] = useState(false);
   const visibleCount = showAllItems ? EXPANDED_VISIBLE_COUNT : INITIAL_VISIBLE_COUNT;
 
-  const visibleFaqItems = useMemo(() => faqItems.slice(0, visibleCount), [visibleCount]);
+  const visibleFaqItems = useMemo(() => faqItems.slice(0, visibleCount), [faqItems, visibleCount]);
 
   const faqColumns = useMemo(
     () => [
@@ -90,7 +97,7 @@ const faqSection = () => {
       const next = !current;
 
       if (!next) {
-        setExpandedItemId(faqItems[0].id);
+        setExpandedItemId(faqItems[0]?.id ?? null);
       }
 
       return next;
@@ -103,20 +110,18 @@ const faqSection = () => {
         <div className="faq-section-surface">
           <div className="faq-section-intro-row">
             <header className="faq-section-header">
-              <p className="faq-section-eyebrow">Sıkça Sorulan Sorular</p>
-              <h2 className="faq-section-title">Merak Edilenleri Netlestirelim</h2>
-              <p className="faq-section-description">
-                Polonya'da egitim, basvuru, sehir secimi ve surec planlamasiyla ilgili en cok sorulan basliklari bu
-                alanda sade ve net bir dille bulabilirsin.
-              </p>
+              <p className="faq-section-eyebrow">{eyebrow}</p>
+              <h2 className="faq-section-title">{title}</h2>
+              {description ? <p className="faq-section-description">{description}</p> : null}
             </header>
 
+            {faqItems.length > INITIAL_VISIBLE_COUNT ? (
             <button
               type="button"
               className={`faq-view-all-btn${showAllItems ? " is-expanded" : ""}`}
               onClick={handleViewAllToggle}
             >
-              <span>{showAllItems ? "Daha Az Goster" : "Tum Sorulari Gor"}</span>
+              <span>{showAllItems ? "Daha Az Göster" : "Tüm Soruları Gör"}</span>
               <span className="faq-view-all-btn-icon" aria-hidden="true">
                 <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
                   <path
@@ -129,6 +134,7 @@ const faqSection = () => {
                 </svg>
               </span>
             </button>
+            ) : null}
           </div>
 
           <div className="faq-grid" role="list">

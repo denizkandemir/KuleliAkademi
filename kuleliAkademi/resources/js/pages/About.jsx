@@ -25,8 +25,8 @@ export default function About() {
 
       <div style={{ padding: '40px', fontFamily: 'Arial' }}>
         <h1>Hakkımızda</h1>
-        <p>Kuleli Akademi, Polonya üniversite danışmanlığı ve yurtdışı eğitim hizmetleri sunan uzman danışmanlık platformudur.</p>
-        <p>Öğrencilerin Polonya üniversitelerine başarılı bir şekilde başvurmasından, vize almana kadar tüm adımlar boyunca profesyonel rehberlik ve destek sağlıyoruz.</p>
+        <p>Kuleli Akademi, Aliağa&apos;da yüz yüze dersler veren ve Kuleli International adıyla yurt dışı eğitim danışmanlığı sunan bir eğitim kurumudur.</p>
+        <p>Polonya&apos;da üniversite, İspanya&apos;da dil okulu ve üniversiteye hazırlık programlarında; program seçiminden başvuruya, vize dosyasından yerleşime kadar öğrencilerimize rehberlik ediyoruz.</p>
       </div>
     </>
   );

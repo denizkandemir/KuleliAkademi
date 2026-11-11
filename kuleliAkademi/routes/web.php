@@ -16,6 +16,7 @@ use App\Http\Controllers\Auth\AuthenticatedSessionController;
 use App\Http\Controllers\Auth\RegisteredUserController;
 use App\Http\Controllers\ContactMessageController;
 use App\Http\Controllers\FormSubmissionController;
+use App\Http\Controllers\LanguageSchoolController;
 use App\Http\Controllers\RobotsController;
 use App\Http\Controllers\ServiceController;
 use App\Http\Controllers\SitemapController;
@@ -31,25 +32,9 @@ use Inertia\Inertia;
 
 Route::middleware([ForceCanonicalDomain::class])->group(function () {
     Route::get('/', function () {
-        $services = Service::query()
-            ->with('homepageImage')
-            ->where('is_active', true)
-            ->orderBy('sort_order')
-            ->orderBy('id')
-            ->get()
-            ->map(fn (Service $service): array => [
-                'slug' => $service->slug,
-                'title' => $service->title,
-                'description' => $service->short_description,
-                'image' => $service->resolvedCoverImageUrl(),
-                'buttonText' => $service->homepage_button_text ?: 'Detayları Gör',
-                'objectPosition' => optional($service->homepageImage)->object_position,
-                'href' => "/hizmetler/{$service->slug}",
-            ]);
-
         return Inertia::render('Home', [
             'message' => 'İlk sayfa başarıyla açıldı.',
-            'dbServices' => $services,
+            'dbServices' => Service::homepageCards(),
         ]);
     });
 
@@ -60,6 +45,11 @@ Route::middleware([ForceCanonicalDomain::class])->group(function () {
     Route::redirect('/links', '/linkler', 301);
     Route::redirect('/universities', '/üniversiteler', 301);
     Route::redirect('/hizmetler', '/egitimlerimiz', 301);
+
+    // Short / earlier URLs for the study-abroad pages.
+    Route::redirect('/polonya', '/polonyada-universite', 301);
+    Route::redirect('/ispanya', '/ispanyada-egitim', 301);
+    Route::redirect('/dilOkullari', '/dil-okullari', 301);
 
     Route::middleware('guest')->group(function (): void {
         Route::get('/login', [AuthenticatedSessionController::class, 'create'])->name('login');
@@ -88,6 +78,18 @@ Route::middleware([ForceCanonicalDomain::class])->group(function () {
             'dbEducationOptions' => EducationOption::query()->where('is_active', true)->orderBy('sort_order')->get(),
         ]);
     });
+
+    // Polonya'da üniversite: the former /yurtdışıeğitim content now lives here.
+    Route::get('/polonyada-universite', function () {
+        return Inertia::render('PolandPage', [
+            'dbServices' => Service::homepageCards(),
+        ]);
+    })->name('study-abroad.poland');
+
+    // İspanya: language schools + university foundation year (static content).
+    Route::get('/ispanyada-egitim', function () {
+        return Inertia::render('SpainPage');
+    })->name('study-abroad.spain');
 
     Route::get('/üniversiteler', function (Request $request) {
         $countryOptions = University::countryOptions();
@@ -121,6 +123,8 @@ Route::middleware([ForceCanonicalDomain::class])->group(function () {
             'defaultCountry' => University::DEFAULT_COUNTRY_SLUG,
         ]);
     })->name('üniversiteler');
+
+    Route::get('/dil-okullari', [LanguageSchoolController::class, 'index'])->name('language-schools.index');
 
     Route::get('/iletişim', function () {
         return Inertia::render('Iletisim');

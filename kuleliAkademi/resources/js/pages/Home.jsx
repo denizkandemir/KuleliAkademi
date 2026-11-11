@@ -6,8 +6,8 @@ import Header from '../components/Header/Header';
 import Selection from '../components/Selection/Selection';
 import VideoSectionHomepage from '../components/videoSectionHomepage/videoSectionHomepage';
 import UniversityCards from '../components/universityCards/UniversityCards';
-import DocumentSection from '../components/documentSection/documentSection';
-import WhyPoland from '../components/WhyPoland/WhyPoland';
+import DestinationPicker from '../components/DestinationPicker/DestinationPicker';
+import HowWeWork from '../components/HowWeWork/HowWeWork';
 import ServicesHomepage from '../components/ServicesHomepage/ServicesHomepage';
 import HomepageContact from '../components/homepageContact/HomepageContact';
 
@@ -41,9 +41,10 @@ export default function Home({ message, dbServices = [] }) {
 
       <Header />
       <Selection />
+      <DestinationPicker />
+      <HowWeWork />
       <VideoSectionHomepage />
       <UniversityCards />
-      <WhyPoland />
       <ServicesHomepage services={dbServices} />
       <HomepageContact />
     </>

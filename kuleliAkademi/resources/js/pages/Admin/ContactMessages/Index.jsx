@@ -1,6 +1,7 @@
 import React from 'react';
 import { Head, router } from '@inertiajs/react';
 import AdminLayout from '../../../Layouts/AdminLayout';
+import { getStudyProgramLabel } from '../../../data/destinationsData';
 
 function ContactMessagesIndex({ messages }) {
   const markAsRead = (message, isRead) => {
@@ -42,6 +43,7 @@ function ContactMessagesIndex({ messages }) {
 
                 <div className="admin-message-meta">
                   <span>{message.phone || 'Telefon yok'}</span>
+                  {message.program ? <span>{getStudyProgramLabel(message.program) || message.program}</span> : null}
                   <span>{message.is_read ? 'Okundu' : 'Yeni'}</span>
                 </div>
 

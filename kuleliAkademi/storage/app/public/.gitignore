@@ -3,4 +3,6 @@
 !images/**
 !videos/
 !videos/**
+!service-icons/
+!service-icons/**
 !.gitignore

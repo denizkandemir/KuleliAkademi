@@ -134,15 +134,15 @@ const ServicesHomepage = ({ services = [] }) => {
       <div className="services-homepage-shell">
         <header className="services-homepage-header">
           <div className="services-homepage-heading-block">
-            <p className="services-homepage-eyebrow">Hizmetlerimiz</p>
+            <p className="services-homepage-eyebrow">Polonya Hizmetleri</p>
             <h2 id="services-homepage-title" className="services-homepage-title">
-              Başvurudan Yerleşime Kadar Tüm Süreçte Yanındayız
+              Polonya'da Başvurudan Yerleşime Kadar Yanındayız
             </h2>
           </div>
 
           <p className="services-homepage-description">
-            Üniversite başvurusu, vize ve yerleşim adımlarını tek bir stratejik planla yöneterek
-            süreci daha güvenli, daha takip edilebilir ve öğrenci odaklı hale getiriyoruz.
+            Polonya'da üniversite başvurusu, öğrenci vizesi, oturum izni ve yerleşim adımlarını tek bir plan
+            içinde, Varşova'daki danışmanımızla birlikte takip ediyoruz.
           </p>
         </header>
 

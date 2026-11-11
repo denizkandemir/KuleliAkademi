@@ -9,7 +9,7 @@ import { getUniversitiesForCards } from '../data/universitiesData';
 export const siteConfig = {
     siteName: 'Kuleli Akademi',
     siteUrl: 'https://akademikuleli.com',
-    siteDescription: 'Polonya üniversite başvurusu, öğrenci vizesi ve yurtdışı eğitim danışmanlığı hizmeti sunan uzman danışmanlık platformu.',
+    siteDescription: 'Polonya\'da üniversite, İspanya\'da dil okulu ve üniversiteye hazırlık için yurt dışı eğitim danışmanlığı; Aliağa\'da yüz yüze dersler.',
     siteLocale: 'tr_TR',
     logo: 'https://akademikuleli.com/logo.webp',
     ogImage: 'https://akademikuleli.com/og-image.webp',
@@ -21,7 +21,7 @@ export const siteConfig = {
         poland: {
             number: '+48 571 578 693',
             url: contactConfig.whatsapp.poland.url,
-            context: 'Polonya Danışmanlık Hattı',
+            context: contactConfig.whatsapp.poland.context,
         },
         aliaga: {
             number: '+90 547 616 35 05',
@@ -32,6 +32,7 @@ export const siteConfig = {
 
     social: {
         instagram: contactConfig.social.instagram.url,
+        instagramInternational: contactConfig.social.instagramInternational.url,
         facebook: contactConfig.social.facebook.url,
     },
 
@@ -241,19 +242,21 @@ export const generateOrganizationSchema = () => {
         '@context': 'https://schema.org',
         '@type': 'EducationalOrganization',
         name: siteConfig.organizationName,
-        alternateName: 'Akademi Kuleli',
+        alternateName: ['Akademi Kuleli', 'Kuleli International'],
         description: siteConfig.siteDescription,
         url: siteConfig.siteUrl,
         logo: siteConfig.logo,
+        // Türkiye (Aliağa dersleri) + yurt dışı programların ülkeleri
+        areaServed: ['TR', 'PL', 'ES', 'MT'],
         image: siteConfig.ogImage,
         email: siteConfig.organizationEmail,
-        sameAs: [siteConfig.social.instagram, siteConfig.social.facebook],
+        sameAs: [siteConfig.social.instagram, siteConfig.social.instagramInternational, siteConfig.social.facebook],
         contactPoint: [{
                 '@type': 'ContactPoint',
                 contactType: siteConfig.whatsapp.poland.context,
                 telephone: siteConfig.whatsapp.poland.number,
                 email: siteConfig.organizationEmail,
-                availableLanguage: ['Turkish', 'Polish', 'English'],
+                availableLanguage: ['Turkish', 'English'],
             },
             {
                 '@type': 'ContactPoint',
@@ -423,7 +426,7 @@ export const getUniversityPageMetadata = (university) => {
     if (!university) {
         return {
             title: 'Üniversite Bulunamadı | Kuleli Akademi',
-            description: 'Aradığınız üniversite sayfası bulunamadı. Polonya üniversiteleri için diğer sayfaları inceleyin.',
+            description: 'Aradığınız üniversite sayfası bulunamadı. Polonya üniversiteleri listesinden diğer okulları inceleyin.',
             canonicalUrl: generateCanonical('/üniversiteler'),
             image: siteConfig.ogImage,
             schema: null,
@@ -501,43 +504,58 @@ export const generateWebsiteSchema = () => {
 export const getPageMetadata = (pathname) => {
     const pathMap = {
         '/': {
-            title: 'Polonya Üniversite Danışmanlığı | Kuleli Akademi',
-            description: 'Polonya üniversite başvurusu, öğrenci vizesi ve yurtdışı eğitim danışmanlığı için Kuleli Akademi ile iletişime geçin, sürecinizi birlikte planlayalım.',
+            title: 'Yurt Dışı Eğitim Danışmanlığı | Kuleli Akademi',
+            description: 'Polonya\'da üniversite, İspanya\'da dil okulu ve üniversiteye hazırlık için başvurudan yerleşime birebir danışmanlık. Aliağa\'da yüz yüze dersler.',
             type: 'website',
         },
         '/hakkımızda': {
             title: 'Hakkımızda | Kuleli Akademi',
-            description: 'Kuleli Akademi’nin Polonya üniversite danışmanlığı yaklaşımını, öğrenci odaklı çalışma biçimini ve süreç yönetimi desteğini yakından inceleyin.',
+            description: 'Aliağa\'da yüz yüze dersler ve Varşova\'daki danışmanımızla yurt dışı eğitim: Kuleli\'nin öğrenci odaklı çalışma biçimini yakından tanıyın.',
             type: 'website',
         },
         '/iletişim': {
             title: 'İletişim | Kuleli Akademi',
-            description: 'Polonya üniversite başvurusu ve yurtdışı eğitim için sorularınızı Kuleli Akademi’ye iletin, uzman ekibimiz size en kısa sürede dönüş yapsın.',
+            description: 'Yurt dışı eğitim (Polonya, İspanya, Malta) ve Aliağa dersleri için WhatsApp hatlarımız ve iletişim formu. Size en kısa sürede dönüş yapalım.',
             type: 'website',
         },
         '/egitimlerimiz': {
-            title: 'Polonya Eğitim Danışmanlığı Hizmetleri | Kuleli Akademi',
-            description: 'Polonya üniversite başvurusu, öğrenci vizesi, konaklama ve yerleşim hizmetlerimizi inceleyin; size uygun danışmanlığı hemen planlayın.',
+            title: 'Aliağa LGS ve Ortaokul Dersleri | Kuleli Akademi',
+            description: 'Aliağa\'da LGS hazırlık, ortaokul ve akademik destek için yüz yüze dersler; her öğrenciye birebir takip ve kişiye özel çalışma planı.',
             type: 'website',
         },
         '/üniversiteler': {
-            title: 'Polonya Üniversiteleri | Kuleli Akademi',
+            title: 'Polonya Üniversiteleri Listesi | Kuleli Akademi',
             description: 'Polonya’daki üniversiteleri şehir, bölüm ve eğitim dili açısından karşılaştırın; size uygun okulu Kuleli Akademi ile bulun.',
             type: 'website',
         },
         '/yurtdışıeğitim': {
-            title: 'Yurtdışı Eğitim Danışmanlığı | Kuleli Akademi',
-            description: 'Polonya ve Avrupa’da eğitim hedefleyen öğrenciler için başvuru, vize ve yerleşim süreçlerinde kapsamlı danışmanlık alın.',
+            title: 'Yurt Dışında Eğitim: Ülke ve Program Seçimi | Kuleli Akademi',
+            description: 'Polonya, İspanya ve yakında Malta: üniversite, dil okulu ve hazırlık programlarını karşılaştırın, size uygun yolu danışmanımızla planlayın.',
+            type: 'website',
+        },
+        '/polonyada-universite': {
+            title: 'Polonya\'da Üniversite Eğitimi ve Başvuru | Kuleli Akademi',
+            description: 'Polonya\'da İngilizce lisans, yüksek lisans ve hazırlık. YKS şartı olmadan başvuru seçenekleri, okul seçimi, vize ve oturum izni desteği.',
+            type: 'website',
+        },
+        '/ispanyada-egitim': {
+            title: 'İspanya Dil Okulları ve Üniversite Hazırlık | Kuleli Akademi',
+            description: 'Enforex, Hispania ve Linguaschools ile 12 şehirde İspanyolca kursu, konaklama ve PCE/EBAU üniversite hazırlığı. Vize sürecinde destek.',
+            type: 'website',
+        },
+        '/dil-okullari': {
+            title: 'Yurt Dışında Dil Okulları: İspanya ve Malta | Kuleli Akademi',
+            description: 'İspanya\'daki partner dil okullarımızı şehir, kurs ve konaklama seçenekleriyle inceleyin; Malta\'daki İngilizce programlar yakında.',
             type: 'website',
         },
         '/linkler': {
             title: 'Hızlı Bağlantılar | Kuleli Akademi',
-            description: 'Kuleli Akademi’nin danışmanlık formu, sosyal medya ve üniversite bağlantılarına tek sayfadan hızlıca ulaşın.',
+            description: 'Kuleli\'nin yurt dışı eğitim sayfalarına, danışmanlık formuna, WhatsApp hatlarına ve sosyal medya hesaplarına tek sayfadan ulaşın.',
             type: 'website',
         },
         '/basvuru': {
-            title: 'Hizmet Başvurusu | Kuleli Akademi',
-            description: 'Polonya üniversite başvurusu, vize ve yerleşim hizmetleri için başvuru formunu doldurun; Kuleli Akademi danışmanları size en kısa sürede dönüş yapsın.',
+            title: 'Danışmanlık Başvurusu | Kuleli Akademi',
+            description: 'Polonya\'da üniversite, İspanya\'da dil okulu ya da üniversiteye hazırlık ve Malta için programınızı seçin, danışmanımız size dönsün.',
             type: 'website',
         },
     };
@@ -555,7 +573,10 @@ export const getAllRoutes = () => {
         { path: '/hakkımızda', priority: 0.8, changefreq: 'monthly' },
         { path: '/egitimlerimiz', priority: 0.9, changefreq: 'weekly' },
         { path: '/üniversiteler', priority: 0.85, changefreq: 'weekly' },
-        { path: '/yurtdışıeğitim', priority: 0.8, changefreq: 'monthly' },
+        { path: '/yurtdışıeğitim', priority: 0.9, changefreq: 'monthly' },
+        { path: '/polonyada-universite', priority: 0.9, changefreq: 'monthly' },
+        { path: '/ispanyada-egitim', priority: 0.9, changefreq: 'monthly' },
+        { path: '/dil-okullari', priority: 0.8, changefreq: 'weekly' },
         { path: '/iletişim', priority: 0.7, changefreq: 'monthly' },
         { path: '/linkler', priority: 0.6, changefreq: 'monthly' },
     ];

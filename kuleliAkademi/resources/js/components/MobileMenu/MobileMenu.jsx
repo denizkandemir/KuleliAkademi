@@ -1,20 +1,22 @@
 import React, { useEffect, useState } from "react";
 import { Link, usePage } from "@inertiajs/react";
 import "./MobileMenu.scss";
-import { contactConfig } from "../../config/contactConfig";
+import { contactConfig, getPrimaryWhatsappLineForPath } from "../../config/contactConfig";
+import { studyAbroadMenu } from "../../data/destinationsData";
 
 const MobileMenu = ({ isOpen, onClose }) => {
     const { url, props } = usePage();
     const navServices = props.navServices || [];
     const navItems = [
         { label: "Hakkımızda", href: "/hakkımızda" },
-        { label: "Eğitimlerimiz", href: "/egitimlerimiz" },
-        { label: "Yurt Dışında Eğitim", href: "/yurtdışıeğitim" },
-        { label: "Üniversiteler", href: "/üniversiteler" },
+        { label: "Aliağa Dersleri", href: "/egitimlerimiz" },
+        { label: "Başvuru", href: "/basvuru" },
         { label: "İletişim", href: "/iletişim" },
     ];
+    const whatsappLine = getPrimaryWhatsappLineForPath(url);
 
     const [servicesOpen, setServicesOpen] = useState(false);
+    const [abroadOpen, setAbroadOpen] = useState(false);
 
     // Prevent body scroll when mobile menu is open
     useEffect(() => {
@@ -90,6 +92,34 @@ const MobileMenu = ({ isOpen, onClose }) => {
                 {/* Navigation Links */}
                 <nav className="mobile-menu-content">
                     <ul className="mobile-menu-links">
+                        {/* Yurt Dışında Eğitim collapsible */}
+                        <li className={`mobile-menu-item mobile-services ${abroadOpen ? "is-open" : ""}`}>
+                            <button
+                                type="button"
+                                className="mobile-menu-link mobile-services-toggle"
+                                onClick={() => setAbroadOpen((s) => !s)}
+                                aria-expanded={abroadOpen}
+                            >
+                                Yurt Dışında Eğitim
+                            </button>
+
+                            <ul className="mobile-services-list" aria-hidden={!abroadOpen}>
+                                {studyAbroadMenu.map((item) => (
+                                    <li key={item.label} className="mobile-services-item">
+                                        {item.href ? (
+                                            <Link href={item.href} className="mobile-menu-link" onClick={handleLinkClick}>
+                                                {item.label}
+                                            </Link>
+                                        ) : (
+                                            <span className="mobile-menu-link is-disabled" aria-disabled="true">
+                                                {item.label} · {item.tag}
+                                            </span>
+                                        )}
+                                    </li>
+                                ))}
+                            </ul>
+                        </li>
+
                         {navItems.map((item) => (
                             <li key={item.href} className="mobile-menu-item">
                                 <Link
@@ -110,7 +140,7 @@ const MobileMenu = ({ isOpen, onClose }) => {
                                 onClick={() => setServicesOpen((s) => !s)}
                                 aria-expanded={servicesOpen}
                             >
-                                Hizmetlerimiz
+                                Polonya Hizmetleri
                             </button>
 
                             <ul className="mobile-services-list" aria-hidden={!servicesOpen}>
@@ -132,8 +162,8 @@ const MobileMenu = ({ isOpen, onClose }) => {
 
                 {/* Footer CTA */}
                 <div className="mobile-menu-footer">
-                    <a href={contactConfig.whatsapp.aliaga.url} className="mobile-menu-cta" {...contactConfig.linkAttrs.external} onClick={handleLinkClick}>
-                        Bizimle İletişime Geçin
+                    <a href={whatsappLine.href} className="mobile-menu-cta" {...contactConfig.linkAttrs.external} onClick={handleLinkClick}>
+                        WhatsApp: {whatsappLine.title}
                     </a>
                 </div>
             </aside>

@@ -1,6 +1,7 @@
 import React, { useState, useEffect, useRef } from "react";
 import "./StickyWhatsappWidget.scss";
-import { contactConfig } from "../../config/contactConfig";
+import { usePage } from "@inertiajs/react";
+import { getWhatsappLinesForPath } from "../../config/contactConfig";
 
 // WhatsApp Icon Component
 const WhatsAppIcon = () => (
@@ -9,27 +10,20 @@ const WhatsAppIcon = () => (
     </svg>
 );
 
-// Contacts Data
-const whatsappContacts = [
-    {
-        id: 1,
-        title: contactConfig.whatsapp.poland.context,
-        phone: contactConfig.whatsapp.poland.number,
-        phoneRaw: contactConfig.whatsapp.poland.number.replace(/\D/g, ""),
-        message: contactConfig.whatsapp.poland.message
-    },
-    {
-        id: 2,
-        title: contactConfig.whatsapp.aliaga.context,
-        phone: contactConfig.whatsapp.aliaga.number,
-        phoneRaw: contactConfig.whatsapp.aliaga.number.replace(/\D/g, ""),
-        message: contactConfig.whatsapp.aliaga.message
-    }
-];
-
 const StickyWhatsappWidget = () => {
     const [isOpen, setIsOpen] = useState(false);
     const widgetRef = useRef(null);
+    const { url } = usePage();
+
+    // Yurt dışı sayfalarında yurt dışı hattı, Aliağa ders sayfalarında Aliağa hattı,
+    // genel sayfalarda (ana sayfa, iletişim...) iki hat birlikte gösterilir.
+    const whatsappContacts = getWhatsappLinesForPath(url).map((line) => ({
+        id: line.key,
+        title: line.title,
+        phone: line.number,
+        phoneRaw: line.number.replace(/\D/g, ""),
+        message: line.message,
+    }));
 
     // Toggle widget open/close
     const toggleWidget = () => {
